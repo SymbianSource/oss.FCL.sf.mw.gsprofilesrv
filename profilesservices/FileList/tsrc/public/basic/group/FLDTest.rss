@@ -1,0 +1,85 @@
+/*
+* Copyright (c) 2000 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*     This file contains all the resources for the FLDTest.
+*     ?description_line
+*
+*/
+
+
+//  RESOURCE IDENTIFIER
+NAME    FLDT // 4 letter ID
+
+// INTERNAL INCLUDES
+#include "FileListModel.rh"	// For FILELISTDIRECTORIES
+
+// EXTERNAL INCLUDES
+#include <eikon.rh>
+#include <CLFContentListing.rh>
+#include <CLFContentListing.hrh>
+
+//  CONSTANTS
+
+//  MACROS
+
+//  RESOURCE DEFINITIONS
+
+RESOURCE RSS_SIGNATURE { }
+
+
+RESOURCE FILELISTDIRECTORIES r_fld_test_rom_model
+    {
+    RomDirectories =
+        {
+        LBUF { txt = text_rom_root_path text_sounds_path; },
+        LBUF { txt = text_rom_root_path text_digital_sounds_path; },
+        LBUF { txt = text_rom_root_path text_simple_sounds_path; }
+        };
+  	PhoneDirectories =
+        {
+        };  
+    }
+    
+RESOURCE CLF_LIST_MODEL r_fld_test_model1
+	{
+	mime_type_array = CLF_MIME_TYPE_ARRAY
+	 {
+         mime_types =
+             {
+             };
+         };
+
+     media_type_array = CLF_MEDIA_TYPE_ARRAY
+         {
+         media_types =
+             {
+             CLF_MEDIA_TYPE { media_type = ECLFMediaTypeMusic; },
+             CLF_MEDIA_TYPE { media_type = ECLFMediaTypeSound; },
+             CLF_MEDIA_TYPE { media_type = ECLFMediaTypeVideo; }
+             };
+         };
+         
+     sorting_style = CLF_SORTING_STYLE
+         {
+         ordering = ECLFOrderingAscending;
+         data_type = ECLFItemDataTypeDesC;
+         fields =
+             {
+             CLF_FIELD_ID { field_id = ECLFFieldIdFileName; }
+             };
+         };
+     }
+
+
+// End of File

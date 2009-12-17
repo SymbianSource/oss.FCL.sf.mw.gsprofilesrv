@@ -1,0 +1,79 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Resource file for plugin.
+*
+*/
+
+
+#include            <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gsadminplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x10283340
+VENDORID            VID_DEFAULT
+
+SOURCEPATH          src
+SOURCE              GSAdminPluginImplementationTable.cpp
+SOURCE              GSAdminPlugin.cpp
+
+USERINCLUDE         inc
+USERINCLUDE         data
+USERINCLUDE         loc
+USERINCLUDE         ../Logger
+USERINCLUDE         ../Data
+
+SYSTEMINCLUDE       /epoc32/include/ecom
+// Default system include paths for middleware layer modules.
+MW_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH          data
+
+START RESOURCE      10283340.rss
+TARGET              gsadminplugin.rsc
+END
+
+// View resources
+START RESOURCE      GSAdminPluginRsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH          RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END // View resources
+
+
+LIBRARY             euser.lib
+LIBRARY             ecom.lib
+LIBRARY             efsrv.lib
+LIBRARY             avkon.lib
+LIBRARY             bafl.lib 
+LIBRARY             cone.lib 
+LIBRARY             eikcoctl.lib 
+LIBRARY             eikcore.lib 
+LIBRARY             commonengine.lib// For RConeResourceLoader
+LIBRARY             gsecomplugin.lib
+LIBRARY             gsframework.lib
+LIBRARY             aknskins.lib // AknsUtils.h
+LIBRARY             flogger.lib // For GSLogger
+
+//Documents. Defining these is optional. Used only by IDE's file browser.
+SOURCEPATH          data
+DOCUMENT            10283340.rss
+DOCUMENT            GSAdminPluginRsc.rss
+
+SOURCEPATH          inc
+
+// End of File

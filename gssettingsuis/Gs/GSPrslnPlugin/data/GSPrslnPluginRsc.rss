@@ -1,0 +1,157 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Resource file for plugin.
+*
+*/
+
+
+//  RESOURCE IDENTIFIER
+NAME    PRSN // 4 letter ID
+
+//  INCLUDES
+#include    <GSPrslnPlugin.loc>
+
+#include    <data_caging_paths_strings.hrh>
+#include    <bldvariant.hrh>
+#include    <avkon.loc> // Avkon localized strings
+#include    <avkon.mbg>
+#include    <avkon.rsg>
+#include    <eikcore.rsg>
+#include    <GSApp.rsg>
+#include    <uikon.rh>
+
+// CONSTANTS
+
+//  RESOURCE DEFINITIONS
+
+//----------------------------------------------------
+//
+//
+//    Needed or loading the resource fails!
+//
+//----------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// Common resources among GS
+#include    "GSCommonResources.rss"
+
+//----------------------------------------------------
+//
+//    r_gs_prsln_view
+//    Personalisation Settings view.
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_prsln_view
+    {
+    menubar = r_gs_menubar_open_exit;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_OPEN;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_prsln_view_title
+//    Personalisation Settings view title.
+//
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_prsln_view_title
+    {
+    #ifdef RD_CONTROL_PANEL
+        txt = qtn_cp_title_personal;
+    #else //RD_CONTROL_PANEL
+        txt = qtn_set_title_settings_gen_personalisation;
+    #endif //RD_CONTROL_PANEL
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_prsln_view_caption
+//    Personalisation View caption for plugin
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_prsln_view_caption
+    {
+    #ifdef RD_CONTROL_PANEL
+        buf = qtn_cp_folder_personal;
+    #else //RD_CONTROL_PANEL
+        buf = qtn_set_folder_personalisation;
+    #endif //RD_CONTROL_PANEL
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_psln_softkeys_options_back_open
+//    Text association with MSK ( OPEN )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_psln_softkeys_options_back_open
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyBack; 
+            txt = text_softkey_back; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSCmdAppOpen; 
+            txt = qtn_msk_open;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_psln_softkeys_options_exit_open
+//    Text association with MSK ( OPEN )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_psln_softkeys_options_exit_open
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyExit; 
+            txt = text_softkey_exit; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSCmdAppOpen; 
+            txt = qtn_msk_open;
+            }
+        };
+    }
+    
+// End of file

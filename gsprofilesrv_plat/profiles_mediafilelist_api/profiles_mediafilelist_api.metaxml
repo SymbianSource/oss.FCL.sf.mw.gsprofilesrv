@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<api id="ba251abc91f15265624a4f3f6b9e7838" dataversion="2.0">
+<name>MediaFileList API</name>
+<description>An UI for the media file selection lists.</description>
+<type>c++</type>
+<collection>profilesservices</collection>
+<libs><lib name="MediaFileList.lib"/>
+</libs>
+<release category="platform" sinceversion=""/>
+<attributes>
+<htmldocprovided>no</htmldocprovided>
+<adaptation>no</adaptation>
+</attributes>
+</api>

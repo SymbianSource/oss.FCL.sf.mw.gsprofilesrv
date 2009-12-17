@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Project specification file for GSindicatorplugin.
+*
+*/
+
+
+CAPABILITY CAP_ECOM_PLUGIN
+
+#include <data_caging_paths.hrh>
+#include <platform_paths.hrh>
+
+// Build target
+TARGET          gsindicatorplugin.dll
+TARGETTYPE      PLUGIN
+UID             0x10009D8D 0x200100DD
+VENDORID        VID_DEFAULT
+
+
+// Source files location
+SOURCEPATH      ../src
+SOURCE          GSindicatorpluginimplementation.cpp
+SOURCE          dllmain.cpp
+
+
+// Resources
+START RESOURCE  ../data/200100DD.rss
+TARGET					gsindicatorplugin.rsc
+TARGETPATH      ECOM_RESOURCE_DIR
+END
+
+// Include paths
+USERINCLUDE     ../inc
+USERINCLUDE     ../group
+
+MW_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/ecom
+                
+// Dependencies to system components
+LIBRARY     eikcore.lib
+LIBRARY     cone.lib
+LIBRARY     euser.lib
+LIBRARY     ecom.lib
+LIBRARY     avkon.lib
+LIBRARY     commonengine.lib        // stringloader
+LIBRARY     bafl.lib                // baflutils
+LIBRARY     gslauncher.lib
+
+// End of File
+

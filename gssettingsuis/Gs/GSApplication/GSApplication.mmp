@@ -1,0 +1,94 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*        This is project specification file for General Settings. 
+*
+*/
+
+#include "../Logger/GsLoggingConfiguration.h"
+#include <data_caging_paths.hrh>
+
+#include <platform_paths.hrh>
+
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+CAPABILITY      ALL -TCB
+VENDORID        VID_DEFAULT
+TARGET          gsapp.exe
+EPOCSTACKSIZE   0x10000
+EPOCHEAPSIZE    0x1000  0x1000000
+TARGETTYPE      exe
+UID             0x100039CE  0x100058EC
+
+SYSTEMINCLUDE       /epoc32/include/connect
+
+// Source files
+SOURCEPATH      Src
+SOURCE          GSApp.cpp
+SOURCE          GSUi.cpp
+SOURCE          GSMainView.cpp
+SOURCE          GSMainContainer.cpp
+SOURCE          GSDocument.cpp
+
+SOURCEPATH      Data
+
+START RESOURCE  GSApp.rss
+HEADER
+TARGETPATH      APP_RESOURCE_DIR
+LANGUAGE_IDS
+END  // GSApp.rss
+
+START RESOURCE  GSApp_reg.rss
+DEPENDS gsapp.rsg
+TARGETPATH      /private/10003a3f/apps
+LANGUAGE_IDS
+END
+
+// User include paths
+USERINCLUDE     Inc
+USERINCLUDE     loc
+USERINCLUDE     ../Logger
+USERINCLUDE     ../GSFramework/inc
+
+// Libraries required by framework
+LIBRARY apparc.lib 
+LIBRARY avkon.lib 
+LIBRARY bafl.lib 
+LIBRARY cone.lib 
+LIBRARY eikcoctl.lib 
+LIBRARY eikcore.lib 
+LIBRARY eikctl.lib                  // CEikColumnListBox
+LIBRARY euser.lib 
+LIBRARY ecom.lib
+LIBRARY commonengine.lib            // Shareddata
+LIBRARY egul.lib                    // CGulIcon
+LIBRARY ws32.lib
+LIBRARY apgrfx.lib                  // For RApaLsSession
+LIBRARY efsrv.lib
+LIBRARY aknskinsrv.lib              // For enhanced skinning
+LIBRARY aknskins.lib                // For enhanced skinning
+LIBRARY featmgr.lib                 // Feature manager 
+LIBRARY hlplch.lib                  // For "Help" options menu
+LIBRARY flogger.lib                 // Logging
+LIBRARY gslistbox.lib
+LIBRARY charconv.lib                // For CnvUtfConverter used in CGSPluginLoader
+LIBRARY gsframework.lib
+LIBRARY fbscli.lib                  // For CFbsBitmap
+LIBRARY gsecomplugin.lib
+LIBRARY estor.lib 
+LIBRARY gfxtrans.lib
+LIBRARY CdlEngine.lib
+//End of File
+

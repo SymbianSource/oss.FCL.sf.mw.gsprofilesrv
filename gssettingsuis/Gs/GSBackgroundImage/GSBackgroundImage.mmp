@@ -1,0 +1,73 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  This is project specification for GS Background Image DLL
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+// Capability assignment.
+CAPABILITY CAP_GENERAL_DLL DRM
+
+TARGET          backgroundimage.dll
+TARGETTYPE      DLL
+UID             0x1000008d 0x101FD68C
+
+// This defines that the CGSModel uses IETD to enhance
+// background and welcome note image while loading/processing.
+MACRO        __USE_IETD__
+
+SOURCEPATH      Src
+SOURCE          BackgroundImage.cpp
+SOURCE          GsAsyncImageHandling.cpp
+
+USERINCLUDE     .
+USERINCLUDE     ..
+USERINCLUDE     Inc
+USERINCLUDE     ../Logger
+USERINCLUDE     ../Cenrep
+
+//System include paths
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+// Libraries required by framework
+LIBRARY bafl.lib
+LIBRARY euser.lib
+LIBRARY cone.lib
+LIBRARY apparc.lib
+
+// Libraries for model
+LIBRARY commonengine.lib        // shareddata
+LIBRARY efsrv.lib
+LIBRARY estor.lib
+LIBRARY mediaclientimage.lib    // media server
+LIBRARY sysutil.lib             // memory CL check
+LIBRARY fbscli.lib
+LIBRARY apgrfx.lib              // for Personalization app
+LIBRARY drmcommon.lib
+LIBRARY bitgdi.lib
+LIBRARY cdlengine.lib           //Scalable UI
+LIBRARY imageconversion.lib     //for image handling
+LIBRARY avkon.lib
+LIBRARY eikcore.lib
+LIBRARY centralrepository.lib
+LIBRARY phoneclient.lib
+LIBRARY aknlayout2.lib
+LIBRARY flogger.lib              //tracing
+LIBRARY drmparsers.lib
+LIBRARY bitmaptransforms.lib     //bitmap scaling
+

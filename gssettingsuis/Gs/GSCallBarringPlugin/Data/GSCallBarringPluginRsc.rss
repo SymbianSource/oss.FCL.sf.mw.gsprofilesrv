@@ -1,0 +1,610 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Resource file for GSCallBarringPlugin
+*
+*/
+
+//  RESOURCE IDENTIFIER
+NAME    CBAR // 4 letter ID
+
+//  INCLUDES
+#include     <bldvariant.hrh>
+
+#include    "CallBarringPlugin.hrh"
+
+#include    <callbarringplugin.loc>
+#include    <gs.loc>
+#include    <gscommon.hrh>
+#include    <gscommon.rh>
+#include    <GSApp.rsg>
+#include    <appinfo.rh>
+#include    <avkon.loc>
+#include    <avkon.mbg>
+#include    <avkon.rsg>
+#include    <AvkonIcons.hrh>
+#include    <data_caging_paths_strings.hrh>
+#include    <eikcore.rsg>
+#include    <eikon.rsg>
+#include    <gscallbarringplugin.mbg>
+#include    <uikon.rh>
+
+// CONSTANTS
+
+
+//  RESOURCE DEFINITIONS
+
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// Common resources among GS
+#include    "GSCommonResources.rss"
+
+RESOURCE TBUF
+    {
+    buf="CBAR";
+    }
+
+//----------------------------------------------------
+//
+//    EIK_APP_INFO
+//    It contains application information.
+//
+//----------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+    {
+    }
+
+
+//----------------------------------------------------
+//  r_gs_call_barring_caption
+//
+// call barring caption for plugin
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_call_barring_caption
+    {
+    buf = qtn_set_folder_barring;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_barring_view
+//    Barring sub-menu view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_barring_view
+    {
+    menubar=r_gs_menubar_barring_view;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_CONTEXTOPTIONS;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_menubar_barring_view
+//    Barring menubar
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_BAR r_gs_menubar_barring_view
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_exit;
+            },
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_help;
+            },
+        MENU_TITLE
+            {
+            menu_pane = r_gs_barring_view_menu;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//
+//    r_call_barring_msk_contextmenubar
+//    Barring menubar
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_BAR r_call_barring_msk_contextmenubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_gs_barring_view_menu;
+            }
+        };
+    }
+//----------------------------------------------------
+//
+//    r_gs_barring_view_menu
+//    Barring menu items
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_gs_barring_view_menu
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EGSCmdBarringActivate;
+            txt = text_activate_barring;
+            },
+        MENU_ITEM
+            {
+            command = EGSCmdBarringCancel;
+            txt = text_cancel_barring;
+            },
+        MENU_ITEM
+            {
+            command = EGSCmdBarringInquiry;
+            txt = text_status_barring;
+#ifndef __RESTRICTED_CALL_BARRING
+            },
+        MENU_ITEM
+            {
+            command = EGSCmdBarringCancelAll;
+            txt = text_cancel_all_barrings;
+            },
+        MENU_ITEM
+            {
+            command = EGSCmdBarringChangePwd;
+            txt = qtn_barr_list_password;
+#endif // __RESTRICTED_CALL_BARRING
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_barring_view_title
+//    Barring sub-menu title
+//
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_barring_view_title
+    {
+    txt = qtn_set_title_restrictions;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_barring_view_title_voip
+//    Barring sub-menu title
+//
+//----------------------------------------------------
+RESOURCE TITLE_PANE r_gs_barring_view_title_voip
+    {
+    txt = qtn_title_cell_call_barring;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_barring_lbx_resource
+//    Barring list box
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE LISTBOX r_barring_lbx_resource
+    {
+    array_id = r_barring_lbx;
+    flags = EEikListBoxMultipleSelection;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_barring_lbx
+//    Barring list box items
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE ARRAY r_barring_lbx
+    {
+    items =
+        {
+#ifndef __RESTRICTED_CALL_BARRING
+        LBUF
+            {
+            txt = " \t"text_no_outgoing"\t\t";
+            },
+        LBUF
+            {
+            txt = " \t"text_no_international"\t\t";
+            },
+        LBUF
+            {
+            txt = " \t"text_no_inter_but_home"\t\t";
+            },
+        LBUF
+            {
+            txt = " \t"text_no_incoming"\t\t";
+            },
+#endif // __RESTRICTED_CALL_BARRING
+        LBUF
+            {
+            txt = " \t"text_no_incom_if_roam"\t\t";
+            }
+        };
+    }
+
+
+//-----------------------------------------------------------------------------
+//
+//    r_activate_barring
+//    Popup-menu item for Barring operations
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_activate_barring
+    {
+    buf = text_activate_barring;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_cancel_barring
+//    Popup-menu item for Barring operations
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_cancel_barring
+    {
+    buf = text_cancel_barring;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_status_barring
+//    Popup-menu item for Barring operations
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_status_barring
+    {
+    buf = text_status_barring;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_barring_password
+//    Prompt item for Barring dialog when barring pwd required.
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_barring_password
+    {
+    buf = text_password;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_current_barring_password
+//    Prompt item for Barring dialog when barring pwd required.
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_current_barring_password
+    {
+    buf = text_old_pass;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_new_barring_password
+//    Prompt item for Barring dialog when barring pwd required.
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_new_barring_password
+    {
+    buf = text_new_pass;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_verify_new_barring_password
+//    Prompt item for Barring dialog when barring pwd required.
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE TBUF r_verify_new_barring_password
+    {
+    buf = text_verify_pass;
+    }
+
+//----------------------------------------------------
+//
+//    r_barring_password
+//    Dialog for querying Barring password
+//
+//----------------------------------------------------
+//
+RESOURCE DIALOG r_barring_password_dlg
+    {
+    flags = EEikDialogFlagVirtualInput | EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL__OK;
+    items=
+        {
+        DLG_LINE
+            {
+            type=EAknCtQuery;
+            id=EGeneralQuery;
+            control= AVKON_DATA_QUERY
+                {
+                layout = EPinLayout;
+                label = text_password;
+                control = SECRETED {num_letters = 4;};
+                };
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_barring_main_view
+//    Barring sub-main-menu view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_barring_main_view
+    {
+    menubar=r_gs_menubar_open_exit;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_OPEN;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_barring_main_view_title
+//    Barring sub-menu title
+//
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_barring_main_view_title
+    {
+    txt = qtn_set_title_restrictions;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_barring_main_lbx_resource
+//    Barring list box
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE LISTBOX r_barring_main_lbx_resource
+    {
+    array_id = r_barring_main_lbx;
+    flags = EEikListBoxMultipleSelection;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_barring_main_lbx
+//    Barring list box items
+//
+//-----------------------------------------------------------------------------
+//
+
+RESOURCE ARRAY r_barring_main_lbx
+    {
+    items =
+        {
+        GS_FEATURE
+            {
+            txt = " \t"qtn_cell_call_barring"\t\t";
+            item = EGSCBCellular;
+            },
+        GS_FEATURE
+            {
+            txt = " \t"qtn_voip_call_barring"\t\t";
+            item = EGSCBInternet;
+            type = EGSListBoxItemTypeIsDynamic;
+            }
+        };
+    }
+
+// BARRING sub-menu for internet call
+
+//----------------------------------------------------
+//
+//    r_gs_internet_barring_view
+//    Barring sub-menu view
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_internet_barring_view
+    {
+    menubar=r_gs_menubar_change_exit;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_CHANGE;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_internet_barring_view_title
+//    Internet Barring sub-menu title
+//
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_internet_barring_view_title
+    {
+    txt = qtn_title_voip_call_barring;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_internet_barring_lbx_resource
+//    Internet Barring list box
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE LISTBOX r_internet_barring_lbx_resource
+    {
+    array_id = r_internet_barring_lbx;
+    flags = EEikListBoxMultipleSelection;
+    }
+
+//-----------------------------------------------------------------------------
+//
+//    r_internet_barring_lbx
+//    Internet Barring list box items
+//
+//-----------------------------------------------------------------------------
+//
+RESOURCE GS_FEATURE_ARRAY r_internet_barring_lbx
+    {
+    items =
+        {
+        GS_FEATURE
+            {
+            txt = " \t"qtn_voip_barring_anonymous"\t\t";
+            item = EGSCBAnonymous;
+            type = EGSListBoxItemTypeIsDynamic;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_internet_barring_setting_page
+//    Internet barring setting page.
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_SETTING_PAGE r_gs_internet_barring_setting_page
+    {
+    number = EAknSettingPageNoOrdinalDisplayed;
+    label = qtn_set_title_restrictions_int;
+    softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL__OK;
+    type = EAknSetListBox;
+    editor_resource_id = r_setting_listbox;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_internet_barring_setting_page_lbx
+//    for internet barring popup
+//
+//----------------------------------------------------
+//
+RESOURCE ARRAY r_gs_internet_barring_setting_page_lbx
+    {
+    items =
+        {
+        LBUF
+            {
+            txt = qtn_voip_barring_active;
+            },
+        LBUF
+            {
+            txt = qtn_voip_barring_not_active;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//
+//    r_internet_barring_on
+//    anonymous setting value to internet barring setting page
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_internet_barring_on
+    {
+    buf = qtn_voip_barring_active;
+    }
+
+//----------------------------------------------------
+//
+//    r_internet_barring_off
+//    anonymous setting value to internet barring setting page
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_internet_barring_off
+    {
+    buf = qtn_voip_barring_not_active;
+    }
+
+//----------------------------------------------------
+//
+//    r_qtn_voip_sccp_call_barring_note
+//    Note for anonymous call barring
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_qtn_voip_sccp_call_barring_note
+    {
+    buf = qtn_voip_sccp_call_barring_note;
+    }
+
+// -----------------------------------------------------------------------------
+//   
+//    r_barr_msk_change
+//    Middle softkey label: change.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_barr_msk_change
+    {
+    buf = qtn_msk_change;
+    }
+
+// -----------------------------------------------------------------------------
+//   
+//    r_barr_msk_open
+//    Middle softkey label: open
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_barr_msk_open
+    {
+    buf = qtn_msk_open;
+    }
+
+// -----------------------------------------------------------------------------
+//   
+//    r_call_softkey_option
+//    Middle softkey label: Options.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_call_softkey_option
+    {
+    buf = text_softkey_option;
+    }
+
+//----------------------------------------------------
+//  r_gs_tel_view_title
+//
+// Telephony view title
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_barr_view_title
+    {
+    txt = "";
+    }        
+//End of File

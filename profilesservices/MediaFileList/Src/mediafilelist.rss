@@ -1,0 +1,725 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*     This file contains all the resources for the MediaFileList module.
+*
+*/
+
+
+
+
+//  RESOURCE IDENTIFIER
+NAME    MFLI // 4 letter ID
+
+//  INCLUDES
+
+#include <eikon.rh>
+#include <mediafilelist.loc>
+#include <drmcommon.loc>
+
+// common avkon strings
+#include <avkon.loc>
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+#include <AvkonIcons.hrh>
+
+
+//  RESOURCE DEFINITIONS 
+
+RESOURCE RSS_SIGNATURE { }
+
+
+RESOURCE TBUF r_qtn_media_file_dialog_title
+    {
+    buf = qtn_tsl_title;
+    }
+RESOURCE TBUF r_qtn_info_file_format_error
+    {
+    buf = qtn_tsl_file_format_error;
+    }
+RESOURCE TBUF r_qtn_info_clip_format_error
+    {
+    buf = qtn_mp_note_invalid_clip;
+    }
+RESOURCE TBUF r_qtn_info_file_size_error
+    {
+    buf = qtn_profiles_tone_maxsize_error;
+    }
+RESOURCE TBUF r_qtn_info_drm_protected
+    {
+    buf = qtn_profiles_info_tone_drm_protected;
+    }
+RESOURCE TBUF r_qtn_info_no_drm
+    {
+    // from avkon.loc
+    buf = qtn_profiles_info_tone_no_drm;
+    }
+RESOURCE TBUF r_qtn_info_drm_prev_rights_use
+    {
+    // from drmcommon.loc
+    buf = qtn_drm_prev_rights_use;
+    }
+RESOURCE TBUF r_qtn_info_drm_prev_rights_set
+    {
+    // from drmcommon.loc
+    buf = qtn_drm_prev_rights_set;
+    }
+RESOURCE TBUF r_qtn_info_text_not_allowed
+	{
+	// from avkon.loc
+	buf = text_not_allowed;
+	}
+
+    
+RESOURCE TBUF r_qtn_wait_note_open
+    {
+    buf = qtn_tsl_wait_note_opening;
+    }
+RESOURCE TBUF r_qtn_wait_note_search
+    {
+    buf = qtn_tsl_wait_note_searching;
+    }
+RESOURCE TBUF r_qtn_wait_note_update
+    {
+    buf = qtn_tsl_wait_note_updating;
+    }
+
+
+RESOURCE TBUF r_qtn_folder_download
+    {
+    buf = qtn_tsl_download_tones;
+    }
+RESOURCE TBUF r_qtn_folder_tones
+    {
+    buf = qtn_tsl_tones_folder;
+    }
+RESOURCE TBUF r_qtn_folder_music
+    {
+    buf = qtn_tsl_music_folder;
+    }
+RESOURCE TBUF r_qtn_folder_videos
+    {
+    buf = qtn_tsl_videos_folder;
+    }
+RESOURCE TBUF r_qtn_folder_recordings
+    {
+    buf = qtn_tsl_recordings_folder;
+    }
+RESOURCE TBUF r_qtn_folder_default_tone
+    {
+    buf = qtn_tsl_according_to_profile;
+    }
+RESOURCE TBUF r_qtn_folder_off
+    {
+    buf = qtn_tsl_off;
+    }
+RESOURCE TBUF r_qtn_folder_all_music
+    {
+    buf = qtn_tsl_all_music_folder;
+    }
+RESOURCE TBUF r_qtn_folder_artist
+    {
+    buf = qtn_tsl_artists_folder;
+    }
+RESOURCE TBUF r_qtn_folder_album
+    {
+    buf = qtn_tsl_albums_folder;
+    }
+RESOURCE TBUF r_qtn_folder_genre
+    {
+    buf = qtn_tsl_genres_folder;
+    }
+RESOURCE TBUF r_qtn_folder_composer
+    {
+    buf = qtn_tsl_composers_folder;
+    }
+RESOURCE TBUF r_qtn_folder_artist_all
+    {
+    buf = qtn_tsl_all;
+    }
+
+RESOURCE TBUF r_qtn_unknown_artist
+    {
+    buf = qtn_tsl_unknown_artist;
+    }
+RESOURCE TBUF r_qtn_unknown_album
+    {
+    buf = qtn_tsl_unknown_album;
+    }
+RESOURCE TBUF r_qtn_unknown_genre
+    {
+    buf = qtn_tsl_unknown_genre;
+    }
+RESOURCE TBUF r_qtn_unknown_composer
+    {
+    buf = qtn_tsl_unknown_composer;
+    }
+
+RESOURCE TBUF r_qtn_preview_popup_artist
+    {
+    buf = qtn_tsl_preview_popup_artist;
+    }
+RESOURCE TBUF r_qtn_preview_popup_album
+    {
+    buf = qtn_tsl_preview_popup_album;
+    }
+RESOURCE TBUF r_qtn_preview_popup_genre
+    {
+    buf = qtn_tsl_preview_popup_genre;
+    }
+RESOURCE TBUF r_qtn_preview_popup_composer
+    {
+    buf = qtn_tsl_preview_popup_composer;
+    }
+
+
+RESOURCE TBUF r_qtn_view_tones
+    {
+    buf = qtn_tsl_tones_view;
+    }
+RESOURCE TBUF r_qtn_view_music
+    {
+    buf = qtn_tsl_music_view;
+    }
+RESOURCE TBUF r_qtn_view_videos
+    {
+    buf = qtn_tsl_videos_view;
+    }
+RESOURCE TBUF r_qtn_view_recordings
+    {
+    buf = qtn_tsl_recordings_view;
+    }
+RESOURCE TBUF r_qtn_view_search
+    {
+    buf = qtn_tsl_find_results;
+    }
+RESOURCE TBUF r_qtn_view_artist
+    {
+    buf = qtn_tsl_artists_view;
+    }
+RESOURCE TBUF r_qtn_view_album
+    {
+    buf = qtn_tsl_albums_view;
+    }
+RESOURCE TBUF r_qtn_view_genre
+    {
+    buf = qtn_tsl_genres_view;
+    }
+RESOURCE TBUF r_qtn_view_composer
+    {
+    buf = qtn_tsl_composers_view;
+    }
+
+
+//------------------------------------------------------------------------------
+// number query resource
+//------------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_number_query
+    {
+    flags = EAknGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items=
+        {
+        DLG_LINE
+            {
+            type=EAknCtQuery;
+            id=EGeneralQuery;
+
+            control = AVKON_DATA_QUERY
+                { 
+                layout = ENumberLayout;
+                control = AVKON_INTEGER_EDWIN
+                    {
+                    min=0;
+                    max=999999;
+                    };
+                };
+            }
+        };
+    }
+
+
+//------------------------------------------------------------------------------
+// information query resource
+//------------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_information_query
+    {
+    flags=EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_OK_EMPTY__OK;
+    items=
+        {
+        DLG_LINE
+            {
+            type=EAknCtQuery;
+            id=EGeneralQuery;
+            control= AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationQueryLayout;
+                animation = R_QGN_NOTE_INFO_ANIM;
+                };
+            }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+// list query resource.
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_list_query
+    {
+    flags=EEikDialogFlagWait | EGeneralQueryFlags;
+
+    buttons=R_AVKON_SOFTKEYS_SELECT_CANCEL__SELECT;
+
+    items=
+        {
+        AVKON_LIST_QUERY_DLG_LINE
+            {
+            control = AVKON_LIST_QUERY_CONTROL
+                {
+                listtype = EAknCtSinglePopupMenuListBox;
+                heading = qtn_profile_dialog_title;
+                
+                listbox = AVKON_LIST_QUERY_LIST
+                    {
+                    // items added dynamically
+                    };
+                };
+            }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+// video preview dialog resource
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_video_preview_dialog
+    {
+    flags=EEikDialogFlagWait | EEikDialogFlagFillAppClientRect | EEikDialogFlagNotifyEsc;
+    buttons = r_video_preview_dialog_cba;
+
+    items=
+        {
+        };
+    }
+
+
+RESOURCE CBA r_video_preview_dialog_cba
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = text_softkey_select;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = qtn_msk_select;
+            }
+        };
+    }
+
+
+RESOURCE MENU_BAR r_video_preview_dialog_menu
+    {
+    titles= 
+        { 
+        MENU_TITLE 
+            { 
+            menu_pane=r_video_preview_dialog_menu_pane;
+            }
+        };
+    }
+
+RESOURCE MENU_PANE r_video_preview_dialog_menu_pane
+    {
+    items=
+        {
+        MENU_ITEM { command=EAknSoftkeySelect; txt=text_softkey_select; },      
+        MENU_ITEM { command=EAknCmdHelp; txt=qtn_options_help; },
+        MENU_ITEM { command=EAknCmdExit; txt=qtn_options_exit; }        
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+// media file dialog resource.
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_media_file_dialog
+    {
+    flags=EEikDialogFlagWait | EEikDialogFlagFillAppClientRect | EEikDialogFlagNotifyEsc | EEikDialogFlagNoBackup;
+    //buttons = r_media_file_dialog_cba_select_select_back;
+    buttons = R_AVKON_SOFTKEYS_SELECT_BACK__SELECT;    
+    items=
+        {
+        DLG_LINE
+            {
+            type=EAknCtSingleGraphicListBox;
+            itemflags=EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+			id=1;
+			control=LISTBOX
+				{
+				flags = EAknListBoxSelectionList;
+				};   
+            },
+        DLG_LINE
+            {
+            itemflags = EEikDlgItemNonFocusing;
+            id = EFindControl;
+            type = EAknCtSelectionListFixedFind;
+            //type = EAknCtSelectionListPopupFind;
+            }
+		};
+    }
+
+RESOURCE MENU_BAR r_media_file_dialog_menu
+	{
+	titles= 
+		{ 
+		MENU_TITLE 
+			{ 
+			menu_pane=r_media_file_dialog_menu_pane;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_media_file_dialog_menu_pane
+    {
+    items=
+        {
+		MENU_ITEM { command=EAknCmdOpen; txt=qtn_options_open; },
+		MENU_ITEM { command=EAknSoftkeySelect; txt=text_softkey_select; },		
+        MENU_ITEM { command=EAknSoftkeyView; txt=Preview; },
+	    MENU_ITEM { command=EAknCmdHelp; txt=qtn_options_help; },
+		MENU_ITEM { command=EAknCmdExit; txt=qtn_options_exit; }        
+        };
+    }
+
+
+RESOURCE MENU_BAR r_media_file_dialog_context_menu
+	{
+	titles= 
+		{ 
+		MENU_TITLE 
+			{ 
+			menu_pane=r_media_file_dialog_context_menu_pane;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_media_file_dialog_context_menu_pane
+	{
+	items =
+		{
+		MENU_ITEM { command=EAknSoftkeySelect; txt=text_softkey_select; },		
+		MENU_ITEM { command=EAknSoftkeyView; txt=Preview; }
+		};
+	}
+
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+RESOURCE CBA r_media_file_dialog_cba_open_open_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOpen;
+            txt = text_softkey_open;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOpen;
+            txt = qtn_msk_open;
+            }
+        };
+    }
+
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//
+// Needed because R_AVKON_SOFTKEYS_SELECT_BACK__SELECT gives wrong
+// button id when Back is pressed (EEikBidCancel).
+//------------------------------------------------------------------------------
+//
+RESOURCE CBA r_media_file_dialog_cba_select_select_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = text_softkey_select;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = qtn_msk_select;
+            }
+        };
+    }
+
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+RESOURCE CBA r_media_file_dialog_cba_preview_select_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyView;
+            txt = text_softkey_preview;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = text_softkey_select;
+            }
+        };
+    }
+
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_preview_preview_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyView;
+            txt = text_softkey_preview;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyView;
+            txt = text_softkey_preview;
+            }
+        };
+    }
+*/
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_options_select_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySelect;
+            txt = qtn_msk_select;
+            }
+        };
+    }
+*/
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_options_open_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOpen;
+            txt = qtn_msk_open;
+            }
+        };
+    }
+*/
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_options_search_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeySearch;
+            txt = text_softkey_search;
+            }
+        };
+    }
+*/
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_options_context_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyOptions;
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyContextOptions;
+            txt = text_softkey_option;
+            }
+        };
+    }
+*/
+
+
+//------------------------------------------------------------------------------
+// Softkey resource
+//------------------------------------------------------------------------------
+//
+/*
+RESOURCE CBA r_media_file_dialog_cba_empty_empty_back
+    {
+    buttons =
+        {
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyEmpty;
+            txt = text_softkey_empty;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyBack;
+            txt = text_softkey_back;
+            },
+        CBA_BUTTON
+            {
+            id = EAknSoftkeyEmpty;
+            txt = text_softkey_empty;
+            }
+        };
+    }
+*/
+
+//------------------------------------------------------------------------------
+// wait note resource
+//------------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_media_file_wait_note
+	{ 
+	flags=EAknProgressNoteFlags | EEikDialogFlagNotifyEsc;
+	buttons=R_AVKON_SOFTKEYS_CANCEL;
+	items= 
+		{
+		DLG_LINE
+			{
+			type=EAknCtNote;
+			id=EGeneralNote;
+			control=AVKON_NOTE 
+				{
+        animation = R_QGN_GRAF_WAIT_BAR_ANIM;
+				layout=EProgressLayout;
+
+        imagefile = AVKON_BITMAP_FILE;
+        imageid = EMbmAvkonQgn_note_progress;
+        imagemask = EMbmAvkonQgn_note_progress_mask;
+				
+				singular_label = qtn_gen_note_opening;
+				};
+			}
+		};
+	} 
+
+// End of File

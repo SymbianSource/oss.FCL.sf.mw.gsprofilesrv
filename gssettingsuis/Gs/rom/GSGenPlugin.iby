@@ -1,0 +1,29 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSGenPlugin ROM resources.
+*
+*/
+
+#ifndef GSGENPLUGIN_IBY
+#define GSGENPLUGIN_IBY
+
+    #ifdef RD_GS_RENOVATION
+
+        ECOM_PLUGIN( GSGenPlugin.dll, 10207238.rsc )
+        data=DATAZ_\BITMAP_DIR\GSGenPlugin.mif BITMAP_DIR\GSGenPlugin.mif
+
+    #endif // RD_GS_RENOVATION
+
+#endif // GSGENPLUGIN_IBY
+//  End of File

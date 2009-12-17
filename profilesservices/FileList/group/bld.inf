@@ -1,0 +1,46 @@
+/*
+* Copyright (c) 2002 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*     This file provides the information required for building
+*     File List.
+*
+*/
+
+
+// To get the APP_LAYER_DOMAIN_EXPORT_PATH-definition
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXTENSIONS
+START EXTENSION s60/mifconv
+  OPTION TARGETFILE filelist.mif
+  OPTION HEADERFILE filelist.mbg
+  OPTION SOURCES -c8,8 qgn_indi_fmgr_ms_add
+END
+
+
+PRJ_MMPFILES
+
+//gnumakefile filelist_icons_aif_scalable_dc.mk
+
+FileList.mmp
+
+PRJ_EXPORTS
+../rom/filelist.iby		CORE_APP_LAYER_IBY_EXPORT_PATH(filelist.iby)
+../rom/filelistResources.iby	LANGUAGE_APP_LAYER_IBY_EXPORT_PATH(filelistResources.iby)
+../loc/FileList.loc		APP_LAYER_LOC_EXPORT_PATH(filelist.loc)
+
+// End of File

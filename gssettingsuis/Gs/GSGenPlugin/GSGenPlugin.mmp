@@ -1,0 +1,84 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSGenPlugin project specification file.
+*
+*/
+
+#include <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gsgenplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x10207238
+VENDORID            VID_DEFAULT
+
+SOURCEPATH          src
+SOURCE              GSGenPluginImplementationTable.cpp
+SOURCE              GSGenPlugin.cpp
+
+USERINCLUDE         inc
+USERINCLUDE         data
+USERINCLUDE         ../Data
+USERINCLUDE         loc
+USERINCLUDE         ../Logger
+
+// Default system include paths for middleware layer modules.
+MW_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE       /epoc32/include/ecom
+
+SOURCEPATH          data
+
+START RESOURCE      10207238.rss
+TARGET              gsgenplugin.rsc
+END
+
+// View resources
+START RESOURCE      GSGenPluginRsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH          RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END // View resources
+
+
+// Libraries
+
+LIBRARY             aknskins.lib // AknsUtils.h
+LIBRARY             avkon.lib
+LIBRARY             bafl.lib
+LIBRARY             commonengine.lib// For RConeResourceLoader
+LIBRARY             cone.lib
+LIBRARY             ecom.lib
+LIBRARY             efsrv.lib
+LIBRARY             egul.lib // CGulIcon
+LIBRARY             eikcoctl.lib
+LIBRARY             eikcore.lib
+LIBRARY             euser.lib
+LIBRARY             flogger.lib // For GSLogger
+LIBRARY             gsframework.lib
+LIBRARY             gsecomplugin.lib
+LIBRARY             gslistbox.lib// For CGSListBoxItemTextArray
+LIBRARY             ws32.lib // For RWsSession
+LIBRARY             featmgr.lib  // feature manager
+
+//Documents. Defining these is optional. Used only by IDE's file browser.
+SOURCEPATH          data
+DOCUMENT            10207238.rss
+DOCUMENT            GSGenPluginRsc.rss
+
+SOURCEPATH          inc
+
+// End of File

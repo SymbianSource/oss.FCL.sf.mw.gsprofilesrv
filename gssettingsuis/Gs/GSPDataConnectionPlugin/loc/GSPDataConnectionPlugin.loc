@@ -1,0 +1,50 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Localization strings for GSPDataConnectionPlugin.
+*
+*/
+
+//  LOCALISATION STRINGS
+
+// **PACKET DATA (CONNECTION) VIEW
+
+//d:Text of a list item in Packet data setting list view's list
+//d:Item opens Attach setting page
+//l:list_setting_pane_t1
+//w:
+//r:4.0
+//
+#define qtn_set_attach "Attach"
+
+// ATTACH
+
+//d:Text in setting list item's current value field
+//d:Item in Attach setting page's list
+//d:Setting value When available
+//l:list_set_graphic_pane_t1
+//w:
+//r:4.0
+//
+#define qtn_set_attach_avail "When available" 
+
+//d:Text in setting list item's current value field
+//d:Item in Attach setting page's list
+//d:Setting value When needed
+//l:list_set_graphic_pane_t1
+//w:
+//r:4.0
+//
+#define qtn_set_attach_needed "When needed" 
+
+// End of File
