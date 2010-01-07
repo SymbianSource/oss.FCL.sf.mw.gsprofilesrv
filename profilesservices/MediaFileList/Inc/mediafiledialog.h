@@ -294,8 +294,10 @@ NONSHARABLE_CLASS (CMediaFileDialog) :  public CAknDialog,
 		void ShowErrorNoteL( TInt aError );
     	void ShowPreviewErrorNoteL( TInt aError, TInt aMediaType );
 		void DeleteMenuItem( CEikMenuPane* aMenuPane, TInt aCommandId );
-		CGulIcon* IconL( TAknsItemID aId, const TDesC& aFileName,
-		                 TInt aFileIndex, TInt aFileMaskIndex );
+		CGulIcon* IconL(TAknsItemID aId, const TDesC& aFileName, TInt aFileIndex,
+			TInt aFileMaskIndex);
+		CGulIcon* IconL(TAknsItemID aId, const TDesC& aFileName, TInt aFileIndex,
+			TInt aFileMaskIndex, TAknsQsnIconColorsIndex colorIndex);
 		static TInt CloseDialog( TAny *aObj );
 		void CloseDialogWithDelayL();
 		

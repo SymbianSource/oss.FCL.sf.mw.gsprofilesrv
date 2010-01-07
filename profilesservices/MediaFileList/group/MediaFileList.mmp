@@ -53,7 +53,7 @@ SOURCE      mediafiletest.cpp
 
 USERINCLUDE    ../Inc
 APP_LAYER_SYSTEMINCLUDE
-SYSTEMINCLUDE /epoc32/include/mmf/common
+SYSTEMINCLUDE /epoc32/include/mmf/common /epoc32/include/platform/mmf/common
 
 LIBRARY   avkon.lib
 LIBRARY   bafl.lib

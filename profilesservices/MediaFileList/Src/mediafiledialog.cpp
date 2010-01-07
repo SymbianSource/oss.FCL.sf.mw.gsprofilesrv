@@ -1105,12 +1105,12 @@ void CMediaFileDialog::SetIconsL()
     // memory card icon
     icons->AppendL( IconL( KAknsIIDQgnIndiMmcAdd, iIconFileName,
                            EMbmMediafilelistQgn_indi_mmc_add,
-                           EMbmMediafilelistQgn_indi_mmc_add_mask ) );
+                           EMbmMediafilelistQgn_indi_mmc_add_mask, EAknsCIQsnIconColorsCG13 ) );
 
      // mass storage icon
     icons->AppendL( IconL( KAknsIIDQgnPropLinkEmbdSmall, iIconFileName,
                            EMbmMediafilelistQgn_indi_fmgr_ms_add,
-                           EMbmMediafilelistQgn_indi_fmgr_ms_add_mask ) );
+                           EMbmMediafilelistQgn_indi_fmgr_ms_add_mask,EAknsCIQsnIconColorsCG13 ) );
 
     // empty icon
     icons->AppendL( IconL( KAknsIIDQgnPropEmpty, KAvkonBitmapFile,
@@ -1142,6 +1142,31 @@ CGulIcon* CMediaFileDialog::IconL(TAknsItemID aId, const TDesC& aFileName,
     CGulIcon* icon = AknsUtils::CreateGulIconL(AknsUtils::SkinInstance(), aId,
                                 aFileName, aFileIndex, aFileMaskIndex);
 	return icon;	
+	}
+
+
+// -----------------------------------------------------------------------------
+// CMediaFileDialog::IconL
+// For MMC icon and Mass Storage icon
+// -----------------------------------------------------------------------------
+//
+CGulIcon* CMediaFileDialog::IconL(TAknsItemID aId, const TDesC& aFileName,
+                                   TInt aFileIndex, TInt aFileMaskIndex, TAknsQsnIconColorsIndex colorIndex)
+	{
+	TRgb defaultColour(KRgbBlack);
+	CFbsBitmap* bmap = NULL;
+	CFbsBitmap* mask = NULL;
+
+	AknsUtils::GetCachedColor(AknsUtils::SkinInstance(), defaultColour, KAknsIIDQsnIconColors,
+			colorIndex);
+	AknsUtils::CreateColorIconLC(AknsUtils::SkinInstance(), KAknsIIDQgnIndiMmcAdd,
+			KAknsIIDQsnIconColors, colorIndex, bmap, mask,
+			aFileName, aFileIndex, aFileMaskIndex, defaultColour);
+
+	CGulIcon* icon = CGulIcon::NewL(bmap, mask);
+	icon->SetBitmapsOwnedExternally(EFalse);
+	CleanupStack::Pop(2);
+	return icon;
 	}
 
 
@@ -3065,7 +3090,7 @@ void CMediaFileDialog::HandleListBoxEventL( CEikListBox* /*aListBox*/,
         return;
         }
 
-    if ( aEventType == EEventItemDoubleClicked || aEventType == EEventEnterKeyPressed )
+    if ( aEventType == EEventItemSingleClicked  || aEventType == EEventEnterKeyPressed )
         {
         TBool closeDialog = HandleOKL( EAttrDoubleClicked );
         

@@ -27,14 +27,6 @@
 
     PRJ_MMPFILES
 
-    //gnumakefile icons_dc.mk
-
-    #ifdef __SCALABLE_ICONS
-        gnumakefile icons_aif_scalable_dc.mk
-    //#else
-        //gnumakefile icons_aif_bitmaps_dc.mk
-    #endif //__SCALABLE_ICONS
-
     ../group/GS.mmp
 
 
