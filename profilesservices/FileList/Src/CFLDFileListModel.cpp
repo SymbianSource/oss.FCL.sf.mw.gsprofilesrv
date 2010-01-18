@@ -320,7 +320,10 @@ void CFLDFileListModel::SetWantedMediaTypesL(
        	iWait.Start(); // CSI: 10 # the state of iWait is checked above
 
         // Close the wait note
-        iWaitNote->CloseWaitNoteL();
+       	if ( iWaitNote )
+       		{
+       		iWaitNote->CloseWaitNoteL();	
+       		}       
         }
 
     // Back to default behavior

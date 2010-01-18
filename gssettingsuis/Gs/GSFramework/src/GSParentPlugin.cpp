@@ -37,7 +37,7 @@
 #include    <eikbtgpc.h>
 #include    <hlplch.h>
 #include    <StringLoader.h>
-#include	<LayoutMetaData.cdl.h>
+#include	  <layoutmetadata.cdl.h>
 // Middle Softkey control ID.
 const TInt KGSMSKControlID = 3;
 const TInt KGSMSKLength = 256;

@@ -51,6 +51,7 @@ CFLDWaitNote::~CFLDWaitNote()
         {
         // Do not delete CAknWaitDialog object:
         // CAknWaitDialog::ProcessFinishedL should be used instead.
+        iWaitDialog->SetCallback( NULL );
         TRAP_IGNORE( iWaitDialog->ProcessFinishedL() );
         }
     }

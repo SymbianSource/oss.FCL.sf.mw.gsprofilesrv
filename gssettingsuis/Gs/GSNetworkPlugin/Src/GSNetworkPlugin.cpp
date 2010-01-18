@@ -844,8 +844,10 @@ void CGSNetworkPlugin::ShowSettingPageL( TGSNetworkItemIds aPage )
         itemArray->SetRadioButtonSettingPage( *iSettingDlg );
 
         const TInt prevSelection = currentIndex;
-
-        iSettingDlg->SetSettingTextL( *settingPageTitle );
+        if ( settingPageTitle )
+        	{
+        	iSettingDlg->SetSettingTextL( *settingPageTitle );	
+        	}
 
         //Start listening if call occurs
         iPhoneSettingsEngine->SetNetSAObserver( *this );

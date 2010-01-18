@@ -101,7 +101,7 @@ LIBRARY     DrmRights.lib
 #ifdef RD_DRM_COMMON_INTERFACE_FOR_OMA_AND_WMDRM
 LIBRARY		drmutility.lib
 #endif
-
+LIBRARY   touchfeedback.lib
 LIBRARY		caf.lib	cafutils.lib // Content access framework
 LIBRARY		DrmAudioPlayUtility.lib
 

@@ -34,7 +34,7 @@
 #include    <hlplch.h>
 #include    <gscommon.hrh>
 #include    <gfxtranseffect/gfxtranseffect.h>
-#include	<LayoutMetaData.cdl.h>
+#include	  <layoutmetadata.cdl.h>
 
 // ========================= MEMBER FUNCTIONS ================================
 

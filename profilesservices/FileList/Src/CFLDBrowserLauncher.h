@@ -22,7 +22,7 @@
 
 // EXTERNAL INCLUDES
 #include <e32base.h>
-#include <DownloadedContentHandler.h>
+#include <downloadedcontenthandler.h>
 
 // FORWARD DECLARATIONS
 class CDocumentHandler;

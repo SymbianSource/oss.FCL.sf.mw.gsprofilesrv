@@ -1726,8 +1726,10 @@ void CMediaFileDialog::ShowDetailsPopupL()
     	}
 
     CleanupStack::PushL( data );
-
-    GetPopupText( data, iPopupText );
+    if ( data )
+    	{
+    	GetPopupText( data, iPopupText );	
+    	}  
     
     CleanupStack::PopAndDestroy( data );
     

@@ -255,7 +255,10 @@ void CGSCallDivertView::HandleCommandL( TInt aCommand )
         {
         case EGSCmdAppChange:
             iRockerPress = EFalse;
-            HandleListBoxEventL( iContainer->iListBox, EEventEnterKeyPressed );
+            if ( iContainer )
+            	{
+            	HandleListBoxEventL( iContainer->iListBox, EEventEnterKeyPressed );
+            	}            
             break;
         case EAknSoftkeyBack:
             if( FeatureManager::FeatureSupported( KFeatureIdRestrictedCallDivert ) )

@@ -30,7 +30,7 @@
 #include <gsplugininterface.h>
 #include <gsfwviewuids.h>
 #include <gsbaseview.h>
-#include <SecUiSecuritySettings.h>
+#include <secuisecuritysettings.h>
 #include <RSSSettings.h>
 
 // CONSTANTS

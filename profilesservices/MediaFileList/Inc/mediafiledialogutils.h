@@ -32,7 +32,7 @@
 #include <aknnavi.h>    // CAknNavigationControlContainer
 #include <eikimage.h>   // CEikImage
 
-#include <DownloadedContentHandler.h> // MDownloadedContentHandler
+#include <downloadedcontenthandler.h> // MDownloadedContentHandler
 
 
 // CONSTANTS

@@ -37,7 +37,9 @@
 #include <aknlists.h>
 #include <commondialogs.mbg>
 #include <filelist.mbg>
-
+#ifdef RD_TACTILE_FEEDBACK
+#include <touchfeedback.h>
+#endif //RD_TACTILE_FEEDBACK
 // CONSTANTS
 namespace
 	{
@@ -119,14 +121,17 @@ CFLDPopupList* CFLDPopupList::NewL(
 		 iPoint = aPointerEvent.iPosition;
 		 CancelPreview();
 		 }
-	 if ( Rect().Contains( iPoint ) )
-		 {
-		 CCoeControl::HandlePointerEventL( aPointerEvent );
-		 }
-	 else
-		 {
-		 AttemptExitL(EFalse);    
-		 }
+	if (!Rect().Contains(iPoint))
+		{
+#ifdef RD_TACTILE_FEEDBACK 
+		MTouchFeedback* feedback = MTouchFeedback::Instance();
+		if (feedback)
+			{
+			feedback->InstantFeedback(this, ETouchFeedbackBasic);
+			}
+#endif //RD_TACTILE_FEEDBACK		}
+		}
+	CAknPopupList::HandlePointerEventL(aPointerEvent);
 	 }
 // -----------------------------------------------------------------------------
 // CFLDPopupList::AttemptExitL
