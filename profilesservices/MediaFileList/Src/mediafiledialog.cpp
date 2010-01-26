@@ -392,7 +392,7 @@ void CMediaFileDialog::PreLayoutDynInitL()
     const TInt KFindBoxLength = 20;
     
     iListBox = (CAknSingleGraphicStyleListBox*) (ControlOrNull(1));
-    
+    iListBox->DisableSingleClick(ETrue);
    	__ASSERT_ALWAYS( iListBox, TMFDialogUtil::Panic( KErrGeneral ) );
     
     iListBox->Model()->SetItemTextArray( iMFListHandler );
@@ -3092,7 +3092,7 @@ void CMediaFileDialog::HandleListBoxEventL( CEikListBox* /*aListBox*/,
         return;
         }
 
-    if ( aEventType == EEventItemSingleClicked  || aEventType == EEventEnterKeyPressed )
+    if ( aEventType == EEventItemDoubleClicked || aEventType == EEventEnterKeyPressed )
         {
         TBool closeDialog = HandleOKL( EAttrDoubleClicked );
         

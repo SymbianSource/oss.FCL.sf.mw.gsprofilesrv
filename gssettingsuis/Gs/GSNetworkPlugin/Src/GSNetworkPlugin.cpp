@@ -458,8 +458,6 @@ void CGSNetworkPlugin::NetworkListL()
                 }
             else // user selected "Cancel"
                 {
-                //Reset back to previously used network
-                iPhoneSettingsEngine->ResetNetworkSearch();
                 //After list has been used, clear it.
                 PurgeNetworkList();
                 if ( iPhoneSettingsEngine->IsCallActive() !=
