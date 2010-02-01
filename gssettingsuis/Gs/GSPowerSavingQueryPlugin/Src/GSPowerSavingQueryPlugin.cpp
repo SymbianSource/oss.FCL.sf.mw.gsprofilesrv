@@ -200,15 +200,6 @@ void CGSPowerSavingQueryPlugin::HandleCommandL( TInt aCommand )
         case EAknSoftkeyBack:
             iAppUi->ActivateLocalViewL( KGSDeviceManagementPluginUid );
             break;
-        case EAknCmdHelp:
-            {
-            if( FeatureManager::FeatureSupported( KFeatureIdHelp ) )
-                {
-                HlpLauncher::LaunchHelpApplicationL(
-                    iEikonEnv->WsSession(), iAppUi->AppHelpContextL() );
-                }
-            break;
-            }
         default:
             iAppUi->HandleCommandL( aCommand );
             break;
@@ -372,24 +363,6 @@ CGulIcon* CGSPowerSavingQueryPlugin::CreateIconL( const TUid aIconType )
   
     }
 
-
-// -----------------------------------------------------------------------------
-// CGSPowerSavingQueryPlugin::DynInitMenuPaneL()
-//
-// dynamically handle help item if not supported
-// -----------------------------------------------------------------------------
-//
-void CGSPowerSavingQueryPlugin::DynInitMenuPaneL( TInt aResourceId, 
-                                          CEikMenuPane* aMenuPane )
-    {   
-    if( aResourceId == R_GS_MENU_ITEM_HELP )
-        {
-        User::LeaveIfNull( aMenuPane );
-        
-        aMenuPane->SetItemDimmed( EAknCmdHelp, 
-                !FeatureManager::FeatureSupported( KFeatureIdHelp ) );
-        }
-    }
 // -----------------------------------------------------------------------------
 // CGSPowerSavingQueryPlugin::SwitchOnOffValue()
 //

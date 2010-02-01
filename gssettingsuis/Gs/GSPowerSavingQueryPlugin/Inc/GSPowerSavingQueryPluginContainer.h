@@ -81,13 +81,6 @@ class CGSPowerSavingQueryPluginContainer : public CGSBaseContainer
          */
         void MakePowerSavingQueryItemL();
     
-    private:
-        /**
-        * Required for help.
-        * 
-        */
-        void GetHelpContext( TCoeHelpContext& aContext ) const;
-    
     private: // data
         //Listbox item array model
         CGSListBoxItemTextArray* iListboxItemArray;

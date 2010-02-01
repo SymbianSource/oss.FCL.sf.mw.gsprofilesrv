@@ -121,10 +121,6 @@ class CGSPowerSavingQueryPlugin : public CGSBaseView
         */
         CGSPowerSavingQueryPluginContainer* Container();
 
-    protected: // From MEikMenuObserver
-
-        void DynInitMenuPaneL( TInt aResourceId, CEikMenuPane* aMenuPane );
-
     protected:
 
         /**

@@ -156,18 +156,6 @@ void CGSPowerSavingQueryPluginContainer::MakePowerSavingQueryItemL()
     }
 
 // ---------------------------------------------------------------------------
-// CGSPowerSavingQueryPluginContainer::GetHelpContext() const
-//  
-// Gets Help 
-// ---------------------------------------------------------------------------
-//
-void CGSPowerSavingQueryPluginContainer::GetHelpContext( TCoeHelpContext& aContext ) const
-    {
-      aContext.iMajor = KUidGS;
-  //  aContext.iContext = 0;
-    }
-
-// ---------------------------------------------------------------------------
 // CGSPowerSavingQueryPluginContainer::CurrentFeatureId()
 //
 // Return the feature id of selected listitem  

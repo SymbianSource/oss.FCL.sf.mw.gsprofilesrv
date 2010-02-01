@@ -92,10 +92,31 @@ RESOURCE TITLE_PANE r_gs_power_saving_query_view_title
 //
 RESOURCE AVKON_VIEW r_gs_power_saving_query_view
     {
-    menubar = r_gs_menubar_change_exit;
+    menubar = r_gs_powersavingquery_menubar;
     cba = R_GS_SOFTKEYS_OPTIONS_BACK_CHANGE;
     }
 
+// -----------------------------------------------------------------------------
+//
+// r_gs_powersavingquery_menubar
+// GS_Powersavingquery_Plugin menu with 'change' and 'exit' items without help.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_BAR r_gs_powersavingquery_menubar
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_exit;
+            },
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_change;
+            }
+        };
+    }
 
 //----------------------------------------------------
 //
