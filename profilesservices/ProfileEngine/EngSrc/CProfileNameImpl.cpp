@@ -21,7 +21,7 @@
 #include "CProfileNameImpl.h"
 #include <s32strm.h>
 #include <MProfilesNamesArray.h>
-#include "ProfileEngineConstants.h"
+#include <ProfileEngineConstants.h>
 #include <centralrepository.h>
 #include "ProfileEnginePrivateCRKeys.h"
 #include "ProfileEngUtils.h"

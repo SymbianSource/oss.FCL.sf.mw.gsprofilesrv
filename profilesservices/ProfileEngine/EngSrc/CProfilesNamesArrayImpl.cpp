@@ -22,9 +22,9 @@
 #include <collate.h>
 #include <MProfilesNamesArray.h>
 #include "CProfileNameImpl.h"
-#include "ProfileEng.hrh"
+#include <ProfileEng.hrh>
 #include "ProfileEngPanic.h"
-#include "ProfileEngineConstants.h"
+#include <ProfileEngineConstants.h>
 
 // LOCAL CONSTANTS AND MACROS
 const TInt KProfileNamesGranularity( 5 );

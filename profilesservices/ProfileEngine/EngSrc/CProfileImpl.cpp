@@ -35,8 +35,8 @@
 #include "CProfileExtraTonesImpl.h"
 #include "CProfileExtraSettingsImpl.h"
 #include "CProfilePresenceImpl.h"
-#include "MProfilesLocalFeatures.h"
-#include "MProfileUtilitySingleton.h"
+#include <MProfilesLocalFeatures.h>
+#include <MProfileUtilitySingleton.h>
 #include "ProfilesVariant.hrh"
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"

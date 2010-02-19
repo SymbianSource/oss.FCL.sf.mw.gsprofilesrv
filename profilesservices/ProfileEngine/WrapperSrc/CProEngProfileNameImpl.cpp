@@ -21,7 +21,7 @@
 #include    "CProEngProfileNameImpl.h"
 #include    <MProfileName.h>
 #include    <MProEngProfileNameArray.h>
-#include    "MProfileSetName.h"
+#include    <MProfileSetName.h>
 #include    "CProEngEngineImpl.h"
 
 // ============================ MEMBER FUNCTIONS ===============================

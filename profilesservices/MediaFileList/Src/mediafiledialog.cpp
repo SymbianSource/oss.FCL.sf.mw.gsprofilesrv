@@ -1887,11 +1887,6 @@ void CMediaFileDialog::PreviewL( TInt aMediaType )
         return;
         }
         
-    if ( aMediaType == CMediaFileList::EMediaFileTypeVideo )
-        {
-        PreviewVideoL( iBuf );
-        return;
-        }
     
     if ( iState->CurrentFolder() == EEFolderSearch )
         {
@@ -1906,6 +1901,12 @@ void CMediaFileDialog::PreviewL( TInt aMediaType )
         return;
         }
         
+    if ( aMediaType == CMediaFileList::EMediaFileTypeVideo )
+        {
+        PreviewVideoL( iBuf );
+        return;
+        }
+    
     iAudioPreviewHandler->SetAttrL( TMFDialogUtil::EAttrFileName, iBuf );
     iAudioPreviewHandler->PlayL();
     

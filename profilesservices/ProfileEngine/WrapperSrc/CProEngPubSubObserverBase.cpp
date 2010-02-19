@@ -19,7 +19,7 @@
 
 // INCLUDE FILES
 #include    "CProEngPubSubObserverBase.h"
-#include    "ProfileEnginePrivatePSKeys.h"
+#include    <ProfileEnginePrivatePSKeys.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

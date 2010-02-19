@@ -19,7 +19,7 @@
 
 // INCLUDE FILES
 #include    "CProEngActiveProfileDelegate.h"
-#include    "ProfileEnginePrivatePSKeys.h" // KProEngActiveProfileModified 
+#include    <ProfileEnginePrivatePSKeys.h> // KProEngActiveProfileModified 
 #include    <MProEngActiveProfileObserver.h>
 
 // ============================ MEMBER FUNCTIONS ===============================

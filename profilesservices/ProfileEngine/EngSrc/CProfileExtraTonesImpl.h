@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include <MProfileExtraTones.h>
-#include "MProfileSetExtraTones.h"
+#include <MProfileSetExtraTones.h>
 
 // FORWARD DECLARATIONS
 class RWriteStream;

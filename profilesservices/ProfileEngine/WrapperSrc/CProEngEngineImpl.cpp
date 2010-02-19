@@ -22,8 +22,8 @@
 #include    <f32file.h>
 #include    <MProEngProfile.h>
 #include    <MProEngProfileNameArray.h>
-#include    "MProfileEngineExtended.h"
-#include    "ProfileEngineConstants.h"
+#include    <MProfileEngineExtended.h>
+#include    <ProfileEngineConstants.h>
 #include    "CProEngProfileImpl.h"
 #include    "CProEngToneHandler.h"
 #include    "CProEngProfileNameArrayImpl.h"

@@ -22,7 +22,7 @@
 #include "MProfileChangeObserver.h"
 #include "ProfileEngPanic.h"
 #include "ProfileEngineSDKCRKeys.h"
-#include "ProfileEnginePrivatePSKeys.h"
+#include <ProfileEnginePrivatePSKeys.h>
 #include <centralrepository.h>
 
 // ============================ MEMBER FUNCTIONS ===============================

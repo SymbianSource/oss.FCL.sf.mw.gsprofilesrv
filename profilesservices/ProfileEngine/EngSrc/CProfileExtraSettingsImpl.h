@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include <MProfileExtraSettings.h>
-#include "MProfileSetExtraSettings.h"
+#include <MProfileSetExtraSettings.h>
 
 // FORWARD DECLARATIONS
 class CRepository;

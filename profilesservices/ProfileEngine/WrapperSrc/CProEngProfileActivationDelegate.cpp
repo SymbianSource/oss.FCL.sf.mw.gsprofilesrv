@@ -21,7 +21,7 @@
 #include    "CProEngProfileActivationDelegate.h"
 #include    <centralrepository.h>
 #include    <MProEngProfileActivationObserver.h>
-#include    "ProfileEnginePrivatePSKeys.h"  // KProEngActiveProfileChanged
+#include    <ProfileEnginePrivatePSKeys.h>  // KProEngActiveProfileChanged
 #include    "ProfileEngineSDKCRKeys.h" // KCRUidProfileEngine etc.
 
 // ============================ MEMBER FUNCTIONS ===============================

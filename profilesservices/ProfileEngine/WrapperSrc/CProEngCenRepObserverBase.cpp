@@ -20,7 +20,7 @@
 // INCLUDE FILES
 #include    "CProEngCenRepObserverBase.h"
 #include    <centralrepository.h>
-#include    "ProfileEnginePrivatePSKeys.h"
+#include    <ProfileEnginePrivatePSKeys.h>
 #include    "ProfileEngineSDKCRKeys.h"
 
 // ============================ MEMBER FUNCTIONS ===============================

@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32std.h>
 #include <ProfileEngineInternalCRKeys.h>
-#include "ProfileEng.hrh"
+#include <ProfileEng.hrh>
 
 // CONSTANTS
 /**
@@ -55,6 +55,7 @@ const TUint32 KProEngSchedulerHandleId     = 0x80000004;
  */
 const TUint32 KProEngSchedulerTaskId       = 0x80000005;
 
+const TUint32 KProEngPreviousActiveName    = 0x80000006;
 //
 // The rest of the constants are used with profile-specific settings. The
 // actual key for a setting of a profile must be constructed as follows:

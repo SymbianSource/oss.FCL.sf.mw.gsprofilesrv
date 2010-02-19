@@ -22,8 +22,8 @@
 #include <ProfilesVariant.hrh>
 #include <f32file.h> // TParse
 #include <data_caging_path_literals.hrh>
-#include "MProfilesLocalFeatures.h"
-#include "ProfileEngineConstants.h"
+#include <MProfilesLocalFeatures.h>
+#include <ProfileEngineConstants.h>
 #include "ProfileEnginePrivateCRKeys.h"
 #include "ProfilesDebug.h"
 
