@@ -37,6 +37,9 @@
 #include    <ProfileEngineConstants.h>
 #include    "ProfilesDebug.h"
 
+#include    <MProfileEngineExtended.h>
+#include    <MProfileExtended.h>
+#include    <MProfileName.h>
 
 // CONSTANTS
 namespace
@@ -80,7 +83,8 @@ void CProfileChangeEvent::ConstructL()
         error = iMutex.OpenGlobal( KProfileMutexName );
         }
     User::LeaveIfError( error );
-    iProfileEngine = CreateProfileEngineL( &iFs );
+    iProfileEngine = CreateProfileEngineExtendedL( &iFs );
+    iCenRep = CRepository::NewL( KCRUidProfileEngine );
     iGlobalNote = CAknGlobalNote::NewL();
     ReadResourcesL();
     }
@@ -119,6 +123,7 @@ CProfileChangeEvent::~CProfileChangeEvent()
     {
     delete iNoteText;
     delete iGlobalNote;
+    delete iCenRep;
     if( iProfileEngine )
         {
         iProfileEngine->Release();
@@ -175,8 +180,21 @@ void CProfileChangeEvent::ChangeProfileL()
     {
 	PRODEBUG( " CProfileChangeEvent:ChangeProfileL" );
 
+	TBool nameEqual = EFalse;
+	HBufC* previousName = HBufC::NewL( PROFILES_MAX_NAME_LENGTH );
+	CleanupStack::PushL( previousName );  
+	TPtr tempName = previousName->Des();
+	User::LeaveIfError( iCenRep->Get( KProEngPreviousActiveName, tempName ) );
+	if( tempName.Length() )
+		{
+		nameEqual = tempName.Compare( iProfileEngine->ProfileL( iPreviousId )->ProfileName().Name() );
+		}
+	if( !nameEqual )
+		{
     iProfileEngine->SetActiveProfileL( iPreviousId );
-
+		}
+	User::LeaveIfError( iCenRep->Set( KProEngPreviousActiveName, KNullDesC ) );
+	CleanupStack::PopAndDestroy();
     }
 
 // -----------------------------------------------------------------------------

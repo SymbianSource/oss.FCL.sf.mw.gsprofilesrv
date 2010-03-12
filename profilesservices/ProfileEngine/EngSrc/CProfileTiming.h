@@ -62,8 +62,11 @@ NONSHARABLE_CLASS( CProfileTiming ) : public CBase
          *        timer expires. This is the profile which was active before
          *        the current profile was timed.
          * @param aTime the time when the timer expires.
+		 * @param aPreviousName the Name of the profile to be activated after the
+         *        timer expires. This is the profile which was active before
+         *        the current profile was timed.
          */
-        void SetTimedProfileL( TInt aPreviousId, TTime aTime );
+        void SetTimedProfileL( TInt aPreviousId, TTime aTime, const TDesC& aPreviousName = KNullDesC );
 
         /**
          * Deletes the newly-scheduled task for timed profile. This is used
@@ -98,10 +101,12 @@ NONSHARABLE_CLASS( CProfileTiming ) : public CBase
          *        when the timer goes off.
          * @param aHandleId the scheduling handle ID of the timed profile task.
          * @param aTaskId the task ID of the timed profile task.
+		 * @param aPreviousName the previous name of the timed profile task.
          */
         void SaveSchedulingData( TInt aPreviousId = -1,
                                  TInt aHandleId = -1,
-                                 TInt aTaskId = -1 );
+                                 TInt aTaskId = -1,
+                                 const TDesC& aPreviousName = KNullDesC );
 
         /**
          * Gets the information about current timed profile from Central

@@ -41,7 +41,7 @@ SOURCE          CProfileChangeEvent.cpp
 
 USERINCLUDE     . ../EngInc ../../group
 
-MW_LAYER_SYSTEMINCLUDE
+APP_LAYER_SYSTEMINCLUDE
 
 LIBRARY         euser.lib
 LIBRARY         commonengine.lib
