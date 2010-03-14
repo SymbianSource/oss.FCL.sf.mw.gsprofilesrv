@@ -22,7 +22,7 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include "MProfileExtended.h"
+#include <MProfileExtended.h>
 #include <centralrepository.h> // NCentralRepositoryConstants::KMaxBinaryLength
 
 // CONSTANTS

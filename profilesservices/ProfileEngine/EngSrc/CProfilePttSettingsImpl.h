@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include <MProfilePttSettings.h>
-#include "MProfileSetPttSettings.h"
+#include <MProfileSetPttSettings.h>
 
 // FORWARD DECLARATIONS
 class CRepository;

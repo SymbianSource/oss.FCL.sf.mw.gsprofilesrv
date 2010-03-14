@@ -839,11 +839,11 @@ void CGSParentContainer::SetListBoxEmptyTextL(const TDes& aEmpty )
 //Get the exact position of listbox.
 // -----------------------------------------------------------------------------
 //
-void CGSParentContainer::GetPositionL(RArray<TInt>& posArray)
+void CGSParentContainer::GetPositionL(RArray<TInt>& aPosition)
 	{
-	posArray.AppendL(iListBox->CurrentItemIndex());
-	posArray.AppendL(iListBox->View()->ItemOffsetInPixels());
-	posArray.AppendL(iListBox->View()->TopItemIndex());
+	aPosition.AppendL(iListBox->CurrentItemIndex());
+	aPosition.AppendL(iListBox->View()->ItemOffsetInPixels());
+	aPosition.AppendL(iListBox->View()->TopItemIndex());
 	return;
 	}
 
@@ -853,17 +853,23 @@ void CGSParentContainer::GetPositionL(RArray<TInt>& posArray)
 //Get the exact position of listbox.
 // -----------------------------------------------------------------------------
 //
-void CGSParentContainer::SetPosition(const RArray<TInt>& pos, TBool aChangeMode)
+void CGSParentContainer::SetPosition(const RArray<TInt>& aPosition, TBool aChangeMode)
 	{
-	iListBox->SetCurrentItemIndex(pos.operator[](0));
-	iListBox->View()->SetItemOffsetInPixels(pos.operator[](1));
-	if (aChangeMode)
-		{
-		iListBox->View()->VerticalMoveToItemL(pos.operator[](0), CListBoxView::ESingleSelection);
-		}
-	else
-		{
-		iListBox->View()->SetTopItemIndex(pos.operator[](2));
-		}
-	}
+    if ( aPosition.operator[](0) >= 0 )
+        {
+        iListBox->SetCurrentItemIndex( aPosition.operator[](0) );
+        }
+    
+    //iListBox->View()->SetItemOffsetInPixels( aPosition.operator[](1) );
+    if (aChangeMode)
+        {
+        iListBox->View()->VerticalMoveToItemL( aPosition.operator[](0),
+                CListBoxView::ESingleSelection );
+        }
+    else
+        {
+        iListBox->View()->SetItemOffsetInPixels( aPosition.operator[](1) );
+        iListBox->View()->SetTopItemIndex( aPosition.operator[](2) );
+        }
+    }
 //End of File

@@ -33,10 +33,10 @@
 #include "CProfileImpl.h"
 #include "CProfileNameImpl.h"
 #include "ProfileEngUtils.h"
-#include "MProfileSetName.h"
-#include "ProfileEng.hrh"
+#include <MProfileSetName.h>
+#include <ProfileEng.hrh>
 #include "ProfileEngPanic.h"
-#include "ProfileEngineConstants.h"
+#include <ProfileEngineConstants.h>
 #include "ProfileEnginePrivateCRKeys.h"
 
 namespace

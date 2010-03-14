@@ -33,21 +33,21 @@
 #include "CProfileImpl.h"
 #include "CProfileNameImpl.h"
 #include "ProfileEngUtils.h"
-#include "MProfileSetName.h"
-#include "ProfileEng.hrh"
-#include "ProfileEngineConstants.h"
+#include <MProfileSetName.h>
+#include <ProfileEng.hrh>
+#include <ProfileEngineConstants.h>
 #include "ProfileEngPanic.h"
-#include "MProfileSetTones.h"
-#include "MProfileSetExtraTones.h"
+#include <MProfileSetTones.h>
+#include <MProfileSetExtraTones.h>
 #include "MProfileExtraSettings.h"
 #include "MProfileFeedbackSettings.h"
-#include "MProfilesLocalFeatures.h"
-#include "MProfileUtilitySingleton.h"
+#include <MProfilesLocalFeatures.h>
+#include <MProfileUtilitySingleton.h>
 #include "ProfilesVariant.hrh" // KProEngFeatureIdVTRingingTone
 #include "CProfileTiming.h"
 #include <centralrepository.h>
 #include "ProfileEnginePrivateCRKeys.h"
-#include "ProfileEnginePrivatePSKeys.h"
+#include <ProfileEnginePrivatePSKeys.h>
 #include <hwrmvibrasdkcrkeys.h>
 #include <data_caging_path_literals.hrh>
 #include "ProfilesDebug.h"
@@ -306,12 +306,41 @@ MProfileExtended* CProfileEngineImpl::ProfileL(
 void CProfileEngineImpl::SetActiveProfileL( TInt aId )
     {
     PRODEBUG1( "SetActiveProfileL( %d )", aId );
+    const TInt KProEngPreviousActiveNameLength( 128 );
     CreatePubSubKeysIfNeededL(); 
 
     iMutex.Wait();
     TInt err( CheckProfileIdL( aId ) );
-
+    TInt nameCompare = 0;
+    if( this->IsActiveProfileTimedL() )
+        {
+		HBufC* tempProfileName = HBufC::NewL(KProEngPreviousActiveNameLength);
+		CleanupStack::PushL(tempProfileName);  
+		TPtr tempName = tempProfileName->Des();
+		TInt cenrepErr = iCenRep->Get( KProEngPreviousActiveName,tempName );
+		if( tempName.Length() )
+			{
+			TBuf<64> activeProfileName = this->ProfileLC(aId)->ProfileName().Name();
+			nameCompare = activeProfileName.Compare( tempName );
+			CleanupStack::PopAndDestroy();
+			}
+		CleanupStack::PopAndDestroy();
+		User::LeaveIfError( iCenRep->StartTransaction(
+											CRepository::EReadWriteTransaction ) );
+		iCenRep->CleanupCancelTransactionPushL();
+		iCenRep->Set(KProEngPreviousActiveName,_L(""));
+		TUint32 ignore( 0 );
     if( !err )
+			{
+			err = iCenRep->CommitTransaction( ignore );
+			}
+		else
+			{
+			iCenRep->CancelTransaction();
+			}
+		CleanupStack::PopAndDestroy();
+        }
+    if( !err && !nameCompare )
         {
         TRAP( err, DoSetActiveProfileL( aId ) );
         }
@@ -360,7 +389,21 @@ void CProfileEngineImpl::SetActiveProfileTimedL( TInt aId, TTime aTime )
 
     if( !err )
         {
+        User::LeaveIfError( iCenRep->StartTransaction(
+                        CRepository::EReadWriteTransaction ) );
+        iCenRep->CleanupCancelTransactionPushL();
+        iCenRep->Set(KProEngPreviousActiveName,this->ActiveProfileLC()->ProfileName().Name());
+        TUint32 ignore( 0 );
+        err = iCenRep->CommitTransaction( ignore );
+        if( !err )
+            {
         TRAP( err, DoSetActiveProfileL( aId, &aTime ) );
+            }
+        else
+        	{
+        	iCenRep->CancelTransaction();
+        	}
+        CleanupStack::PopAndDestroy(2); 
         }
     iMutex.Signal();
 

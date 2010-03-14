@@ -21,9 +21,9 @@
 #include    "CProEngToneSettingsImpl.h"
 #include    <MProfileTones.h>
 #include    <MProfileExtraTones.h>
-#include    "MProfileSetTones.h"
-#include    "MProfileSetExtraTones.h"
-#include    "MProfileExtended.h"
+#include    <MProfileSetTones.h>
+#include    <MProfileSetExtraTones.h>
+#include    <MProfileExtended.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

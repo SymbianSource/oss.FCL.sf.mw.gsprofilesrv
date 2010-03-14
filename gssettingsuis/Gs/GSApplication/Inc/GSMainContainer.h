@@ -84,12 +84,12 @@ class CGSMainContainer : public CCoeControl, public MEikListBoxObserver
          * @return the exact position of the listbox containing current item index,
          * iVerticalOffset and  TopItemindex
          */
-        void GetPositionL(RArray<TInt>& posArray);
+        void GetPositionL(RArray<TInt>& aPosition);
 
         /**
          * set listbox's exact position.
          */
-        void SetPosition(const RArray<TInt>& pos, TBool aChangeMode);
+        void SetPosition(const RArray<TInt>& aPosition, TBool aChangeMode);
         
 
     public: // From CCoeControl

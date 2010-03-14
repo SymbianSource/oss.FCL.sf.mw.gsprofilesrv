@@ -34,7 +34,7 @@
 
 #include    <ProfileScheduleEvent.rsg>
 #include    "ProfileEnginePrivateCRKeys.h"
-#include    "ProfileEngineConstants.h"
+#include    <ProfileEngineConstants.h>
 #include    "ProfilesDebug.h"
 
 
