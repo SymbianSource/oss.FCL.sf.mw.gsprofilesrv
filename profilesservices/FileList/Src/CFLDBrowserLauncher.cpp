@@ -24,13 +24,13 @@
 #include    "CFLDCommandAbsorbingControl.h"
 
 // EXTERNAL INCLUDES
-#include    <BrowserLauncher.h>
+#include    <browserlauncher.h>
 #include    <DocumentHandler.h>
 #include    <eikenv.h>
 #include    <apmstd.h>
 #include	<AiwCommon.h>
-#include    <BrowserOverriddenSettings.h>
-#include    <FavouritesLimits.h> // Context Id:s
+#include    <browseroverriddensettings.h>
+#include    <favouriteslimits.h> // Context Id:s
 
 
 // ============================ MEMBER FUNCTIONS ===============================

@@ -217,7 +217,7 @@ void CRingingTone3DPlugin::Init( CDrmPlayerUtility* aSamplePlayer )
     //FLOG( _L("CRingingTone3DPlugin::InitL END") );
     }
 
-
+#ifdef RD_VIDEO_AS_RINGING_TONE
 // -----------------------------------------------------------------------------
 // CRingingTone3DPlugin::Init
 // 
@@ -238,7 +238,7 @@ void CRingingTone3DPlugin::Init( CVideoPlayerUtility* aSamplePlayer )
     
     FLOG( _L("CRingingTone3DPlugin::InitL END") );
     }
-
+#endif
 
 // -----------------------------------------------------------------------------
 // CRingingTone3DPlugin::SetAttr (from C3DRingingToneInterface.h)
@@ -327,12 +327,13 @@ TInt CRingingTone3DPlugin::SetAttr( TInt aAttributeKey, TAny* aValue )
             Init( ( CDrmPlayerUtility* )aValue );
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case E3DRTIAttrVideoPlayerUtility:
             {
             Init( ( CVideoPlayerUtility* )aValue );
             break;
             }
-
+#endif
         default:
             {
             break;
@@ -859,11 +860,13 @@ CEnvironmentalReverbUtility* CRingingTone3DPlugin::EnvironmentalReverbUtilityL()
             ret = CEnvironmentalReverbUtility::NewL( *iDrmPlayerUtility );
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             ret = CEnvironmentalReverbUtility::NewL( *iVideoPlayerUtility );
             break;
             }
+#endif
         default:
             {
             Panic(KErrArgument);
@@ -901,11 +904,13 @@ CSourceLocation* CRingingTone3DPlugin::SourceLocationL()
             ret = CSourceLocation::NewL( *iDrmPlayerUtility );
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             ret = CSourceLocation::NewL( *iVideoPlayerUtility );
             break;
             }
+#endif
         default:
             {
             Panic(KErrArgument);
@@ -943,11 +948,13 @@ CListenerLocation* CRingingTone3DPlugin::ListenerLocationL()
             ret = CListenerLocation::NewL( *iDrmPlayerUtility );
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             ret = CListenerLocation::NewL( *iVideoPlayerUtility );
             break;
             }
+#endif
         default:
             {
             Panic(KErrArgument);
@@ -986,11 +993,13 @@ CSourceDoppler* CRingingTone3DPlugin::SourceDopplerL()
             ret = CSourceDoppler::NewL( *iDrmPlayerUtility );
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             ret = CSourceDoppler::NewL( *iVideoPlayerUtility );
             break;
             }
+#endif
         default:
             {
             Panic(KErrArgument);
@@ -1077,11 +1086,13 @@ void CRingingTone3DPlugin::PlayRingingTone()
             iDrmPlayerUtility->Play();
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             iVideoPlayerUtility->Play();
             break;
             }
+#endif
         default:
             {
             break;
@@ -1120,11 +1131,13 @@ void CRingingTone3DPlugin::StopRingingTone()
             iDrmPlayerUtility->Stop();
             break;
             }
+#ifdef RD_VIDEO_AS_RINGING_TONE
         case EVideoPlayerUtility:
             {
             iVideoPlayerUtility->Stop();
             break;
             }
+#endif
         default:
             {
             Panic(KErrArgument);

@@ -98,5 +98,6 @@ LIBRARY   networkhandling.lib    //For CNWSession, TNWInfo
 #ifdef FF_POWER_SAVE
 	LIBRARY   psmclient.lib
 #endif // FF_POWER_SAVE
+LIBRARY   customapi.lib
 // End of File
 

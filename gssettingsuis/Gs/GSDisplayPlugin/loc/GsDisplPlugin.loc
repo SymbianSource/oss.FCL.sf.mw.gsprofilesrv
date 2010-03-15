@@ -64,7 +64,7 @@
 //w:
 //r:3.1
 //
-#define qtn_sanim_time_out "Screen saver time-out"
+#define qtn_sanim_time_out "Screen and keyguard time-out"
 
 
 //d:Text of a list item in Display setting list view's list
@@ -127,7 +127,7 @@
 //w:
 //r:3.2
 //
-#define qtn_sanim_time_out_slider_cur_value "%U seconds"
+#define qtn_sanim_time_out_slider_cur_value "%U minutes"
 
 
 //d:Text in slider control
@@ -137,7 +137,7 @@
 //w:
 //r:3.2
 //
-#define qtn_sanim_time_out_slider_min_value "5 secs." 
+#define qtn_sanim_time_out_slider_min_value "1 min." 
 
 //d:Text in slider control
 //d:Screen saver time-out setting page
@@ -146,7 +146,7 @@
 //w:
 //r:3.2
 //
-#define qtn_sanim_time_out_slider_max_value "90 secs."
+#define qtn_sanim_time_out_slider_max_value "30 min."
 
 
 // ************************************

@@ -113,17 +113,18 @@ class CGSParentContainer : public CCoeControl, public MEikListBoxObserver
         void SetListBoxEmptyTextL(const TDes& aEmpty );
         
         /**
-         * @return the exact position of the listbox containing current item index,
-         * iVerticalOffset and  TopItemindex
-         */
-        void GetPositionL(RArray<TInt>& aPosition);
+         * Store listbox's exact position.
+        * @param aPosition includes the exact position of the listbox.
+        */
+        void StoreListBoxPositionL( CGSParentPlugin::TListBoxPosition& aPosition );
 
         /**
-         * set listbox's exact position.
-         */
-        void SetPosition(const RArray<TInt>& aPosition, TBool aChangeMode);   
+        * Restore listbox's exact position.
+        * @param aPosition includes the exact position of the listbox.
+        * @param aScreenModeChanged indicates whether the screen mode is changed.
+        */
+        void RestoreListBoxPositionL( const CGSParentPlugin::TListBoxPosition& aPosition, TBool aScreenModeChanged );                
         
-
     public: // From CCoeControl
 
         /**

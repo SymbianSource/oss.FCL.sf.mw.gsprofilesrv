@@ -35,7 +35,7 @@
 #include <AknsUtils.h>          // AknsUtils
 
 // for CWebBrowserLauncher
-#include <BrowserLauncher.h>
+#include <browserlauncher.h>
 #include <DocumentHandler.h>
 #include <AiwCommon.h>
 

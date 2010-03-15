@@ -458,6 +458,8 @@ void CGSNetworkPlugin::NetworkListL()
                 }
             else // user selected "Cancel"
                 {
+                //Reset back to previously used network
+                iPhoneSettingsEngine->ResetNetworkSearch();
                 //After list has been used, clear it.
                 PurgeNetworkList();
                 if ( iPhoneSettingsEngine->IsCallActive() !=
@@ -862,19 +864,27 @@ void CGSNetworkPlugin::ShowSettingPageL( TGSNetworkItemIds aPage )
             {
             //not required for network mode UI item.
             //other items require calling this method.
-            if ( aPage != EGSNetworkModeItemId )
-                {
-                CreateNetworkSsCallL( currentFeature, aPage );
-                }
-            else if ( prevSelection != currentIndex )
-                {
-                // Show the confirmation query. Uses TGSNetworkModeItems.
-                Container()->SetCurrentNetworkModeSelectionL( currentFeature );
-                }
-            }
-        CleanupStack::PopAndDestroy( itemArray );
-        }
-    //We'll update listbox for Network Mode when we're sure that phone is not
+            if (aPage != EGSNetworkModeItemId)
+				{
+				CreateNetworkSsCallL(currentFeature, aPage);
+				}
+			else if (prevSelection != currentIndex)
+				{
+				if ( iPsmActive->Mode() == EPsmsrvModePowerSave )
+					{
+					// If PSM is on, block setting:
+					DisplayBlockNoteL();
+					}
+				else
+					{
+					// Show the confirmation query. Uses TGSNetworkModeItems.
+					Container()->SetCurrentNetworkModeSelectionL(currentFeature);
+					}
+				}
+			}
+		CleanupStack::PopAndDestroy(itemArray);
+		}
+	//We'll update listbox for Network Mode when we're sure that phone is not
     //in Offline mode
     if ( aPage != EGSNetworkModeItemId )
         {

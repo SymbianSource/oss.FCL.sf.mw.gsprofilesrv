@@ -68,7 +68,7 @@
         #include    "../GSSynchronisationPlugin/bld.inf"
         #include    "../GSInstallationsPlugin/bld.inf"
         #include    "../GSAdminPlugin/bld.inf"
-        #include    "../GSAutoKeyguardPlugin/bld.inf"
+//        #include    "../GSAutoKeyguardPlugin/bld.inf"
     #endif //RD_CONTROL_PANEL
 
     #ifdef __HSXPA_SUPPORT

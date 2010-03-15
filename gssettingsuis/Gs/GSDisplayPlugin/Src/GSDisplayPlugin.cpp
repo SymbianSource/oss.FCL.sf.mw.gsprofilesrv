@@ -565,7 +565,7 @@ void CGSDisplayPlugin::ShowAmbientLightSensorSettingPageL()
 //
 void CGSDisplayPlugin::ShowScreenSaverPeriodSettingPageL()
     {
-    TInt sliderValue = iModel->ScreenSaverPeriodL();
+    TInt sliderValue = iModel->ScreenSaverAndKeyguardPeriodL();
 
     CAknSettingPage* dlg = new( ELeave ) CAknSliderSettingPage(
                            R_SCREEN_SAVER_PERIOD_SETTING_PAGE, sliderValue );
@@ -580,7 +580,7 @@ void CGSDisplayPlugin::ShowScreenSaverPeriodSettingPageL()
         else
             {
 #endif //FF_POWER_SAVE
-            iModel->SetScreenSaverPeriodL( sliderValue );
+            iModel->SetScreenSaverAndKeyguardPeriodL( sliderValue );
 #ifdef FF_POWER_SAVE 
             }
 #endif //FF_POWER_SAVE

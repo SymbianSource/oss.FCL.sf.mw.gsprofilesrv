@@ -162,6 +162,11 @@ class CGSNetworkPluginModel : public CBase,
         void StartAsynGetCurrentNetworkModeSelectionL();     
         
         /**
+         * StartSynGetCurrentNetworkModeSelectionL
+         */
+        void StartSynGetCurrentNetworkModeSelectionL();
+        
+        /**
         * GetNetworkSelectionMode
         */
         MPsetNetworkSelect::TSelectMode GetNetworkSelectionMode();

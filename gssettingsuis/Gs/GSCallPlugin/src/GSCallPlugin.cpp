@@ -42,9 +42,9 @@
 #include <PsetContainer.h>              //for container
 #include <PsuiContainer.h>              //for CPsuiContainer
 #include <featmgr.h>
-#include <SecUiSecurityHandler.h>       //for PIN2 query
-#include <SecUi.h>                      //for TSecUi
-#include <SecUiSecuritySettings.h>      //for CSecuritySettings
+#include <secuisecurityhandler.h>       //for PIN2 query
+#include <secui.h>                      //for TSecUi
+#include <secuisecuritysettings.h>      //for CSecuritySettings
 #include <GSCallPluginRsc.rsg>           //for resource IDs
 #include <gscallplugin.mbg>
 #include <gsfwviewuids.h>

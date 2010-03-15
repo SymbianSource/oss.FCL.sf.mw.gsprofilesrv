@@ -745,9 +745,7 @@ void CProfileEngineImpl::DoSetActiveProfileL(
         TInt activeId( ( previousId != KErrNotFound )
                        ? previousId
                        : User::LeaveIfError( ActiveProfileId() ) );
-        iProfileTiming->SetTimedProfileL( activeId,
-        		                          *aTime, 
-        		                          ActiveProfileL()->ProfileName().Name() );
+        iProfileTiming->SetTimedProfileL( activeId, *aTime );
         }
 
     TRAPD( error, UpdateActiveProfileSettingsL( *profile, ETrue ) );

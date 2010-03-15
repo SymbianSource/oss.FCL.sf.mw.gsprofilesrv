@@ -170,11 +170,13 @@ NONSHARABLE_CLASS (CRingingTone3DPlugin): public C3DRingingToneInterface,
         */
         void Init( CDrmPlayerUtility* aSamplePlayer );
 
+#ifdef RD_VIDEO_AS_RINGING_TONE
        /**
         * Initializes player utility.
         * @param aSamplePlayer Player utility.
         */
         void Init( CVideoPlayerUtility* aSamplePlayer  );
+#endif
         
        /**
         * Plays 3D ringing tone.
@@ -324,8 +326,10 @@ NONSHARABLE_CLASS (CRingingTone3DPlugin): public C3DRingingToneInterface,
     	// player utility
     	CDrmPlayerUtility* iDrmPlayerUtility;
     	
+#ifdef RD_VIDEO_AS_RINGING_TONE
     	// player utility
     	CVideoPlayerUtility* iVideoPlayerUtility; 
+#endif
   
     	// timer for updating 3D pattern position
     	C3DAudioTimeOutTimer* iTimer;

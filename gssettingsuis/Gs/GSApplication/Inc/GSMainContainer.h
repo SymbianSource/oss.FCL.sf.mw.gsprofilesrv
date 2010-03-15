@@ -22,7 +22,7 @@
 #include    <bldvariant.hrh>
 #include    <AknIconArray.h>
 #include    <AknsUtils.h>     // For loading icons
-
+#include    <gsmainview.h>
 // CLASS DECLARATION
 class CAknViewAppUi;
 class CAknSingleLargeStyleListBox;
@@ -81,15 +81,17 @@ class CGSMainContainer : public CCoeControl, public MEikListBoxObserver
         void SetListBoxEmptyTextL(const TDes& aEmpty);
 
         /**
-         * @return the exact position of the listbox containing current item index,
-         * iVerticalOffset and  TopItemindex
+         * Store listbox's exact position.
+         * @param aPosition includes the exact position of the listbox.
          */
-        void GetPositionL(RArray<TInt>& aPosition);
+        void StoreListBoxPositionL( CGSMainView::TListBoxPosition& aPosition );
 
         /**
-         * set listbox's exact position.
+         * Restore listbox's exact position.
+         * @param aPosition includes the exact position of the listbox.
+         * @param aScreenModeChanged indicates whether the screen mode is changed.
          */
-        void SetPosition(const RArray<TInt>& aPosition, TBool aChangeMode);
+        void RestoreListBoxPositionL( const CGSMainView::TListBoxPosition& aPosition, TBool aScreenModeChanged );
         
 
     public: // From CCoeControl

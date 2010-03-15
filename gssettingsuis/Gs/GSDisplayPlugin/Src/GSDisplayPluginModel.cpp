@@ -149,6 +149,7 @@ void CGSDisplayPluginModel::InitializeCentralRepositoryL()
     iPersonalizationRepository =
             CRepository::NewL( KCRUidPersonalizationSettings );
     iLightRepository = CRepository::NewL( KCRUidLightSettings );
+    iSecurityRepository = CRepository::NewL( KCRUidSecuritySettings );
     iGSVariationRepository = CRepository::NewL( KCRUidSettingsVariation );
     iAvkonRepository = CRepository::NewL( KCRUidAvkon );
     
@@ -213,6 +214,8 @@ void CGSDisplayPluginModel::UninitializeCentralRepository()
         delete iAvkonRepository;
         iAvkonRepository = NULL;
         }
+    delete iSecurityRepository;
+    iSecurityRepository = NULL;
     }
 
 
@@ -363,30 +366,32 @@ void CGSDisplayPluginModel::SetScreenSaverTextL( const TDesC& aText )
 
 
 // ----------------------------------------------------------------------------
-// CGSDisplayPluginModel::ScreenSaverPeriodL
+// CGSDisplayPluginModel::ScreenSaverAndKeyguardPeriodL
 //
 // Reads screen saver period from shared data and returns it.
 // ----------------------------------------------------------------------------
 //
-TInt CGSDisplayPluginModel::ScreenSaverPeriodL()
+TInt CGSDisplayPluginModel::ScreenSaverAndKeyguardPeriodL()
     {
     TInt period = KGSSettingOff;
-    User::LeaveIfError( iPersonalizationRepository->
-            Get( KSettingsScreenSaverPeriod, period ) );
+    User::LeaveIfError( iSecurityRepository->
+            Get( KSettingsAutomaticKeyguardTime, period ) );
 
-    return period;
+    // period is stored in seconds, but the user setting is in minutes
+    return period / 60;
     }
 
 // ----------------------------------------------------------------------------
-// CGSDisplayPluginModel::SetScreenSaverPeriodL
+// CGSDisplayPluginModel::SetScreenSaverAndKeyguardPeriodL
 //
 // Writes screen saver text to shared data.
 // ----------------------------------------------------------------------------
 //
-void CGSDisplayPluginModel::SetScreenSaverPeriodL( const TInt aPeriod )
+void CGSDisplayPluginModel::SetScreenSaverAndKeyguardPeriodL( const TInt aPeriod )
     {
-    User::LeaveIfError( iPersonalizationRepository->
-            Set( KSettingsScreenSaverPeriod, aPeriod ) );
+    // value is in minutes but keyguard uses seconds
+    User::LeaveIfError( iSecurityRepository->
+            Set( KSettingsAutomaticKeyguardTime, aPeriod * 60 ) );
     }
 
 

@@ -55,12 +55,7 @@ const TUint32 KProEngSchedulerHandleId     = 0x80000004;
  */
 const TUint32 KProEngSchedulerTaskId       = 0x80000005;
 
-/**
- * If the current active profile is timed, this contains the Name of the previous
- * active profile. String.
- * Default value: Null
- */
-const TUint32 KProEngPreviousActiveName    = 0x80000006;
+
 
 //
 // The rest of the constants are used with profile-specific settings. The

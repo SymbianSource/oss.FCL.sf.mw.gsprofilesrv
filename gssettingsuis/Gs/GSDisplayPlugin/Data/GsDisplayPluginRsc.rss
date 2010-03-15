@@ -393,9 +393,9 @@ RESOURCE AVKON_SETTING_PAGE r_ambient_light_sensor_setting_page
 RESOURCE SLIDER r_setting_screen_saver_slider 
     {
     layout = EAknSettingsItemSliderLayout;
-    minvalue = 5;
-    maxvalue = 90;
-    step = 5;
+    minvalue = 1;
+    maxvalue = 30;
+    step = 1;
     valuetype = EAknSliderValueBareFigure;
     minlabel = qtn_sanim_time_out_slider_min_value;
     maxlabel = qtn_sanim_time_out_slider_max_value;

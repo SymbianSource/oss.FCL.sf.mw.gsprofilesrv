@@ -161,14 +161,14 @@ NONSHARABLE_CLASS( CGSDisplayPluginModel ): public CBase,
         * if the keys are not pressed.
         * @return Minutes between 1 and 30.
         */
-        TInt ScreenSaverPeriodL();
+        TInt ScreenSaverAndKeyguardPeriodL();
 
         /**
         * Sets the period of time after which the screen saver starts
         * if the keys are not pressed.
         * @param aPeriod Screen saver period (minutes between 1 and 30).
         */
-        void SetScreenSaverPeriodL( const TInt aPeriod );
+        void SetScreenSaverAndKeyguardPeriodL( const TInt aPeriod );
 
         /**
         * Returns the period of time after which the backlight fades out
@@ -336,6 +336,7 @@ NONSHARABLE_CLASS( CGSDisplayPluginModel ): public CBase,
         CRepository* iStartupConfRepository;
         CRepository* iScreensaverRepository;
         CRepository* iLightRepository;
+        CRepository* iSecurityRepository;
         CRepository* iGSVariationRepository;
         CRepository* iAvkonRepository;
         // Used for OperatorLogo

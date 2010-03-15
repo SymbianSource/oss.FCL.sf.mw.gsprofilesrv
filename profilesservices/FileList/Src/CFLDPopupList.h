@@ -136,11 +136,10 @@ NONSHARABLE_CLASS( CFLDPopupList )
 		/// FileList Model
 		CFLDFileListModel& iModel;
 
-#ifdef RD_VIDEO_AS_RINGING_TONE
+
 		/// Current softkeystate
 		MFLDFileListBoxObserver::TFileListSoftKeyState iSoftKeyState;
 
-#endif
 
 		TFileName iCurrentFileName;
 

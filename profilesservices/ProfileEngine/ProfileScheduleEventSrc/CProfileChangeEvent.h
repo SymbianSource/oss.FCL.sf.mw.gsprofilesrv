@@ -26,9 +26,8 @@
 #include <f32file.h>
 
 // FORWARD DECLARATIONS
-class MProfileEngineExtended;
+class MProfileEngine;
 class CAknGlobalNote;
-class CRepository;
 
 // CLASS DECLARATION
 
@@ -110,7 +109,7 @@ class CProfileChangeEvent : public CBase
 
     private:    // Data
         // Own: Profiles Engine for profile activation
-    	MProfileEngineExtended* iProfileEngine;
+        MProfileEngine* iProfileEngine;
 
         // Own: Global note to show the expiration conf. note to the user
         CAknGlobalNote* iGlobalNote;
@@ -133,8 +132,7 @@ class CProfileChangeEvent : public CBase
         // Supported features
         TBool iCoverDisplay;
         
-        // Central Repository
-        CRepository* iCenRep;
+     
     };
 
 #endif      // CPROFILECHANGEEVENT_H

@@ -108,7 +108,7 @@ CProfileTiming::~CProfileTiming()
 // (other items were commented in a header).
 // -----------------------------------------------------------------------------
 //
-void CProfileTiming::SetTimedProfileL( TInt aPreviousId, TTime aTime, const TDesC& aPreviousName )
+void CProfileTiming::SetTimedProfileL( TInt aPreviousId, TTime aTime )
     {
     PRODEBUG1( "CProfileTiming:SetTimedProfile( %d )", aPreviousId );
     if( !iFeatures.IsFeatureSupported( KProEngFeatureIdTimedProfiles ) )
@@ -158,7 +158,7 @@ void CProfileTiming::SetTimedProfileL( TInt aPreviousId, TTime aTime, const TDes
             iTaskId = taskInfo.iTaskId;
             PRODEBUG( "CProfileTiming:SetTimedProfile before SaveSchedulingData" );
             SaveSchedulingData( aPreviousId, iSchedulerItemRef.iHandle,
-                                iTaskId, aPreviousName );
+                                iTaskId );
             PRODEBUG( "CProfileTiming:SetTimedProfile after SaveSchedulingData" );
             }
         }
@@ -256,13 +256,10 @@ TBool CProfileTiming::IsTimingActiveL()
 // (other items were commented in a header).
 // -----------------------------------------------------------------------------
 //
-void CProfileTiming::SaveSchedulingData( TInt aPreviousId,
-		                                 TInt aHandleId,
-                                         TInt aTaskId, 
-                                         const TDesC& aPreviousName )
+void CProfileTiming::SaveSchedulingData( TInt aPreviousId, TInt aHandleId,
+                                         TInt aTaskId )
     {
     iRepository.Set( KProEngSchedulerHandleId, aHandleId );
-    iRepository.Set( KProEngPreviousActiveName, aPreviousName);
     iRepository.Set( KProEngPreviousActiveId, aPreviousId );
     iRepository.Set( KProEngSchedulerTaskId, aTaskId );
     }

@@ -40,7 +40,7 @@
 #include <PsetSAObserver.h>  //ongoing call check
 #include "GSNetworkDebugHelper.h"
 #include <GsNetworkPluginRsc.rsg>           //for resource IDs
-
+#include <mmtsy_names.h>
 //CONSTANTS
 // default value for autolock period
 // default value for Sat operations
@@ -390,8 +390,17 @@ void CGSNetworkPluginModel::CreatePhoneSettingsEngineL()
         iPhoneSettingsEngine = iSettingsContainer->CreateNetworkModeObjectL( *this );
         }
     iPhoneSettingsEngine->SetNetworkModeObserver( *this );
-    // get the current net mode asynchronously
-    StartAsynGetCurrentNetworkModeSelectionL();
+    //CPSMNetworkPlugin will init iPlugin NULL.
+    if ( iPlugin == NULL )
+    	{
+    	// get the current net mode synchronously
+    	StartSynGetCurrentNetworkModeSelectionL();
+    	}
+    else
+    	{
+    	// get the current net mode asynchronously
+    	StartAsynGetCurrentNetworkModeSelectionL();
+    	}
     
     __GSLOGSTRING("[GS] <--CGSNetworkPluginModel::CreatePhoneSettingsEngineL");
     }
@@ -546,6 +555,79 @@ void CGSNetworkPluginModel::StartAsynGetCurrentNetworkModeSelectionL()
     }
 
 // ---------------------------------------------------------------------------
+// CGSNetworkPluginModel::StartSynGetCurrentNetworkModeSelectionL
+//
+// ---------------------------------------------------------------------------
+//
+void CGSNetworkPluginModel::StartSynGetCurrentNetworkModeSelectionL()
+    {
+	// Connects to Etel and loads Tsy module
+	RMobilePhone phone;
+    RTelServer   server;
+    // Custom phone.
+    RMmCustomAPI customPhone;
+    
+    TInt err = KErrNone;
+	for ( TInt a = 0; a < KPSetRetryCount; a++ )
+		{
+		err = server.Connect();
+
+		if ( err == KErrNone )
+			{
+			break;
+			}
+
+		User::After( KPSetRetryTimeout );
+		}
+
+	if ( err != KErrNone )
+		{
+		User::Leave( err );
+		}
+	else
+		{
+		server.LoadPhoneModule( KMmTsyModuleName );
+		}
+	User::LeaveIfError( server.SetExtendedErrorGranularity( RTelServer::EErrorExtended ) );
+
+	TInt numPhones;
+
+	User::LeaveIfError( server.EnumeratePhones( numPhones ) );
+	if ( !numPhones )
+		{
+		User::Leave( KErrGeneral );
+		}
+
+	//match phone name to correct one
+	RTelServer::TPhoneInfo phoneInfo;
+	TName matchTsyName;
+	TInt i = 0;
+	for (; i < numPhones; i++)
+		{
+		User::LeaveIfError(server.GetTsyName(i, matchTsyName));
+		if (matchTsyName.CompareF(KMmTsyModuleName) == 0)
+			{
+			User::LeaveIfError(server.GetPhoneInfo(i, phoneInfo));
+			break;
+			}
+		}
+	if (i == numPhones)
+		{
+		User::Leave(KErrGeneral);
+		}
+
+	//open phone subsession
+	User::LeaveIfError( phone.Open( server, phoneInfo.iName ) );
+	User::LeaveIfError( customPhone.Open( phone ) );
+	TUint32 currentNetworkModes;
+	customPhone.GetCurrentSystemNetworkModes( currentNetworkModes );
+	iNetworkMode = (TInt)currentNetworkModes;
+	customPhone.Close();
+	phone.Close();
+	server.Close();	
+	}
+
+// ---------------------------------------------------------------------------
 // CGSNetworkPluginModel::GetNetworkMode
 //
 // ---------------------------------------------------------------------------
@@ -661,7 +743,5 @@ TBool CGSNetworkPluginModel::IsCallActive()
     
     return callActive;
     }
-
-
 
 //  End of File

@@ -99,6 +99,7 @@ void CGSMainView::ConstructL()
     iPluginLoader->SetObserver( this );
     iPluginLoader->LoadAsyncL( KGSPluginInterfaceUid, KGSMainViewUid,
         iPluginArray );
+    iPosition.Reset();
     }
 
 
@@ -132,10 +133,6 @@ CGSMainView::~CGSMainView()
         iAppUi->RemoveFromViewStack( *this, iContainer );
         delete iContainer;
         }
-    if (iPosition.Count() > 0)
-		{
-		iPosition.Close();
-		}
     }
 
 
@@ -207,15 +204,15 @@ void CGSMainView::DoActivateL( const TVwsViewId& /*aPrevViewId*/,
     
     // Do this to update listbox from already existing iPluginArray.
     iContainer->UpdateListBoxL();
-    if (iPosition.Count() > 0)
+    if ( iPosition.iCurrentItemIndex != -1 )
 		{
-		if (iScreenMode == Layout_Meta_Data::IsLandscapeOrientation())
+		if ( iIsLandscapeOrientation == Layout_Meta_Data::IsLandscapeOrientation() )
 			{
-			iContainer->SetPosition(iPosition, EFalse);
+			iContainer->RestoreListBoxPositionL( iPosition, EFalse );
 			}
 		else
 			{
-			iContainer->SetPosition(iPosition, ETrue);
+			iContainer->RestoreListBoxPositionL( iPosition, ETrue );
 			}
 		}
     iAppUi->AddToViewStackL( *this, iContainer );
@@ -243,12 +240,10 @@ void CGSMainView::DoDeactivate()
     
     if ( iContainer )
         {
-		if (iPosition.Count() > 0)
-			{
-			iPosition.Reset();
-			}
-		TRAPD(err, iContainer->GetPositionL(iPosition));
-		iScreenMode = Layout_Meta_Data::IsLandscapeOrientation();
+		
+		iPosition.Reset();
+		TRAPD( err, iContainer->StoreListBoxPositionL( iPosition ) );
+		iIsLandscapeOrientation = Layout_Meta_Data::IsLandscapeOrientation();
 		iAppUi->RemoveFromViewStack(*this, iContainer);
         delete iContainer;
         iContainer = NULL;

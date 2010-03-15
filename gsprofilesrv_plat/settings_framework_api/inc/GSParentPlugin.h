@@ -229,6 +229,26 @@ class CGSParentPlugin : public CGSPluginInterface,
         * @since S60 v3.1
         */
         void SetMiddleSoftKeyLabelTextL( const TPtr aMskLabel, const TInt aCommandId );
+        
+        /**
+        * represent the position of ListBox
+        */
+        struct TListBoxPosition
+            {
+            /**
+            * The three items are all set to -1 as an initial value because their legal
+            * value should be no less than 0.
+            */
+        	inline void Reset()
+        	    {
+        	 	iCurrentItemIndex = -1;
+        		iItemOffsetInPixels = -1;
+        		iTopItemIndex = -1;
+        		}
+        	TInt iCurrentItemIndex;
+        	TInt iItemOffsetInPixels;
+        	TInt iTopItemIndex;
+        	};
 
     public: // From MGSChildViewManager
 
@@ -330,11 +350,11 @@ class CGSParentPlugin : public CGSPluginInterface,
         TUid iTopPluginUid;
         
         //keep the exact position of the listbox including current item index,
-        //iVerticalOffset and  TopItemindex
-        RArray<TInt> iPosition;
+        //ItemOffsetInPixels and  TopItemindex
+        TListBoxPosition iPosition;
         
         //record the screen mode, portrait/landscape
-        TBool iScreenMode;
+        TBool iIsLandscapeOrientation;
 };
 
 

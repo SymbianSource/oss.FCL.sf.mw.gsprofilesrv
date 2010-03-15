@@ -148,7 +148,7 @@ void CPSMDisplayPlugin::DoModeChangeL( const TInt aMode )
     TPsmsrvConfigInfo info5;
     info5.iConfigId = EScreenSaverPeriod;
     info5.iConfigType = EConfigTypeInt;
-    info5.iIntValue = iModel->ScreenSaverPeriodL();
+    info5.iIntValue = iModel->ScreenSaverAndKeyguardPeriodL();
     infoArray.Append( info5 );
 
 #ifndef __WINS__
@@ -195,7 +195,7 @@ void CPSMDisplayPlugin::DoModeChangeL( const TInt aMode )
 
     if ( iModel->CheckScreenSaverTimeoutSupportL() )
         {
-        iModel->SetScreenSaverPeriodL( infoArray[4].iIntValue );
+        iModel->SetScreenSaverAndKeyguardPeriodL( infoArray[4].iIntValue );
         }
 
     iModel->SetBacklightPeriodL( infoArray[1].iIntValue );

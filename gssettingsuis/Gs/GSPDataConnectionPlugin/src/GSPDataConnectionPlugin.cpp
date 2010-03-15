@@ -261,12 +261,27 @@ TBool CGSPDataConnectionPlugin::ShowAttachSettingPageL( TInt& aPDataConnectionSt
                             R_GS_PDATACONNECTION_SETTING_PAGE_LBX );
     CleanupStack::PushL( items );
     
-    CAknRadioButtonSettingPage* dlg =
-        new (ELeave) CAknRadioButtonSettingPage
-                                 ( R_GS_PDATACONNECTION_SETTING_PAGE,
-                                   aPDataConnectionState,
-                                   items );
-    dlg->ExecuteLD( CAknSettingPage::EUpdateWhenChanged );
+    if( items->Count() != 2 )
+        {
+        CAknRadioButtonSettingPage* dlg =
+            new (ELeave) CAknRadioButtonSettingPage
+                                     ( R_GS_PDATACONNECTION_SETTING_PAGE,
+                                       aPDataConnectionState,
+                                       items );
+        dlg->ExecuteLD( CAknSettingPage::EUpdateWhenChanged );
+        }
+    else
+        {
+        if (aPDataConnectionState == 0)
+            {
+            aPDataConnectionState = 1;
+            }
+        else
+            {
+            aPDataConnectionState = 0;
+            }
+        }
+    
     CleanupStack::PopAndDestroy( items );
     
     // Check if aPDataConnectionState has been changed:

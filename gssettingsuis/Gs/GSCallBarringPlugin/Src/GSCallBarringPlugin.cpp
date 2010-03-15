@@ -36,7 +36,7 @@
 #include <PsetContainer.h>          //for CPsetContainer
 #include <PsuiContainer.h>          //for CPsuiContainer
 #include <eikmenup.h>               //for menu bar
-#include <SecUiCodeQueryDialog.h>
+#include <secuicodequerydialog.h>
 #include <nwdefs.h>
 #include <aknViewAppUi.h>
 

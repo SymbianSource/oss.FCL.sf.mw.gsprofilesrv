@@ -834,42 +834,40 @@ void CGSParentContainer::SetListBoxEmptyTextL(const TDes& aEmpty )
     }
 
 // -----------------------------------------------------------------------------
-// CGSParentContainer::GetPositionL()
+// CGSParentContainer::StoreListBoxPositionL
 //
-//Get the exact position of listbox.
+//Store the exact position of listbox.
 // -----------------------------------------------------------------------------
 //
-void CGSParentContainer::GetPositionL(RArray<TInt>& aPosition)
+void CGSParentContainer::StoreListBoxPositionL( CGSParentPlugin::TListBoxPosition& aPosition )
 	{
-	aPosition.AppendL(iListBox->CurrentItemIndex());
-	aPosition.AppendL(iListBox->View()->ItemOffsetInPixels());
-	aPosition.AppendL(iListBox->View()->TopItemIndex());
-	return;
+    aPosition.iCurrentItemIndex = iListBox->CurrentItemIndex();
+    aPosition.iItemOffsetInPixels = iListBox->View()->ItemOffsetInPixels();
+    aPosition.iTopItemIndex = iListBox->View()->TopItemIndex();
 	}
 
 // -----------------------------------------------------------------------------
-// CGSParentContainer::GetPositionL()
+// CGSParentContainer::RestoreListBoxPositionL
 //
-//Get the exact position of listbox.
+//Restore the exact position of listbox.
 // -----------------------------------------------------------------------------
 //
-void CGSParentContainer::SetPosition(const RArray<TInt>& aPosition, TBool aChangeMode)
+void CGSParentContainer::RestoreListBoxPositionL( const CGSParentPlugin::TListBoxPosition& aPosition, TBool aScreenModeChanged )
 	{
-    if ( aPosition.operator[](0) >= 0 )
+    if ( aPosition.iCurrentItemIndex >= 0 )
         {
-        iListBox->SetCurrentItemIndex( aPosition.operator[](0) );
+        iListBox->SetCurrentItemIndex( aPosition.iCurrentItemIndex );
         }
     
-    //iListBox->View()->SetItemOffsetInPixels( aPosition.operator[](1) );
-    if (aChangeMode)
+    if ( aScreenModeChanged )
         {
-        iListBox->View()->VerticalMoveToItemL( aPosition.operator[](0),
+        iListBox->View()->VerticalMoveToItemL( aPosition.iCurrentItemIndex,
                 CListBoxView::ESingleSelection );
         }
     else
         {
-        iListBox->View()->SetItemOffsetInPixels( aPosition.operator[](1) );
-        iListBox->View()->SetTopItemIndex( aPosition.operator[](2) );
+        iListBox->View()->SetItemOffsetInPixels( aPosition.iItemOffsetInPixels );
+        iListBox->View()->SetTopItemIndex( aPosition.iTopItemIndex );
         }
     }
 //End of File

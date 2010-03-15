@@ -392,7 +392,7 @@ void CGSDisplayPluginContainer::MakeAmbientLightSensorItemL()
 //
 void CGSDisplayPluginContainer::MakeSSPItemL()
     {
-    TInt timeOut = iModel->ScreenSaverPeriodL();
+    TInt timeOut = iModel->ScreenSaverAndKeyguardPeriodL();
     HBufC* dynamicText = CAknSlider::CreateValueTextInHBufCL( timeOut,
                                      R_SETTING_SCREEN_SAVER_SLIDER );
 
