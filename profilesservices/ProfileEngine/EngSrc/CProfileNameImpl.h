@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <MProfileName.h>
 #include <e32base.h>
-#include "MProfileSetName.h"
+#include <MProfileSetName.h>
 
 // FORWARD DECLARATIONS
 class RWriteStream;

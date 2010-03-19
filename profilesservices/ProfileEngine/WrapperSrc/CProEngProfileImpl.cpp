@@ -23,10 +23,10 @@
 #include    "CProEngTonesImpl.h"
 #include    "CProEngToneSettingsImpl.h"
 #include    "CProEngEngineImpl.h"
-#include    "MProfileExtended.h"
-#include    "MProfileEngineExtended.h"
-#include    "MProfileSetTones.h"
-#include    "MProfileExtended.h"
+#include    <MProfileExtended.h>
+#include    <MProfileEngineExtended.h>
+#include    <MProfileSetTones.h>
+#include    <MProfileExtended.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

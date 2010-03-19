@@ -19,6 +19,13 @@
 
 // INCLUDE FILES
 #include "CProfileEngineImpl.h"
+#include "CProfilesNamesArrayImpl.h"
+#include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "ProfileEngUtils.h"
+#include "ProfileEng.hrh"
+#include "ProfileEngPanic.h"
+#include "ProfileEnginePrivateCRKeys.h"
 #include <bautils.h>
 #include <barsc.h>
 #include <featmgr.h>
@@ -29,15 +36,8 @@
 #include <ProfileEng.rsg>
 #include <TProfileToneSettings.h>
 #include <MProfileTones.h>
-#include "CProfilesNamesArrayImpl.h"
-#include "CProfileImpl.h"
-#include "CProfileNameImpl.h"
-#include "ProfileEngUtils.h"
-#include "MProfileSetName.h"
-#include "ProfileEng.hrh"
-#include "ProfileEngPanic.h"
-#include "ProfileEngineConstants.h"
-#include "ProfileEnginePrivateCRKeys.h"
+#include <MProfileSetName.h>
+#include <ProfileEngineConstants.h>
 
 namespace
     {

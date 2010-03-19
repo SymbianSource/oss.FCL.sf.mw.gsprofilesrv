@@ -19,9 +19,15 @@
 
 // INCLUDE FILES
 #include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "CProfileTonesImpl.h"
+#include "CProfileExtraTonesImpl.h"
+#include "CProfileExtraSettingsImpl.h"
+#include "CProfilePresenceImpl.h"
+#include "ProfileEngUtils.h"
+#include "ProfileEnginePrivateCRKeys.h"
 #include <e32svr.h>
 #include <cntitem.h>
-#include <CPbkContactEngine.h>
 #include <cntdb.h>
 #include <cntdef.h>
 #include <TProfileToneSettings.h>
@@ -30,16 +36,9 @@
 #include <bldvariant.hrh>
 #include <RSSSettings.h>
 #include <pathinfo.h>
-#include "CProfileNameImpl.h"
-#include "CProfileTonesImpl.h"
-#include "CProfileExtraTonesImpl.h"
-#include "CProfileExtraSettingsImpl.h"
-#include "CProfilePresenceImpl.h"
-#include "MProfilesLocalFeatures.h"
-#include "MProfileUtilitySingleton.h"
-#include "ProfilesVariant.hrh"
-#include "ProfileEngUtils.h"
-#include "ProfileEnginePrivateCRKeys.h"
+#include <MProfilesLocalFeatures.h>
+#include <MProfileUtilitySingleton.h>
+#include <ProfilesVariant.hrh>
 #include <ProfileEngineDomainConstants.h>
 
 // CONSTANTS
@@ -216,39 +215,7 @@ void CProfileImpl::SetLocalizedProfileNameL( const CProfileNameImpl& aNameImpl,
 const TArray<TContactItemId> CProfileImpl::AlertForL()
     {
     TInt contactIdListCount( iAlertFor.Count() );
-    if( contactIdListCount > 0 )
-        {
-        // create CPbkContactEngine
-        CPbkContactEngine* contactEngine = CPbkContactEngine::NewL( &iFs );
-        CleanupStack::PushL( contactEngine );
-        CContactIdArray* groupIds = contactEngine->Database().GetGroupIdListL();
 
-        if( !groupIds )
-            { // There are no groups in Contacts db -> clear the alert for IDs:
-            iAlertFor.Reset();
-            }
-        else
-            {
-            CleanupStack::PushL( groupIds );
-            TInt err;
-            for( TInt i( 0 ) ; i < contactIdListCount ; ++i )
-                {
-                err = groupIds->Find( iAlertFor[i] );
-
-                if( err == KErrNotFound )
-                    {
-                    // remove this
-                    iAlertFor.Remove( i );
-                    --contactIdListCount;
-                    --i;
-                    err = KErrNone;
-                    }
-                User::LeaveIfError( err );
-                }
-            CleanupStack::PopAndDestroy();  // groupIds
-            }
-        CleanupStack::PopAndDestroy();  // contactEngine
-        }
 
     return iAlertFor.Array();
     }

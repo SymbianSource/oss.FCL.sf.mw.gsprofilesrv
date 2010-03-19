@@ -1,8 +1,0 @@
-<PowerSaveModeConfig>
-	<Setting mode="1"><!-- PSM mode in power saving mode -->
-		<SetItem key="1" type="0" value="1"></SetItem>  <!--ENetworkMode-->
-	</Setting>
-	<Setting mode="2"><!-- PSM mode in partial power saving mode-->
-		<SetItem key="1" type="0" value="1"></SetItem>  <!--ENetworkMode-->
-	</Setting>
-</PowerSaveModeConfig>

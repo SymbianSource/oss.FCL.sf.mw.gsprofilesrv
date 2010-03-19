@@ -19,14 +19,14 @@
 
 // INCLUDE FILES
 #include    "CProEngEngineImpl.h"
-#include    <f32file.h>
-#include    <MProEngProfile.h>
-#include    <MProEngProfileNameArray.h>
-#include    "MProfileEngineExtended.h"
-#include    "ProfileEngineConstants.h"
 #include    "CProEngProfileImpl.h"
 #include    "CProEngToneHandler.h"
 #include    "CProEngProfileNameArrayImpl.h"
+#include    <f32file.h>
+#include    <MProEngProfile.h>
+#include    <MProEngProfileNameArray.h>
+#include    <MProfileEngineExtended.h>
+#include    <ProfileEngineConstants.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

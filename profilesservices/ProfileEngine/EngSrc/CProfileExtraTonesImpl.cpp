@@ -19,11 +19,11 @@
 
 // INCLUDE FILES
 #include "CProfileExtraTonesImpl.h"
-#include "ProfilesVariant.hrh"
-#include <s32strm.h>
-#include <centralrepository.h>
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"
+#include <ProfilesVariant.hrh>
+#include <s32strm.h>
+#include <centralrepository.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

@@ -42,7 +42,7 @@ USERINCLUDE     ../Cenrep
 
 //System include paths
 // Default system include paths for middleware layer modules.
-APP_LAYER_SYSTEMINCLUDE
+MW_LAYER_SYSTEMINCLUDE
 
 // Libraries required by framework
 LIBRARY bafl.lib

@@ -105,7 +105,7 @@ EXPORT_C void CGSBaseView::HandleListBoxEventL( CEikListBox* /*aListBox*/,
     switch ( aEventType )
         {
         case EEventEnterKeyPressed:
-        case EEventItemSingleClicked:
+        case EEventItemDoubleClicked:
             HandleListBoxSelectionL();
             break;
         default:

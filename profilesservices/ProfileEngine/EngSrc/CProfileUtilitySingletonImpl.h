@@ -23,7 +23,7 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include "MProfileUtilitySingleton.h"
+#include <MProfileUtilitySingleton.h>
 
 // FORWARD DECLARATIONS
 class MProfilesLocalFeatures;

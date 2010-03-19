@@ -18,12 +18,12 @@
 
 
 // INCLUDE FILES
-#include "CProfileChangeNotifyHandler.h"
-#include "MProfileChangeObserver.h"
 #include "ProfileEngPanic.h"
-#include "ProfileEngineSDKCRKeys.h"
-#include "ProfileEnginePrivatePSKeys.h"
+#include <CProfileChangeNotifyHandler.h>
+#include <MProfileChangeObserver.h>
+#include <ProfileEngineSDKCRKeys.h>
 #include <centralrepository.h>
+#include <ProfileEnginePrivatePSKeys.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

@@ -1,7 +1,0 @@
-EXPORTS
-	_Z16CreateTestSuiteLv @ 1 NONAME
-	_ZTI16T_CFLDController @ 2 NONAME ; #<TI>#
-	_ZTI23T_CFLDFileListContainer @ 3 NONAME ; #<TI>#
-	_ZTV16T_CFLDController @ 4 NONAME ; #<VT>#
-	_ZTV23T_CFLDFileListContainer @ 5 NONAME ; #<VT>#
-

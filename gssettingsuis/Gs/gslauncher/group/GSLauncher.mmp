@@ -29,15 +29,11 @@ VENDORID                VID_DEFAULT
 SOURCEPATH              ../src
 SOURCE                  GSLauncher.cpp
 
-USERINCLUDE             ../inc
 
 MW_LAYER_SYSTEMINCLUDE
 
 LIBRARY         	euser.lib
-LIBRARY						ws32.lib			// wssession
-LIBRARY						viewcli.lib
-LIBRARY         	apgrfx.lib
-LIBRARY         	estor.lib
+
 
 DEFFILE           gslauncher.def
 

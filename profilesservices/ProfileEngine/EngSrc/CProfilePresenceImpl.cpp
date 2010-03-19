@@ -20,14 +20,14 @@
 
 // INCLUDE FILES
 #include "CProfilePresenceImpl.h"
+#include "ProfileEnginePrivateCRKeys.h"
+#include "ProfileEngUtils.h"
 #include <centralrepository.h>
 #include <bautils.h>
 #include <barsc.h>
 #include <ProfileEng.rsg>
-#include "ProfileEng.hrh"
-#include "ProfileEngineConstants.h"
-#include "ProfileEnginePrivateCRKeys.h"
-#include "ProfileEngUtils.h"
+#include <ProfileEng.hrh>
+#include <ProfileEngineConstants.h>
 
 // EXTERNAL DATA STRUCTURES
 // EXTERNAL FUNCTION PROTOTYPES

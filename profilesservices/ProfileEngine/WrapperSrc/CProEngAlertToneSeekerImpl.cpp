@@ -19,6 +19,7 @@
 
 // INCLUDE FILES
 #include    "CProEngAlertToneSeekerImpl.h"
+#include    "CProEngPostFilter.h"
 #include    <MCLFItemListModel.h>
 #include    <MCLFContentListingEngine.h>
 #include    <MCLFItem.h>
@@ -26,7 +27,6 @@
 #include    <f32file.h>  // RFs, TParse
 #include    <pathinfo.h>
 #include    <MProEngAlertToneSeekerObserver.h>
-#include    "CProEngPostFilter.h"
 
 namespace
     {

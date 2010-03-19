@@ -522,7 +522,7 @@ void CGSParentContainer::HandleListBoxEventL( CEikListBox* aListBox,
     switch (aEventType)
         {
         case EEventEnterKeyPressed:
-        case EEventItemSingleClicked:
+        case EEventItemDoubleClicked:
             {
             __GSLOGSTRING1(
                 "[CGSParentContainer] Activating view plugin in index[%d]",
@@ -833,37 +833,4 @@ void CGSParentContainer::SetListBoxEmptyTextL(const TDes& aEmpty )
         }
     }
 
-// -----------------------------------------------------------------------------
-// CGSParentContainer::GetPositionL()
-//
-//Get the exact position of listbox.
-// -----------------------------------------------------------------------------
-//
-void CGSParentContainer::GetPositionL(RArray<TInt>& posArray)
-	{
-	posArray.AppendL(iListBox->CurrentItemIndex());
-	posArray.AppendL(iListBox->View()->ItemOffsetInPixels());
-	posArray.AppendL(iListBox->View()->TopItemIndex());
-	return;
-	}
-
-// -----------------------------------------------------------------------------
-// CGSParentContainer::GetPositionL()
-//
-//Get the exact position of listbox.
-// -----------------------------------------------------------------------------
-//
-void CGSParentContainer::SetPosition(const RArray<TInt>& pos, TBool aChangeMode)
-	{
-	iListBox->SetCurrentItemIndex(pos.operator[](0));
-	iListBox->View()->SetItemOffsetInPixels(pos.operator[](1));
-	if (aChangeMode)
-		{
-		iListBox->View()->VerticalMoveToItemL(pos.operator[](0), CListBoxView::ESingleSelection);
-		}
-	else
-		{
-		iListBox->View()->SetTopItemIndex(pos.operator[](2));
-		}
-	}
 //End of File

@@ -140,7 +140,6 @@ RESOURCE MENU_PANE r_gs_menu_item_open
             {
             command = EAknSoftkeyOpen;
             txt = qtn_set_options_open;
-            flags = EEikMenuItemAction; // action command
             }
         };
     }

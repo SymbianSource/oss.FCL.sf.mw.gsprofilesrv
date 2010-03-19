@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include <MProfile3DToneSettings.h>
-#include "MProfileSet3DToneSettings.h"
+#include <MProfileSet3DToneSettings.h>
 
 // FORWARD DECLARATIONS
 class CRepository;

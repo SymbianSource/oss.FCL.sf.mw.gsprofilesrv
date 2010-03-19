@@ -23,11 +23,12 @@ DEFAULT
 
 PRJ_EXPORTS
 
-../rom/GSApp.iby CORE_MW_LAYER_IBY_EXPORT_PATH( gsapp.iby )
-../rom/GSAppResources.iby LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( gsappresources.iby )
-../Data/backup_registration.xml  z:/private/100058ec/backup_registration.xml
-../rom/GsResources.iby  LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( gsresources.iby )
-loc/GSApp.loc MW_LAYER_LOC_EXPORT_PATH( gsapp.loc )
+../rom/GSApp.iby CORE_MW_LAYER_IBY_EXPORT_PATH( GSApp.iby )
+../rom/GSAppResources.iby LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( GSAppResources.iby )
+../Data/backup_registration.xml  z:/private/100058EC/backup_registration.xml
+../rom/GsResources.iby  LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( GsResources.iby )
+loc/GSApp.loc MW_LAYER_LOC_EXPORT_PATH( GSApp.loc )
+loc/SoftReject.loc MW_LAYER_LOC_EXPORT_PATH( SoftReject.loc )
 
 PRJ_EXTENSIONS
 START EXTENSION s60/mifconv

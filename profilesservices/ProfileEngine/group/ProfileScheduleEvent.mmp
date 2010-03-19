@@ -48,8 +48,7 @@ LIBRARY         commonengine.lib
 LIBRARY         profileeng.lib
 LIBRARY         bafl.lib
 LIBRARY         efsrv.lib
-LIBRARY         aknnotify.lib // CAknGlobalNote
 LIBRARY         centralrepository.lib
-LIBRARY			featmgr.lib
+LIBRARY         featmgr.lib
 
 

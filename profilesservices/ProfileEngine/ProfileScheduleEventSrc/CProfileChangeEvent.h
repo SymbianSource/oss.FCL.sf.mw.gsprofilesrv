@@ -27,7 +27,6 @@
 
 // FORWARD DECLARATIONS
 class MProfileEngine;
-class CAknGlobalNote;
 
 // CLASS DECLARATION
 
@@ -111,26 +110,14 @@ class CProfileChangeEvent : public CBase
         // Own: Profiles Engine for profile activation
         MProfileEngine* iProfileEngine;
 
-        // Own: Global note to show the expiration conf. note to the user
-        CAknGlobalNote* iGlobalNote;
-
-        // Own: buffer for the confirmation note text
-        HBufC* iNoteText;
-
         // File server session needed for resource reading:
         RFs iFs;
-
-        // Used to store the resource file name
-        TFileName iResourceFile;
 
         // Mutex controlling access to profiles data
         RMutex iMutex;
 
         // The ID of the profile which should be reactivated
         TInt iPreviousId;
-        
-        // Supported features
-        TBool iCoverDisplay;
     };
 
 #endif      // CPROFILECHANGEEVENT_H

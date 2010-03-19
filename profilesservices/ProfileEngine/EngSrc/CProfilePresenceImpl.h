@@ -22,8 +22,8 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include "MProfilePresence.h"
-#include "MProfileSetPresence.h"
+#include <MProfilePresence.h>
+#include <MProfileSetPresence.h>
 
 // CONSTANTS
 // MACROS

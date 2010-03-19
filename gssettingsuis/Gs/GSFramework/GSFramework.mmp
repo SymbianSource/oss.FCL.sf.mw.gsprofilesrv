@@ -51,7 +51,7 @@ USERINCLUDE ../Cenrep
 
 // System include paths
 
-APP_LAYER_SYSTEMINCLUDE
+MW_LAYER_SYSTEMINCLUDE
 SYSTEMINCLUDE   /epoc32/include/ecom
 
 // Parent plugin resources
@@ -91,12 +91,12 @@ LIBRARY     fbscli.lib                  // for CFbsBitmap
 LIBRARY     featmgr.lib                // feature manager
 LIBRARY     flogger.lib                // logging
 LIBRARY     gsecomplugin.lib
-LIBRARY     hlplch.lib                 // for "Help" options menu
 LIBRARY     ws32.lib
 LIBRARY     estor.lib
 LIBRARY     centralrepository.lib      // GSWatchDog
-LIBRARY 	CdlEngine.lib
+
 SOURCEPATH  data
+DOCUMENT    ../GSFWIcons.mk
 DOCUMENT    GSFrameworkRsc.rss
 DOCUMENT    GSParentPluginRsc.rss
 

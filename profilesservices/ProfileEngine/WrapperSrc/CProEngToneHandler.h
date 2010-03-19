@@ -25,7 +25,7 @@
 #include <f32file.h> // CBase, RFs
 #include <apmstd.h> // KMaxDataTypeLength
 #include <data_caging_path_literals.hrh>
-#include "ProfileEng.hrh" // TProfileSettingId
+#include <ProfileEng.hrh> // TProfileSettingId
 
 // FORWARD DECLARATIONS
 class DRMCommon;

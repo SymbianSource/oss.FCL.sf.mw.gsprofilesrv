@@ -20,7 +20,7 @@
 // INCLUDE FILES
 #include "ProfileEngUtils.h"
 #include "CProfileEngineImpl.h"
-#include "ProfileEngineConstants.h"
+#include <ProfileEngineConstants.h>
 #include <RSSSettings.h>
 #include <centralrepository.h>
 #include <bldvariant.hrh>

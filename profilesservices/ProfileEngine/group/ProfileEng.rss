@@ -187,11 +187,6 @@ RESOURCE PROFILE_SETTINGS r_profile_settings
             },
         PROFILE_SETTING
             {
-            id = EProfileSettingIdEmailVibra;
-            key_type = EProfileSettingKeyTypeInt;
-            },    
-        PROFILE_SETTING
-            {
             id = EProfileSettingIdTactileFeedback;
             key_type = EProfileSettingKeyTypeInt;
             },
