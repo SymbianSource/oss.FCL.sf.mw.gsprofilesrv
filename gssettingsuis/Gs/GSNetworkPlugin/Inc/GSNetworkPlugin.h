@@ -442,7 +442,7 @@ class CGSNetworkPlugin : public CGSBaseView,
         *  Convert TInt to TGSNetworkModeItems.
         *  Will panic in case TInt is of wrong value.
         */
-        TGSNetworkModeItems CGSNetworkPlugin::IntToEnum( TInt aFeatureId );
+        TGSNetworkModeItems IntToEnum( TInt aFeatureId );
 
         /**
         * Closes dialog (iSettingDlg) if it is open. 

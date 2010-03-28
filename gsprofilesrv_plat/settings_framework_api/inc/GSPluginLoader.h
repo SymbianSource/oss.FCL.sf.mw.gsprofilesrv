@@ -263,8 +263,7 @@ class CGSPluginLoader : public CActive
         /**
          * Print ordering debug data.
          */
-        void CGSPluginLoader::PrintOrderTracesL(
-                CArrayPtrFlat<CGSPluginInterface>* aPlugins );
+        void PrintOrderTracesL( CArrayPtrFlat<CGSPluginInterface>* aPlugins );
 
         /**
          * Display loading error popup message.
