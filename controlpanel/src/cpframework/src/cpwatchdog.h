@@ -18,8 +18,8 @@
 #ifndef CPWATCHDOG_H
 #define CPWATCHDOG_H
 
-#include <qobject>
-#include <qvector>
+#include <QObject>
+#include <QVector>
 
 #define gWatchDog CpWatchDog::instance()
 

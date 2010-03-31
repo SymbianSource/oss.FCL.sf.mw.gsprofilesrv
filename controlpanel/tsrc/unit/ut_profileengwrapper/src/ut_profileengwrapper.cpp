@@ -18,7 +18,7 @@
 #include "cpprofileengine.h"
 #include "cpprofile.h"
 #include "cpprofiledef.h"
-#include <qdebug>
+#include <QDebug>
 #include <qstringlist>
 #include <qttest/qttest>
 

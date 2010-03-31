@@ -19,12 +19,12 @@
 
 // INCLUDE FILES
 #include    "CProEngMediaVariation.h"
+#include    "ProEngMmfInfoUtility.h"
 #include 	<centralrepository.h>
 #include    <apgcli.h> // RApaLsSession
-#include    "ProfileEngineInternalCRKeys.h"
-#include    "ProEngMmfInfoUtility.h"
-#include    "MProfileUtilitySingleton.h"
-#include    "MProfilesLocalFeatures.h"
+#include    <ProfileEngineInternalCRKeys.h>
+#include    <MProfileUtilitySingleton.h>
+#include    <MProfilesLocalFeatures.h>
 
 namespace
 	{

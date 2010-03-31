@@ -21,8 +21,8 @@
 
 #include <cpglobal.h>
 #include <hbdataformmodelitem.h>
-#include <qobject>
-#include <qvariant>
+#include <QObject>
+#include <QVariant>
 
 class QString;
 class CpItemDataHelper;

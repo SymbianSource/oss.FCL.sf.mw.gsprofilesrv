@@ -18,22 +18,22 @@
 #define CP_DATAFORMVIEWITEM_H
 
 #include <hbdataformviewitem.h>
-
+#include <cpglobal.h>
 class CpDataFormViewItemPrivate;
-class CpDataFormViewItem : public HbDataFormViewItem
+class CP_EXPORT CpDataFormViewItem : public HbDataFormViewItem
 {
     Q_OBJECT
 public:
-    explicit CpDataFormViewItem(int customId, QGraphicsItem *parent = 0);
+    explicit CpDataFormViewItem(QGraphicsItem *parent = 0);
     ~CpDataFormViewItem();
-    virtual HbAbstractViewItem* createItem();
+    virtual HbAbstractViewItem *createItem();
 	virtual bool canSetModelIndex(const QModelIndex &index) const;
 public slots:
     virtual void load();
 protected:
 	CpDataFormViewItem(const CpDataFormViewItem &ohter);
 	CpDataFormViewItem &operator=(const CpDataFormViewItem &ohter);
-    virtual HbWidget* createCustomWidget();
+    virtual HbWidget *createCustomWidget();
 private:
 	CpDataFormViewItemPrivate *d_ptr;
 	friend class CpDataFormViewItemPrivate;

@@ -19,9 +19,9 @@
 
 // INCLUDE FILES
 #include "CProfilePttSettingsImpl.h"
-#include <centralrepository.h>
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"
+#include <centralrepository.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

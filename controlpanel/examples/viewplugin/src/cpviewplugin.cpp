@@ -25,12 +25,13 @@ CpViewPlugin::CpViewPlugin()
 CpViewPlugin::~CpViewPlugin()
 {
 }
-CpSettingFormItemData *CpViewPlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
+QList<CpSettingFormItemData*> CpViewPlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
 {
-    return new CpSettingFormEntryItemDataImpl<CpSampleView>(
-			itemDataHelper,
-            tr("Entry item from sample view plugin"), 
-			tr("view plugin descriptions"));
+    return QList<CpSettingFormItemData*>() 
+            << new CpSettingFormEntryItemDataImpl<CpSampleView>(
+			   itemDataHelper,
+               tr("Entry item from sample view plugin"), 
+			   tr("view plugin descriptions"));
 }
 
 Q_EXPORT_PLUGIN2(cpviewplugin, CpViewPlugin);

@@ -25,20 +25,28 @@ class CpItemDataHelper;
 class CpUtility
 {
 public:
-	/*
-	*/
-	static void buildConfigPluginItems(HbDataFormModelItem *parent,
-		const QString &configFile,
-		CpItemDataHelper &itemDataHelper);
+
 
 	/*
+		get all physical drives of the devices
 	*/
 	static QStringList drives();
-	static QStringList pluginDirs();
-	static QStringList cpcfgDirs();
 
-private:
-	CpUtility();
+	/*
+		get all controlpanel plugin directories of the device
+	*/
+	static QStringList pluginDirectories();
+
+	/*
+		get all application plugin directories of the device
+	*/
+	static QStringList applicationPluginDirectories();
+
+	/*
+		get all config directories of the device
+	*/
+	static QStringList configFileDirectories();
+
 };
 
 #endif

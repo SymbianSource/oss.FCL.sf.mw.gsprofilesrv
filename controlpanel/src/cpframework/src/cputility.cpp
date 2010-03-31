@@ -15,68 +15,16 @@
 *
 */
 #include "cputility.h"
-#include <qstring>
-#include <qdir>
-#include <qfileinfo>
+#include <QString>
+#include <QDir>
+#include <QFileInfo>
 #include "cpbasepath.h"
-#include "cppluginloader.h"
+#include <cppluginloader.h>
+#include <cpplugininterface.h>
 #include <cppluginplatinterface.h>
+#include <cplogger.h>
 #include <cpsettingformentryitemdata.h>
-#include "cpcategorysettingformitemdata.h"
-#include "cppluginconfigreader.h"
 
-void CpUtility::buildConfigPluginItems(HbDataFormModelItem *parent,
-									   const QString &configFile,
-									   CpItemDataHelper &itemDataHelper)
-{
-    if (!parent) {
-        return;
-    }
-
-	QString configPath(configFile);
-	QFileInfo fi(configFile);
-	if (!fi.isAbsolute()) {
-		QStringList dirs = CpUtility::cpcfgDirs();
-		foreach(const QString &dir,dirs) {
-			configPath = dir + fi.fileName();
-			if (QFileInfo(configPath).exists()) {
-				break;		
-			}
-		}
-	}
-    	
-    QList<CpPluginConfig> cpPluginConfigs = CpPluginConfigReader(configPath).readCpPluginConfigs();
-		
-	foreach(const CpPluginConfig &cpPluginConfig, cpPluginConfigs)  {
-		CpPluginPlatInterface *plugin = CpPluginLoader().loadCpPlugin(cpPluginConfig.mPluginFile);
-
-		if (plugin) {
-			CpSettingFormItemData *itemData = plugin->createSettingFormItemData(itemDataHelper);
-			if (itemData) {
-				//append the new created setting form item to its parent item.
-				parent->appendChild(itemData);
-
-				if (CpCategorySettingFormItemData *categoryItemData 
-					= qobject_cast<CpCategorySettingFormItemData*>(itemData)) {
-					categoryItemData->initialize(itemDataHelper);
-				}
-
-				//set the description from config if it is empty.
-				if (CpSettingFormEntryItemData *cpEntryItemData
-					= qobject_cast<CpSettingFormEntryItemData*>(itemData)) {
-						if (cpEntryItemData->text().isEmpty()) {
-							cpEntryItemData->setText(cpPluginConfig.mDisplayName);
-						}
-						if (cpEntryItemData->description().isEmpty()) {
-							cpEntryItemData->setDescription(cpPluginConfig.mDescription);
-						}
-				}
-
-			}
-		}
-
-	} //end foreach
-}
 
 
 QStringList CpUtility::drives()
@@ -84,8 +32,10 @@ QStringList CpUtility::drives()
 	static QStringList drives;
 
 	if (drives.empty()) {
+        CPFW_LOG("device drives:");
 #ifdef WIN32
 		drives.append("C:");
+        CPFW_LOG("C:");
 #else
 		QFileInfoList fileInfoList = QDir::drives();
 		foreach(const QFileInfo &fileInfo,fileInfoList) {
@@ -94,14 +44,15 @@ QStringList CpUtility::drives()
 				str = str.left(2);
 			}
 			drives.append(str);
+            CPFW_LOG(str);
 		}
-#endif
+#endif  
 	}
 
 	return drives;
 }
 
-static QStringList listDirs(const QString &baseDir)
+static QStringList directoriesFromAllDrives(const QString &baseDir)
 {
 	QStringList dirs;
 
@@ -110,26 +61,40 @@ static QStringList listDirs(const QString &baseDir)
 		QString dir = drive + baseDir + QDir::separator();
 		if (QFileInfo(dir).exists()) {
 			dirs.append(dir);
+            CPFW_LOG(dir);
 		}
 	}
 
 	return dirs;
 }
 
-QStringList CpUtility::pluginDirs()
+QStringList CpUtility::pluginDirectories()
 {
 	static QStringList dirs;
 	if (dirs.empty()) {
-		dirs = listDirs(CP_PLUGIN_PATH);
+        CPFW_LOG("ControlPanel plugin derectories:")
+		dirs = directoriesFromAllDrives(CP_PLUGIN_PATH);
 	}
 	return dirs;
 }
 
-QStringList CpUtility::cpcfgDirs()
+QStringList CpUtility::applicationPluginDirectories()
 {
 	static QStringList dirs;
 	if (dirs.empty()) {
-		dirs = listDirs(CP_PLUGIN_CONFIG_PATH);
+        CPFW_LOG("ControlPanel application plugin derectories:");
+//		dirs = directoriesFromAllDrives(CP_APPLICATION_PLUGIN_PATH);
+	}	
+	return dirs;
+}
+
+
+QStringList CpUtility::configFileDirectories()
+{
+	static QStringList dirs;
+	if (dirs.empty()) {
+        CPFW_LOG("ControlPanel configuration file derectories:");
+		dirs = directoriesFromAllDrives(CP_PLUGIN_CONFIG_PATH);
 	}
 	return dirs;
 }

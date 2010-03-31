@@ -30,10 +30,10 @@
 /*!
     Constructor of CpBaseSettingView.
  */
-CpBaseSettingView::CpBaseSettingView(HbDataForm *settingForm /*= 0*/,QGraphicsItem *parent /*= 0*/) :
+CpBaseSettingView::CpBaseSettingView(QGraphicsWidget *widget /*= 0*/,QGraphicsItem *parent /*= 0*/) :
     HbView(parent),d_ptr(new CpBaseSettingViewPrivate())
 {
-    d_ptr->init(settingForm,this);
+    d_ptr->init(widget,this);
 }
 
 /*!
@@ -45,6 +45,8 @@ CpBaseSettingView::~CpBaseSettingView()
 }
 
 /*!
+	\deprecated  void CpBaseSettingView::setSettingForm(HbDataForm *settingForm) will be deprecated, please
+	use setWidget(QGraphicsWidget* widget) to instead.
     Set the data form for the setting view.
  */
 void CpBaseSettingView::setSettingForm(HbDataForm *settingForm)
@@ -53,17 +55,13 @@ void CpBaseSettingView::setSettingForm(HbDataForm *settingForm)
 }
 
 /*!
+	\deprecated  HbDataForm *CpBaseSettingView::settingForm() const will be deprecated, please
+	use widget() const to instead.
     Get the data form for the setting view.
  */
 HbDataForm *CpBaseSettingView::settingForm() const
 {
     return qobject_cast<HbDataForm*>(widget());
 }
-
-void CpBaseSettingView::setWidget(QGraphicsWidget *widget)
-{
-	HbView::setWidget(widget);
-}
-
 
 //

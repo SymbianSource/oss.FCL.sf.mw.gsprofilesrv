@@ -19,13 +19,13 @@
 
 // INCLUDE FILES
 #include    "CProEngTonesImpl.h"
+#include    "CProEngToneHandler.h"
 #include    <MProfileTones.h>
 #include    <MProfileExtraTones.h>
-#include    "MProfileSetTones.h"
-#include    "MProfileSetExtraTones.h"
-#include    "MProfileExtended.h"
-#include    "CProEngToneHandler.h"
-#include    "ProfileEng.hrh" // TProfileSettingId
+#include    <MProfileSetTones.h>
+#include    <MProfileSetExtraTones.h>
+#include    <MProfileExtended.h>
+#include    <ProfileEng.hrh> // TProfileSettingId
 #include    <pathinfo.h>
 #include    <ProfileEngineDomainConstants.h>
 

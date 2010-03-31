@@ -29,14 +29,12 @@ class CP_EXPORT CpBaseSettingView : public HbView
 {
     Q_OBJECT
 public:
-    explicit CpBaseSettingView(HbDataForm *settingForm = 0,QGraphicsItem *parent = 0);
+	explicit CpBaseSettingView(QGraphicsWidget *widget = 0, QGraphicsItem *parent = 0);
     virtual ~CpBaseSettingView();
     void setSettingForm(HbDataForm *settingForm);
     HbDataForm *settingForm() const;
 signals:
     void aboutToClose();
-private:
-    void setWidget(QGraphicsWidget *widget);
 private:
     Q_DISABLE_COPY(CpBaseSettingView)
     Q_DECLARE_PRIVATE_D(d_ptr, CpBaseSettingView)

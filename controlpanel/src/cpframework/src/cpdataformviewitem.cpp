@@ -19,49 +19,69 @@
 #include <hbpushbutton.h>
 #include <hbdataformmodel.h>
 #include <hbabstractitemview.h>
-#include <qmetaproperty>
-
+#include <QMetaProperty>
+/*!
+    \class CpDataFormViewItem
+    \brief The CpDataFormViewItem is a item proto type of HbDataForm which is supplied by control panel.
+	When you want use setting items which are come from control panel, you should append this class to the proto type list of your data form's instance.
+	Code example:
+	\code
+	HbDataForm *form = new HbDataForm();
+	QList<HbAbstractViewItem *> protoType = form->itemProtoTypetypes();
+	protoType.append(CpDataFormViewItem::createCpItemProtoType());
+	form->setItemPrototypes();
+	\endcode
+*/
 class CpDataFormViewItemPrivate 
 {
 public:
-	CpDataFormViewItemPrivate() : mCustomId(0), mWidget(0)
+	CpDataFormViewItemPrivate() : mWidget(0)
 	{
 	}
 	~CpDataFormViewItemPrivate()
 	{
 	}
-	void init(int customId)
-	{
-		mCustomId = customId;
-	}
 private:
-	int mCustomId;
 	HbWidget *mWidget;
 	friend class CpDataFormViewItem;
 };
 
-CpDataFormViewItem::CpDataFormViewItem(int customId, QGraphicsItem *parent)
+/*!
+    Constructor
+ */
+CpDataFormViewItem::CpDataFormViewItem(QGraphicsItem *parent)
 : HbDataFormViewItem(parent),d_ptr(new CpDataFormViewItemPrivate())
 {
-	d_ptr->init(customId);
 }
 
+/*!
+	Destructor of CpDataFormViewItem
+ */
 CpDataFormViewItem::~CpDataFormViewItem()
 {
 	delete d_ptr;
 }
 
-HbAbstractViewItem* CpDataFormViewItem::createItem()
+/*!
+	Creates CpDataFormViewItem. This function is called form HbAbstractItemContainer when model is getting parsed for creating items.
+ */
+HbAbstractViewItem *CpDataFormViewItem::createItem()
 {
 	return new CpDataFormViewItem(*this);
 }
 
+/*!
+	Copy constructor of CpDataFormViewItem
+ */
 CpDataFormViewItem::CpDataFormViewItem(const CpDataFormViewItem &other)
 : HbDataFormViewItem(other), d_ptr(new CpDataFormViewItemPrivate(*other.d_ptr))
 {
 	
 }
 
+/*!
+	Assignment operator
+ */
 CpDataFormViewItem &CpDataFormViewItem::operator=(const CpDataFormViewItem &other)
 {
 	if (&other == this) {
@@ -71,31 +91,39 @@ CpDataFormViewItem &CpDataFormViewItem::operator=(const CpDataFormViewItem &othe
 	*d_ptr = *(other.d_ptr);
 	return *this;
 }
-
+/*!
+	Inherit from HbAbstractViewItem, return true if the model item can be supported by CpDataFormViewItem.
+ */
 bool CpDataFormViewItem::canSetModelIndex(const QModelIndex &index) const
 {
 	int itemTypeId = index.data(HbDataFormModelItem::ItemTypeRole).toInt();
-	// currently one proto type only can set one widget
-	return (itemTypeId == d_ptr->mCustomId);
+	return (itemTypeId == HbDataFormModelItem::CustomItemBase+1);
 }
-
-HbWidget* CpDataFormViewItem::createCustomWidget()
+/*!
+	Inherit from HbDataFormViewItem, return the setting item's widget of control panel
+ */
+HbWidget *CpDataFormViewItem::createCustomWidget()
 {
     HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
         modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());
 
-	if (itemType == d_ptr->mCustomId) {
+	if (itemType == HbDataFormModelItem::CustomItemBase+1) {
 		HbPushButton *button = new HbPushButton(QString("Push button"));
 		d_ptr->mWidget = button;
 		button->setMinimumHeight(50);
 		button->setMaximumHeight(60);
 		button->setOrientation(Qt::Horizontal);
+		button->setTextAlignment( Qt::AlignLeft );
 		return button;
 	}
     
     return 0;
 }
-
+/*!
+	Inherit from HbDataForm. This function is called by hbdataform's framework, 
+	for supporting to load entry item's text, icon and additional text dynamically.
+	It is not recommanded to call this function mannually.
+ */
 void CpDataFormViewItem::load()
 {
 	HbDataFormViewItem::load();
@@ -104,7 +132,7 @@ void CpDataFormViewItem::load()
 		HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
 			modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());
 
-		if(itemType == d_ptr->mCustomId) {
+		if(itemType == HbDataFormModelItem::CustomItemBase+1) {
 
 			QModelIndex itemIndex = modelIndex();
 			HbDataFormModel *model = static_cast<HbDataFormModel*>(itemView()->model());;

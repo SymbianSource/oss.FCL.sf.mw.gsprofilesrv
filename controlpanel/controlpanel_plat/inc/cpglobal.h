@@ -18,7 +18,7 @@
 #ifndef CP_GLOBAL_H
 #define CP_GLOBAL_H
 
-#include <qtglobal>
+#include <QtGlobal>
 
 #ifdef BUILD_CP_FRAMEWORK
     #define CP_EXPORT Q_DECL_EXPORT

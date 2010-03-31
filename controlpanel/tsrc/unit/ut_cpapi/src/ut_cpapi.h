@@ -30,6 +30,10 @@ private slots:
     void testCpSettingFormEntryItemDataImpl();  //test CpSettingFormEntryItemDataImpl functions
     void testCpSettingFormItemData();           //test CpSettingFormItemData  functions
     void testItemDataHelper();    //testing item data helper class CpItemDataHelper
+    void testCpPluginUtility();
+    void testCpPluginLoader();    //test cppluginloader functions
+    void testCpPluginInterface(); //
+    void testCpLogger();          //test cplogger functions
     void cleanupTestCase();       // Finalize test data
 private:
     HbMainWindow* mainWindow;

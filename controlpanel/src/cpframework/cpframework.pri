@@ -16,28 +16,21 @@
 #
 
 HEADERS += src/cpbasepath.h \
-           src/cputility.h \
            src/cpviewlauncher.h \
-           src/cppluginloader.h \
-           src/cppluginconfig.h \
-           src/cppluginconfigreader.h \
            src/cpbasesettingview_p.h \
            src/cpwatchdog.h \
+           src/cputility.h \
            src/cpdataformviewitem.h
-           #src/cpitemdatahelper.h
 
-SOURCES += src/cputility.cpp \
-           src/cppluginlauncher.cpp \
+SOURCES += src/cppluginlauncher.cpp \
 		       src/cpviewlauncher.cpp \
 		       src/cppluginloader.cpp \
-		       src/cppluginconfig.cpp \
-		       src/cppluginconfigreader.cpp \
 		       src/cpsettingformentryitemdata.cpp \
 		       src/cpsettingformitemdata.cpp \
-		       src/cpcategorysettingformmodel.cpp \
-		       src/cpcategorysettingformitemdata.cpp \
 		       src/cpbasesettingview.cpp \
 		       src/cpbasesettingview_p.cpp \
 		       src/cpwatchdog.cpp \
 		       src/cpdataformviewitem.cpp \
-		       src/cpitemdatahelper.cpp
+		       src/cpitemdatahelper.cpp \
+		       src/cputility.cpp \
+		       src/cppluginutility.cpp

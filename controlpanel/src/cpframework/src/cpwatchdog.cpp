@@ -14,10 +14,10 @@
 * Description:  
 *
 */
-#include "CpWatchDog.h"
-#include <qcoreapplication>
-#include <qsettings>
-#include <qdebug>
+#include "cpwatchdog.h"
+#include <QCoreApplication>
+#include <QSettings>
+#include <QDebug>
 #include "cplogger.h"
 
 //const value definition
@@ -140,7 +140,7 @@ bool CpWatchDog::isInBlackList(int uid)
     }
     
     if (found) {
-        CpLogger() << "Plugin " << QString("0x%1").arg(uid,0,16) << "is in black list." << "\r\n";
+        CPFW_LOG( QLatin1String("Plugin ") + QString("0x%1").arg(uid,0,16) + QLatin1String(" is in black list."));
     }
     
     return found;

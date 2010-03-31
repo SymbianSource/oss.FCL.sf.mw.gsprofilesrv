@@ -29,17 +29,7 @@ class CpPluginPlatInterface;
 class CP_EXPORT CpPluginLauncher
 {
 public:
-    /*
-     launch a view from plugin by plugin file.
-     the pluginFile can either absoulte file path or only file name.
-     acceptable format:
-     sampleplugin
-     sampleplugin.qtplugin
-     sampleplugin.dll
-     C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
-     C:/resource/qt/plugins/controlpanel/sampleplugin.dll
-     */
-    static bool launchCpPluginView(const QString &pluginFile);
+    static bool launchCpPluginView(const QString &pluginFile,int index = 0);
 };
 
 #endif /* CPPLUGINLAUNCHER_H */

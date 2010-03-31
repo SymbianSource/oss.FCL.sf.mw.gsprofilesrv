@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32std.h>
 #include <ProfileEngineInternalCRKeys.h>
-#include "ProfileEng.hrh"
+#include <ProfileEng.hrh>
 
 // CONSTANTS
 /**

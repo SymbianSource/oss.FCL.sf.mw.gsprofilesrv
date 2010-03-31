@@ -31,8 +31,6 @@ unix {
 }
 QMAKE_EXTRA_TARGETS += test autotest
 
-
-
 DEPENDPATH += .
 
 INCLUDEPATH += . \
@@ -45,3 +43,7 @@ LIBS += -lcpframework
 # Input
 HEADERS += src/ut_cpapi.h
 SOURCES += src/ut_cpapi.cpp
+
+symbian {
+	BLD_INF_RULES.prj_exports += "data/controlpanellog.conf C:/data/.config/ut_cpapi/controlpanellog.conf"
+}

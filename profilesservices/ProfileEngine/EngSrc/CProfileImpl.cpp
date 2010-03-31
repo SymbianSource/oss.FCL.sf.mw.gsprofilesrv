@@ -19,6 +19,13 @@
 
 // INCLUDE FILES
 #include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "CProfileTonesImpl.h"
+#include "CProfileExtraTonesImpl.h"
+#include "CProfileExtraSettingsImpl.h"
+#include "CProfilePresenceImpl.h"
+#include "ProfileEngUtils.h"
+#include "ProfileEnginePrivateCRKeys.h"
 #include <e32svr.h>
 #include <cntitem.h>
 #include <cntdb.h>
@@ -29,16 +36,9 @@
 #include <bldvariant.hrh>
 #include <RSSSettings.h>
 #include <pathinfo.h>
-#include "CProfileNameImpl.h"
-#include "CProfileTonesImpl.h"
-#include "CProfileExtraTonesImpl.h"
-#include "CProfileExtraSettingsImpl.h"
-#include "CProfilePresenceImpl.h"
-#include "MProfilesLocalFeatures.h"
-#include "MProfileUtilitySingleton.h"
-#include "ProfilesVariant.hrh"
-#include "ProfileEngUtils.h"
-#include "ProfileEnginePrivateCRKeys.h"
+#include <MProfilesLocalFeatures.h>
+#include <MProfileUtilitySingleton.h>
+#include <ProfilesVariant.hrh>
 #include <ProfileEngineDomainConstants.h>
 
 // CONSTANTS

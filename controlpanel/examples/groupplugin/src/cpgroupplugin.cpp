@@ -25,9 +25,9 @@ CpGroupPlugin::~CpGroupPlugin()
 {
 }
 
-CpSettingFormItemData *CpGroupPlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
+QList<CpSettingFormItemData*> CpGroupPlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
 {
-    return new CpSampleGroup(itemDataHelper);
+    return QList<CpSettingFormItemData*>() << new CpSampleGroup(itemDataHelper);
 }
 
 Q_EXPORT_PLUGIN2(CpGroupPlugin, CpGroupPlugin);

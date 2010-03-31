@@ -17,10 +17,12 @@
 #ifndef CP_ITEM_DATA_HELPER_H
 #define CP_ITEM_DATA_HELPER_H
 
-#include <qobject>
+#include <QObject>
 #include <cpglobal.h>
 
 class QObject;
+class HbWidget;
+class QModelIndex;
 class HbDataForm;
 class HbAbstractViewItem;
 class HbDataFormModelItem;
@@ -30,33 +32,33 @@ class CP_EXPORT CpItemDataHelper : public QObject
 {
 	Q_OBJECT
 public:
-    CpItemDataHelper();
-    ~CpItemDataHelper();
+    explicit CpItemDataHelper(HbDataForm *form = 0);
+    virtual ~CpItemDataHelper();
 
-    void addConnection(HbDataFormModelItem *item,
-        const QString &signal,
-        QObject *receiver,
-        const QString &method);
-
-    void removeConnection(HbDataFormModelItem *item,
-        const QString &signal,
-        QObject *receiver,
-        const QString &method);
+	void bindToForm(HbDataForm *form);
 
 	void addItemPrototype(HbAbstractViewItem *prototype);
 
-	void bindToForm(HbDataForm *form) const;
+    void addConnection(HbDataFormModelItem *item,
+        const char *signal,
+        QObject *receiver,
+        const char *method);
 
-signals:
-	void connectionAdded(HbDataFormModelItem *item,
-		const QString &signal,
-		QObject *receiver,
-		const QString &method);
-	void connectionRemoved(HbDataFormModelItem *item,
-		const QString &signal,
-		QObject *receiver,
-		const QString &method);
-	void prototypeAdded(HbAbstractViewItem *prototype);
+    void removeConnection(HbDataFormModelItem *item,
+        const char *signal,
+        QObject *receiver,
+        const char *method);
+
+    void connectToForm(const char *signal,
+        QObject *receiver,
+        const char *method);
+
+    void disconnectFromForm(const char *signal,
+        QObject *receiver,
+        const char *method);
+
+    HbWidget *widgetFromModelIndex(const QModelIndex &index);
+   
 private:
     CpItemDataHelperPrivate *d;
 };

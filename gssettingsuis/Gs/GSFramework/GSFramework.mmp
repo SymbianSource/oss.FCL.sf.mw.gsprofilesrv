@@ -91,7 +91,6 @@ LIBRARY     fbscli.lib                  // for CFbsBitmap
 LIBRARY     featmgr.lib                // feature manager
 LIBRARY     flogger.lib                // logging
 LIBRARY     gsecomplugin.lib
-LIBRARY     hlplch.lib                 // for "Help" options menu
 LIBRARY     ws32.lib
 LIBRARY     estor.lib
 LIBRARY     centralrepository.lib      // GSWatchDog

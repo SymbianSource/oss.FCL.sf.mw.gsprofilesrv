@@ -15,5 +15,5 @@
 #
 
 TEMPLATE = subdirs
-SUBDIRS = cpframework cpprofilewrapper cpapplication cpplugins seccodeui
+SUBDIRS = cpframework 
 CONFIG += ordered

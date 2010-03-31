@@ -18,16 +18,16 @@
 #define	CPVIEWPLUGIN_H
 
 #include <qobject.h>
-#include <cppluginplatinterface.h>
+#include <cpplugininterface.h>
 
-class CpViewPlugin : public QObject, public CpPluginPlatInterface
+class CpViewPlugin : public QObject, public CpPluginInterface
 {
-Q_OBJECT
-    Q_INTERFACES(CpPluginPlatInterface)
+    Q_OBJECT
+    Q_INTERFACES(CpPluginInterface)
 public:
     CpViewPlugin();
-    ~CpViewPlugin();
-    virtual CpSettingFormItemData *createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
+    virtual ~CpViewPlugin();
+    virtual QList<CpSettingFormItemData*> createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
 };
 
 #endif	//CPVIEWPLUGIN_H

@@ -15,12 +15,20 @@
 #
 
 PLATFORM_HEADERS += $$PWD/cpglobal.h \
+                    $$PWD/cpplugininterface.h \
                     $$PWD/cppluginplatinterface.h \
                     $$PWD/cpsettingformitemdata.h \
                     $$PWD/cppluginlauncher.h \
                     $$PWD/cpbasesettingview.h \
                     $$PWD/cpitemdatahelper.h \
                     $$PWD/cpsettingformentryitemdata.h \
-                    $$PWD/cpsettingformentryitemdataimpl.h
+                    $$PWD/cpsettingformentryitemdataimpl.h \
+                    $$PWD/cppluginloader.h \
+                    $$PWD/logger.h \
+                    $$PWD/loggerglobal.h \
+                    $$PWD/logoutput.h \
+                    $$PWD/logoutputfactory.h \
+                    $$PWD/cplogger.h \
+                    $$PWD/cppluginutility.h
                     
 HEADERS += $$PLATFORM_HEADERS

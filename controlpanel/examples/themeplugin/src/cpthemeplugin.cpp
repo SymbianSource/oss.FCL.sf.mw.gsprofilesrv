@@ -25,11 +25,11 @@ CpThemePlugin::~CpThemePlugin()
 {
 }
 
-CpSettingFormItemData *CpThemePlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
+QList<CpSettingFormItemData*> CpThemePlugin::createSettingFormItemData(CpItemDataHelper &itemDataHelper) const
 {
 	CpSettingFormEntryItemData *entryItem = new CpThemePluginEntryItemData(
 		itemDataHelper,tr("Theme"),tr("Name of the Theme"),HbIcon(":/image/qgn_menu_note.svg"));
-	return entryItem;
+	return QList<CpSettingFormItemData*>() << entryItem;
 }
 
 Q_EXPORT_PLUGIN2(cpthemeplugin, CpThemePlugin);

@@ -23,7 +23,7 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include "MProfilesLocalFeatures.h"
+#include <MProfilesLocalFeatures.h>
 
 // FORWARD DECLARATIONS
 class CRepository;

@@ -49,12 +49,11 @@ RCC_DIR = rcc
 #For some reason the default include path doesn't include MOC_DIR on symbian
 symbian {
     INCLUDEPATH += $$MW_LAYER_SYSTEMINCLUDE
+    INCLUDEPATH += $$MW_LAYER_PLATFORM_EXPORT_PATH(cplogger)
     INCLUDEPATH += $$MOC_DIR
     TARGET.CAPABILITY = ALL -TCB
     TARGET.EPOCALLOWDLLDATA = 1
 }
-
-INCLUDEPATH += $$PWD/inc
 win32 {
     # add platfrom API for windows
     INCLUDEPATH += $$PWD/../controlpanel_plat/inc

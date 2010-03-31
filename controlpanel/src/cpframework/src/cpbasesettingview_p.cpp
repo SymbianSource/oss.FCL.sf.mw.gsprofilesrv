@@ -22,10 +22,11 @@
 #include <hbmainwindow.h>
 #include <hbdataform.h>
 #include <hbdataformmodel.h>
-#include <qgraphicslayout>
+#include <QGraphicsLayout>
 #include "cpitemdatahelper.h"
 #include "cpdataformviewitem.h"
 #include "cpsettingformentryitemdata.h"
+#include "cppluginutility.h"
 
 static HbMainWindow *mainWindow() 
 {
@@ -40,7 +41,7 @@ static HbMainWindow *mainWindow()
 CpBaseSettingViewPrivate::CpBaseSettingViewPrivate() :
     mBaseSettingView(0),
     mSoftKeyBackAction(0),
-    mSettingForm(0),
+    //mSettingForm(0),
     mIsActiveView(false)
 {
 }
@@ -53,20 +54,17 @@ CpBaseSettingViewPrivate::~CpBaseSettingViewPrivate()
     mSoftKeyBackAction = 0;
 }
 
-void CpBaseSettingViewPrivate::init(HbDataForm *settingForm,CpBaseSettingView *baseSettingView)
+void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *baseSettingView)
 {
     mBaseSettingView = baseSettingView;
     
-    if (!settingForm) {
-        settingForm = new HbDataForm();
-
-		QList<HbAbstractViewItem *> protoTypeList = settingForm->itemPrototypes();
-		protoTypeList.append(new CpDataFormViewItem(CpSettingFormEntryItemData::EntryItem, 
-													mSettingForm));
-        settingForm->setItemPrototypes(protoTypeList);
+    if (!widget) {
+        widget = new HbDataForm();
+		CpPluginUtility::addCpItemPrototype(qobject_cast<HbDataForm *>(widget));
     }    
     
-    setSettingForm(settingForm);
+    //setSettingForm(settingForm);
+	mBaseSettingView->setWidget(widget);
     
     mBaseSettingView->setTitle("Control Panel");	//give a default title, sub classes need set it correctly
 
@@ -88,14 +86,8 @@ void CpBaseSettingViewPrivate::init(HbDataForm *settingForm,CpBaseSettingView *b
 
 void CpBaseSettingViewPrivate::setSettingForm(HbDataForm *settingForm)
 {
-	mSettingForm = settingForm;
-    mBaseSettingView->setWidget(mSettingForm); 
-
-	QList<HbAbstractViewItem *> protoTypeList = settingForm->itemPrototypes();
-	// add the control panel custom proto type to data form
-	protoTypeList.append(new CpDataFormViewItem(CpSettingFormEntryItemData::EntryItem,
-												mSettingForm));
-    settingForm->setItemPrototypes(protoTypeList);
+    mBaseSettingView->setWidget(settingForm); 
+    CpPluginUtility::addCpItemPrototype(settingForm);
 }
 
 void CpBaseSettingViewPrivate::setSoftkey()

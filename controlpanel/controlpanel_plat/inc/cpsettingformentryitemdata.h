@@ -19,7 +19,7 @@
 #define CP_SETTINGFORM_ENTRY_ITEM_DATA_H
 
 #include <cpglobal.h>
-#include <qobject>
+#include <QObject>
 #include <cpsettingformitemdata.h>
 #include <hbicon.h>
 

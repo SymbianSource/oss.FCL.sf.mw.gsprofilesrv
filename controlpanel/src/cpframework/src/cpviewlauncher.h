@@ -18,7 +18,7 @@
 #ifndef CPVIEWLAUNCHER_H
 #define CPVIEWLAUNCHER_H
 
-#include <qobject>
+#include <QObject>
 
 class HbView;
 class CpViewLauncher : public QObject

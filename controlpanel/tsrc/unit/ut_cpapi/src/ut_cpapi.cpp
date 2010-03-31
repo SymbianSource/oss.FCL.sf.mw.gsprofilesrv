@@ -20,12 +20,14 @@
 #include <QGraphicsWidget>
 #include <qDebug>
 #include <QtTest/QtTest>
+#include <QtAlgorithms>
 #include <HbView.h>
 #include <hbdataform.h>
 #include <hbdataformmodel.h>
 #include <hbdataformmodelitem.h>
 #include <hbabstractviewitem.h>
 #include <hbsettingformitem.h>
+#include <hbpushbutton.h>
 //testing following classes
 
 #include "cpbasesettingview.h"
@@ -33,6 +35,10 @@
 #include "cpsettingformentryitemdataimpl.h"
 #include <cpsettingformitemdata.h>
 #include <cpitemdatahelper.h>
+#include <cppluginutility.h>
+#include <cppluginloader.h>
+#include <cpplugininterface.h>
+#include <cplogger.h>
 
 void TestCpAPI::initTestCase()
 {    
@@ -48,11 +54,19 @@ void TestCpAPI::cleanupTestCase()
 void TestCpAPI::testCpBaseSettingView()
 {
 	CpBaseSettingView * pview = new CpBaseSettingView(0);
-	QVERIFY( pview !=0 );
+	QVERIFY( pview != 0 );
         HbDataForm *pForm = new HbDataForm(0);
         pview->setSettingForm(pForm);
         QVERIFY( pview->settingForm() == pForm );
 	delete pview;
+	HbPushButton *widget = new HbPushButton();
+	QVERIFY(widget != 0);
+	CpBaseSettingView *pView1 = new CpBaseSettingView(widget);
+	QVERIFY(pView1!=0);
+	HbPushButton *button = qobject_cast<HbPushButton *>(pView1->widget());
+	QVERIFY(button != 0);
+	delete pView1;
+	
 }
 
 void TestCpAPI::testCpSettingFormEntryItemDataImpl()
@@ -117,4 +131,49 @@ void TestCpAPI::testItemDataHelper()
     phelper->addItemPrototype(pitem);
     delete phelper;
 }
+void TestCpAPI::testCpPluginUtility()
+{
+    HbDataForm* form = new HbDataForm();
+    QList<HbAbstractViewItem *> oldList = form->itemPrototypes();
+    CpPluginUtility::addCpItemPrototype(form);
+    QList<HbAbstractViewItem *> newList = form->itemPrototypes();
+    QVERIFY( oldList.count() == newList.count()-1 );
+}
+
+void TestCpAPI::testCpPluginLoader()
+{
+    CpPluginInterface *plugin = CpPluginLoader::loadCpPlugin("non_existing_plugin.dll");
+    QVERIFY(plugin == 0);
+
+    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin");
+    QVERIFY(plugin != 0);
+
+    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin.dll");
+    QVERIFY(plugin != 0);
+
+    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin.qtplugin");
+    QVERIFY(plugin != 0);
+}
+
+void TestCpAPI::testCpPluginInterface()
+{
+    CpPluginInterface *plugin = CpPluginLoader::loadCpPlugin("cppersonalizationplugin.dll");
+    if (plugin) {
+        CpItemDataHelper helper;
+        QList<CpSettingFormItemData*> itemData = plugin->createSettingFormItemData(helper);
+        QVERIFY(itemData.size() > 0);
+        qDeleteAll(itemData.begin(),itemData.end());
+        itemData.clear();
+    }
+}
+
+void TestCpAPI::testCpLogger()
+{
+    const QString logConf = "C:/data/.config/ut_cpapi/controlpanellog.conf";
+    Logger::instance(CPFW_LOGGER_NAME)->configure(logConf,QSettings::IniFormat);
+    CPFW_LOG("Hello World!");
+    Logger::closeAll();
+}
+
+
 QTEST_MAIN(TestCpAPI)

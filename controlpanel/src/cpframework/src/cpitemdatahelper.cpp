@@ -15,34 +15,64 @@
 *
 */
 #include "cpitemdatahelper.h"
-#include <qvector>
-#include <qlist>
+#include <QList>
 #include <hbdataform.h>
 #include <hbdataformmodelitem.h>
+#include <hbdataformviewitem.h>
+
 
 class CpItemDataHelperPrivate
 {
 public:
-	class ItemConnection
-	{
-	public:
-		ItemConnection() : item(0),receiver(0)
-		{
-		}
+    class ItemConnection
+    {
+    public:
+        ItemConnection(HbDataFormModelItem *item,
+            const char *signal,
+            QObject *receiver,
+            const char *method) :
+            mItem(item),mSignal(signal),
+            mReceiver(receiver),mMethod(method)
+        {
+        }
 
-		bool operator == (const ItemConnection &other)
-		{
-			return item == other.item && signal == other.signal
-				&& receiver == other.receiver && method == other.method;
-		}
+        bool operator == (const ItemConnection &other)
+        {
+            return mItem     == other.mItem &&
+                   mSignal   == other.mSignal &&
+                   mReceiver == other.mReceiver &&
+                   mMethod   == other.mMethod;
+        }
 
-		HbDataFormModelItem *item;
-		QString signal;
-		QObject *receiver;
-		QString method;
-	};
+        HbDataFormModelItem *mItem;
+        QString mSignal;
+        QObject *mReceiver;
+        QString mMethod;
+    };
 
-	CpItemDataHelperPrivate()
+    class FormConnection
+    {
+    public:
+        FormConnection(const char *signal,
+            QObject *receiver,
+            const char *method) :
+            mSignal(signal),mReceiver(receiver),mMethod(method)
+        {
+        }
+
+        bool operator == (const FormConnection &other)
+        {
+            return mSignal   == other.mSignal &&
+                   mReceiver == other.mReceiver &&
+                   mMethod   == other.mMethod;
+        }
+        QString mSignal;
+        QObject *mReceiver;
+        QString mMethod;
+    };
+
+	CpItemDataHelperPrivate(HbDataForm *form /*= 0*/)
+        : mDataForm(form)
 	{
 	}
 
@@ -51,53 +81,109 @@ public:
 	}
 
 	void addConnection(HbDataFormModelItem *item,
-		const QString &signal,
+		const char *signal,
 		QObject *receiver,
-		const QString &method)
+		const char *method)
 	{
-		ItemConnection connection;
-		connection.item = item;
-		connection.signal = signal;
-		connection.receiver = receiver;
-		connection.method = method;
-		mConnections.append(connection);
+        if (mDataForm) {
+            mDataForm->addConnection(item,signal,receiver,method);
+        }
+        else {
+            mItemConnections.append(ItemConnection(item,signal,receiver,method));
+        }
 	}
 
 	void removeConnection(HbDataFormModelItem *item,
-		const QString &signal,
+		const char *signal,
 		QObject *receiver,
-		const QString &method)
+		const char *method)
 	{
-		ItemConnection connection;
-		connection.item = item;
-		connection.signal = signal;
-		connection.receiver = receiver;
-		connection.method = method;
-		int index = mConnections.indexOf(connection);
-		if (index >= 0) {
-			mConnections.remove(index);
-		}
+        if (mDataForm) {
+            mDataForm->removeConnection(item,signal,receiver,method);
+        } 
+        else {
+            mItemConnections.removeAll(ItemConnection(item,signal,receiver,method));
+        }
 	}
 
-	void addItemPrototype(HbAbstractViewItem *prototype)
+    void connectToForm(const char *signal,
+        QObject *receiver,
+        const char *method)
+    {
+        if (mDataForm) {
+            QObject::connect(mDataForm,signal,receiver,method);
+        }
+        else {
+            mFormConnections.append(FormConnection(signal,receiver,method));
+        }
+    }
+
+    void disconnectFromForm(const char *signal,
+        QObject *receiver,
+        const char *method)
+    {
+        if (mDataForm) {
+            QObject::disconnect(mDataForm,signal,receiver,method);
+        }
+        else {
+            mFormConnections.removeAll(FormConnection(signal,receiver,method));
+        }
+    }
+
+    void addItemPrototype(HbAbstractViewItem *prototype)
+    {
+        if (prototype) {
+            if (mDataForm) {
+                QList<HbAbstractViewItem *> protoTypeList = mDataForm->itemPrototypes();
+                protoTypeList.append(prototype);
+                mDataForm->setItemPrototypes(protoTypeList);	
+            }
+            else {
+                mItemPrototypes.append(prototype);
+            }
+        }
+    }
+
+	void bindToForm(HbDataForm *form)
 	{
-		mItemPrototypes.append(prototype);
+        mDataForm = form;
+
+        if (mDataForm) {
+            foreach(const ItemConnection &connection,mItemConnections) {
+                mDataForm->addConnection(connection.mItem,connection.mSignal.toAscii(),
+                    connection.mReceiver,connection.mMethod.toAscii());
+            }
+            mItemConnections.clear();
+
+            foreach(const FormConnection &connection,mFormConnections) {
+                QObject::connect(mDataForm,connection.mSignal.toAscii(),
+                    connection.mReceiver,connection.mMethod.toAscii());
+            }
+            mFormConnections.clear();
+
+            if (!mItemPrototypes.isEmpty()) {
+                QList<HbAbstractViewItem *> protoTypeList = mDataForm->itemPrototypes();
+                protoTypeList.append(mItemPrototypes);
+                mDataForm->setItemPrototypes(protoTypeList);	
+            }
+            mItemPrototypes.clear();
+        }
 	}
 
-	void bindToForm(HbDataForm *form) const
-	{
-		foreach(const ItemConnection &connection,mConnections) {
-			form->addConnection(connection.item,connection.signal.toAscii(),
-				connection.receiver,connection.method.toAscii());
-		}
-		QList<HbAbstractViewItem *> protoTypeList = form->itemPrototypes();
-		protoTypeList.append(mItemPrototypes);
-        form->setItemPrototypes(protoTypeList);	
-	}
+    HbWidget *widgetFromModelIndex(const QModelIndex &index)
+    {
+        if (mDataForm) {
+            HbDataFormViewItem *viewItem = mDataForm->dataFormViewItem(index);
+            return viewItem->dataItemContentWidget();
+        }
+        return 0;
+    }
 
 public:
-	QVector<ItemConnection> mConnections;
-	QList<HbAbstractViewItem *>  mItemPrototypes;
+    HbDataForm *mDataForm;
+    QList<ItemConnection> mItemConnections;
+    QList<FormConnection> mFormConnections;
+    QList<HbAbstractViewItem*> mItemPrototypes;
 };
 
 
@@ -111,8 +197,8 @@ public:
 /*!
     Constructor of CpItemDataHelper.
  */
-CpItemDataHelper::CpItemDataHelper()
-: d(new CpItemDataHelperPrivate())
+CpItemDataHelper::CpItemDataHelper(HbDataForm *form/* = 0*/)
+: d(new CpItemDataHelperPrivate(form))
 {
 }
 
@@ -129,25 +215,44 @@ CpItemDataHelper::~CpItemDataHelper()
     Connect a slot to inner widget's signal of setting item.
  */
 void CpItemDataHelper::addConnection(HbDataFormModelItem *item,
-									 const QString &signal,
+									 const char *signal,
 									 QObject *receiver,
-									 const QString &method)
+									 const char *method)
 {
 	d->addConnection(item,signal,receiver,method);
-	emit connectionAdded(item,signal,receiver,method);
 }
 
 /*!
     Disconnect a slot to inner widget's signal of setting item.
  */
 void CpItemDataHelper::removeConnection(HbDataFormModelItem *item,
-										const QString &signal,
+										const char *signal,
 										QObject *receiver,
-										const QString &method)
+										const char *method)
 {
 	d->removeConnection(item,signal,receiver,method);
-	emit connectionRemoved(item,signal,receiver,method);
 }
+
+/*!
+    Connect slot to data form.
+*/
+void CpItemDataHelper::connectToForm(const char *signal,
+                                     QObject *receiver,
+                                     const char *method)
+{
+    d->connectToForm(signal,receiver,method);
+}
+
+/*!
+    Disconnect slot from data form.
+*/
+void CpItemDataHelper::disconnectFromForm(const char *signal,
+                                          QObject *receiver,
+                                          const char *method)
+{
+    d->disconnectFromForm(signal,receiver,method);
+}
+
 
 /*!
     Add a prototype to data form, to create custom widget for a custom setting item.
@@ -155,15 +260,21 @@ void CpItemDataHelper::removeConnection(HbDataFormModelItem *item,
 void CpItemDataHelper::addItemPrototype(HbAbstractViewItem *prototype)
 {
 	d->addItemPrototype(prototype);
-	emit prototypeAdded(prototype);
 }
 
 /*!
     Bind the connections and prototypes to a data form.
  */
-void CpItemDataHelper::bindToForm(HbDataForm *form) const
+void CpItemDataHelper::bindToForm(HbDataForm *form)
 {
 	d->bindToForm(form);
 }
 
 
+/*
+    Get the HbWidget instance from data form.
+*/
+HbWidget *CpItemDataHelper::widgetFromModelIndex(const QModelIndex &index)
+{
+    return d->widgetFromModelIndex(index);
+}

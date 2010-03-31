@@ -19,7 +19,7 @@
 #include <cpitemdatahelper.h>
 #include <hbfiledialog.h>
 #include <hbaction.h>
-#include <QFileInfo.h>
+#include <QFileInfo>
 
 CpThemePluginEntryItemData::CpThemePluginEntryItemData(CpItemDataHelper &itemDataHelper,
 													   const QString &text /*= QString()*/,

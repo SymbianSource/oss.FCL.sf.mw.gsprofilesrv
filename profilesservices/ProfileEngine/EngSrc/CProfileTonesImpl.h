@@ -24,7 +24,7 @@
 #include <e32base.h>
 #include <MProfileTones.h>
 #include <TProfileToneSettings.h>
-#include "MProfileSetTones.h"
+#include <MProfileSetTones.h>
 
 // FORWARD DECLARATIONS
 class RWriteStream;

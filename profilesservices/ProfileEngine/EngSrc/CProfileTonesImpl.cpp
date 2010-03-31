@@ -19,10 +19,11 @@
 
 // INCLUDE FILES
 #include "CProfileTonesImpl.h"
-#include <s32strm.h>
-#include <centralrepository.h>
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"
+
+#include <s32strm.h>
+#include <centralrepository.h>
 #include <hwrmvibrasdkcrkeys.h>
 
 #include <psmsettings.h>

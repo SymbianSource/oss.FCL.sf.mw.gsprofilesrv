@@ -18,15 +18,15 @@
 #define CPGROUPPLUGIN_H
 
 #include <qobject.h>
-#include <cppluginplatinterface.h>
+#include <cpplugininterface.h>
 
-class CpGroupPlugin : public QObject, public CpPluginPlatInterface
+class CpGroupPlugin : public QObject, public CpPluginInterface
 {
     Q_OBJECT
-    Q_INTERFACES(CpPluginPlatInterface)
+    Q_INTERFACES(CpPluginInterface)
 public:
     CpGroupPlugin();
-    ~CpGroupPlugin();
-    virtual CpSettingFormItemData *createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
+    virtual ~CpGroupPlugin();
+    virtual QList<CpSettingFormItemData*> createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
 };
 #endif // CPGROUPPLUGIN_H

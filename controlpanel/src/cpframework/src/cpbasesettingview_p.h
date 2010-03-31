@@ -28,6 +28,7 @@ class HbDataFormModelItem;
 class HbAbstractViewItem;
 class CpItemDataHelper;
 class CpItemDataHelper;
+class QGraphicsWidget;
 
 class CpBaseSettingViewPrivate
 {
@@ -37,7 +38,7 @@ public:
     /*
      initialize 
      */
-    void init(HbDataForm *settingForm,CpBaseSettingView *baseSettingView);
+    void init(QGraphicsWidget *widget,CpBaseSettingView *baseSettingView);
     void setSettingForm(HbDataForm *settingForm);
     
     /*

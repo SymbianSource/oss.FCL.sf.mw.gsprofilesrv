@@ -23,7 +23,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include <MProfileFeedbackSettings.h>
-#include "MProfileSetFeedbackSettings.h"
+#include <MProfileSetFeedbackSettings.h>
 
 // FORWARD DECLARATIONS
 class CRepository;

@@ -24,8 +24,8 @@
 #include <e32property.h>
 #include <f32file.h>            // RFs
 #include <Profile.hrh>          // TProfileRingingVolume 
-#include "MProfileEngineExtended.h" // MProfileEngineExtended
-#include "MProfileExtended.h" // MProfileExtended
+#include <MProfileEngineExtended.h> // MProfileEngineExtended
+#include <MProfileExtended.h> // MProfileExtended
 
 // FORWARD DECLARATIONS
 class CProfileNameImpl;

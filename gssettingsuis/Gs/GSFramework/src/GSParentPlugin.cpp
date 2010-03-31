@@ -35,7 +35,6 @@
 #include    <bautils.h>
 #include    <eikmenup.h>
 #include    <eikbtgpc.h>
-#include    <hlplch.h>
 #include    <StringLoader.h>
 
 // Middle Softkey control ID.
@@ -376,11 +375,6 @@ EXPORT_C void CGSParentPlugin::HandleCommandL( TInt aCommand )
             break;
         case EAknCmdHelp:
             {
-            if( FeatureManager::FeatureSupported( KFeatureIdHelp ) )
-                {
-                HlpLauncher::LaunchHelpApplicationL(
-                    iEikonEnv->WsSession(), iAppUi->AppHelpContextL() );
-                }
             break;
             }
         default:

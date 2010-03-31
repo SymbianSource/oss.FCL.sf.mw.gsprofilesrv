@@ -19,6 +19,14 @@
 
 // INCLUDE FILES
 #include "CProfileEngineImpl.h"
+#include "CProfilesNamesArrayImpl.h"
+#include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "ProfileEngUtils.h"
+#include "ProfileEngPanic.h"
+#include "CProfileTiming.h"
+#include "ProfileEnginePrivateCRKeys.h"
+#include "ProfilesDebug.h"
 #include <bautils.h> // BaflUtils
 #include <barsc.h> // RResoureFile
 #include <featmgr.h>
@@ -29,28 +37,20 @@
 #include <ProfileEng.rsg>
 #include <TProfileToneSettings.h>
 #include <MProfileTones.h>
-#include "CProfilesNamesArrayImpl.h"
-#include "CProfileImpl.h"
-#include "CProfileNameImpl.h"
-#include "ProfileEngUtils.h"
-#include "MProfileSetName.h"
-#include "ProfileEng.hrh"
-#include "ProfileEngineConstants.h"
-#include "ProfileEngPanic.h"
-#include "MProfileSetTones.h"
-#include "MProfileSetExtraTones.h"
-#include "MProfileExtraSettings.h"
-#include "MProfileFeedbackSettings.h"
-#include "MProfilesLocalFeatures.h"
-#include "MProfileUtilitySingleton.h"
-#include "ProfilesVariant.hrh" // KProEngFeatureIdVTRingingTone
-#include "CProfileTiming.h"
+#include <MProfileSetName.h>
+#include <ProfileEng.hrh>
+#include <ProfileEngineConstants.h>
+#include <MProfileSetTones.h>
+#include <MProfileSetExtraTones.h>
+#include <MProfileExtraSettings.h>
+#include <MProfileFeedbackSettings.h>
+#include <MProfilesLocalFeatures.h>
+#include <MProfileUtilitySingleton.h>
+#include <ProfilesVariant.hrh> // KProEngFeatureIdVTRingingTone
 #include <centralrepository.h>
-#include "ProfileEnginePrivateCRKeys.h"
-#include "ProfileEnginePrivatePSKeys.h"
+#include <ProfileEnginePrivatePSKeys.h>
 #include <hwrmvibrasdkcrkeys.h>
 #include <data_caging_path_literals.hrh>
-#include "ProfilesDebug.h"
 
 #include <psmsettings.h>
 #include <psmsrvdomaincrkeys.h>

@@ -14,16 +14,22 @@
 * Description:  
 *
 */
-#include "cppluginloader.h"
-#include <qstring>
-#include <qdebug>
-#include <qfileinfo>
-#include <qpluginloader>
+#include <cppluginloader.h>
+#include <QString>
+#include <QDir>
+#include <QFileInfo>
+#include <QPluginLoader>
+#include <cpplugininterface.h>
 #include <cppluginplatinterface.h>
 #include "cpbasepath.h"
-#include "cplogger.h"
 #include "cputility.h"
+#include <cplogger.h>
 
+
+/*!
+    \class CpPluginLoader
+    \brief The CpPluginLoader class loads a controlpanel plugin at run-time.
+ */
 
 #ifdef WIN32
     #define PLUGINFILE_SUFFIX "dll"
@@ -31,11 +37,9 @@
     #define PLUGINFILE_SUFFIX "qtplugin"
 #endif
 
-CpPluginPlatInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
+template <typename PLUGIN>
+static PLUGIN* loadPlugin(const QString &pluginFile)
 {
-    CpLogger logger;
-    logger << "loading plugin:" << pluginFile << "\r\n";
-    
     QFileInfo fileInfo(pluginFile);
 
     if (!fileInfo.isAbsolute()) {
@@ -44,7 +48,7 @@ CpPluginPlatInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
             fileName = fileInfo.baseName() + '.' + PLUGINFILE_SUFFIX;
         }
 
-		QStringList pluginDirs = CpUtility::pluginDirs();
+		QStringList pluginDirs = CpUtility::pluginDirectories();
 		foreach(const QString &pluginDir,pluginDirs) {
 			fileInfo.setFile(pluginDir + fileName);
 			if (fileInfo.exists() && QLibrary::isLibrary(fileInfo.absoluteFilePath())) {
@@ -54,12 +58,39 @@ CpPluginPlatInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
     }
 
 	QPluginLoader loader(fileInfo.absoluteFilePath());
-	CpPluginPlatInterface *plugin = qobject_cast<CpPluginPlatInterface*> (loader.instance());
+	PLUGIN *plugin = qobject_cast<PLUGIN*> (loader.instance());
 	if (!plugin) {
 		loader.unload();
 	}
-
-    logger << (plugin ? "load plugin succeed." : "load plugin failed.") << "\r\n";
     
     return plugin;
 }
+
+/*!
+    load a controlpanel plugin by plugin file.
+    the plugin file can either absoulte file path or only file name.
+    acceptable format:
+        sampleplugin
+        sampleplugin.qtplugin
+        sampleplugin.dll
+        C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
+        C:/resource/qt/plugins/controlpanel/sampleplugin.dll
+ */
+
+CpPluginInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
+{
+	return loadPlugin<CpPluginInterface>(pluginFile);
+}
+
+
+/*!
+    \deprecated  CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &) is deprecated.
+    please use CpPluginInterface to implement controlpanel plugin and use CpPluginLoader::loadCpPlugin(const QString &) to load the plugin.
+ */
+
+CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &pluginFile)
+{    
+	return loadPlugin<CpPluginPlatInterface>(pluginFile);
+}
+
+

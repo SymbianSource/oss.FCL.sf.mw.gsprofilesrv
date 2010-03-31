@@ -19,16 +19,16 @@
 #define	CPTHEMEPLUGIN_H
 
 #include <qobject.h>
-#include <cppluginplatinterface.h>
+#include <cpplugininterface.h>
 
-class CpThemePlugin : public QObject, public CpPluginPlatInterface
+class CpThemePlugin : public QObject, public CpPluginInterface
 {
     Q_OBJECT
-    Q_INTERFACES(CpPluginPlatInterface)
+    Q_INTERFACES(CpPluginInterface)
 public:
     CpThemePlugin();
     virtual ~CpThemePlugin();
-    virtual CpSettingFormItemData *createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
+    virtual QList<CpSettingFormItemData*> createSettingFormItemData(CpItemDataHelper &itemDataHelper) const;
 };
 
 #endif	//CPTHEMEPLUGIN_H

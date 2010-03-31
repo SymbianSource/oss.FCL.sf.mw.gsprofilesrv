@@ -17,7 +17,7 @@
 #include "cpsampleview.h"
 #include <hbdataform.h>
 #include <qstringlist>
-#include <qdebug>
+#include <QDebug>
 #include <hbdataformmodel.h>
 #include <cpsettingformitemdata.h>
 #include <hbmessagebox.h>

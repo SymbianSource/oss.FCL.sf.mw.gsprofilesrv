@@ -71,7 +71,6 @@ LIBRARY         profileeng.lib
 LIBRARY         apgrfx.lib  // RApaLSSession
 LIBRARY         apmime.lib  // TDataType
 LIBRARY         efsrv.lib  // RFs, TParse
-LIBRARY         aknnotify.lib // CAknGlobalNote
 LIBRARY         PlatformEnv.lib  // PathInfo
 LIBRARY         ContentListingFramework.lib
 LIBRARY         mmfcontrollerframework.lib
