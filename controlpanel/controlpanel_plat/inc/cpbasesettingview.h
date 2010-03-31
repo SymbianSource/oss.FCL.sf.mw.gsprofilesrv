@@ -39,7 +39,6 @@ private:
     Q_DISABLE_COPY(CpBaseSettingView)
     Q_DECLARE_PRIVATE_D(d_ptr, CpBaseSettingView)
     Q_PRIVATE_SLOT(d_func(), void _q_softkeyClicked())
-    Q_PRIVATE_SLOT(d_func(), void _q_viewChanged(HbView *view))
 private:
     CpBaseSettingViewPrivate *d_ptr;
 };
