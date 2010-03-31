@@ -174,6 +174,8 @@ NONSHARABLE_CLASS( CProEngEngineImpl ) : public CBase,
 
         // Own: tone handler for DRM checkups etc.
         CProEngToneHandler* iToneHandler;
+	    // File server session
+        RFs* iFs;
     };
 
 #endif      //  CPROENGENGINEIMPL_H

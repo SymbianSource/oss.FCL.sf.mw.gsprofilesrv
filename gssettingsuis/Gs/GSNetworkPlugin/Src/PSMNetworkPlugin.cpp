@@ -53,6 +53,11 @@ void CPSMNetworkPlugin::ConstructL()
     __GSLOGSTRING( "[GS]-->[CPSMNetworkPlugin::ConstructL]" );
     
     iModel = CGSNetworkPluginModel::NewL( NULL,NULL );
+    iPsmRepository = CRepository::NewL( KCRUidPowerSaveMode );
+    // Read from CenRep so iPsmMode gets correct init value
+    TInt psmMode;
+    iPsmRepository->Get( KPsmCurrentMode, psmMode );
+    iPsmMode = ( TPsmsrvMode )psmMode;
     
     __GSLOGSTRING( "[GS]<--[CPSMNetworkPlugin::ConstructL]" );
     }
@@ -84,6 +89,8 @@ CPSMNetworkPlugin::~CPSMNetworkPlugin()
     __GSLOGSTRING( "[CPSMNetworkPlugin::~CPSMNetworkPlugin]" );
     delete iModel;
     iModel = NULL;
+    delete iPsmRepository;
+    iPsmRepository = NULL;
 	}
 
 // ---------------------------------------------------------
@@ -130,9 +137,10 @@ void CPSMNetworkPlugin::NotifyModeChange( const TInt aMode )
 //
 void CPSMNetworkPlugin::DoModeChangeL( const TInt aMode )
     {
+	TPsmsrvMode newMode = ( TPsmsrvMode )aMode;
     if ( !IsPhoneOfflineL() && 
          FeatureManager::FeatureSupported( KFeatureIdProtocolWcdma ) &&
-         iModel->IsNetworkModeVisible() )
+         iModel->IsNetworkModeVisible() && IsChangeNetworkMode ( iPsmMode, newMode ) )
         {
         RConfigInfoArray infoArray;
     
@@ -141,7 +149,7 @@ void CPSMNetworkPlugin::DoModeChangeL( const TInt aMode )
         info1.iConfigType = EConfigTypeInt;
         info1.iIntValue = iModel->GetNetworkMode();
         infoArray.Append( info1 );
-    
+        
         __GSLOGSTRING1( "[CPSMNetworkPlugin::NotifyModeChangeL] Switching to mode:%d", aMode );
     
         __GSLOGSTRING1( "[CPSMNetworkPlugin::NotifyModeChangeL]: oldValue info1: %d", infoArray[0].iIntValue );
@@ -160,6 +168,26 @@ void CPSMNetworkPlugin::DoModeChangeL( const TInt aMode )
         infoArray.Reset();       
         }
     }
+
+// ----------------------------------------------------------------------------------
+// CPSMNetworkPlugin::IsChangeNetworkMode
+// ----------------------------------------------------------------------------------
+//
+TBool CPSMNetworkPlugin::IsChangeNetworkMode( TPsmsrvMode& aOldMode, TPsmsrvMode aNewMode )
+	{
+	TPsmsrvMode oldMode = aOldMode;
+	aOldMode = aNewMode;
+	if ( ( oldMode == EPsmsrvModeNormal && aNewMode == EPsmsrvPartialMode )
+			|| ( oldMode == EPsmsrvModePowerSave && aNewMode
+					== EPsmsrvPartialMode ) )
+		{
+		return EFalse;
+		}
+	else
+		{
+		return ETrue;
+		}
+	}
 
 //End of File
 

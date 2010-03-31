@@ -23,8 +23,10 @@
 #include <e32std.h>
 #include <e32base.h>
 #include <psmpluginbase.h> //CPsmPluginBase
+#include <psmtypes.h>
 
 class CGSNetworkPluginModel;
+class CRepository;
 
 /**
 *  PSMNetwork plugin stub
@@ -67,9 +69,18 @@ class CPSMNetworkPlugin : public CPsmPluginBase
         */
         TBool IsPhoneOfflineL() const;
         
+        /**
+         * To verify if the network mode needs to be changed.
+         * not change when from EPsmsrvModeNormal to EPsmsrvPartialMode
+         * and from EPsmsrvModePowerSave to EPsmsrvPartialMode
+         */
+        TBool IsChangeNetworkMode( TPsmsrvMode& aOldMode, TPsmsrvMode aNewMode );
+        
     private: // data
 
         CGSNetworkPluginModel *iModel;        //data model
+        CRepository* iPsmRepository;
+        TPsmsrvMode iPsmMode;
 
     };
 

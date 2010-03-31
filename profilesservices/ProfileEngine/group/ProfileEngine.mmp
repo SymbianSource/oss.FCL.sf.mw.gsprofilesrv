@@ -75,7 +75,11 @@ LIBRARY         aknnotify.lib // CAknGlobalNote
 LIBRARY         PlatformEnv.lib  // PathInfo
 LIBRARY         ContentListingFramework.lib
 LIBRARY         mmfcontrollerframework.lib
-
+LIBRARY         avkon.lib 
+LIBRARY         eikcdlg.lib 
+LIBRARY         eikctl.lib 
+LIBRARY	        CommonEngine.lib 
+LIBRARY         cone.lib
 LIBRARY         DRMCommon.lib
 LIBRARY         DrmRights.lib
 LIBRARY		caf.lib	cafutils.lib // Content access framework

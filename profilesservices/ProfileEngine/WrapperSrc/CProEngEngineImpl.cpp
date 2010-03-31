@@ -27,7 +27,20 @@
 #include    "CProEngProfileImpl.h"
 #include    "CProEngToneHandler.h"
 #include    "CProEngProfileNameArrayImpl.h"
+#include    <ProEngWrapper.rsg>
+#include    <ConeResLoader.h> 
+#include 	<startupdomainpskeys.h>
+#include    <StringLoader.h>
+#include    <AknQueryDialog.h>
+#include    <aknnotewrappers.h>
+#include    <barsc.h>  // RResourceFile
+#include    <bautils.h> // BaflUtils
 
+namespace
+	{
+	// The filename of the resource file
+	_LIT( KProEngResourceFileName, "Z:ProEngWrapper.RSC" );
+	}
 // ============================ MEMBER FUNCTIONS ===============================
 
 // -----------------------------------------------------------------------------
@@ -47,6 +60,8 @@ void CProEngEngineImpl::ConstructL()
     {
     iProfileEngine = CreateProfileEngineExtendedL();
     iToneHandler = CProEngToneHandler::NewL();
+	iFs = new ( ELeave ) RFs;
+    User::LeaveIfError( iFs->Connect() );
     }
 
 // -----------------------------------------------------------------------------
@@ -125,6 +140,8 @@ CProEngEngineImpl::~CProEngEngineImpl()
         iProfileEngine->Release();
         }
     delete iToneHandler;
+    iFs->Close();
+    delete iFs;
     }
 
 // -----------------------------------------------------------------------------
@@ -188,10 +205,45 @@ MProEngProfileNameArray* CProEngEngineImpl::ProfileNameArrayLC()
 // CProEngEngineImpl::SetActiveProfileL
 // -----------------------------------------------------------------------------
 //
-void CProEngEngineImpl::SetActiveProfileL( TInt aId )
-    {
-    iProfileEngine->SetActiveProfileL( aId );
-    }
+void CProEngEngineImpl::SetActiveProfileL(TInt aId)
+	{
+	if ( //  active profile is Off-line
+	( iProfileEngine->ActiveProfileId() == EProfileOffLineId ) &&
+	// and currently focused profile is not Off-line
+			( aId != EProfileOffLineId ) )
+		{
+
+		TInt simCStatus( ESimNotPresent );
+		RProperty simStatus;
+		User::LeaveIfError( simStatus.Attach(KPSUidStartup, KPSSimStatus ) );
+		User::LeaveIfError( simStatus.Get( simCStatus ) );
+		simStatus.Close();
+
+		TParse* fp = new ( ELeave ) TParse();
+		fp->Set( KProEngResourceFileName, &KDC_RESOURCE_FILES_DIR, NULL );
+		TFileName localizedFileName( fp->FullName() );
+		delete fp;
+
+		BaflUtils::NearestLanguageFile( *iFs, localizedFileName );
+		RConeResourceLoader resourceLoader( *CCoeEnv::Static() );
+		TRAP_IGNORE( resourceLoader.OpenL( localizedFileName ) );
+
+		if ( simCStatus == ESimNotPresent )
+			{
+			// SIM card does not exist.
+			HBufC* infoNoteText = StringLoader::LoadLC(
+					R_PROFILE_TEXT_INSERT_SIM );
+			CAknInformationNote* note = new ( ELeave ) CAknInformationNote( ETrue );
+			note->ExecuteLD( *infoNoteText );
+			CleanupStack::PopAndDestroy( infoNoteText );
+			resourceLoader.Close();	
+			return;
+			}
+		resourceLoader.Close();
+		}
+
+	iProfileEngine->SetActiveProfileL(aId);
+	}
 
 // -----------------------------------------------------------------------------
 // CProEngEngineImpl::ProfileLC
