@@ -42,41 +42,9 @@
     #include    "../GSFramework/bld.inf"
     #include    "../GSApplication/bld.inf"
 
-    // Main view plugins:
-    #include    "../GSAppsPlugin/bld.inf"
-    #include    "../GSConPlugin/bld.inf"
-    #include    "../GSGenPlugin/bld.inf"
-    #include    "../GSTelPlugin/bld.inf"
-
-    // Sub view plugins:
-    #include    "../GSDataCallPlugin/bld.inf"
-    #include    "../GSDisplayPlugin/bld.inf"
-    #include    "../GSOpticalJoystickPlugin/bld.inf"
-    #include    "../GSPDataPlugin/bld.inf"
-//    #include    "../GSPrslnPlugin/bld.inf"
-    #include    "../GSSecurityPlugin/bld.inf"
-    #include    "../GSCallPlugin/bld.inf"
-    #include    "../GSCallDivertPlugin/bld.inf"
-    #include    "../GSCallBarringPlugin/bld.inf"
-    #include    "../GSNetworkPlugin/bld.inf"
-    #include    "../GSPDataAccessPointPlugin/bld.inf"
-    #include    "../GSPDataConnectionPlugin/bld.inf"
-    #include    "../GSPowerSavingQueryPlugin/bld.inf"
-
-    #ifdef RD_CONTROL_PANEL
-        #include    "../GSDeviceManagementPlugin/bld.inf"
-        #include    "../GSSynchronisationPlugin/bld.inf"
-        #include    "../GSInstallationsPlugin/bld.inf"
-        #include    "../GSAdminPlugin/bld.inf"
-        #include    "../GSAutoKeyguardPlugin/bld.inf"
-    #endif //RD_CONTROL_PANEL
-
-    #ifdef __HSXPA_SUPPORT
-    	#include    "../GSPDataHSDPAPlugin/bld.inf"
-    #endif
 
     #include "../gslauncher/group/bld.inf"
-    #include "../GSIndicatorPlugin/group/bld.inf"
+
     #include "../help/group/bld.inf"
 
     PRJ_EXPORTS

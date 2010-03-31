@@ -1,0 +1,16 @@
+
+
+<childplugins>
+  <plugin displayname = "WLAN" id = "0X20025FE8"  dll = "cpplaceholderplugin.dll">
+    <desc>WLAN status</desc>
+  </plugin>
+  <plugin displayname = "Bluetooth" id = "0X20025FE8"  dll = "cpplaceholderplugin.dll">
+    <desc>Status text</desc>
+  </plugin>
+  <plugin displayname = "Telephony" id = "0X20029F23"  dll = "cptelephonyplugin.dll">
+    <desc></desc>
+  </plugin>
+    <plugin displayname = "Network settings" id = "0X2002BC8F"  dll = "cpnetworkplugin.dll">
+    <desc></desc>
+  </plugin>
+</childplugins>

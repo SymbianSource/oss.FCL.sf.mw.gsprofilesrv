@@ -99,7 +99,6 @@ RESOURCE MENU_PANE r_gs_menu_item_open
             {
             command = EAknSoftkeyOpen;
             txt = qtn_set_options_open;
-            flags = EEikMenuItemAction; // action command
             }
         };
     }
@@ -139,7 +138,6 @@ RESOURCE MENU_PANE r_gs_menu_item_change
             {
             command = EGSCmdAppChange;
             txt = qtn_set_options_change;
-            flags = EEikMenuItemAction; // action command
             }
         };
     }

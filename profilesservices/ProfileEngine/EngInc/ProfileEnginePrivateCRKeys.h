@@ -195,20 +195,6 @@ const TUint32 KProEngRingingVolume         = EProfileSettingIdRingingVolume;
 const TUint32 KProEngVibra                 = EProfileSettingIdVibra;
 
 /**
- * This value indicates whether Email vibra should be on or off. Integer (0 or 1).
- *
- * Default values:
- *
- *   General (0):  0
- *   Silent (1):   0
- *   Meeting (2):  0
- *   Outdoor (3):  1
- *   Pager (4):    1
- *   Off-line (5): 0
- */
-const TUint32 KProEngEmailVibra                 = EProfileSettingIdEmailVibra;
-
-/**
  * This value indicates whether warning and game tones should be on or off.
  * Integer (0 or 1).
  *

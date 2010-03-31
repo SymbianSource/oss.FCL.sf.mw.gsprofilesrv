@@ -328,13 +328,6 @@ class CGSParentPlugin : public CGSPluginInterface,
         // could refer to wrong plugin in case plugin order or count is
         // changed.
         TUid iTopPluginUid;
-        
-        //keep the exact position of the listbox including current item index,
-        //iVerticalOffset and  TopItemindex
-        RArray<TInt> position;
-        
-        //record the screen mode, portrait/landscape
-        TBool iScreenMode;
 };
 
 

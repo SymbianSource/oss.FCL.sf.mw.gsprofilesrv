@@ -1,0 +1,70 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#ifndef __CONTROLPANEL_IBY__
+#define __CONTROLPANEL_IBY__
+
+#include <bldvariant.hrh>
+#include <data_caging_paths_for_iby.hrh>
+
+#define CP_UPGRADABLE_APP_REG_RSC(NAME) data=DATAZ_\PRIVATE\10003A3F\IMPORT\APPS\ ## NAME ## _reg.rsc        Private\10003a3f\import\apps\ ## NAME ## _reg.rsc
+
+file=ABI_DIR\BUILD_DIR\controlpanel.exe         			 SHARED_LIB_DIR\controlpanel.exe 
+CP_UPGRADABLE_APP_REG_RSC(controlpanel)    
+S60_APP_RESOURCE(controlpanel)   
+
+file=ABI_DIR\BUILD_DIR\cpframework.dll			  	 SHARED_LIB_DIR\cpframework.dll
+file=ABI_DIR\BUILD_DIR\cpprofilewrapper.dll			 SHARED_LIB_DIR\cpprofilewrapper.dll
+file=ABI_DIR\BUILD_DIR\cpapplicationsettingsplugin.dll       SHARED_LIB_DIR\cpapplicationsettingsplugin.dll
+file=ABI_DIR\BUILD_DIR\cppersonalizationplugin.dll           SHARED_LIB_DIR\cppersonalizationplugin.dll
+file=ABI_DIR\BUILD_DIR\cpcommunicationplugin.dll             SHARED_LIB_DIR\cpcommunicationplugin.dll
+file=ABI_DIR\BUILD_DIR\cpdeviceplugin.dll                    SHARED_LIB_DIR\cpdeviceplugin.dll
+file=ABI_DIR\BUILD_DIR\cpplaceholderplugin.dll               SHARED_LIB_DIR\cpplaceholderplugin.dll
+file=ABI_DIR\BUILD_DIR\cpprivacyplugin.dll                   SHARED_LIB_DIR\cpprivacyplugin.dll
+file=ABI_DIR\BUILD_DIR\cpplaceholdernoiconplugin.dll         SHARED_LIB_DIR\cpplaceholdernoiconplugin.dll
+file=ABI_DIR\BUILD_DIR\cplookfeelplugin.dll                  SHARED_LIB_DIR\cplookfeelplugin.dll
+file=ABI_DIR\BUILD_DIR\cpthemeplugin.dll                     SHARED_LIB_DIR\cpthemeplugin.dll
+file=ABI_DIR\BUILD_DIR\cpkeytouchfdbkplugin.dll              SHARED_LIB_DIR\cpkeytouchfdbkplugin.dll
+file=ABI_DIR\BUILD_DIR\cpaccountsplugin.dll                  SHARED_LIB_DIR\cpaccountsplugin.dll
+file=ABI_DIR\BUILD_DIR\cppincodeplugin.dll                   SHARED_LIB_DIR\cppincodeplugin.dll
+file=ABI_DIR\BUILD_DIR\cpdevicelockplugin.dll                SHARED_LIB_DIR\cpdevicelockplugin.dll
+file=ABI_DIR\BUILD_DIR\seccodeui.dll                          SHARED_LIB_DIR\seccodeui.dll
+
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\mainview.cpcfg 													resource\qt\plugins\controlpanel\config\mainview.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cpapplicationsettingsplugin.cpcfg				resource\qt\plugins\controlpanel\config\cpapplicationsettingsplugin.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cppersonalizationplugin.cpcfg		        resource\qt\plugins\controlpanel\config\cppersonalizationplugin.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cpcommunicationplugin.cpcfg		          resource\qt\plugins\controlpanel\config\cpcommunicationplugin.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cpdeviceplugin.cpcfg		                resource\qt\plugins\controlpanel\config\cpdeviceplugin.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cpprivacyplugin.cpcfg		                resource\qt\plugins\controlpanel\config\cpprivacyplugin.cpcfg
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\config\cplookfeelplugin.cpcfg	                resource\qt\plugins\controlpanel\config\cplookfeelplugin.cpcfg
+
+
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cppersonalizationplugin.qtplugin             resource\qt\plugins\controlpanel\cppersonalizationplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpapplicationsettingsplugin.qtplugin         resource\qt\plugins\controlpanel\cpapplicationsettingsplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpcommunicationplugin.qtplugin               resource\qt\plugins\controlpanel\cpcommunicationplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpdeviceplugin.qtplugin                      resource\qt\plugins\controlpanel\cpdeviceplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpplaceholderplugin.qtplugin                 resource\qt\plugins\controlpanel\cpplaceholderplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpprivacyplugin.qtplugin                     resource\qt\plugins\controlpanel\cpprivacyplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpplaceholdernoiconplugin.qtplugin           resource\qt\plugins\controlpanel\cpplaceholdernoiconplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cplookfeelplugin.qtplugin                    resource\qt\plugins\controlpanel\cplookfeelplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpthemeplugin.qtplugin                       resource\qt\plugins\controlpanel\cpthemeplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpkeytouchfdbkplugin.qtplugin                resource\qt\plugins\controlpanel\cpkeytouchfdbkplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpaccountsplugin.qtplugin                    resource\qt\plugins\controlpanel\cpaccountsplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cppincodeplugin.qtplugin                     resource\qt\plugins\controlpanel\cppincodeplugin.qtplugin
+data=\epoc32\data\c\resource\qt\plugins\controlpanel\cpdevicelockplugin.qtplugin                  resource\qt\plugins\controlpanel\cpdevicelockplugin.qtplugin
+
+#endif

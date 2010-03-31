@@ -1,0 +1,23 @@
+EXPORTS
+	_ZN14CpProfileModel10ringVolumeEv @ 1 NONAME
+	_ZN14CpProfileModel11screenVibraEv @ 2 NONAME
+	_ZN14CpProfileModel11setRingToneERK7QString @ 3 NONAME
+	_ZN14CpProfileModel11vibraStatusEv @ 4 NONAME
+	_ZN14CpProfileModel12activateBeepEv @ 5 NONAME
+	_ZN14CpProfileModel12screenVolumeEv @ 6 NONAME
+	_ZN14CpProfileModel12setKeyVolumeEi @ 7 NONAME
+	_ZN14CpProfileModel13setRingVolumeEi @ 8 NONAME
+	_ZN14CpProfileModel14activateSilentEv @ 9 NONAME
+	_ZN14CpProfileModel14initiationFlagEv @ 10 NONAME
+	_ZN14CpProfileModel14setScreenVibraEi @ 11 NONAME
+	_ZN14CpProfileModel14setVibraStatusEb @ 12 NONAME
+	_ZN14CpProfileModel15setScreenVolumeEi @ 13 NONAME
+	_ZN14CpProfileModel6isBeepEv @ 14 NONAME
+	_ZN14CpProfileModel8isSilentEv @ 15 NONAME
+	_ZN14CpProfileModel8ringToneEv @ 16 NONAME
+	_ZN14CpProfileModel9keyVolumeEv @ 17 NONAME
+	_ZN14CpProfileModelC1Ev @ 18 NONAME
+	_ZN14CpProfileModelC2Ev @ 19 NONAME
+	_ZN14CpProfileModelD1Ev @ 20 NONAME
+	_ZN14CpProfileModelD2Ev @ 21 NONAME
+

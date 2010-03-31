@@ -23,11 +23,8 @@
 
 #include <e32std.h>
 #include <e32def.h>
-#include <apgtask.h>
+#include <e32base.h>
 
-
-
-class CGSLauncherExtension;
 /**
  *  Launches general settings with specific plug-in opened.
  *  Using this API, a client may request a general settings view to be shown.
@@ -86,9 +83,6 @@ private:
     CGSLauncher();
     
     void ConstructL();
-
-private: // data
-		CGSLauncherExtension* iExt;
     };
 
 #endif // C_GSLAUNCHER_H

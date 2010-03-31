@@ -37,7 +37,7 @@
 #include    <eikbtgpc.h>
 #include    <hlplch.h>
 #include    <StringLoader.h>
-#include	  <layoutmetadata.cdl.h>
+
 // Middle Softkey control ID.
 const TInt KGSMSKControlID = 3;
 const TInt KGSMSKLength = 256;
@@ -214,18 +214,17 @@ EXPORT_C void CGSParentPlugin::DoActivateL( const TVwsViewId& aPrevViewId,
     
         // Update listbox from already existing iPluginArray:
         iContainer->UpdateListBoxL();
-		if (position.Count() > 0)
-			{
-			if (iScreenMode == Layout_Meta_Data::IsLandscapeOrientation())
-				{
-				iContainer->SetPosition(position, EFalse);
-				}
-			else
-				{
-				iContainer->SetPosition(position, ETrue);
-				}
-			}
-		iAppUi->AddToViewStackL(*this, iContainer);
+        iAppUi->AddToViewStackL( *this, iContainer );
+        if( iTopPluginUid != KGSNoneSelected )
+            {
+            iContainer->SetTopItem( iTopPluginUid );
+            }
+        if( iSelectedPluginUid != KGSNoneSelected )
+            {
+            iContainer->SetSelectedItem( iSelectedPluginUid );
+            }
+        }
+
     // Navigating to parent view will reset all child plugin selected indexes:
     for( TInt i = 0; i < iPluginArray->Count(); i++ )
         {
@@ -238,21 +237,19 @@ EXPORT_C void CGSParentPlugin::DoActivateL( const TVwsViewId& aPrevViewId,
     SetMiddleSoftKeyLabelL( R_QTN_MSK_OPEN, EAknSoftkeyOpen );
     CheckMiddleSoftkeyLabelL();
 
-		// If this view was launched from external source, use "exit" as RSK
-		if (iPrevViewId.iAppUid != KUidGS)
+	// If this view was launched from external source, use "exit" as RSK
+	if ( iPrevViewId.iAppUid != KUidGS )
+		{
+		CEikButtonGroupContainer* cbaGroup = Cba();
+		if(cbaGroup)
 			{
-			CEikButtonGroupContainer* cbaGroup = Cba();
-			if (cbaGroup)
-				{
-				HBufC* rightSKText = StringLoader::LoadLC(
-						R_GS_PARENTPLUGIN_CBA_EXIT);
-				TPtr rskPtr = rightSKText->Des();
-				cbaGroup->SetCommandL(2, EAknSoftkeyExit, *rightSKText);
-				CleanupStack::PopAndDestroy(rightSKText);
-				}
+			HBufC* rightSKText = StringLoader::LoadLC (R_GS_PARENTPLUGIN_CBA_EXIT);
+			TPtr rskPtr = rightSKText->Des();
+			cbaGroup->SetCommandL(2,EAknSoftkeyExit,*rightSKText);
+			CleanupStack::PopAndDestroy(rightSKText);
 			}
-
 		}
+
 	}
 
 // ---------------------------------------------------------------------------
@@ -268,14 +265,26 @@ EXPORT_C void CGSParentPlugin::DoDeactivate()
     
     if ( iContainer )
         {
-		if (position.Count() > 0)
-			{
-			position.Reset();
-			}
-		TRAPD(err, iContainer->GetPositionL(position));
-		iScreenMode = Layout_Meta_Data::IsLandscapeOrientation();
+        CGSPluginInterface* selectedPlugin = iContainer->SelectedPlugin();
+        if( selectedPlugin )
+            {
+            iSelectedPluginUid = selectedPlugin->Id();
+            }
+        else
+            {
+            iSelectedPluginUid = KGSNoneSelected;
+            }
 
-		iAppUi->RemoveFromViewStack(*this, iContainer);
+        CGSPluginInterface* topPlugin = iContainer->TopPlugin();
+        if ( topPlugin )
+            {
+            iTopPluginUid = topPlugin->Id();
+            }
+        else
+            {
+            iTopPluginUid = KGSNoneSelected;
+            }
+        iAppUi->RemoveFromViewStack( *this, iContainer );
         delete iContainer;
         iContainer = NULL;
         }

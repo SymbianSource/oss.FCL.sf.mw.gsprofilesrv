@@ -23,7 +23,4 @@
 //Components:
 
 //profilesservices
-#include "../FileList/group/bld.inf"
-#include "../MediaFileList/group/bld.inf"
 #include "../ProfileEngine/group/bld.inf"
-#include "../RingingTone3DPlugin/group/bld.inf"

@@ -1,0 +1,14 @@
+<childplugins>
+  <plugin displayname = "Pin code" id = "0X20028731"  dll = "cppincodeplugin.dll">
+    <desc></desc>
+  </plugin> 
+  
+  <plugin displayname = "Device lock" id = "0X20028732"  dll = "cpdevicelockplugin.dll">
+    <desc></desc>
+  </plugin> 
+  
+  <plugin displayname = "Advanced security" id = "0X20025FDD"  dll = "cpplaceholdernoiconplugin.dll">
+    <desc></desc>
+  </plugin> 
+  
+</childplugins>

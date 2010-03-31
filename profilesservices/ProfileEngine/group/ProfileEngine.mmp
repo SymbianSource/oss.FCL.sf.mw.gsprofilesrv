@@ -62,7 +62,7 @@ USERINCLUDE     .
 USERINCLUDE     ../WrapperInc
 USERINCLUDE     ../EngInc
 
-APP_LAYER_SYSTEMINCLUDE
+MW_LAYER_SYSTEMINCLUDE
 
 LIBRARY         bafl.lib
 LIBRARY         euser.lib
