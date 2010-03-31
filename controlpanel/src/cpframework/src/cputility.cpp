@@ -78,17 +78,6 @@ QStringList CpUtility::pluginDirectories()
 	return dirs;
 }
 
-QStringList CpUtility::applicationPluginDirectories()
-{
-	static QStringList dirs;
-	if (dirs.empty()) {
-        CPFW_LOG("ControlPanel application plugin derectories:");
-//		dirs = directoriesFromAllDrives(CP_APPLICATION_PLUGIN_PATH);
-	}	
-	return dirs;
-}
-
-
 QStringList CpUtility::configFileDirectories()
 {
 	static QStringList dirs;

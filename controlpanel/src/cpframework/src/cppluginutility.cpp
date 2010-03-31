@@ -27,7 +27,7 @@
  */
 void CpPluginUtility::addCpItemPrototype(HbDataForm *settingForm)
 {
-    if (settingForm != NULL) { 
+    if (settingForm) { 
         QList<HbAbstractViewItem *>prototypeList = settingForm->itemPrototypes();
         prototypeList.append(new CpDataFormViewItem());
         settingForm->setItemPrototypes(prototypeList);

@@ -24,18 +24,27 @@
 
     Format:
 
-    [ControlPanel]
+    [CpFramework]
     logdatetime = 1
     logloggername = 1
+    datetimeformat = hh:mm:ss:zzz
     output = debugoutput fileoutput
-    fileoutput/logfile = C:/data/logs/controlpanel.log
-    fileoutput/truncate = 0
+    fileoutput/logfile = C:/data/logs/cpframework.log
+    fileoutput/truncate = 1
+    
+    [CpPerformance]
+    logdatetime = 1
+    datetimeformat = hh:mm:ss:zzz
+    output = fileoutput
+    fileoutput/logfile = C:/data/logs/cpperformance.log
+    fileoutput/truncate = 1
 */
 
 #include <QLatin1String>
 #include <logger.h>
 
-#define CPFW_LOGGER_NAME     QLatin1String("CpFramework")
+#define CPFW_LOGGER_NAME       QLatin1String("CpFramework")
+#define CPPERF_LOGGER_NAME     QLatin1String("CpPerformance")
 
 #if defined (Q_OS_SYMBIAN)
     #define CP_LOGGER_CONFIG_PATH QLatin1String("C:/data/.config/controlpanellog.conf")
@@ -47,6 +56,7 @@
     #endif
 #endif
 
-#define CPFW_LOG(str) Logger::instance(CPFW_LOGGER_NAME)->log(str);
+#define CPFW_LOG(str)   Logger::instance(CPFW_LOGGER_NAME)->log(str);
+#define CPPERF_LOG(str) Logger::instance(CPPERF_LOGGER_NAME)->log(str);
 
 #endif /* CPLOGGER_H */

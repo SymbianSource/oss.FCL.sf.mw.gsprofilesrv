@@ -17,5 +17,11 @@
         <unit unitID="controlpanel" mrp="" bldFile="&layer_real_source_path;/controlpanel" name="controlpanel" proFile="controlpanel.pro" qmakeArgs="-r -config rom"/>
       </module>
     </layer>
+    <layer name="api_test_layer">
+      <module name="controlpanel_api_tests">
+        <unit unitID="presdoe.controlpanel_ui_contants_api" mrp="" bldFile="&layer_real_source_path;/controlpanel/tsrc" name="controlpanel_ui_contants_api" />
+      </module>
+    </layer>
+    
   </systemModel>
 </SystemDefinition>

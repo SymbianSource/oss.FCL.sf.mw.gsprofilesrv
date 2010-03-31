@@ -159,7 +159,7 @@ class CGSBaseView : public CGSPluginInterface , public MEikListBoxObserver
         /**
         * See base class.
         */
-        void HandleListBoxEventL( CEikListBox* aListBox,
+        IMPORT_C void HandleListBoxEventL( CEikListBox* aListBox,
             TListBoxEvent aEventType );
 
     private: // New

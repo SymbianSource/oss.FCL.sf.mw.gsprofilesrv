@@ -25,8 +25,6 @@ class CpItemDataHelper;
 class CpUtility
 {
 public:
-
-
 	/*
 		get all physical drives of the devices
 	*/
@@ -36,11 +34,6 @@ public:
 		get all controlpanel plugin directories of the device
 	*/
 	static QStringList pluginDirectories();
-
-	/*
-		get all application plugin directories of the device
-	*/
-	static QStringList applicationPluginDirectories();
 
 	/*
 		get all config directories of the device

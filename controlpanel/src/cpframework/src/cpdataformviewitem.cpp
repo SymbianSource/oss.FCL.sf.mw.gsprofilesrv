@@ -110,9 +110,9 @@ HbWidget *CpDataFormViewItem::createCustomWidget()
 	if (itemType == HbDataFormModelItem::CustomItemBase+1) {
 		HbPushButton *button = new HbPushButton(QString("Push button"));
 		d_ptr->mWidget = button;
-		button->setMinimumHeight(50);
-		button->setMaximumHeight(60);
-		button->setOrientation(Qt::Horizontal);
+		//button->setMinimumHeight(50);
+		//button->setMaximumHeight(60);
+		//button->setOrientation(Qt::Horizontal);
 		button->setTextAlignment( Qt::AlignLeft );
 		return button;
 	}
@@ -122,7 +122,7 @@ HbWidget *CpDataFormViewItem::createCustomWidget()
 /*!
 	Inherit from HbDataForm. This function is called by hbdataform's framework, 
 	for supporting to load entry item's text, icon and additional text dynamically.
-	It is not recommanded to call this function mannually.
+	It is not recommended to call this function manually.
  */
 void CpDataFormViewItem::load()
 {

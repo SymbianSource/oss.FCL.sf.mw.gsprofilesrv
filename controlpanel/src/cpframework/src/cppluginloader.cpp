@@ -40,6 +40,8 @@
 template <typename PLUGIN>
 static PLUGIN* loadPlugin(const QString &pluginFile)
 {
+    CPPERF_LOG( QLatin1String("Loading plugin: ") + pluginFile );
+    
     QFileInfo fileInfo(pluginFile);
 
     if (!fileInfo.isAbsolute()) {
@@ -52,6 +54,7 @@ static PLUGIN* loadPlugin(const QString &pluginFile)
 		foreach(const QString &pluginDir,pluginDirs) {
 			fileInfo.setFile(pluginDir + fileName);
 			if (fileInfo.exists() && QLibrary::isLibrary(fileInfo.absoluteFilePath())) {
+			    CPPERF_LOG( QLatin1String("Valid plugin stub found: ") + fileInfo.absoluteFilePath() );
 				break;
 			}
 		}
@@ -62,6 +65,8 @@ static PLUGIN* loadPlugin(const QString &pluginFile)
 	if (!plugin) {
 		loader.unload();
 	}
+	
+	CPPERF_LOG( QLatin1String("Load plugin ") + (plugin ? QLatin1String("succeed.") : QLatin1String("failed.")) );
     
     return plugin;
 }
