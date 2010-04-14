@@ -1605,7 +1605,8 @@ void CMediaFileDialog::QueryL( TInt aFolderId, TBool aDatabaseChanged )
         iMediaFileHandler->QueryEmptyL();
         }
     
-    if ( !iMediaFileHandler->QueryReady() )
+    if ( !iMediaFileHandler->QueryReady() 
+	        && aFolderId != EEFolderRoot && aFolderId != EEFolderMusic )
         {
         // query is running - show wait note with delay. wait note is
         // removed in HandleMFEventL

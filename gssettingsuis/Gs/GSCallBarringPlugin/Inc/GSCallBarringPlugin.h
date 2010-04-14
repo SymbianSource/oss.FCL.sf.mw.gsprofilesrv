@@ -120,6 +120,13 @@ class CGSCallBarringPlugin : public CGSBaseView,
         */
         TBool Visible() const;
 
+        /**
+        * @see CGSPluginInterface header file.
+        */        
+        TGSListboxItemTypes ItemType();
+        
+        void HandleSelection(
+                    const TGSSelectionTypes aSelectionType );
     public: //new
         
         /**

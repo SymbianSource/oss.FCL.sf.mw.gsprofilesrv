@@ -527,4 +527,17 @@ TBool CGSCallBarringPlugin::VoipSupported() const
     return iVoipSupported;
     }
 
+TGSListboxItemTypes CGSCallBarringPlugin::ItemType()
+    {
+    __GSLOGSTRING1( "[CGSCallBarringPlugin::ItemType] type %d", EGSItemTypeSettingDialog );
+    return EGSItemTypeSettingDialog;
+    }
+
+void CGSCallBarringPlugin::HandleSelection(
+                const TGSSelectionTypes /*aSelectionType*/ )
+    {
+    __GSLOGSTRING( "[CGSCallBarringPlugin::HandleSelection] Start" );
+    ActivateInternalViewL();
+    __GSLOGSTRING( "[CGSCallBarringPlugin::HandleSelection] End" );
+    }
  // End of file

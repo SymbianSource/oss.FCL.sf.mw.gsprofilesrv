@@ -714,6 +714,7 @@ void CGSDisplayPlugin::HandleSettingPageEventL( CAknSettingPage* aSettingPage,
                     }
                 else if ( current == KGSWNImageIndex )
                     {
+                    aSettingPage->MakeVisible(EFalse); 
                     ShowWelcomeNoteImageListL();
                     }
                 break;

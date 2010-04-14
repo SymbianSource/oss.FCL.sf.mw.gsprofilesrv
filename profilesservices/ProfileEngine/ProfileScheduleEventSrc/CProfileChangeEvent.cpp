@@ -28,7 +28,7 @@
 #include    <barsc.h>
 #include    <bautils.h>
 
-#include	<SeconDarydisplay/SecondaryDisplayProfilesAPI.h>
+#include	<SecondaryDisplay/SecondaryDisplayProfilesAPI.h>
 #include	<aknSDData.h>
 #include	<featmgr.h>
 
