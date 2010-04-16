@@ -122,7 +122,7 @@ void Logger::log(const QString &log)
     QString logStr;
 
     if (d_ptr->mLogDateTime) {
-        logStr += QDateTime::currentDateTime().toString(d_ptr->mDateTimeFormat) + " ";
+        logStr += QDateTime::currentDateTime().toString(d_ptr->mDateTimeFormat) + ' ';
     }
     
     if (d_ptr->mLogLoggerName) {

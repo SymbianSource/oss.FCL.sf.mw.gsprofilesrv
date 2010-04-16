@@ -67,6 +67,17 @@ enum TProfile3DToneEcho
     EProfile3DEchoUnderwater    = 28
     };
 
+enum TProfileAlertVibra
+    {
+    EProfileNoAlertVibra       = 0x00000000,
+    EProfileRingAlertVibra     = 0x00000001,
+    EProfileMessageAlertVibra  = 0x00000002,
+    EProfileEmailAlertVibra    = 0x00000004,
+    EProfileReminderAlarmVibra = 0x00000008,
+    EProfileClockAlarmVibra    = 0x00000010,
+    EProfileInformationVibra   = 0x00000020
+    };
+
 #endif // PROFILEINTERNAL_HRH
 
 // End of File

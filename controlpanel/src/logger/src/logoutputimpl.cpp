@@ -138,10 +138,13 @@ bool FileLogOutput::init()
     }
 
     mLogFile = new QFile(mLogFilePath);
-    QFile::OpenMode mode = QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append;
+    QFile::OpenMode mode = QIODevice::WriteOnly | QIODevice::Text;
 
     if (mTruncateFile) {
         mode |= QIODevice::Truncate;
+    }
+    else {
+        mode |= QIODevice::Append;
     }
 
     if (!mLogFile->open(mode))

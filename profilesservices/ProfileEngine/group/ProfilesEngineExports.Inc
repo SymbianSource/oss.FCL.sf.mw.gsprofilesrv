@@ -24,7 +24,7 @@
 #ifndef PROFILESENGINEEXPORTS_INC
 #define PROFILESENGINEEXPORTS_INC
 
-    ../loc/Profile.loc    MW_LAYER_LOC_EXPORT_PATH(Profile.loc)
+    ../loc/profile.loc    MW_LAYER_LOC_EXPORT_PATH(profile.loc)
 
     // headers
     // for SDK

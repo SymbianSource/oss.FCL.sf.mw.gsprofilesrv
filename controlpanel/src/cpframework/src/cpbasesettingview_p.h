@@ -41,21 +41,13 @@ public:
     void init(QGraphicsWidget *widget,CpBaseSettingView *baseSettingView);
     void setSettingForm(HbDataForm *settingForm);
     
-    /*
-     softkey 
-     */
-    void setSoftkey();
-    void clearSoftkey();
-
     //SLOTS
     void _q_softkeyClicked();
-    void _q_viewChanged(HbView *view);
 private:
     //DATA
     CpBaseSettingView *mBaseSettingView;
     HbAction *mSoftKeyBackAction;
     HbDataForm *mSettingForm;
-    bool mIsActiveView;
     friend class CpBaseSettingView;
 };
 

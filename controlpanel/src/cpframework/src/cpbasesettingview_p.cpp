@@ -28,27 +28,18 @@
 #include "cpsettingformentryitemdata.h"
 #include "cppluginutility.h"
 
-static HbMainWindow *mainWindow() 
-{
-    QList< HbMainWindow* > mainWindows = hbInstance->allMainWindows();
-    if (!mainWindows.isEmpty()) {
-        return mainWindows.front();
-    }
-    return 0;
-}
-
 
 CpBaseSettingViewPrivate::CpBaseSettingViewPrivate() :
     mBaseSettingView(0),
-    mSoftKeyBackAction(0),
-    //mSettingForm(0),
-    mIsActiveView(false)
+    mSoftKeyBackAction(0)
 {
 }
 
 CpBaseSettingViewPrivate::~CpBaseSettingViewPrivate()
 {
-    clearSoftkey();
+    if (mBaseSettingView) {
+        mBaseSettingView->setNavigationAction (0);
+    }
     
     delete mSoftKeyBackAction;
     mSoftKeyBackAction = 0;
@@ -63,7 +54,6 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
 		CpPluginUtility::addCpItemPrototype(qobject_cast<HbDataForm *>(widget));
     }    
     
-    //setSettingForm(settingForm);
 	mBaseSettingView->setWidget(widget);
     
     mBaseSettingView->setTitle("Control Panel");	//give a default title, sub classes need set it correctly
@@ -74,14 +64,7 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
             mBaseSettingView, 
             SLOT(_q_softkeyClicked()) );
 
-    if (mainWindow()) {
-        QObject::connect(mainWindow(), 
-                SIGNAL(currentViewChanged(HbView *)), 
-                mBaseSettingView, 
-                SLOT(_q_viewChanged(HbView *)) );
-    }
-
-    setSoftkey();
+    mBaseSettingView->setNavigationAction (mSoftKeyBackAction);
 }
 
 void CpBaseSettingViewPrivate::setSettingForm(HbDataForm *settingForm)
@@ -90,39 +73,11 @@ void CpBaseSettingViewPrivate::setSettingForm(HbDataForm *settingForm)
     CpPluginUtility::addCpItemPrototype(settingForm);
 }
 
-void CpBaseSettingViewPrivate::setSoftkey()
-{
-    if (mainWindow()) {
-        mainWindow()->addSoftKeyAction(Hb::SecondarySoftKey,
-                mSoftKeyBackAction);
-    }
-}
-
-void CpBaseSettingViewPrivate::clearSoftkey()
-{
-    if (mainWindow())
-    {
-        mainWindow()->removeSoftKeyAction(Hb::SecondarySoftKey,
-                mSoftKeyBackAction);
-    }
-}
-
 void CpBaseSettingViewPrivate::_q_softkeyClicked()
 {
     emit mBaseSettingView->aboutToClose();
 }
 
-void CpBaseSettingViewPrivate::_q_viewChanged(HbView *view)
-{
-    if (mIsActiveView && view != mBaseSettingView) {
-        mIsActiveView = false;
-        clearSoftkey();
-    }
-    else if (!mIsActiveView && mBaseSettingView == view) {
-        mIsActiveView = true;
-        setSoftkey();
-    }
-}
-
 #include "moc_cpbasesettingview.cpp"
 
+//End of File

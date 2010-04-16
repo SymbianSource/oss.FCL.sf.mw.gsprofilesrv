@@ -15,7 +15,7 @@
 *
 */
 
-#include <GSLauncher.h>
+#include <gslauncher.h>
 
 
 // ======== MEMBER FUNCTIONS ========
