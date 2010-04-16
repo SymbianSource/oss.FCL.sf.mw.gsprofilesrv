@@ -414,6 +414,20 @@ const TUint32 KProEngTactileFeedback           = EProfileSettingIdTactileFeedbac
  */
 const TUint32 KProEngAudioFeedback           = EProfileSettingIdAudioFeedback;
 
+/**
+ * 
+ */
+const TUint32 KProEngReminderTone            = EProfileSettingIdReminderTone;
+
+/**
+ * 
+ */
+const TUint32 KProEngClockAlarmTone          = EProfileSettingIdClockAlarmTone;
+
+/**
+ * 
+ */
+const TUint32 KProEngAlertVibra              = EProfileSettingIdAlertVibra;
 
 /**
  * The id used for storing the default settings for user created profiles.

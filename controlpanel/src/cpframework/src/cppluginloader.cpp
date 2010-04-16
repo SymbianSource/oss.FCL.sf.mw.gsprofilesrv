@@ -21,7 +21,8 @@
 #include <QPluginLoader>
 #include <cpplugininterface.h>
 #include <cppluginplatinterface.h>
-#include "cpbasepath.h"
+#include <cplauncherinterface.h>
+#include <cpbasepath.h>
 #include "cputility.h"
 #include <cplogger.h>
 
@@ -37,8 +38,8 @@
     #define PLUGINFILE_SUFFIX "qtplugin"
 #endif
 
-template <typename PLUGIN>
-static PLUGIN* loadPlugin(const QString &pluginFile)
+template <typename INTERFACE>
+static INTERFACE* loadPluginInterface(const QString &pluginFile)
 {
     CPPERF_LOG( QLatin1String("Loading plugin: ") + pluginFile );
     
@@ -61,7 +62,7 @@ static PLUGIN* loadPlugin(const QString &pluginFile)
     }
 
 	QPluginLoader loader(fileInfo.absoluteFilePath());
-	PLUGIN *plugin = qobject_cast<PLUGIN*> (loader.instance());
+	INTERFACE *plugin = qobject_cast<INTERFACE*> (loader.instance());
 	if (!plugin) {
 		loader.unload();
 	}
@@ -84,18 +85,28 @@ static PLUGIN* loadPlugin(const QString &pluginFile)
 
 CpPluginInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
 {
-	return loadPlugin<CpPluginInterface>(pluginFile);
+	return ::loadPluginInterface<CpPluginInterface>(pluginFile);
 }
 
 
 /*!
     \deprecated  CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &) is deprecated.
-    please use CpPluginInterface to implement controlpanel plugin and use CpPluginLoader::loadCpPlugin(const QString &) to load the plugin.
+    please use CpPluginInterface to implement controlpanel plugin and use CpPluginLoader::loadCpPluginInterface(const QString &) to load the plugin.
  */
 
 CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &pluginFile)
 {    
-	return loadPlugin<CpPluginPlatInterface>(pluginFile);
+	return ::loadPluginInterface<CpPluginPlatInterface>(pluginFile);
+}
+
+CpPluginInterface *CpPluginLoader::loadCpPluginInterface(const QString &pluginFile)
+{
+    return ::loadPluginInterface<CpPluginInterface>(pluginFile);
+}
+
+CpLauncherInterface *CpPluginLoader::loadCpLauncherInterface(const QString &pluginFile)
+{
+    return ::loadPluginInterface<CpLauncherInterface>(pluginFile);    
 }
 
 

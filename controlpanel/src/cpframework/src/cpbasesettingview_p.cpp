@@ -24,8 +24,6 @@
 #include <hbdataformmodel.h>
 #include <QGraphicsLayout>
 #include "cpitemdatahelper.h"
-#include "cpdataformviewitem.h"
-#include "cpsettingformentryitemdata.h"
 #include "cppluginutility.h"
 
 

@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef CP_SETTINGFORM_ENTRY_ITEM_DATA_H
-#define CP_SETTINGFORM_ENTRY_ITEM_DATA_H
+#ifndef CPSETTINGFORMENTRYITEMDATA_H
+#define CPSETTINGFORMENTRYITEMDATA_H
 
 #include <cpglobal.h>
 #include <QObject>
@@ -26,26 +26,49 @@
 class CpItemDataHelper;
 class CpBaseSettingView;
 class HbDataForm;
+class QModelIndex;
+class CpSettingFormEntryItemDataPrivate;
 
 class CP_EXPORT CpSettingFormEntryItemData : public CpSettingFormItemData 
 {
 	Q_OBJECT
 public:
-	enum ItemType{ EntryItem = HbDataFormModelItem::CustomItemBase + 1};
+	enum EntryItemType {
+	    ListEntryItem   = HbDataFormModelItem::CustomItemBase + 1,
+	    ButtonEntryItem = HbDataFormModelItem::CustomItemBase + 2
+	};
 
 	explicit CpSettingFormEntryItemData(const HbDataFormModelItem *parent = 0);
 
-	explicit CpSettingFormEntryItemData(CpItemDataHelper &itemDataHelper,
+	explicit CpSettingFormEntryItemData(
+	        CpItemDataHelper &itemDataHelper,
 			const QString &text = QString(),
 	        const QString &description = QString(),
 			const HbIcon &icon = HbIcon(),
 			const HbDataFormModelItem *parent = 0);	 
 
-	explicit CpSettingFormEntryItemData(HbDataForm *dataForm,
+	explicit CpSettingFormEntryItemData(
+	        HbDataForm *dataForm,
 			const QString &text = QString(),
 	        const QString &description = QString(),
 			const HbIcon &icon = HbIcon(),
 			const HbDataFormModelItem *parent = 0);	
+	
+    explicit CpSettingFormEntryItemData(
+            EntryItemType type,
+            CpItemDataHelper &itemDataHelper,
+            const QString &text = QString(),
+            const QString &description = QString(),
+            const QString &iconName = QString(),
+            const HbDataFormModelItem *parent = 0);  
+    
+    explicit CpSettingFormEntryItemData(
+            EntryItemType type,
+            HbDataForm *dataForm,
+            const QString &text = QString(),
+            const QString &description = QString(),
+            const QString &iconName = QString(),
+            const HbDataFormModelItem *parent = 0); 
 
 	virtual ~CpSettingFormEntryItemData();	
 	
@@ -55,14 +78,24 @@ public:
 	QString description() const;
 	void setDescription(const QString &description);
 
+	QString iconName() const;
+	void setIconName(const QString &icon);
+	
 	HbIcon entryItemIcon() const;
 	void setEntryItemIcon(const HbIcon &icon);
-
-private slots:
-	void onLaunchView();
+		
+public slots:
+	virtual void onLaunchView();
 private:
 	virtual CpBaseSettingView *createSettingView() const = 0;
-	friend class CpPluginLauncher;
+private:
+    Q_DISABLE_COPY(CpSettingFormEntryItemData)
+    Q_DECLARE_PRIVATE_D(d_ptr, CpSettingFormEntryItemData)
+    Q_PRIVATE_SLOT(d_func(), void _q_itemPressed(const QModelIndex &index))
+    Q_PRIVATE_SLOT(d_func(), void _q_itemReleased(const QModelIndex &index))
+    Q_PRIVATE_SLOT(d_func(), void _q_scrollingStarted())
+private:
+	CpSettingFormEntryItemDataPrivate *d_ptr;
 };
 
-#endif
+#endif  //CPSETTINGFORMENTRYITEMDATA_H

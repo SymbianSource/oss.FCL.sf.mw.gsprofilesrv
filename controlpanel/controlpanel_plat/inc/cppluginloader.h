@@ -23,13 +23,20 @@
 
 class QString;
 class CpPluginInterface;
+class CpLauncherInterface;
 class CpPluginPlatInterface;
 
 class CP_EXPORT CpPluginLoader
 {
 public:
-    static CpPluginInterface *loadCpPlugin(const QString &pluginFile);
+    /* OLD INTERFACES* DPRECATED!!! */
+    static CpPluginInterface     *loadCpPlugin(const QString &pluginFile);
+    /* OLD INTERFACES* DPRECATED!!! */
     static CpPluginPlatInterface *loadPlatCpPlugin(const QString &pluginFile);
+    
+    /*NEW INTERFACES*/
+    static CpPluginInterface     *loadCpPluginInterface(const QString &pluginFile);
+    static CpLauncherInterface   *loadCpLauncherInterface(const QString &pluginFile);
 };
 
 #endif /* CPPLUGINLOADER_H */

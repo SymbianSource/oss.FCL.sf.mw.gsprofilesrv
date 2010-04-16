@@ -37,6 +37,8 @@ void CProfileExtraTonesImpl::ConstructL()
     iIMMessageAlertTone = KNullDesC().AllocL();
     iEmailAlertTone = KNullDesC().AllocL();
     iVideoCallRingingTone = KNullDesC().AllocL();
+    iReminderTone = KNullDesC().AllocL();
+    iClockAlarmTone = KNullDesC().AllocL();
     }
 
 // -----------------------------------------------------------------------------
@@ -45,12 +47,14 @@ void CProfileExtraTonesImpl::ConstructL()
 // -----------------------------------------------------------------------------
 //
 void CProfileExtraTonesImpl::ConstructL(
-    const MProfileExtraTones& aProfileExtraTones )
+    const MProfileExtraTones2& aProfileExtraTones )
     {
     iIMMessageAlertTone = aProfileExtraTones.IMMessageAlertTone().AllocL();
     iEmailAlertTone = aProfileExtraTones.EmailAlertTone().AllocL();
     iVideoCallRingingTone =
         aProfileExtraTones.VideoCallRingingTone().AllocL();
+    iReminderTone = aProfileExtraTones.ReminderTone().AllocL();
+    iClockAlarmTone = aProfileExtraTones.ClockAlarmTone().AllocL();
     }
 
 // -----------------------------------------------------------------------------
@@ -75,7 +79,7 @@ CProfileExtraTonesImpl* CProfileExtraTonesImpl::NewL()
 // -----------------------------------------------------------------------------
 //
 CProfileExtraTonesImpl* CProfileExtraTonesImpl::NewL(
-    const MProfileExtraTones& aProfileExtraTones )
+    const MProfileExtraTones2& aProfileExtraTones )
     {
     CProfileExtraTonesImpl* self = new( ELeave ) CProfileExtraTonesImpl;
 
@@ -93,6 +97,8 @@ CProfileExtraTonesImpl::~CProfileExtraTonesImpl()
     delete iIMMessageAlertTone;
     delete iEmailAlertTone;
     delete iVideoCallRingingTone;
+    delete iReminderTone;
+    delete iClockAlarmTone;
     }
 
 
@@ -133,6 +139,24 @@ void CProfileExtraTonesImpl::InternalizeL( CRepository& aCenRep,
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngVideoCallTone,
             aProfileId ), toneFile ) );
     iVideoCallRingingTone = toneFile.AllocL();
+    
+    delete iReminderTone;
+    iReminderTone = NULL;
+    
+    // Reminder tone
+    User::LeaveIfError(
+            aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngReminderTone,
+            aProfileId ), toneFile ) );
+    iReminderTone = toneFile.AllocL();
+    
+    delete iClockAlarmTone;
+    iClockAlarmTone = NULL;
+    
+    // Clock alarm tone
+    User::LeaveIfError(
+            aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngClockAlarmTone,
+            aProfileId ), toneFile ) );
+    iClockAlarmTone = toneFile.AllocL();
     }
 
 // -----------------------------------------------------------------------------
@@ -158,6 +182,16 @@ void CProfileExtraTonesImpl::ExternalizeL( CRepository& aCenRep,
     User::LeaveIfError(
             aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngVideoCallTone,
             aProfileId ), *iVideoCallRingingTone ) );
+    
+    // Reminder Tone
+    User::LeaveIfError(
+            aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngReminderTone,
+            aProfileId ), *iReminderTone ) );
+    
+    // Clock Alarm Tone
+    User::LeaveIfError(
+            aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngClockAlarmTone,
+            aProfileId ), *iClockAlarmTone ) );
     }
 
 // -----------------------------------------------------------------------------
@@ -233,6 +267,58 @@ void CProfileExtraTonesImpl::SetVideoCallRingingToneL(
     HBufC* tmp = aRingingTone.Left( KMaxFileName ).AllocL();
     delete iVideoCallRingingTone;
     iVideoCallRingingTone = tmp;
+    }
+
+
+
+// -----------------------------------------------------------------------------
+// CProfileExtraTonesImpl::ReminderTone
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const TDesC& CProfileExtraTonesImpl::ReminderTone() const
+    {
+    return *iReminderTone;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileExtraTonesImpl::SetReminderToneL
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+void CProfileExtraTonesImpl::SetReminderToneL( 
+        const TDesC& aReminderTone )
+    {
+    HBufC* tmp = aReminderTone.Left( KMaxFileName ).AllocL();
+    delete iReminderTone;
+    iReminderTone = tmp;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileExtraTonesImpl::ClockAlarmTone
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const TDesC& CProfileExtraTonesImpl::ClockAlarmTone() const
+    {
+    return *iClockAlarmTone;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileExtraTonesImpl::SetClockAlarmToneL
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+void CProfileExtraTonesImpl::SetClockAlarmToneL( 
+        const TDesC& aClockAlarmTone )
+    {
+    HBufC* tmp = aClockAlarmTone.Left( KMaxFileName ).AllocL();
+    delete iClockAlarmTone;
+    iClockAlarmTone = tmp;    
     }
 
 //  End of File

@@ -16,7 +16,8 @@
 */
 
 #include "cppluginutility.h"
-#include "cpdataformviewitem.h"
+#include "cpdataformbuttonentryviewitem.h"
+#include "cpdataformlistentryviewitem.h"
 
 #include <hbdataform.h>
 /*! \class CpPluginUtility
@@ -29,7 +30,8 @@ void CpPluginUtility::addCpItemPrototype(HbDataForm *settingForm)
 {
     if (settingForm) { 
         QList<HbAbstractViewItem *>prototypeList = settingForm->itemPrototypes();
-        prototypeList.append(new CpDataFormViewItem());
+        prototypeList.append(new CpDataFormButtonEntryViewItem());
+        prototypeList.append(new CpDataFormListEntryViewItem());
         settingForm->setItemPrototypes(prototypeList);
     }
 }

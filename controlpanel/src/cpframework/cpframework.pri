@@ -15,22 +15,25 @@
 # Description: cpframework source files
 #
 
-HEADERS += src/cpbasepath.h \
-           src/cpviewlauncher.h \
+HEADERS += src/cpviewlauncher.h \
            src/cpbasesettingview_p.h \
            src/cpwatchdog.h \
            src/cputility.h \
-           src/cpdataformviewitem.h
+           src/cpdataformbuttonentryviewitem.h \
+           src/cpdataformlistentryviewitem.h \
+           src/cpsettingformentryitemdata_p.h
 
 SOURCES += src/cppluginlauncher.cpp \
 		       src/cpviewlauncher.cpp \
 		       src/cppluginloader.cpp \
-		       src/cpsettingformentryitemdata.cpp \
+		       src/cpsettingformentryitemdata.cpp \ 
+		       src/cpdataformbuttonentryviewitem.cpp \
+		       src/cpdataformlistentryviewitem.cpp \
 		       src/cpsettingformitemdata.cpp \
 		       src/cpbasesettingview.cpp \
 		       src/cpbasesettingview_p.cpp \
 		       src/cpwatchdog.cpp \
-		       src/cpdataformviewitem.cpp \
 		       src/cpitemdatahelper.cpp \
 		       src/cputility.cpp \
-		       src/cppluginutility.cpp
+		       src/cppluginutility.cpp \
+		       src/cpsettingformentryitemdata_p.cpp

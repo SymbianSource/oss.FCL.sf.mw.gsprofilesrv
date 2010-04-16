@@ -34,12 +34,13 @@
 #include <MProfilePttSettings.h>
 #include <featmgr.h>
 #include <bldvariant.hrh>
-#include <RSSSettings.h>
+#include <rsssettings.h>
 #include <pathinfo.h>
 #include <MProfilesLocalFeatures.h>
 #include <MProfileUtilitySingleton.h>
 #include <ProfilesVariant.hrh>
 #include <ProfileEngineDomainConstants.h>
+#include "CProfileVibraSettingsImpl.h"
 
 // CONSTANTS
 // Max. number of Alert for groups:
@@ -77,6 +78,7 @@ void CProfileImpl::ConstructL()
     // ProfileUtility must be released in destructor:
     iFeatures = &( ProfileUtilityInstanceL().ProfilesLocalFeatures() );
     iProfileExtraSettings = CProfileExtraSettingsImpl::NewL();
+    iProfileVibraSettings = CProfileVibraSettingsImpl::NewL();
     }
 
 // -----------------------------------------------------------------------------
@@ -85,7 +87,7 @@ void CProfileImpl::ConstructL()
 // -----------------------------------------------------------------------------
 //
 void CProfileImpl::ConstructL(
-    const MProfileExtended& aProfile,
+    const MProfileExtended2& aProfile,
     TInt aId )
     {
     iProfileName = CProfileNameImpl::NewLC( aId, KNullDesC );
@@ -93,7 +95,7 @@ void CProfileImpl::ConstructL(
     CommonConstructL();
     iProfileTones = CProfileTonesImpl::NewL( aProfile.ProfileTones() );
     iProfileExtraTones = CProfileExtraTonesImpl::NewL(
-        aProfile.ProfileExtraTones() );
+        aProfile.ProfileExtraTones2() );
 
     iFeatures = &( ProfileUtilityInstanceL().ProfilesLocalFeatures() );
 
@@ -102,6 +104,9 @@ void CProfileImpl::ConstructL(
         aProfile.ProfilePresence() );
     iVisibleFlags = aProfile.VisibleFlags();
     iModifiableFlags = aProfile.ModifiableFlags();
+    
+    iProfileVibraSettings = CProfileVibraSettingsImpl::NewL();
+    
     }
 
 // -----------------------------------------------------------------------------
@@ -141,7 +146,7 @@ CProfileImpl* CProfileImpl::NewLC(
 //
 CProfileImpl* CProfileImpl::NewLC(
     RFs& aFs,
-    const MProfileExtended& aProfile,
+    const MProfileExtended2& aProfile,
     TInt aId )
     {
     CProfileImpl* self = new( ELeave ) CProfileImpl( aFs );
@@ -169,6 +174,8 @@ CProfileImpl::~CProfileImpl()
     delete iProfileTones;
     delete iProfileExtraTones;
     delete iProfilePresence;
+    
+    delete iProfileVibraSettings;
     }
 
 // -----------------------------------------------------------------------------
@@ -482,6 +489,8 @@ void CProfileImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
 
     iProfilePresence->InternalizeL( aCenRep, aProfileId );
     iProfileExtraSettings->InternalizeL( aCenRep, aProfileId );
+    
+    iProfileVibraSettings->InternalizeL( aCenRep, aProfileId );
     }
 
 void CProfileImpl::ExternalizeL( CRepository& aCenRep )
@@ -518,6 +527,8 @@ void CProfileImpl::ExternalizeL( CRepository& aCenRep )
     iProfileExtraTones->ExternalizeL( aCenRep, profileId );
     iProfilePresence->ExternalizeL( aCenRep, profileId );
     iProfileExtraSettings->ExternalizeL( aCenRep, profileId );
+    
+    iProfileVibraSettings->ExternalizeL(  aCenRep, profileId );
     }
 
 // -----------------------------------------------------------------------------
@@ -563,6 +574,51 @@ void CProfileImpl::CommonConstructL()
     iAlwaysOnLineEmail = FeatureManager::FeatureSupported( KFeatureIdAlwaysOnLineEmail );
     iOmaPoc = FeatureManager::FeatureSupported( KFeatureIdOmaPoc );
     FeatureManager::UnInitializeLib();
+    }
+
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileExtraTones2
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const MProfileExtraTones2& CProfileImpl::ProfileExtraTones2() const 
+    {
+    return *iProfileExtraTones;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileSetExtraTones2
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+MProfileSetExtraTones2& CProfileImpl::ProfileSetExtraTones2() 
+    {
+    return *iProfileExtraTones;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileVibraSettings
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const MProfileVibraSettings& CProfileImpl::ProfileVibraSettings() const
+    {
+    return  *iProfileVibraSettings;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileSetVibraSettings
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+MProfileSetVibraSettings& CProfileImpl::ProfileSetVibraSettings()
+    {
+    return *iProfileVibraSettings;
     }
 
 //  End of File

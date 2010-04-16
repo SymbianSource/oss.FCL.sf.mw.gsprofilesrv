@@ -21,7 +21,7 @@
 #define CPROENGNOTIFYHANDLERIMPL_H
 
 // INCLUDES
-#include <MProEngNotifyHandler.h>
+#include <MProEngNotifyHandler2.h>
 #include <e32base.h>
 
 // FORWARD DECLARATIONS
@@ -29,6 +29,8 @@ class CProEngProfileActivationDelegate;
 class CProEngActiveProfileDelegate;
 class CProEngProfileNameArrayEventDelegate;
 class CProEngProfileEventDelegate;
+class CProEngActiveSettingsEventDelegate;
+class CProEngMasterSettingsEventDelegate;
 
 // CLASS DECLARATION
 
@@ -39,7 +41,7 @@ class CProEngProfileEventDelegate;
 *  @since 3.1
 */
 NONSHARABLE_CLASS( CProEngNotifyHandlerImpl ) : public CBase,
-                                                public MProEngNotifyHandler
+                                                public MProEngNotifyHandler2
     {
     public:  // Constructors and destructor
 
@@ -81,6 +83,18 @@ NONSHARABLE_CLASS( CProEngNotifyHandlerImpl ) : public CBase,
                 MProEngProfileNameArrayObserver& aObserver );
 
         /**
+         * From MProEngNotifyHandler2
+         */
+        virtual TInt RequestActiveSettingsNotificationsL( 
+                MProEngActiveSettingsObserver &aObserver );
+        
+        /**
+         * From MProEngNotifyHandler2
+         */
+        virtual TInt RequestMasterSettingsNotificationsL( 
+                MProEngMasterSettingsObserver &aObserver );
+        
+        /**
          * From MProEngNotifyHandler
          */
         void CancelProfileActivationNotifications();
@@ -101,9 +115,20 @@ NONSHARABLE_CLASS( CProEngNotifyHandlerImpl ) : public CBase,
         void CancelProfileNameArrayNotifications();
 
         /**
+         * From MProEngNotifyHandler2
+         */
+        virtual void CancelActiveSettingsNotificationsL();
+        
+        /**
+         * From MProEngNotifyHandler2
+         */
+        virtual void CancelMasterSettingsNotificationsL();
+        
+        /**
          * From MProEngNotifyHandler
          */
         void CancelAll();
+               
 
     private:
 
@@ -125,6 +150,12 @@ NONSHARABLE_CLASS( CProEngNotifyHandlerImpl ) : public CBase,
 
         // Own: Array of profile change observers
         RPointerArray< CProEngProfileEventDelegate > iProfileEventDelegates;
+        
+        // Own: Delegate for active settings modification events
+        CProEngActiveSettingsEventDelegate *iActiveSettingEventDelegate;
+        
+        // Own: Delegate for master settings modification events
+        CProEngMasterSettingsEventDelegate *iMasterSettingEventDelegate;
 
     };
 

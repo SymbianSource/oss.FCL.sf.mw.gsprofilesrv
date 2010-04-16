@@ -85,26 +85,32 @@ const TUint32 KProEngActiveAudioFeedback = 0x7E00001A;
 
 /**
 * Absolute file path of ring tone of the currently active profile, string.
+* Since 10.1
 **/
 const TUint32 KProEngActiveRingTone = 0x7E00001B;
 
 /**
 * Absolute file path of message tone of the currently active profile, string.
+* Since 10.1
 **/
 const TUint32 KProEngActiveMessageTone = 0x7E00001C;
 
 /**
 * Absolute file path of reminder tone of the currently active profile, string.
+* Since 10.1
 **/
 const TUint32 KProEngActiveReminderTone = 0x7E00001D;
 
 /**
 * Absolute file path of clock alarm tone of the currently active profile, string.
+* Since 10.1
 **/
 const TUint32 KProEngActiveClockAlarmTone = 0x7E00001E;
 
 /**
 * Alert vibra setting of the currently active profile, string.
+* 
+* Since 10.1
 * 
 * Possible values (bit OR):
 * 
@@ -122,6 +128,23 @@ const TUint32 KProEngActiveClockAlarmTone = 0x7E00001E;
 **/
 const TUint32 KProEngActiveAlertVibra = 0x7E00001F;
 
+/**
+* Master volume for all profiles, int
+* Since 10.1
+**/
+const TUint32 KProEngMasterVolume = 0x80000200;
+
+/**
+* Master vibra for all profiles, int
+* Since 10.1
+**/
+const TUint32 KProEngMasterVibra  = 0x80000201;
+
+/**
+* Silence mode, bool 1: On 0: Off
+* Since 10.1
+**/
+const TUint32 KProEngSilenceMode  = 0x80000202;
 
 #endif      // PROFILEENGINEINTERNALCRKEYS_H
 

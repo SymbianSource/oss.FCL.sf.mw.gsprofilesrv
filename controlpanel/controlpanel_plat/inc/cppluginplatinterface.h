@@ -18,7 +18,7 @@
 #ifndef CPPLUGINPLATINTERFACE_H
 #define CPPLUGINPLATINTERFACE_H
 
-#include <qtplugin>
+#include <QtPlugin>
 
 /*!
     \class CpPluginPlatInterface

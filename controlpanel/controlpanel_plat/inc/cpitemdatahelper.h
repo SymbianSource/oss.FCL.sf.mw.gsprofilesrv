@@ -58,6 +58,8 @@ public:
         const char *method);
 
     HbWidget *widgetFromModelIndex(const QModelIndex &index);
+    
+    HbDataFormModelItem *modelItemFromModelIndex(const QModelIndex &index);
    
 private:
     CpItemDataHelperPrivate *d;
