@@ -156,7 +156,10 @@ void CGSParentContainer::UpdateListBoxL()
         // Adding plugin data to lbx has a lot of CGSPluginInterface API calls.
         // -> A good place to use quarantine to catch panicking plugins in
         // any of these calls.
-        iGSWatchDog->QuarantineL( plugin->Id() );
+        #ifdef GS_ENABLE_WATCH_DOG
+            iGSWatchDog->QuarantineL( plugin->Id() );
+        #endif
+            
         if( plugin->Visible() )
             {
             AddPluginDataToLbxL( plugin,
@@ -164,7 +167,9 @@ void CGSParentContainer::UpdateListBoxL()
                                  icons,
                                  iconCounter );
             }
-        iGSWatchDog->RemoveFromQuarantineL( plugin->Id() );
+        #ifdef GS_ENABLE_WATCH_DOG
+            iGSWatchDog->RemoveFromQuarantineL( plugin->Id() );
+        #endif
         }
 
     // 2) Replace old icon array if needed.

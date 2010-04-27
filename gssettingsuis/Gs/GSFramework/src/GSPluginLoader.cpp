@@ -486,12 +486,16 @@ EXPORT_C void CGSPluginLoader::LoadNextPluginL()
                     &info->DisplayName(), iParentUid.iUid );
             CGSPluginInterface* plugin = NULL;
             TInt error = KErrCancel;
+        #ifdef GS_ENABLE_WATCH_DOG
             if( !iWatchDog->IsInBlackList( info->ImplementationUid() ) )
+        #endif
                 {
                 // Only panics move quarantined plugins to blacklist. Leaving is
                 // normal programmatic functionality and therefore does not move
                 // plugin to blacklist.
-                iWatchDog->QuarantineL( info->ImplementationUid() );
+                #ifdef GS_ENABLE_WATCH_DOG
+                    iWatchDog->QuarantineL( info->ImplementationUid() );
+                #endif
 
                 #ifdef _GS_PERFORMANCE_TRACES
                     TTime timeStart;
@@ -508,7 +512,9 @@ EXPORT_C void CGSPluginLoader::LoadNextPluginL()
                     __GSLOGSTRING2( "[GSPlgLoader::LoadNextPluginL/perf] %Ld    (%S)", funcDuration, &info->DisplayName() );
                 #endif //_GS_PERFORMANCE_TRACES
 
-                TRAP_IGNORE( iWatchDog->RemoveFromQuarantineL( info->ImplementationUid() ); );
+                #ifdef GS_ENABLE_WATCH_DOG
+                    TRAP_IGNORE( iWatchDog->RemoveFromQuarantineL( info->ImplementationUid() ); );
+                #endif
                 }
             if( error == KErrNone )
                 {

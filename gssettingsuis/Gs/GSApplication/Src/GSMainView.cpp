@@ -144,9 +144,7 @@ CGSMainView::~CGSMainView()
 //
 void CGSMainView::OpenLocalizedResourceFileL( const TDesC& aResourceFileName )
     {
-    RFs fsSession;
-    User::LeaveIfError( fsSession.Connect() );
-    CleanupClosePushL( fsSession );
+    RFs &fsSession = CCoeEnv::Static()->FsSession();
 
     // Find the resource file
     TParse parse;
@@ -158,8 +156,6 @@ void CGSMainView::OpenLocalizedResourceFileL( const TDesC& aResourceFileName )
 
     // Open resource file
     iResourceLoader.OpenL( fileName );
-
-    CleanupStack::PopAndDestroy( &fsSession );
     }
 
 

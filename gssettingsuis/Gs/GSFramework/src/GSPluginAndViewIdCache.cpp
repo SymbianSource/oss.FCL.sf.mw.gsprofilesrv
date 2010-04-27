@@ -42,7 +42,7 @@ _LIT( KGSCacheFileName, "PluginUidToViewIdCache.dat" );
 // ---------------------------------------------------------------------------
 //
 CGSPluginAndViewIdCache::CGSPluginAndViewIdCache( CEikAppUi& aAppUi )
-:   iAppUi( aAppUi ), iLookupTable( &HashFunction, &HashIdentityRelation )
+:   iAppUi( aAppUi ), iFsSession(CCoeEnv::Static()->FsSession()),iLookupTable( &HashFunction, &HashIdentityRelation )
     {
     }
 
@@ -60,7 +60,6 @@ CGSPluginAndViewIdCache::~CGSPluginAndViewIdCache()
     DestroyShims();
     iLookupTable.Close();
     //
-    iFsSession.Close();
     }
 
 
@@ -72,7 +71,6 @@ CGSPluginAndViewIdCache::~CGSPluginAndViewIdCache()
 //
 void CGSPluginAndViewIdCache::ConstructL()
     {
-    User::LeaveIfError( iFsSession.Connect() );
     User::LeaveIfError( iFsSession.CreatePrivatePath( EDriveC ) );
     //
     iPlaceholderView = CGSPlaceholderView::NewL( iAppUi );

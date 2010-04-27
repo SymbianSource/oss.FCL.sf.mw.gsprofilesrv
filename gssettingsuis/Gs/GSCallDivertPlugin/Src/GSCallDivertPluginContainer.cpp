@@ -136,7 +136,17 @@ void CGSCallDivertPluginContainer::MakeVoiceDivertsItemL()
 // ---------------------------------------------------------------------------
 void CGSCallDivertPluginContainer::MakeVideoDivertsItemL()
     {
-    iListboxItemArray->SetItemVisibilityL( EGSSettIdVideoDivert,
-        CGSListBoxItemTextArray::EVisible );
+	
+     if ( FeatureManager::FeatureSupported(
+           KFeatureIdCsVideoTelephony ) )
+         {
+         iListboxItemArray->SetItemVisibilityL( EGSSettIdVideoDivert,
+             CGSListBoxItemTextArray::EVisible );
+         } 
+     else 
+    	 {
+         iListboxItemArray->SetItemVisibilityL( EGSSettIdVideoDivert,
+             CGSListBoxItemTextArray::EInvisible ); 
+       	 }
     }
 //End of file

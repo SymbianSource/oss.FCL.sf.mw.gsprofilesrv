@@ -152,8 +152,7 @@ EXPORT_C void CGSParentPlugin::OpenLocalizedResourceFileL(
     const TDesC& aResourceFileName,
     RConeResourceLoader& aResourceLoader )
     {
-    RFs fsSession;
-    User::LeaveIfError( fsSession.Connect() );
+    RFs &fsSession = CCoeEnv::Static()->FsSession();
 
     // Find the resource file:
     TParse parse;
@@ -165,10 +164,6 @@ EXPORT_C void CGSParentPlugin::OpenLocalizedResourceFileL(
 
     // Open resource file:
     aResourceLoader.OpenL( fileName );
-
-    // If leave occurs before this, close is called automatically when the
-    // thread exits.
-    fsSession.Close();
     }
 
 

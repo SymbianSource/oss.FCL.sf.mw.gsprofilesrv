@@ -126,6 +126,12 @@ CGSMainContainer::~CGSMainContainer()
 //
 void CGSMainContainer::UpdateListBoxL()
     {
+    
+    if( iPluginArray->Count() == 0 )
+		{
+        return;
+		}
+    
     __GSLOGSTRING( "[CGSMainContainer::UpdateListBoxL]" );
     
     // Empty item array because it will be reoccupied.

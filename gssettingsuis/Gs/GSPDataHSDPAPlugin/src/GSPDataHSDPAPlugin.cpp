@@ -460,9 +460,8 @@ void CGSPDataHSDPAPlugin::ResetActiveConnectionsL()
 	
 	if( iProfileEngine->ActiveProfileId() != EProfileOffLineId )
 		{	
-		User::LeaveIfError( rSession.Connect() );		
-		rSession.SetState( RStarterSession::EOffline );
-		rSession.SetState( RStarterSession::ENormal );
+		User::LeaveIfError( rSession.Connect() );	
+		rSession.ResetNetwork();
 		rSession.Close();
 		}
     

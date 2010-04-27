@@ -38,7 +38,8 @@ const TInt KGSPluginWrapperObjectGranularity = 10;
 //
 EXPORT_C CGSBaseDocument::CGSBaseDocument( CEikApplication& aApp )
 :   CAknDocument( aApp ),
-    iUnloadWrapperObjects( KGSPluginWrapperObjectGranularity )
+    iUnloadWrapperObjects( KGSPluginWrapperObjectGranularity ),
+    iWatchDog ( NULL )
     {
     }
 
@@ -65,7 +66,9 @@ EXPORT_C CGSBaseDocument::~CGSBaseDocument()
 
     iUnloadWrapperObjects.Close();
     delete iPluginViewIdCache;
+#ifdef GS_ENABLE_WATCH_DOG
     delete iWatchDog;
+#endif
 
     iImplInfoArray.ResetAndDestroy();// This is needed
     iImplInfoArray.Close();
@@ -80,7 +83,9 @@ EXPORT_C CGSBaseDocument::~CGSBaseDocument()
 //
 EXPORT_C void CGSBaseDocument::ConstructL()
     {
+#ifdef GS_ENABLE_WATCH_DOG
     iWatchDog = CGSWatchDog::NewL();
+#endif
 
     REComSession::ListImplementationsL(
         KGSPluginInterfaceUid,

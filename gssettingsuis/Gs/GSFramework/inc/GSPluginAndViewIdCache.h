@@ -221,8 +221,8 @@ class CGSPluginAndViewIdCache : public CBase
         // UI - not owned
         CEikAppUi& iAppUi;
 
-        // File server session - owned
-        RFs iFsSession;
+        // File server session - ref
+        RFs& iFsSession;
 
         // Cache table - owned
         RHashMap< TUid /* KEY = view id */, TCacheEntry /* VALUE */ > iLookupTable;

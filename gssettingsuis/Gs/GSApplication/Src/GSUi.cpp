@@ -179,15 +179,11 @@ void CGSUi::HandleCommandL( TInt aCommand )
     switch ( aCommand )
         {
         case EEikCmdExit:
-            GSDocument().WatchDog()->ReportCleanExitL();
-            Exit();
-            break;
         case EAknCmdExit:
-            GSDocument().WatchDog()->ReportCleanExitL();
-            Exit();
-            break;
         case EAknSoftkeyExit:
+        #ifdef GS_ENABLE_WATCH_DOG
             GSDocument().WatchDog()->ReportCleanExitL();
+        #endif
             Exit();
             break;
         default:
@@ -308,7 +304,9 @@ void CGSUi::ShowNoteGsNotOpenedDuringBackupRestoreL()
                 new( ELeave ) CAknInformationNote( ETrue );
     note->ExecuteLD( *prompt );
     CleanupStack::PopAndDestroy( prompt );
+#ifdef GS_ENABLE_WATCH_DOG
     GSDocument().WatchDog()->ReportCleanExitL();
+#endif
     Exit();
     }
 
@@ -423,7 +421,9 @@ void CGSUi::HandleEComEvent( TEComEvent aEvent )
         {
         case MGSEComObserver::EPluginRemoved:
             __GSLOGSTRING( "[CGSUi::HandleAppListEvent] Closing GS..." );
-            TRAP_IGNORE( GSDocument().WatchDog()->ReportCleanExitL() );
+            #ifdef GS_ENABLE_WATCH_DOG
+                TRAP_IGNORE( GSDocument().WatchDog()->ReportCleanExitL() );
+            #endif
             Exit();
             break;
         default:

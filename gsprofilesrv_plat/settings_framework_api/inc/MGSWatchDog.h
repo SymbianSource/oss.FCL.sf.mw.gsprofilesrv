@@ -23,6 +23,11 @@
 // System includes
 #include <e32base.h>
 
+#ifdef _DEBUG
+    #define GS_ENABLE_WATCH_DOG
+#endif
+
+
 // CONSTANTS
 
 // CLASS DECLARATION

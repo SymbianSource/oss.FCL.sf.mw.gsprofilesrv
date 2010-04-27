@@ -478,7 +478,7 @@ void CGSDisplayPlugin::ShowContrastSettingPageL()
     if ( !dlg->ExecuteLD( CAknSettingPage::EUpdateWhenChanged ) )
         {
 #ifdef FF_POWER_SAVE
-        if ( iPsmActive->Mode() == EPsmsrvModeNormal )
+        if ( iPsmActive->Mode() != EPsmsrvModePowerSave )
             {
 #endif //FF_POWER_SAVE
             iModel->SetContrastL( oldValue );
@@ -512,7 +512,7 @@ void CGSDisplayPlugin::ShowBrightnessSettingPageL()
     if ( !dlg->ExecuteLD(CAknSettingPage::EUpdateWhenChanged ) )
         {
 #ifdef FF_POWER_SAVE
-        if ( iPsmActive->Mode() == EPsmsrvModeNormal )
+        if ( iPsmActive->Mode() != EPsmsrvModePowerSave )
             {
 #endif //FF_POWER_SAVE
             iModel->SetBrightnessL( oldValue );
@@ -545,7 +545,7 @@ void CGSDisplayPlugin::ShowAmbientLightSensorSettingPageL()
     if ( !dlg->ExecuteLD( CAknSettingPage::EUpdateWhenChanged ) )
         {
 #ifdef FF_POWER_SAVE
-        if ( iPsmActive->Mode() == EPsmsrvModeNormal )
+        if ( iPsmActive->Mode() != EPsmsrvModePowerSave )
             {
 #endif //FF_POWER_SAVE
             iModel->SetAmbientLightSensorL( oldValue );
