@@ -25,8 +25,8 @@
 #include <hbdataform.h>
 #include <hbdataformmodel.h>
 #include <hbdataformmodelitem.h>
+#include <hbdataformviewitem.h>
 #include <hbabstractviewitem.h>
-#include <hbsettingformitem.h>
 #include <hbpushbutton.h>
 //testing following classes
 
@@ -48,8 +48,10 @@ void TestCpAPI::initTestCase()
 
 void TestCpAPI::cleanupTestCase()
 {
-	delete mainWindow;
-	mainWindow = 0;
+	//delete mainWindow;
+	//mainWindow = 0;
+	//if delete mainwindow, test app will be freezing
+	QCoreApplication::processEvents();
 }
 void TestCpAPI::testCpBaseSettingView()
 {
@@ -127,7 +129,7 @@ void TestCpAPI::testItemDataHelper()
     phelper->addConnection( general, "hello",form,"hello");
     phelper->removeConnection(general,"hello",form, "hello");
     phelper->bindToForm(form);
-    HbSettingFormItem *pitem = new HbSettingFormItem();
+    HbDataFormViewItem *pitem = new HbDataFormViewItem();
     phelper->addItemPrototype(pitem);
     delete phelper;
 }
@@ -137,7 +139,7 @@ void TestCpAPI::testCpPluginUtility()
     QList<HbAbstractViewItem *> oldList = form->itemPrototypes();
     CpPluginUtility::addCpItemPrototype(form);
     QList<HbAbstractViewItem *> newList = form->itemPrototypes();
-    QVERIFY( oldList.count() == newList.count()-1 );
+    QVERIFY( oldList.count() < newList.count() );
 }
 
 void TestCpAPI::testCpPluginLoader()

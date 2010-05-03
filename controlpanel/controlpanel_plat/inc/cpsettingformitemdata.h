@@ -26,6 +26,7 @@
 
 class QString;
 class CpItemDataHelper;
+class CpSettingFormItemDataPrivate;
 
 class CP_EXPORT CpSettingFormItemData : public QObject, public HbDataFormModelItem
 {
@@ -36,6 +37,8 @@ public:
 		const HbDataFormModelItem *parent = 0);
 	CpSettingFormItemData(const HbDataFormModelItem *parent = 0);
 	virtual ~CpSettingFormItemData();
+private:
+	CpSettingFormItemDataPrivate *d_ptr; //reservered
 };
 
 

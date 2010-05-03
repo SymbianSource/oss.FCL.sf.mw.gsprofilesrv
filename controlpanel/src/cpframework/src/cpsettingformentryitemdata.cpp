@@ -15,12 +15,9 @@
 *
 */
 #include "cpsettingformentryitemdata.h"
+#include "cpsettingformentryitemdata_p.h"
 #include "cpviewlauncher.h"
 #include <cpbasesettingview.h>
-#include <hbpushbutton.h>
-#include <hbdataformviewitem.h>
-#include <hbdataform.h>
-#include <cpitemdatahelper.h>
 
 
 /*!
@@ -44,8 +41,9 @@
     Construct a new CpSettingFormEntryItemData with the given parent.
 */
 CpSettingFormEntryItemData::CpSettingFormEntryItemData(const HbDataFormModelItem *parent /* = 0*/)
-: CpSettingFormItemData(parent)
+: CpSettingFormItemData(parent),  d_ptr(new CpSettingFormEntryItemDataPrivate())
 {
+    d_ptr->init(this);
 }
 
 
@@ -58,13 +56,16 @@ CpSettingFormEntryItemData::CpSettingFormEntryItemData(CpItemDataHelper &itemDat
         const QString &description /* = QString()*/,
 		const HbIcon &icon,
         const HbDataFormModelItem *parent /*= 0*/) : 
-        CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent)
+        CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent),
+        d_ptr(new CpSettingFormEntryItemDataPrivate(&itemDataHelper))
 {
-	itemDataHelper.addConnection(this,SIGNAL(pressed()),this,SLOT(onLaunchView()));
-	setType ( static_cast<HbDataFormModelItem::DataItemType> (CpSettingFormEntryItemData::EntryItem) );
-    setContentWidgetData(QString("text"),QVariant(text));
-	setContentWidgetData(QString("additionalText"),QVariant(description));
-	setContentWidgetData(QString("icon"),QVariant(icon));
+    setType ( static_cast<HbDataFormModelItem::DataItemType> (CpSettingFormEntryItemData::ListEntryItem) );
+	
+    d_ptr->init(this);
+    
+	setText(text);
+	setDescription(description);
+	setIcon(icon.iconName());
 }
 
 /*!
@@ -72,19 +73,59 @@ CpSettingFormEntryItemData::CpSettingFormEntryItemData(CpItemDataHelper &itemDat
 */
 
 CpSettingFormEntryItemData::CpSettingFormEntryItemData(HbDataForm *dataForm,
-			const QString &text /*= QString()*/,
-	        const QString &description /*= QString()*/,
-			const HbIcon &icon /*= HbIcon()*/,
-			const HbDataFormModelItem *parent/* = 0*/) :
-			CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent)
+        const QString &text /*= QString()*/,
+        const QString &description /*= QString()*/,
+        const HbIcon &icon /*= HbIcon()*/,
+        const HbDataFormModelItem *parent/* = 0*/) :
+        CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent),
+        d_ptr(new CpSettingFormEntryItemDataPrivate(dataForm))
 {
-	if (dataForm) {
-		dataForm->addConnection(this,SIGNAL(pressed()),this,SLOT(onLaunchView()));
-	}
-	setType ( static_cast<HbDataFormModelItem::DataItemType> (CpSettingFormEntryItemData::EntryItem) );
-    setContentWidgetData(QString("text"),QVariant(text));
-	setContentWidgetData(QString("additionalText"),QVariant(description));
-	setContentWidgetData(QString("icon"),QVariant(icon));
+	setType ( static_cast<HbDataFormModelItem::DataItemType> (CpSettingFormEntryItemData::ListEntryItem) );
+	
+	d_ptr->init(this);
+	
+    setText(text);
+    setDescription(description);
+    setIcon(icon.iconName());
+}
+
+
+CpSettingFormEntryItemData::CpSettingFormEntryItemData(
+         EntryItemType type,
+         CpItemDataHelper &itemDataHelper,
+         const QString &text /*= QString()*/,
+         const QString &description /*= QString()*/,
+         const QString &iconName /*= QString()*/,
+         const HbDataFormModelItem *parent /*= 0*/) :
+         CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent),
+         d_ptr(new CpSettingFormEntryItemDataPrivate(&itemDataHelper))
+{
+    setType ( static_cast<HbDataFormModelItem::DataItemType> (type) );
+    
+    d_ptr->init(this);
+    
+    setText(text);
+    setDescription(description);
+    setIcon(iconName);
+}
+
+CpSettingFormEntryItemData::CpSettingFormEntryItemData(
+         EntryItemType type,
+         HbDataForm *dataForm,
+         const QString &text /*= QString()*/,
+         const QString &description /*= QString()*/,
+         const QString &iconName /*= QString()*/,
+         const HbDataFormModelItem *parent /*= 0*/) : 
+         CpSettingFormItemData(HbDataFormModelItem::CustomItemBase,QString(),parent),
+         d_ptr(new CpSettingFormEntryItemDataPrivate(dataForm))
+{
+    setType ( static_cast<HbDataFormModelItem::DataItemType> (type) );
+    
+    d_ptr->init(this);
+    
+    setText(text);
+    setDescription(description);
+    setIcon(iconName);
 }
 
 
@@ -93,6 +134,7 @@ CpSettingFormEntryItemData::CpSettingFormEntryItemData(HbDataForm *dataForm,
 */
 CpSettingFormEntryItemData::~CpSettingFormEntryItemData()
 {
+    delete d_ptr;
 }
 
 
@@ -101,7 +143,7 @@ CpSettingFormEntryItemData::~CpSettingFormEntryItemData()
 */
 QString CpSettingFormEntryItemData::text() const
 {
-    return contentWidgetData(QString("text")).toString();
+    return d_ptr->text();
 }
 
 /*!
@@ -109,7 +151,7 @@ QString CpSettingFormEntryItemData::text() const
 */
 void CpSettingFormEntryItemData::setText(const QString &text)
 {
-    setContentWidgetData(QString("text"),QVariant(text));
+    d_ptr->setText(text);
 }
 
 /*!
@@ -117,7 +159,7 @@ void CpSettingFormEntryItemData::setText(const QString &text)
 */
 QString CpSettingFormEntryItemData::description() const
 {
-    return contentWidgetData(QString("additionalText")).toString();
+    return d_ptr->description();
 }
 
 /*!
@@ -125,7 +167,18 @@ QString CpSettingFormEntryItemData::description() const
 */
 void CpSettingFormEntryItemData::setDescription(const QString &description)
 {
-    setContentWidgetData(QString("additionalText"),QVariant(description));
+    d_ptr->setDescription(description);
+}
+
+
+QString CpSettingFormEntryItemData::iconName() const
+{
+    return d_ptr->iconName();
+}
+
+void CpSettingFormEntryItemData::setIconName(const QString &icon)
+{
+    d_ptr->setIconName(icon);
 }
 
 /*!
@@ -133,7 +186,7 @@ void CpSettingFormEntryItemData::setDescription(const QString &description)
 */
 HbIcon CpSettingFormEntryItemData::entryItemIcon()const
 {
-	return qvariant_cast<HbIcon>(contentWidgetData(QString("icon")));
+    return d_ptr->entryItemIcon();
 }
 
 /*!
@@ -141,12 +194,18 @@ HbIcon CpSettingFormEntryItemData::entryItemIcon()const
 */
 void CpSettingFormEntryItemData::setEntryItemIcon(const HbIcon& icon)
 {
-	setContentWidgetData(QString("icon"),icon);
+    d_ptr->setEntryItemIcon(icon);
 }
 
 void CpSettingFormEntryItemData::onLaunchView() 
 {
-	if (CpBaseSettingView *view = createSettingView()) {
-		CpViewLauncher::launchView(view);
-	}
+    //avoid being launched more than one times
+    if (d_ptr->mSettingViewPtr.isNull()) {
+        d_ptr->mSettingViewPtr = createSettingView();
+        if (!d_ptr->mSettingViewPtr.isNull()) {
+            CpViewLauncher::launchView(d_ptr->mSettingViewPtr.data());
+        }
+    }
 }
+
+//End of File

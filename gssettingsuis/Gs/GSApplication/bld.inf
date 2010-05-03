@@ -27,7 +27,7 @@ PRJ_EXPORTS
 ../rom/GSAppResources.iby LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( GSAppResources.iby )
 ../Data/backup_registration.xml  z:/private/100058EC/backup_registration.xml
 ../rom/GsResources.iby  LANGUAGE_MW_LAYER_IBY_EXPORT_PATH( GsResources.iby )
-loc/gsapp.loc MW_LAYER_LOC_EXPORT_PATH( gsapp.loc )
+loc/GSApp.loc MW_LAYER_LOC_EXPORT_PATH( GSApp.loc )
 loc/SoftReject.loc MW_LAYER_LOC_EXPORT_PATH( SoftReject.loc )
 
 PRJ_EXTENSIONS

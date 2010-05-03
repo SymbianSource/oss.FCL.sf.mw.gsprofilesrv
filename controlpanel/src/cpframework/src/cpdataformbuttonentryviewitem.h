@@ -14,30 +14,32 @@
 * Description:  
 *
 */
-#ifndef CP_DATAFORMVIEWITEM_H
-#define CP_DATAFORMVIEWITEM_H
+#ifndef CPDATAFORMBUTTONENTRYVIEWITEM_H
+#define CPDATAFORMBUTTONENTRYVIEWITEM_H
 
 #include <hbdataformviewitem.h>
-#include <cpglobal.h>
-class CpDataFormViewItemPrivate;
-class CP_EXPORT CpDataFormViewItem : public HbDataFormViewItem
+
+class CpDataFormButtonEntryViewItemPrivate;
+
+class CpDataFormButtonEntryViewItem : public HbDataFormViewItem
 {
     Q_OBJECT
 public:
-    explicit CpDataFormViewItem(QGraphicsItem *parent = 0);
-    ~CpDataFormViewItem();
+    explicit CpDataFormButtonEntryViewItem(QGraphicsItem *parent = 0);
+    virtual ~CpDataFormButtonEntryViewItem();
+    
     virtual HbAbstractViewItem *createItem();
 	virtual bool canSetModelIndex(const QModelIndex &index) const;
 public slots:
     virtual void load();
 protected:
-	CpDataFormViewItem(const CpDataFormViewItem &ohter);
-	CpDataFormViewItem &operator=(const CpDataFormViewItem &ohter);
+	CpDataFormButtonEntryViewItem(const CpDataFormButtonEntryViewItem &ohter);
+	CpDataFormButtonEntryViewItem &operator = (const CpDataFormButtonEntryViewItem &ohter);
     virtual HbWidget *createCustomWidget();
 private:
-	CpDataFormViewItemPrivate *d_ptr;
-	friend class CpDataFormViewItemPrivate;
+	CpDataFormButtonEntryViewItemPrivate *d_ptr;
 };
 
+#endif // CPDATAFORMBUTTONENTRYVIEWITEM_H
 
-#endif // CP_DATAFORMVIEWITEM_H
+//End of File

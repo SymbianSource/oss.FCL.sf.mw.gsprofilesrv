@@ -19,6 +19,7 @@
 #include <hbinstance.h>
 #include <hbview.h>
 #include <hbmainwindow.h>
+#include <QCoreApplication>
 
 static HbMainWindow *mainWindow() 
 {
@@ -57,9 +58,15 @@ void CpViewLauncher::internalLaunchView(HbView *view)
     {
         mView = view;
       
-        QObject::connect(mView, SIGNAL(aboutToClose()), this, SLOT(viewDone()));
-    
         mPreView = mainWnd->currentView();
+        
+        if (mPreView) {
+            QObject::connect(mView, SIGNAL(aboutToClose()), this, SLOT(viewDone()));
+        }
+        else {
+            QObject::connect(mView, SIGNAL(aboutToClose()), qApp, SLOT(quit()));
+        }
+  
        
         // activates the plugin view
         mainWnd->addView(mView);

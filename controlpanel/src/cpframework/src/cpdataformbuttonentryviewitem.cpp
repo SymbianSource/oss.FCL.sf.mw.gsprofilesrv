@@ -14,67 +14,66 @@
 * Description:  
 *
 */
-#include "cpdataformviewitem.h"
+#include "cpdataformbuttonentryviewitem.h"
 #include <hbdataformmodelitem.h>
 #include <hbpushbutton.h>
 #include <hbdataformmodel.h>
 #include <hbabstractitemview.h>
 #include <QMetaProperty>
+#include <cpsettingformentryitemdata.h>
 /*!
-    \class CpDataFormViewItem
-    \brief The CpDataFormViewItem is a item proto type of HbDataForm which is supplied by control panel.
+    \class CpDataFormButtonEntryViewItem
+    \brief The CpDataFormButtonEntryViewItem is a item proto type of HbDataForm which is supplied by control panel.
 	When you want use setting items which are come from control panel, you should append this class to the proto type list of your data form's instance.
 	Code example:
 	\code
 	HbDataForm *form = new HbDataForm();
 	QList<HbAbstractViewItem *> protoType = form->itemProtoTypetypes();
-	protoType.append(CpDataFormViewItem::createCpItemProtoType());
+	protoType.append(CpDataFormButtonEntryViewItem::createCpItemProtoType());
 	form->setItemPrototypes();
 	\endcode
 */
-class CpDataFormViewItemPrivate 
+class CpDataFormButtonEntryViewItemPrivate 
 {
 public:
-	CpDataFormViewItemPrivate() : mWidget(0)
+	CpDataFormButtonEntryViewItemPrivate() : mWidget(0)
 	{
 	}
-	~CpDataFormViewItemPrivate()
+	~CpDataFormButtonEntryViewItemPrivate()
 	{
 	}
-private:
 	HbWidget *mWidget;
-	friend class CpDataFormViewItem;
 };
 
 /*!
     Constructor
  */
-CpDataFormViewItem::CpDataFormViewItem(QGraphicsItem *parent)
-: HbDataFormViewItem(parent),d_ptr(new CpDataFormViewItemPrivate())
+CpDataFormButtonEntryViewItem::CpDataFormButtonEntryViewItem(QGraphicsItem *parent)
+: HbDataFormViewItem(parent),d_ptr(new CpDataFormButtonEntryViewItemPrivate())
 {
 }
 
 /*!
-	Destructor of CpDataFormViewItem
+	Destructor of CpDataFormButtonEntryViewItem
  */
-CpDataFormViewItem::~CpDataFormViewItem()
+CpDataFormButtonEntryViewItem::~CpDataFormButtonEntryViewItem()
 {
 	delete d_ptr;
 }
 
 /*!
-	Creates CpDataFormViewItem. This function is called form HbAbstractItemContainer when model is getting parsed for creating items.
+	Creates CpDataFormButtonEntryViewItem. This function is called form HbAbstractItemContainer when model is getting parsed for creating items.
  */
-HbAbstractViewItem *CpDataFormViewItem::createItem()
+HbAbstractViewItem *CpDataFormButtonEntryViewItem::createItem()
 {
-	return new CpDataFormViewItem(*this);
+	return new CpDataFormButtonEntryViewItem(*this);
 }
 
 /*!
-	Copy constructor of CpDataFormViewItem
+	Copy constructor of CpDataFormButtonEntryViewItem
  */
-CpDataFormViewItem::CpDataFormViewItem(const CpDataFormViewItem &other)
-: HbDataFormViewItem(other), d_ptr(new CpDataFormViewItemPrivate(*other.d_ptr))
+CpDataFormButtonEntryViewItem::CpDataFormButtonEntryViewItem(const CpDataFormButtonEntryViewItem &other)
+: HbDataFormViewItem(other), d_ptr(new CpDataFormButtonEntryViewItemPrivate(*other.d_ptr))
 {
 	
 }
@@ -82,49 +81,51 @@ CpDataFormViewItem::CpDataFormViewItem(const CpDataFormViewItem &other)
 /*!
 	Assignment operator
  */
-CpDataFormViewItem &CpDataFormViewItem::operator=(const CpDataFormViewItem &other)
+CpDataFormButtonEntryViewItem &CpDataFormButtonEntryViewItem::operator=(const CpDataFormButtonEntryViewItem &other)
 {
 	if (&other == this) {
 		return *this;
 	}
 
 	*d_ptr = *(other.d_ptr);
+	
 	return *this;
 }
+
 /*!
-	Inherit from HbAbstractViewItem, return true if the model item can be supported by CpDataFormViewItem.
+	Inherit from HbAbstractViewItem, return true if the model item can be supported by CpDataFormButtonEntryViewItem.
  */
-bool CpDataFormViewItem::canSetModelIndex(const QModelIndex &index) const
+bool CpDataFormButtonEntryViewItem::canSetModelIndex(const QModelIndex &index) const
 {
 	int itemTypeId = index.data(HbDataFormModelItem::ItemTypeRole).toInt();
-	return (itemTypeId == HbDataFormModelItem::CustomItemBase+1);
+	
+	return (itemTypeId == CpSettingFormEntryItemData::ButtonEntryItem);
 }
+
 /*!
 	Inherit from HbDataFormViewItem, return the setting item's widget of control panel
  */
-HbWidget *CpDataFormViewItem::createCustomWidget()
+HbWidget *CpDataFormButtonEntryViewItem::createCustomWidget()
 {
     HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
         modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());
 
-	if (itemType == HbDataFormModelItem::CustomItemBase+1) {
+	if (itemType == CpSettingFormEntryItemData::ButtonEntryItem) {
 		HbPushButton *button = new HbPushButton(QString("Push button"));
 		d_ptr->mWidget = button;
-		//button->setMinimumHeight(50);
-		//button->setMaximumHeight(60);
-		//button->setOrientation(Qt::Horizontal);
 		button->setTextAlignment( Qt::AlignLeft );
 		return button;
 	}
     
     return 0;
 }
+
 /*!
 	Inherit from HbDataForm. This function is called by hbdataform's framework, 
 	for supporting to load entry item's text, icon and additional text dynamically.
-	It is not recommended to call this function manually.
+	It is not recommanded to call this function mannually.
  */
-void CpDataFormViewItem::load()
+void CpDataFormButtonEntryViewItem::load()
 {
 	HbDataFormViewItem::load();
 
@@ -132,7 +133,7 @@ void CpDataFormViewItem::load()
 		HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
 			modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());
 
-		if(itemType == HbDataFormModelItem::CustomItemBase+1) {
+		if(itemType == CpSettingFormEntryItemData::ButtonEntryItem) {
 
 			QModelIndex itemIndex = modelIndex();
 			HbDataFormModel *model = static_cast<HbDataFormModel*>(itemView()->model());;
@@ -152,3 +153,4 @@ void CpDataFormViewItem::load()
 	}
 }
 
+//End of File

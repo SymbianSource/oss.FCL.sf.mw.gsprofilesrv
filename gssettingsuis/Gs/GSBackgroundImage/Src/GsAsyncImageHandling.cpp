@@ -27,9 +27,9 @@
 #include "mgsasyncimagehandlingobserver.h"
 #include "GsLogger.h"
 
-#include <CPhCltImageHandler.h>
-#include <CPhCltImageParams.h>
-#include <CPhCltBaseImageParams.h>
+#include <cphcltimagehandler.h>
+#include <cphcltimageparams.h>
+#include <cphcltbaseimageparams.h>
 
 //_LIT( KGSWelcomeNoteImgPath, "c:\\private\\100058ec\\welcomeimage.mbm");
 

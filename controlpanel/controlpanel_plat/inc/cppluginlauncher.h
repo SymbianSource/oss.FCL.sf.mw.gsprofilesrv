@@ -22,6 +22,7 @@
 #define CPPLUGINLAUNCHER_H
 
 #include "cpglobal.h"
+#include <QVariant>
 
 class QString;
 class CpPluginPlatInterface;
@@ -29,7 +30,11 @@ class CpPluginPlatInterface;
 class CP_EXPORT CpPluginLauncher
 {
 public:
+	/*  OLD Inteface - Deprecated! */
     static bool launchCpPluginView(const QString &pluginFile,int index = 0);
+    
+    /* New interface */
+	static bool launchSettingView(const QString &pluginFile,const QVariant &hint = QVariant());
 };
 
 #endif /* CPPLUGINLAUNCHER_H */

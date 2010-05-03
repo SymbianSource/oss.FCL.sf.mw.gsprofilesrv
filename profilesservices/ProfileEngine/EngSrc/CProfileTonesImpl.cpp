@@ -28,6 +28,7 @@
 
 #include <psmsettings.h>
 #include <psmsrvdomaincrkeys.h>
+#include <ProfileEngineInternalCRKeys.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -144,12 +145,27 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngKeypadVolume,
             aProfileId ), value ) );
     iProfileToneSettings.iKeypadVolume = TProfileKeypadVolume( value );
-    User::LeaveIfError(
+ /* 
+  *   User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngRingingVolume,
             aProfileId ), iProfileToneSettings.iRingingVolume ) );
+     */
+    
+    //Only master volume used.
+    User::LeaveIfError(
+            aCenRep.Get( KProEngMasterVolume , iProfileToneSettings.iRingingVolume ) );
+    
+    
+    /*
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngVibra,
             aProfileId ), iProfileToneSettings.iVibratingAlert ) );
+    */
+    
+    //Only master vibra used
+    User::LeaveIfError(
+            aCenRep.Get( KProEngMasterVibra, iProfileToneSettings.iVibratingAlert ) );
+            
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngWarnAndGameTones,
             aProfileId ), iProfileToneSettings.iWarningAndGameTones ) );

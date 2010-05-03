@@ -19,7 +19,7 @@
 #include <hbdataform.h>
 #include <hbdataformmodelitem.h>
 #include <hbdataformviewitem.h>
-
+#include <hbdataformmodel.h>
 
 class CpItemDataHelperPrivate
 {
@@ -174,7 +174,21 @@ public:
     {
         if (mDataForm) {
             HbDataFormViewItem *viewItem = mDataForm->dataFormViewItem(index);
-            return viewItem->dataItemContentWidget();
+            if (viewItem) {
+                return viewItem->dataItemContentWidget();
+            }
+        }
+        return 0;
+    }
+    
+    HbDataFormModelItem *modelItemFromModelIndex(const QModelIndex &index)
+    {
+        if (mDataForm) {
+            HbDataFormModel *dataFormModel = 
+                    qobject_cast<HbDataFormModel*>(mDataForm->model());
+            if (dataFormModel) {
+                return dataFormModel->itemFromIndex(index);
+            }
         }
         return 0;
     }
@@ -278,3 +292,10 @@ HbWidget *CpItemDataHelper::widgetFromModelIndex(const QModelIndex &index)
 {
     return d->widgetFromModelIndex(index);
 }
+
+HbDataFormModelItem *CpItemDataHelper::modelItemFromModelIndex(const QModelIndex &index)
+{
+    return d->modelItemFromModelIndex(index);
+}
+
+//End of File

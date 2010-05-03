@@ -22,7 +22,7 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include <MProfileExtended.h>
+#include <MProfileExtended2.h>
 #include <centralrepository.h> // NCentralRepositoryConstants::KMaxBinaryLength
 
 // CONSTANTS
@@ -40,6 +40,7 @@ class CPGFileGenerator;
 class MProfilesNamesArray;
 class MProfilesLocalFeatures;
 struct TProfilePresenceSettings;
+class CProfileVibraSettingsImpl;
 
 // CLASS DECLARATION
 
@@ -50,7 +51,7 @@ struct TProfilePresenceSettings;
 *  @since 2.0
 */
 NONSHARABLE_CLASS(CProfileImpl) : public CBase,
-                     public MProfileExtended
+                     public MProfileExtended2
     {
     public:  // Constructors and destructor
 
@@ -73,7 +74,7 @@ NONSHARABLE_CLASS(CProfileImpl) : public CBase,
         * @param aId Profile ID
         */
         static CProfileImpl* NewLC(
-            RFs& aFs, const MProfileExtended& aProfile, TInt aId );
+            RFs& aFs, const MProfileExtended2& aProfile, TInt aId );
 
         /**
         * Destructor.
@@ -197,6 +198,27 @@ NONSHARABLE_CLASS(CProfileImpl) : public CBase,
         * From MProfileExtended.
         */
         virtual MProfileSetExtraSettings& ProfileSetExtraSettings() const;
+        
+        
+        /**
+        * From MProfileExtended2.
+        */
+        virtual const MProfileExtraTones2& ProfileExtraTones2() const;
+        
+        /**
+        * From MProfileExtended2.
+        */
+        virtual MProfileSetExtraTones2& ProfileSetExtraTones2();
+        
+        /**
+        * From MProfileExtended2.
+        */
+        virtual const MProfileVibraSettings& ProfileVibraSettings() const;
+        
+        /**
+        * From MProfileExtended2.
+        */
+        virtual MProfileSetVibraSettings& ProfileSetVibraSettings();
 
         /**
         * Externalize data to Central Repository.
@@ -223,7 +245,7 @@ NONSHARABLE_CLASS(CProfileImpl) : public CBase,
         * @param aProfile Profile settings
         * @param aId Profile ID
         */
-        void ConstructL( const MProfileExtended& aProfile, TInt aId );
+        void ConstructL( const MProfileExtended2& aProfile, TInt aId );
 
         /**
          * This method does the common part of the construction.
@@ -249,6 +271,9 @@ NONSHARABLE_CLASS(CProfileImpl) : public CBase,
 
         // Own: Profile presence settings implementation
         CProfilePresenceImpl* iProfilePresence;
+        
+        // Own: Profile vibra settings implementation
+        CProfileVibraSettingsImpl *iProfileVibraSettings;
 
         // Own: Profile modifiable flags
         TUint32 iModifiableFlags;

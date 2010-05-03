@@ -15,10 +15,11 @@
 #
 
 TEMPLATE = subdirs
-SUBDIRS = unit/ut_cpplugin \
-		      unit/ut_cpapi 
+SUBDIRS = unit/ut_cpapi 
+					#unit/ut_cpplugin \
 		      #unit/ut_profileengwrapper 
 CONFIG += ordered
+#CONFIG += symbian_test
 test.depends = first
 test.CONFIG += recursive
 autotest.depends = first

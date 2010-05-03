@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/">   
+        <file>widgetml/cpdataformlistentryviewitem.widgetml</file>      
+        <file>widgetml/cpdataformlistentryviewitem.css</file>  
+        <file>icon/qgn_prop_set_default_sub.svg</file>
+    </qresource>    
+</RCC>

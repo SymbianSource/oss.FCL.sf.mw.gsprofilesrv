@@ -15,6 +15,7 @@
 *
 */
 
+
 #ifndef FTUWIZARD_H
 #define FTUWIZARD_H
 
@@ -24,9 +25,10 @@
 #include <QObject>
 #include <QRectF>
 #include <QDate>
+#include <hbmenu>
 
 class QGraphicsWidget;
-   
+
 /**
  * @ingroup group_ftuwizardmodel
  * @brief Represents a wizard plugin visualization information.
@@ -107,9 +109,13 @@ public:
      * usually creates its initial view.
      * Once the initialization is done, wizardInitialized signal must be 
      * emitted.
+	 * @param cenrepOwnerId Id of the owner of Cenrep holding wizard completion Information.
+	 * @param wizardIdx Index of the Cenrep key for a wizard.
+	 * If wizard is invoking another application, it should provide cenrepOwnerId and wizardIdx
+	 * to the application. Application should write 1 into the wizardIdx cenrep on completion.
      * @since S60 ?S60_version.
      */
-    virtual void initializeWizard() = 0;
+    virtual void initializeWizard(qint32 cenrepOwnerId, int wizardIdx) = 0;
 
     /**
      * Called by the FTU fw when the wizard becomes the current wizard.  
@@ -240,7 +246,15 @@ signals:
      * @param caller The calling wizard plugin instance.
      */
     void shutdownCompleted(FtuWizard *caller);
-
+    
+    /**
+     * Emit this signal to indicate that the wizard plugin wants a custom view menu to be shown. 
+     * from shutdownWizard.
+     * @param caller The calling wizard plugin instance.
+     * @param menu   The HbMenu instance that needs to be shown on the view
+     */
+    void updateMainMenu(FtuWizard *caller, HbMenu * menu);
+    
 };
 
 #endif // FTUWIZARD_H

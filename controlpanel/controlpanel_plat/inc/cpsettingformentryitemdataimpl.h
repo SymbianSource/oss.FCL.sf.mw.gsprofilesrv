@@ -41,8 +41,7 @@ public:
 			const HbIcon &icon = HbIcon(),
             const HbDataFormModelItem *parent = 0) : 
             CpSettingFormEntryItemData(itemDataHelper,text,description,icon,parent)
-    {
-    }
+    { }
 
 	/*!
         Construct a new CpSettingFormEntryItemDataImpl with the given text,description and parent.
@@ -54,23 +53,39 @@ public:
 			const HbDataFormModelItem *parent = 0) : 
             CpSettingFormEntryItemData(dataForm,text,description,icon,parent)
 
-	{
-	}
+	{ }
+	
+    explicit CpSettingFormEntryItemDataImpl(
+            EntryItemType type,
+            CpItemDataHelper &itemDataHelper,
+            const QString &text = QString(),
+            const QString &description = QString(),
+            const QString &icon = QString(),
+            const HbDataFormModelItem *parent = 0) : 
+            CpSettingFormEntryItemData(type,itemDataHelper,text,description,icon,parent)
+    { }
+    
+    explicit CpSettingFormEntryItemDataImpl(
+            EntryItemType type,
+            HbDataForm *dataForm,
+            const QString &text = QString(),
+            const QString &description = QString(),
+            const QString &icon = QString(),
+            const HbDataFormModelItem *parent = 0) : 
+            CpSettingFormEntryItemData(type,dataForm,text,description,icon,parent)
+    { }
 
     /*!
          Destructor.
     */
     virtual ~CpSettingFormEntryItemDataImpl()
-    {
-    }
+    { }
     
     /*!
          Implement CpSettingFormEntryItemData::createSettingView
     */
     virtual CpBaseSettingView *createSettingView() const
-    {
-        return new PLUGIN_VIEW();
-    }
+    { return new PLUGIN_VIEW(); }
 };
 
 #endif  // CP_SETTINGFORM_ENTRY_ITEM_DATA_IMPL_H
