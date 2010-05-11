@@ -3096,14 +3096,14 @@ void CMediaFileDialog::HandleListBoxEventL( CEikListBox* /*aListBox*/,
 
     if ( aEventType == EEventItemDoubleClicked || aEventType == EEventEnterKeyPressed )
         {
+        iIsDoubleClicked = ETrue;
         TBool closeDialog = HandleOKL( EAttrDoubleClicked );
         
         if ( closeDialog )
             {
             // close after short delay (dialog cannot be closed from this function)
             CloseDialogWithDelayL();
-            }
-        iIsDoubleClicked = ETrue;
+            }        
         }
     if ( aEventType == EEventItemDraggingActioned )
     	{

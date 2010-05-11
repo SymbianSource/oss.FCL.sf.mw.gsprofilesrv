@@ -130,6 +130,7 @@ CFLDPopupList* CFLDPopupList::NewL(
 			feedback->InstantFeedback(this, ETouchFeedbackBasic);
 			}
 #endif //RD_TACTILE_FEEDBACK		}
+		AttemptExitL(EFalse);
 		}
 	CAknPopupList::HandlePointerEventL(aPointerEvent);
 	 }
