@@ -235,6 +235,16 @@ const TArray<TContactItemId> CProfileImpl::AlertForL()
 //
 TBool CProfileImpl::IsSilent() const
     {
+	//Since 10.1, firstly check maste silence mode
+	TInt silenceMode( 0 );
+	CRepository* cenrep = CRepository::NewLC( KCRUidProfileEngine  );
+    cenrep->Get( KProEngSilenceMode , silenceMode );
+    CleanupStack::PopAndDestroy( cenrep );
+    if ( silenceMode ) 
+    	{
+		return ETrue;
+    	}
+	
     TProfileRingingType ringType( iProfileTones->ToneSettings().iRingingType );
     if ( ringType == EProfileRingingTypeSilent )
         {

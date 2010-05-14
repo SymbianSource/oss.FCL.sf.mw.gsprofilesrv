@@ -75,17 +75,22 @@ void CpViewLauncher::internalLaunchView(HbView *view)
 }
 
 void CpViewLauncher::viewDone()
-{
+{    
     HbMainWindow *mainWnd = ::mainWindow();
-    if (mainWnd && mView) {
-        //restore previous status
-        mainWnd->removeView(mView);
     
-        mView->deleteLater();
-        mView = 0;
-
-		mainWnd->setCurrentView(mPreView);
+    if (mainWnd) {
+        if (mView) {               
+            //restore previous status
+            mainWnd->removeView(mView);
+        
+            mView->deleteLater();
+            mView = 0;
+    
+            mainWnd->setCurrentView(mPreView);
+        }
     }
 
     deleteLater();
 }
+
+//End of File

@@ -25,16 +25,16 @@
 #include <QVariant>
 
 class QString;
-class CpPluginPlatInterface;
+class CpBaseSettingView;
 
 class CP_EXPORT CpPluginLauncher
 {
 public:
-	/*  OLD Inteface - Deprecated! */
+	/*  OLD Interface - Deprecated! */
     static bool launchCpPluginView(const QString &pluginFile,int index = 0);
     
-    /* New interface */
-	static bool launchSettingView(const QString &pluginFile,const QVariant &hint = QVariant());
+    /*  */
+	static CpBaseSettingView* launchSettingView(const QString &pluginFile,const QVariant &hint = QVariant());
 };
 
 #endif /* CPPLUGINLAUNCHER_H */

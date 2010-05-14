@@ -32,6 +32,7 @@ public:
 	virtual bool canSetModelIndex(const QModelIndex &index) const;
 public slots:
     virtual void load();
+    virtual void restore();
 protected:
 	CpDataFormButtonEntryViewItem(const CpDataFormButtonEntryViewItem &ohter);
 	CpDataFormButtonEntryViewItem &operator = (const CpDataFormButtonEntryViewItem &ohter);

@@ -26,7 +26,6 @@ PRJ_MMPFILES
 
 #include "../gsprofilesrv_plat/group/bld.inf"
 #include "../gsprofilesrv_pub/group/bld.inf"
-#include "../gssettingsuis/group/bld.inf"
 #include "../profilesservices/group/bld.inf"
 
 PRJ_TESTMMPFILES

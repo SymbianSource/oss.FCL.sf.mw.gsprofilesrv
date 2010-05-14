@@ -17,16 +17,11 @@
 #ifndef CPBASESETTINGVIEW_P_H
 #define CPBASESETTINGVIEW_P_H
 
-class QObject;
-class QString;
+#include <QVariant>
+
 class CpBaseSettingView;
 class HbAction;
-class HbView;
 class HbDataForm;
-class QModelIndex;
-class HbDataFormModelItem;
-class HbAbstractViewItem;
-class CpItemDataHelper;
 class CpItemDataHelper;
 class QGraphicsWidget;
 
@@ -38,17 +33,15 @@ public:
     /*
      initialize 
      */
-    void init(QGraphicsWidget *widget,CpBaseSettingView *baseSettingView);
-    void setSettingForm(HbDataForm *settingForm);
+    void init(QGraphicsWidget *widget,CpBaseSettingView *baseSettingView);    
     
     //SLOTS
     void _q_softkeyClicked();
-private:
+public:
     //DATA
     CpBaseSettingView *mBaseSettingView;
     HbAction *mSoftKeyBackAction;
     HbDataForm *mSettingForm;
-    friend class CpBaseSettingView;
 };
 
 #endif //CPBASESETTINGVIEW_P_H

@@ -18,7 +18,6 @@
 #include <cppluginlauncher.h>
 #include <cpplugininterface.h>
 #include <cplauncherinterface.h>
-#include <cppluginplatinterface.h>
 #include <QSharedPointer>
 #include <cppluginloader.h>
 #include <cpbasesettingview.h>
@@ -28,17 +27,6 @@
     \class CpPluginLauncher
     \brief The CpPluginLauncher class loads a controlpanel plugin at run-time.And display the specify plugin view in client process.
  */
-
-/*!
-    Load and display a plugin view in client process. The client must be a orbit based application.
-    The pluginFile can either absoulte file path or only file name. 
-    Acceptable format:
-        sampleplugin
-        sampleplugin.qtplugin
-        sampleplugin.dll
-        C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
-        C:/resource/qt/plugins/controlpanel/sampleplugin.dll
-*/
 bool CpPluginLauncher::launchCpPluginView(const QString &pluginFile,int index /*= 0*/)
 {
     return false;
@@ -54,16 +42,18 @@ bool CpPluginLauncher::launchCpPluginView(const QString &pluginFile,int index /*
         C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
         C:/resource/qt/plugins/controlpanel/sampleplugin.dll
 */
-bool CpPluginLauncher::launchSettingView(const QString &pluginFile,const QVariant &hint /*= QVariant()*/)
+CpBaseSettingView* CpPluginLauncher::launchSettingView(const QString &pluginFile,const QVariant &hint /*= QVariant()*/)
 {
     CpLauncherInterface *plugin = CpPluginLoader::loadCpLauncherInterface(pluginFile);
     if (plugin) {
         CpBaseSettingView *view = plugin->createSettingView(hint);
         if (view) {
             CpViewLauncher::launchView(view);
-            return true;
+            return view;
         }
     }
     
-    return false;
+    return 0;
 }
+
+//End of File

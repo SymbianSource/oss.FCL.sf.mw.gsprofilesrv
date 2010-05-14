@@ -56,7 +56,7 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
     
     mBaseSettingView->setTitle("Control Panel");	//give a default title, sub classes need set it correctly
 
-    mSoftKeyBackAction = new HbAction(Hb::BackAction, mBaseSettingView);
+    mSoftKeyBackAction = new HbAction(Hb::BackNaviAction , mBaseSettingView);
     QObject::connect(mSoftKeyBackAction, 
             SIGNAL(triggered()), 
             mBaseSettingView, 
@@ -65,15 +65,9 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
     mBaseSettingView->setNavigationAction (mSoftKeyBackAction);
 }
 
-void CpBaseSettingViewPrivate::setSettingForm(HbDataForm *settingForm)
-{
-    mBaseSettingView->setWidget(settingForm); 
-    CpPluginUtility::addCpItemPrototype(settingForm);
-}
-
 void CpBaseSettingViewPrivate::_q_softkeyClicked()
 {
-    emit mBaseSettingView->aboutToClose();
+    mBaseSettingView->close();
 }
 
 #include "moc_cpbasesettingview.cpp"

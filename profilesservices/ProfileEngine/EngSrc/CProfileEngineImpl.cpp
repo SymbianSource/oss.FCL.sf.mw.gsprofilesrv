@@ -1241,6 +1241,10 @@ TBool CProfileEngineImpl::SilenceModeL() const
 void CProfileEngineImpl::SetSilenceModeL( TBool aSilenceMode )
     {
     User::LeaveIfError( iCenRep->Set( KProEngSilenceMode, aSilenceMode ? 1 : 0 ) );
+    
+    //Send event through P&S
+    CreatePubSubKeysIfNeededL();
+    PublishChangeL( KProEngActiveProfileModified );
     }
 
 //  End of File

@@ -25,7 +25,7 @@
 #include <QObject>
 #include <QRectF>
 #include <QDate>
-#include <hbmenu>
+#include <HbMenu>
 
 class QGraphicsWidget;
 
@@ -73,6 +73,13 @@ typedef struct {
      * The text to be shown in table of contents UI component.
      */ 
     QString   mTocLabel;
+	 /**
+     * Informs Framework whether a plugin is having any ftu view or not.
+	 * It should be set to false by plugin if it has any FTU view to be shown 
+	 * when the plugin is activated. It should be set to true if plugin 
+	 * is invoking any service/wizard, when plugin is selected/activated.
+     */
+    bool mNoViews;
 } FtuWizardSetting; 
 
 /**

@@ -14,8 +14,8 @@
 * Description:  
 *		test application for qt control panel public apis.
 */
-#ifndef	__UT_CPAPI_H__
-#define	__UT_CPAPI_H__
+#ifndef	UT_CPAPI_H
+#define	UT_CPAPI_H
 
 #include <QObject>
 
@@ -39,4 +39,4 @@ private:
     HbMainWindow* mainWindow;
 };
 
-#endif	//__UT_CPAPI_H__
+#endif	//UT_CPAPI_H

@@ -22,7 +22,7 @@
 
 /*!
     \class CpPluginPlatInterface
-    \brief The class CpPluginPlatInterface is an interface for plugins which can be displayed in control panel application. 
+    \brief The class is Deprecated! please use CpPluginInterface instead.
  */
 
 class CpSettingFormItemData;

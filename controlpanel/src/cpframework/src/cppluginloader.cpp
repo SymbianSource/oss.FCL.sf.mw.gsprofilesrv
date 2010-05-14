@@ -20,7 +20,6 @@
 #include <QFileInfo>
 #include <QPluginLoader>
 #include <cpplugininterface.h>
-#include <cppluginplatinterface.h>
 #include <cplauncherinterface.h>
 #include <cpbasepath.h>
 #include "cputility.h"
@@ -73,7 +72,7 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
 }
 
 /*!
-    load a controlpanel plugin by plugin file.
+    load a CpPluginInterface by plugin file.
     the plugin file can either absoulte file path or only file name.
     acceptable format:
         sampleplugin
@@ -82,28 +81,21 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
         C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
         C:/resource/qt/plugins/controlpanel/sampleplugin.dll
  */
-
-CpPluginInterface *CpPluginLoader::loadCpPlugin(const QString &pluginFile)
-{
-	return ::loadPluginInterface<CpPluginInterface>(pluginFile);
-}
-
-
-/*!
-    \deprecated  CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &) is deprecated.
-    please use CpPluginInterface to implement controlpanel plugin and use CpPluginLoader::loadCpPluginInterface(const QString &) to load the plugin.
- */
-
-CpPluginPlatInterface *CpPluginLoader::loadPlatCpPlugin(const QString &pluginFile)
-{    
-	return ::loadPluginInterface<CpPluginPlatInterface>(pluginFile);
-}
-
 CpPluginInterface *CpPluginLoader::loadCpPluginInterface(const QString &pluginFile)
 {
     return ::loadPluginInterface<CpPluginInterface>(pluginFile);
 }
 
+/*!
+    load a CpLauncherInterface by plugin file.
+    the plugin file can either absoulte file path or only file name.
+    acceptable format:
+        sampleplugin
+        sampleplugin.qtplugin
+        sampleplugin.dll
+        C:/resource/qt/plugins/controlpanel/sampleplugin.qtplugin
+        C:/resource/qt/plugins/controlpanel/sampleplugin.dll
+ */
 CpLauncherInterface *CpPluginLoader::loadCpLauncherInterface(const QString &pluginFile)
 {
     return ::loadPluginInterface<CpLauncherInterface>(pluginFile);    

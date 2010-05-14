@@ -42,8 +42,8 @@
 
 void TestCpAPI::initTestCase()
 {    
-	mainWindow = new HbMainWindow;
-  mainWindow->show();
+	//mainWindow = new HbMainWindow;
+  //mainWindow->show();
 }
 
 void TestCpAPI::cleanupTestCase()
@@ -58,8 +58,8 @@ void TestCpAPI::testCpBaseSettingView()
 	CpBaseSettingView * pview = new CpBaseSettingView(0);
 	QVERIFY( pview != 0 );
         HbDataForm *pForm = new HbDataForm(0);
-        pview->setSettingForm(pForm);
-        QVERIFY( pview->settingForm() == pForm );
+        pview->setWidget(pForm);
+        QVERIFY( qobject_cast<HbDataForm *>(pview->widget()) == pForm );
 	delete pview;
 	HbPushButton *widget = new HbPushButton();
 	QVERIFY(widget != 0);
@@ -144,22 +144,22 @@ void TestCpAPI::testCpPluginUtility()
 
 void TestCpAPI::testCpPluginLoader()
 {
-    CpPluginInterface *plugin = CpPluginLoader::loadCpPlugin("non_existing_plugin.dll");
+    CpPluginInterface *plugin = CpPluginLoader::loadCpPluginInterface("non_existing_plugin.dll");
     QVERIFY(plugin == 0);
 
-    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin");
+    plugin = CpPluginLoader::loadCpPluginInterface("cppersonalizationplugin");
     QVERIFY(plugin != 0);
 
-    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin.dll");
+    plugin = CpPluginLoader::loadCpPluginInterface("cppersonalizationplugin.dll");
     QVERIFY(plugin != 0);
 
-    plugin = CpPluginLoader::loadCpPlugin("cppincodeplugin.qtplugin");
+    plugin = CpPluginLoader::loadCpPluginInterface("cppersonalizationplugin.qtplugin");
     QVERIFY(plugin != 0);
 }
 
 void TestCpAPI::testCpPluginInterface()
 {
-    CpPluginInterface *plugin = CpPluginLoader::loadCpPlugin("cppersonalizationplugin.dll");
+    CpPluginInterface *plugin = CpPluginLoader::loadCpPluginInterface("cppersonalizationplugin.dll");
     if (plugin) {
         CpItemDataHelper helper;
         QList<CpSettingFormItemData*> itemData = plugin->createSettingFormItemData(helper);
