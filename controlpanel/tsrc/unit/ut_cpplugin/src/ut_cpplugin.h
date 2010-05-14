@@ -14,8 +14,8 @@
 * Description:  
 *
 */
-#ifndef	__UT_CPPLUGIN_H__
-#define	__UT_CPPLUGIN_H__
+#ifndef	UT_CPPLUGIN_H
+#define	UT_CPPLUGIN_H
 
 #include <QObject>
 #include <QVector>
@@ -49,4 +49,4 @@ private:
 };
 
 
-#endif	//__UT_CPPLUGIN_H__
+#endif	//UT_CPPLUGIN_H

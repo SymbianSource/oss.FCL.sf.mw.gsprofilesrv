@@ -173,7 +173,8 @@ public:
     HbWidget *widgetFromModelIndex(const QModelIndex &index)
     {
         if (mDataForm) {
-            HbDataFormViewItem *viewItem = mDataForm->dataFormViewItem(index);
+            HbDataFormViewItem *viewItem = qobject_cast<HbDataFormViewItem *>
+                                                    (mDataForm->itemByIndex(index));
             if (viewItem) {
                 return viewItem->dataItemContentWidget();
             }

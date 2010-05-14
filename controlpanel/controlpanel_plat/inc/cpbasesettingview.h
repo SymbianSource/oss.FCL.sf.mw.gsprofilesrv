@@ -20,6 +20,7 @@
 #include "cpglobal.h"
 #include <hbview.h>
 
+class QVariant;
 class QModelIndex;
 class HbDataForm;
 class CpBaseSettingViewPrivate;
@@ -30,17 +31,29 @@ class CP_EXPORT CpBaseSettingView : public HbView
     Q_OBJECT
 public:
 	explicit CpBaseSettingView(QGraphicsWidget *widget = 0, QGraphicsItem *parent = 0);
-    virtual ~CpBaseSettingView();
-    void setSettingForm(HbDataForm *settingForm);
-    HbDataForm *settingForm() const;
+    virtual ~CpBaseSettingView();    
+    
+    //Deprecated! please use HbView::setWidget
+    void setSettingForm(HbDataForm *settingForm)
+    {
+    }
+    //Deprecated! please use HbView::widget
+    HbDataForm *settingForm() const
+    {
+        return 0;
+    }
 signals:
+    void returnValueDelivered(const QVariant &returnValue);
     void aboutToClose();
+protected:
+    virtual void close();
 private:
     Q_DISABLE_COPY(CpBaseSettingView)
     Q_DECLARE_PRIVATE_D(d_ptr, CpBaseSettingView)
     Q_PRIVATE_SLOT(d_func(), void _q_softkeyClicked())
 private:
     CpBaseSettingViewPrivate *d_ptr;
+    friend class CpBaseSettingViewPrivate;
 };
 
 #endif /* CPBASESETTINGVIEW_H */

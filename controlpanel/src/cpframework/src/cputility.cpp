@@ -21,7 +21,6 @@
 #include <cpbasepath.h>
 #include <cppluginloader.h>
 #include <cpplugininterface.h>
-#include <cppluginplatinterface.h>
 #include <cplogger.h>
 
 

@@ -84,7 +84,7 @@ void TestCpPlugin::test_loadPluginsName()
 
 
     int count = pluginDlls.size();
-    for( int i=0; i<pluginDlls.size(); i++ )
+    for( int i=0; i<pluginDlls.size(); ++i )
     {
         CpPluginPlatInterface* plugin = pLoader->loadCpPlugin( pluginDlls[i] );
         qDebug()<< "<DEBUGINFO>Loading plugin ["
@@ -107,7 +107,7 @@ void TestCpPlugin::test_createSettingFormItemData()
 {
     CpItemDataHelper *pHelper = new CpItemDataHelper();
 
-    for( int i = 0; i< plist.count(); i++)
+    for( int i = 0; i< plist.count(); ++i)
     {
         CpPluginPlatInterface* plugin = plist[i];
         if(plugin)
@@ -127,14 +127,14 @@ void TestCpPlugin::test_launcher_by_Name()
     //clear all existing view firstly
     int vcount = mainWindow->viewCount();
     int i = 0;
-    for ( i=vcount-1; i>=0; i-- )
+    for ( i=vcount-1; i>=0; --i )
     {
         QGraphicsWidget * pwgt = mainWindow->removeView( i );
         delete pwgt;
     }
     //launch plugins list by name
     int count = pluginDlls.size();
-    for( i=0; i<pluginDlls.size(); i++ )
+    for( i=0; i<pluginDlls.size(); ++i )
     {
         bool bret = CpPluginLauncher::launchCpPluginView( pluginDlls[i] );
         if(!PluginHasView[i])   bret = !bret;
@@ -155,7 +155,7 @@ void TestCpPlugin::test_launcher_by_Name_N()
 
 void TestCpPlugin::cleanupTestCase()
 {
-    for (int i = 0; i < plist.count(); i++)
+    for (int i = 0; i < plist.count(); ++i)
     {
         CpPluginPlatInterface* plugin = plist[i];
         if (plugin)

@@ -44,24 +44,14 @@ CpBaseSettingView::~CpBaseSettingView()
     delete d_ptr;
 }
 
-/*!
-	\deprecated  void CpBaseSettingView::setSettingForm(HbDataForm *settingForm) will be deprecated, please
-	use setWidget(QGraphicsWidget* widget) to instead.
-    Set the data form for the setting view.
- */
-void CpBaseSettingView::setSettingForm(HbDataForm *settingForm)
-{
-    d_ptr->setSettingForm(settingForm);
-}
 
 /*!
-	\deprecated  HbDataForm *CpBaseSettingView::settingForm() const will be deprecated, please
-	use widget() const to instead.
-    Get the data form for the setting view.
+    Give derived class a chance to do some cleaning work before exiting view.
+    Return : true:  ok to exit
  */
-HbDataForm *CpBaseSettingView::settingForm() const
+void CpBaseSettingView::close()
 {
-    return qobject_cast<HbDataForm*>(widget());
+    emit aboutToClose();
 }
 
-//
+// End of File

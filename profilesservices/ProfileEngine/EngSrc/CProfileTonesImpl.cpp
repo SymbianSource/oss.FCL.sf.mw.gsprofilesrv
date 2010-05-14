@@ -141,6 +141,15 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngRingingType,
             aProfileId ), value ) );
     iProfileToneSettings.iRingingType = TProfileRingingType( value );
+    
+    //Since 10.1, check if silence mode
+    User::LeaveIfError(
+            aCenRep.Get( KProEngSilenceMode , value) );
+    if ( value )
+    	{
+		iProfileToneSettings.iRingingType = EProfileRingingTypeSilent;
+    	}
+    
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngKeypadVolume,
             aProfileId ), value ) );
@@ -151,7 +160,7 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
             aProfileId ), iProfileToneSettings.iRingingVolume ) );
      */
     
-    //Only master volume used.
+    //Since 10.1, Only master volume used.
     User::LeaveIfError(
             aCenRep.Get( KProEngMasterVolume , iProfileToneSettings.iRingingVolume ) );
     
@@ -162,7 +171,7 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
             aProfileId ), iProfileToneSettings.iVibratingAlert ) );
     */
     
-    //Only master vibra used
+    //Since 10.1,Only master vibra used
     User::LeaveIfError(
             aCenRep.Get( KProEngMasterVibra, iProfileToneSettings.iVibratingAlert ) );
             
