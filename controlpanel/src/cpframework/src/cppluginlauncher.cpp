@@ -24,9 +24,14 @@
 #include <cpitemdatahelper.h>
 #include "cpviewlauncher.h"
 /*!
+
+*/
+/*!
     \class CpPluginLauncher
     \brief The CpPluginLauncher class loads a controlpanel plugin at run-time.And display the specify plugin view in client process.
- */
+		\deprecated CpPluginLauncher::launchCpPluginView(const QString &pluginFile,int index )
+    is deprecated. Use pPluginLauncher::launchSettingView instead.
+*/
 bool CpPluginLauncher::launchCpPluginView(const QString &pluginFile,int index /*= 0*/)
 {
     return false;
