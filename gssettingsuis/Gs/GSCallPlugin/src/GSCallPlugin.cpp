@@ -45,7 +45,7 @@
 #include <secuisecurityhandler.h>       //for PIN2 query
 #include <secui.h>                      //for TSecUi
 #include <secuisecuritysettings.h>      //for CSecuritySettings
-#include <GSCallPluginRsc.rsg>           //for resource IDs
+#include <gscallpluginrsc.rsg>           //for resource IDs
 #include <gscallplugin.mbg>
 #include <gsfwviewuids.h>
 #include <gslistbox.h>                  //for CGSListBoxItemTextArray

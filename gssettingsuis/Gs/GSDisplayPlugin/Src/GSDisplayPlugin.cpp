@@ -49,7 +49,7 @@
 
 #include <MGFetch.h>            // Image selection
 #include <DRMCommon.h>
-#include <GsDisplayPluginRsc.rsg>
+#include <gsdisplaypluginrsc.rsg>
 #include <gsprivatepluginproviderids.h>
 #include <gsmainview.h>
 #include <gsbasecontainer.h>

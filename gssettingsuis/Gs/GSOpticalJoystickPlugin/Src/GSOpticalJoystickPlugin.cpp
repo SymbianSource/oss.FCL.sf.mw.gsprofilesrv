@@ -22,7 +22,7 @@
 #include "GSOpticalJoystickPlugin.hrh"
 #include "GsLogger.h"
 #include <gsopticaljoystickplugin.mbg> // Icons
-#include <GSOpticalJoystickPluginRsc.rsg>
+#include <gsopticaljoystickpluginrsc.rsg>
 #include <gsfwviewuids.h>
 #include <gsprivatepluginproviderids.h>
 

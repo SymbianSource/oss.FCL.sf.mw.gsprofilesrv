@@ -41,7 +41,7 @@
 #include <featmgr.h>
 #include <gscommon.hrh>
 #include <gsfwviewuids.h>          // for restricted call forward
-#include <GSCallDivertPluginRsc.rsg>
+#include <gscalldivertpluginrsc.rsg>
 #include <MPbk2ContactNameFormatter.h>
 #include <MVPbkContactFieldData.h>
 #include <MVPbkContactFieldTextData.h>

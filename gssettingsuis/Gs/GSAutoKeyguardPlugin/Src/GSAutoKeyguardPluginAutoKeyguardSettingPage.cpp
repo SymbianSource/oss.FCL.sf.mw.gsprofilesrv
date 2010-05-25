@@ -18,7 +18,7 @@
 */
 
 #include <eikmenub.h>
-#include <GSAutoKeyguardPluginRsc.rsg>
+#include <gsautokeyguardpluginrsc.rsg>
 #include <e32base.h>
 #include <AknQueryDialog.h>
 #include "GSAutoKeyguardPluginAutoKeyguardTimeQuery.h"

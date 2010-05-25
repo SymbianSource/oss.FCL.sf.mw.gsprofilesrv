@@ -29,7 +29,7 @@ NAME        PDAT // 4 letter ID
 #include    <avkon.rsg>
 #include    <eikcore.rsg>
 #include    <uikon.rh>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 
 // CONSTANTS
 

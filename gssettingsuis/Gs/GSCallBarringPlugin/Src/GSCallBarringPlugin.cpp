@@ -41,7 +41,7 @@
 #include <aknViewAppUi.h>
 
 #include <gscommon.hrh>
-#include <GSCallBarringPluginRsc.rsg>
+#include <gscallbarringpluginrsc.rsg>
 #include <gscallbarringplugin.mbg>
 #include <gsfwviewuids.h>
 #include <gsprivatepluginproviderids.h>

@@ -21,7 +21,7 @@
 #include "GsLogger.h"
 #include <aknViewAppUi.h>
 #include <ConeResLoader.h>
-#include <GSAppsPluginRsc.rsg>
+#include <gsappspluginrsc.rsg>
 #include <gsfwviewuids.h>
 #include <gsmainview.h>
 #include <gsprivatepluginproviderids.h>

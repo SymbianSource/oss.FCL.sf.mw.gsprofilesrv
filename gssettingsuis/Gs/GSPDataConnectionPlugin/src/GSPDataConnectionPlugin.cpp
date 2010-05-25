@@ -21,7 +21,7 @@
 #include    "GSPDataConnectionModel.h"
 #include    <gsparentplugin.h>
 #include    <gscommon.hrh>
-#include    <GSPDataConnectionPluginRsc.rsg> // GUI Resource
+#include    <gspdataconnectionpluginrsc.rsg> // GUI Resource
 #include    <gsprivatepluginproviderids.h>
 #include    <gsfwviewuids.h>
 

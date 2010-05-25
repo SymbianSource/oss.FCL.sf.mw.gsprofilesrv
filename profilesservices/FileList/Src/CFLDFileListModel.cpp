@@ -48,7 +48,7 @@
 #include <coemain.h>	// CCoeEnv
 #include <pathinfo.h>
 #include <data_caging_path_literals.hrh>	// For KDC_RESOURCE_FILES_DIR
-#include <FileList.rsg>	// For R_FLD_WAIT_NOTE
+#include <filelist.rsg>	// For R_FLD_WAIT_NOTE
 #include <bautils.h>	// For BaflUtils
 #include <apgcli.h>	// For RApaLsSession
 #include <aknnotewrappers.h>

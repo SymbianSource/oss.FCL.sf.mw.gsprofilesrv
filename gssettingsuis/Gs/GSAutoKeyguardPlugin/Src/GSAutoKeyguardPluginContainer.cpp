@@ -28,7 +28,7 @@
 #include <featmgr.h>
 #include <csxhelp/cp.hlp.hrh>
 #include <gsfwviewuids.h>
-#include <GSAutoKeyguardPluginRsc.rsg>
+#include <gsautokeyguardpluginrsc.rsg>
 #include <gslistbox.h>
 #include <AknsConstants.h>
 

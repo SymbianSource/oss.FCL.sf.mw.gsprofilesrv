@@ -50,7 +50,7 @@
 #include <e32property.h>
 #include <PSVariables.h>
 
-#include <GsNetworkPluginRsc.rsg>           //for resource IDs
+#include <gsnetworkpluginrsc.rsg>           //for resource IDs
 #include <gsfwviewuids.h>
 #include <gslistbox.h>                  //for CGSListBoxItemTextArray
 

@@ -23,7 +23,7 @@
 #include    <gsplugininterface.h>
 #include    "GsLogger.h"
 #include    <gscommon.hrh>
-#include    <GSParentPluginRsc.rsg>
+#include    <gsparentpluginrsc.rsg>
 #include    <gsfwviewuids.h>
 #include    <avkon.rsg>
 

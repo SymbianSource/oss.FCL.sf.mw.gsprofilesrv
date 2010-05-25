@@ -26,7 +26,7 @@
 #include <barsread.h> //TResourceReader
 #include <coemain.h>
 #include <AknRadioButtonSettingPage.h>
-#include <GsNetworkPluginRsc.rsg>           //for resource IDs
+#include <gsnetworkpluginrsc.rsg>           //for resource IDs
 
 
 //  INTERNAL INCLUDES

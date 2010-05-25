@@ -21,7 +21,7 @@
 #include "GsLogger.h"
 #include <gsfwviewuids.h>
 #include <GSInstallationsPlugin.mbg> // Icons
-#include <GSInstallationsPluginRsc.rsg>
+#include <gsinstallationspluginrsc.rsg>
 #include <gsmainview.h>
 #include <gsprivatepluginproviderids.h>
 #include <csxhelp/cp.hlp.hrh>

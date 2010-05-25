@@ -24,7 +24,7 @@
 #include <TEUnitAssertionInfo.h>
 #include <CEUnitAllocTestCaseDecorator.h>
 #include <coemain.h>
-#include <FLDTest.rsg>
+#include <fldtest.rsg>
 #include "FLDTestConst.h"
 
 

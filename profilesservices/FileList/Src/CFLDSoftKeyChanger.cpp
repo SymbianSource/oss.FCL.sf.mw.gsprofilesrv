@@ -25,7 +25,7 @@
 #include <f32file.h> 	// For TParsePtrC
 #include <StringLoader.h>
 #include <eikbtgpc.h> 	// For CEikButtonGroupContainer
-#include <FileList.rsg>	// For R_FLD_SOFTKEYS_PREVIEW_CANCEL
+#include <filelist.rsg>	// For R_FLD_SOFTKEYS_PREVIEW_CANCEL
 #include <avkon.rsg>	// For R_AVKON_SOFTKEYS_SELECT_CANCEL
 #include <avkon.hrh>	// For EAknSoftkeySelect
 

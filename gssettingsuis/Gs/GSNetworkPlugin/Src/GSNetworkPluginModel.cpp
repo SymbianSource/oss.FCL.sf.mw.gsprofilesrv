@@ -39,7 +39,7 @@
 #include <PsetContainer.h>
 #include <PsetSAObserver.h>  //ongoing call check
 #include "GSNetworkDebugHelper.h"
-#include <GsNetworkPluginRsc.rsg>           //for resource IDs
+#include <gsnetworkpluginrsc.rsg>           //for resource IDs
 #include <mmtsy_names.h>
 //CONSTANTS
 // default value for autolock period

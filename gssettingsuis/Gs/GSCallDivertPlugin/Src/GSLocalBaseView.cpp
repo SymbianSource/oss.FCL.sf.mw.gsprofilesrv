@@ -28,7 +28,7 @@
 #include <AknUtils.h>
 #include <bldvariant.hrh>
 #include <gsbasecontainer.h>
-#include <GSTelPluginRsc.rsg>
+#include <gstelpluginrsc.rsg>
 
 //Disabling warning caused by KGSDoActivateError constant
 #pragma diag_suppress 177

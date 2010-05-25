@@ -27,7 +27,7 @@
 // EXTERNAL INCLUDES
 #include    <aknnotewrappers.h>
 #include	<StringLoader.h>
-#include    <FileList.rsg>
+#include    <filelist.rsg>
 #include    <MProfilesLocalFeatures.h>
 
 // ============================ MEMBER FUNCTIONS ===============================

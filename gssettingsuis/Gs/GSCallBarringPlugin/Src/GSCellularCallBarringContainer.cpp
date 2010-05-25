@@ -21,7 +21,7 @@
 
 #include <aknlists.h>
 #include <StringLoader.h>
-#include <GSCallBarringPluginRsc.rsg>
+#include <gscallbarringpluginrsc.rsg>
 #include <csxhelp/cp.hlp.hrh>
 #include <gsfwviewuids.h>
 #include "LocalViewIds.h"

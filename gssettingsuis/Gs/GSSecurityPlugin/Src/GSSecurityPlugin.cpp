@@ -30,7 +30,7 @@
 #include <gsprivatepluginproviderids.h>
 
 // Plugin includes:
-#include <GSSecurityPluginRsc.rsg>
+#include <gssecuritypluginrsc.rsg>
 #include <gssecplugin.mbg>
 #include <csxhelp/cp.hlp.hrh>
 #include <featmgr.h>

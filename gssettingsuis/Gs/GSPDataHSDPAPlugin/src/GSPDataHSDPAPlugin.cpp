@@ -21,7 +21,7 @@
 #include    "GSPDataHSDPAModel.h"
 #include    <gsparentplugin.h>
 #include    <gscommon.hrh>
-#include    <GSPDataHSDPAPluginRsc.rsg> // GUI Resource
+#include    <gspdatahsdpapluginrsc.rsg> // GUI Resource
 #include    <gsprivatepluginproviderids.h>
 #include    <gsfwviewuids.h>
 

@@ -36,7 +36,7 @@
 #include <BTSapDomainPSKeys.h>
 #include <e32property.h>
 #include <gsautokeyguardplugin.mbg>
-#include <GSAutoKeyguardPluginRsc.rsg>
+#include <gsautokeyguardpluginrsc.rsg>
 #include <gsprivatepluginproviderids.h>
 #include <gsmainview.h>
 #include <gsbasecontainer.h>

@@ -29,7 +29,7 @@
 #include <hlplch.h>             // For HlpLauncher
 #include <e32base.h>
 #include <featmgr.h>
-#include <GSCallBarringPluginRsc.rsg>      //for resource IDs
+#include <gscallbarringpluginrsc.rsg>      //for resource IDs
 #include <exterror.h>               //for extended error codes
 #include <StringLoader.h>           //for StringLoader
 #include <PsetContainer.h>          //for CPsetContainer

@@ -21,7 +21,7 @@
 #include "GSPowerSavingQueryPluginModel.h"
 #include "GSPowerSavingQueryPlugin.hrh"
 #include "GsLogger.h"
-#include <GSPowerSavingQueryPluginRsc.rsg>
+#include <gspowersavingquerypluginrsc.rsg>
 #include <aknlists.h>
 #include <StringLoader.h>
 #include <AknUtils.h>

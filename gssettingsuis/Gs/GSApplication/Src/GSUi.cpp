@@ -30,7 +30,7 @@
 #include    <AknsConstants.h> // For determining skin change
 #include    <barsread.h>
 #include    <StringLoader.h>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 #include    <eikenv.h>
 #include    <ConeResLoader.h>
 #include    <apgcli.h>

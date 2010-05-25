@@ -33,7 +33,7 @@
 #include <AknUtils.h>
 #include <csxhelp/cp.hlp.hrh>
 #include <gsfwviewuids.h>     // for KUidGS
-#include <GsDisplayPluginRsc.rsg>
+#include <gsdisplaypluginrsc.rsg>
 #include <gslistbox.h>
 #include <AknsConstants.h>    //for determining skin change
 #include <AknDef.hrh>

@@ -20,7 +20,7 @@
 #include "GSPrslnPlugin.h"
 #include "GSLogger.h"
 
-#include <GSPrslnPluginRsc.rsg>
+#include <gsprslnpluginrsc.rsg>
 #include <GSPrslnPlugin.mbg>
 
 // Includes from GS framework:

@@ -26,7 +26,7 @@
 
 #include <e32base.h>
 #include <featmgr.h>
-#include <GSCallBarringPluginRsc.rsg>      //for resource IDs
+#include <gscallbarringpluginrsc.rsg>      //for resource IDs
 #include <gscommon.hrh>
 #include <StringLoader.h>           //for StringLoader
 #include <aknradiobuttonsettingpage.h>

@@ -17,7 +17,7 @@
 
 
 #include <appinfo.rh>
-#include <GSApp.rsg>
+#include <gsapp.rsg>
 #include <data_caging_paths_strings.hrh>
 
 

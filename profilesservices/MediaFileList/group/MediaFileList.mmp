@@ -95,6 +95,7 @@ LIBRARY   harvesterclient.lib     // mds
 LIBRARY   servicehandler.lib   // CAiwGenericParamList
 LIBRARY   browserlauncher.lib  // CBrowserLauncher
 LIBRARY   CommonUI.lib         // CDocumentHandler
+LIBRARY   touchfeedback.lib	   // MTouchFeedback
 
 DEBUGLIBRARY flogger.lib
 

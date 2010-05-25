@@ -21,7 +21,7 @@
 #include "CallDivertPlugin.hrh"
 
 #include <aknlists.h>
-#include <GSCallDivertPluginRsc.rsg>
+#include <gscalldivertpluginrsc.rsg>
 #include <featmgr.h>
 #include <csxhelp/cp.hlp.hrh>          // for help context of Divert
 #include <gslistbox.h>

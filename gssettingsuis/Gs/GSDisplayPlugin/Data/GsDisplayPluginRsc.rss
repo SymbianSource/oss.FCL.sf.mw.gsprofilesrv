@@ -37,7 +37,7 @@ NAME    DISP // 4 letter ID
 #include    <eikcore.rsg>
 #include    <eikon.rsg>
 #include    <uikon.rh>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 #include    <drmcommon.loc>
 
 
@@ -399,7 +399,8 @@ RESOURCE SLIDER r_setting_screen_saver_slider
     valuetype = EAknSliderValueBareFigure;
     minlabel = qtn_sanim_time_out_slider_min_value;
     maxlabel = qtn_sanim_time_out_slider_max_value;
-    valuelabel = qtn_sanim_time_out_slider_cur_value; 
+    valuelabel = qtn_sanim_time_out_slider_cur_value;
+    singular_valuelabel = qtn_sanim_time_out_slider_cur_value_singular;
     }
 
 //----------------------------------------------------

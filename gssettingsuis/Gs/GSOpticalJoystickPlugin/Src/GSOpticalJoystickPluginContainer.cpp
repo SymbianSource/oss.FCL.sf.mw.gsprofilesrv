@@ -21,7 +21,7 @@
 #include "GSOpticalJoystickPlugin.hrh"
 #include "GsLogger.h"
 #include <bldvariant.hrh>
-#include <GSOpticalJoystickPluginRsc.rsg>
+#include <gsopticaljoystickpluginrsc.rsg>
 #include <centralrepository.h>
 #include <aknlists.h>
 #include <StringLoader.h>

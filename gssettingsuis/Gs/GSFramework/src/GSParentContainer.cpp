@@ -20,7 +20,7 @@
 #include    <gsparentplugin.h>
 #include    <gsplugininterface.h>
 #include    "GsLogger.h"
-#include    <GSParentPluginRsc.rsg>
+#include    <gsparentpluginrsc.rsg>
 #include    <gsfwviewuids.h>
 #include    "GSBaseDocument.h"
 #include    <mgswatchdog.h>
@@ -859,7 +859,11 @@ void CGSParentContainer::StoreListBoxPositionL( CGSParentPlugin::TListBoxPositio
 //
 void CGSParentContainer::RestoreListBoxPositionL( const CGSParentPlugin::TListBoxPosition& aPosition, TBool aScreenModeChanged )
 	{
-    if ( aPosition.iCurrentItemIndex >= 0 )
+	if( iListBox->View()->BottomItemIndex()>= aPosition.iCurrentItemIndex )
+		
+		{
+		
+ 		if ( aPosition.iCurrentItemIndex >= 0 )
         {
         iListBox->SetCurrentItemIndex( aPosition.iCurrentItemIndex );
         }
@@ -874,5 +878,6 @@ void CGSParentContainer::RestoreListBoxPositionL( const CGSParentPlugin::TListBo
         iListBox->View()->SetItemOffsetInPixels( aPosition.iItemOffsetInPixels );
         iListBox->View()->SetTopItemIndex( aPosition.iTopItemIndex );
         }
+		}
     }
 //End of File

@@ -22,7 +22,7 @@
 #include "GsDataCallPlugin.hrh"
 
 #include <bldvariant.hrh>
-#include <GsDataCallPluginRsc.rsg>
+#include <gsdatacallpluginrsc.rsg>
 #include <aknlists.h>
 #include <StringLoader.h>
 #include <AknUtils.h>

@@ -23,7 +23,7 @@
 #include    "gsplugininterface.h"
 #include    "GSDocument.h"
 #include    "GSUi.h"
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 #include    <gsfwviewuids.h>
 
 #include    <aknlists.h>

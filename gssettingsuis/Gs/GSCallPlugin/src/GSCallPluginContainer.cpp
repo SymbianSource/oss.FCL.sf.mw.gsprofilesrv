@@ -29,7 +29,7 @@
 #include <PsetCli.h>                //for CPsetCli
 #include <PsetSAObserver.h>         //for CPsetSAObserver
 #include <PsetCSP.h>                //for CSP features
-#include <GSCallPluginRsc.rsg>      //for resource IDs
+#include <gscallpluginrsc.rsg>      //for resource IDs
 #include <csxhelp/cp.hlp.hrh>
 #include <featmgr.h>
 #include <bldvariant.hrh>

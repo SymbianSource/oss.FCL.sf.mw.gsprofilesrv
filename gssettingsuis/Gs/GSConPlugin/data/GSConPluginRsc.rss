@@ -30,7 +30,7 @@ NAME        GSCO // 4 letter ID
 #include    <eikcore.rsg>
 #include    <eikon.rsg>
 #include    <uikon.rh>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 
 // CONSTANTS
 

@@ -129,6 +129,15 @@
 //
 #define qtn_sanim_time_out_slider_cur_value "%U minutes"
 
+//d:The singular text in setting list item's current value field
+//d:Screen saver time-out setting item
+//d:Current value
+//l:list_set_graphic_pane_t1
+//w:
+//r:5.2
+//
+#define qtn_sanim_time_out_slider_cur_value_singular "%U minute"
+
 
 //d:Text in slider control
 //d:Screen saver time-out setting page

@@ -23,7 +23,7 @@
 #include <centralrepository.h>
 #include <bautils.h>
 #include <barsc.h>
-#include <ProfileEng.rsg>
+#include <profileeng.rsg>
 #include <ProfileEng.hrh>
 #include <ProfileEngineConstants.h>
 #include "ProfileEnginePrivateCRKeys.h"

@@ -24,9 +24,6 @@ NAME    PEW2
 //  INCLUDES
 #include <eikon.rh>
 #include <drmcommon.loc>
-#include <avkon.rsg>
-#include <avkon.rh>
-#include <avkon.loc>
 
 //  CONSTANTS
 //  MACROS
@@ -49,13 +46,5 @@ RESOURCE RSS_SIGNATURE {}
 // -----------------------------------------------------------------------------
 //
 RESOURCE LBUF r_proeng_text_drm_prev_rights_set { txt = qtn_drm_prev_rights_set; }
-
-// -----------------------------------------------------------------------------
-//
-// r_profile_text_insert_sim
-//
-// -----------------------------------------------------------------------------
-//
-RESOURCE TBUF r_profile_text_insert_sim { buf = qtn_su_note_insert_sim; }
 
 // End of File

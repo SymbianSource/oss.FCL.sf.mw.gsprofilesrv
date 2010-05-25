@@ -27,7 +27,7 @@
 #include <coeaui.h>
 #include <hlplch.h>             // For HlpLauncher
 #include <aknViewAppUi.h>
-#include <GSCallDivertPluginRsc.rsg>
+#include <gscalldivertpluginrsc.rsg>
 #include <gscalldivertplugin.mbg>
 #include <StringLoader.h>
 #include <featmgr.h>

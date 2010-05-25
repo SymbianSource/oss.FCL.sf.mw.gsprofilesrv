@@ -20,7 +20,7 @@
 #include "GSAdminPlugin.h"
 #include "GsLogger.h"
 
-#include <GSAdminPluginRsc.rsg>
+#include <gsadminpluginrsc.rsg>
 #include <gsadminplugin.mbg>
 
 // Includes from GS framework:

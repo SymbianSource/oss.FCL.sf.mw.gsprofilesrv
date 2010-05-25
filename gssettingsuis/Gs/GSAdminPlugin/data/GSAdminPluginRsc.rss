@@ -27,7 +27,7 @@ NAME    ADMN // 4 letter ID
 #include    <avkon.mbg>
 #include    <avkon.rsg>
 #include    <eikcore.rsg>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 #include    <uikon.rh>
 
 // CONSTANTS

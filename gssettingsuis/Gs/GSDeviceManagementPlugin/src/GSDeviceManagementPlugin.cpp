@@ -21,7 +21,7 @@
 #include "GsLogger.h"
 #include <gsfwviewuids.h>
 #include <gsdevicemanagementplugin.mbg> // Icons
-#include <GSDeviceManagementPluginRsc.rsg>
+#include <gsdevicemanagementpluginrsc.rsg>
 #include <gsmainview.h>
 #include <gsprivatepluginproviderids.h>
 #include <csxhelp/cp.hlp.hrh>

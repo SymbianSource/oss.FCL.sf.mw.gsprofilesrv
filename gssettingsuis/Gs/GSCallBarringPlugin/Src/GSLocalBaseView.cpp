@@ -29,7 +29,7 @@
 #include <bldvariant.hrh>
 #include <featmgr.h>
 #include <gsbasecontainer.h>
-#include <GSCallBarringPluginRsc.rsg>
+#include <gscallbarringpluginrsc.rsg>
 
 // CONSTANTS
 #ifdef _DEBUG

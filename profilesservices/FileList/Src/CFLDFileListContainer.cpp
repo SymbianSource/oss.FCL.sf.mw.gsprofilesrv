@@ -37,7 +37,7 @@
 // EXTERNAL INCLUDES
 #include <ConeResLoader.h>
 #include <StringLoader.h>
-#include <FileList.rsg>
+#include <filelist.rsg>
 #include <featmgr.h>
 #include <pathinfo.h>
 #include <centralrepository.h>
@@ -304,6 +304,7 @@ EXPORT_C TBool CFLDFileListContainer::LaunchL( TDes& aFileName, const TDesC& aPo
             }
         }
 
+    popup->ListBox()->DisableSingleClick(ETrue);
     TBool result = popup->ExecuteLD();
 	// Note, CAknPopupList must NOT be popped out
 	// before ExecuteLD (like dialogs do) but after.

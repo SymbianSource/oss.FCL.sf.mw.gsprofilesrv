@@ -20,7 +20,7 @@
 #include    "GSDiagnosticsPlugin.h"
 #include    <GSParentPlugin.h>
 #include    <GSCommon.hrh>
-#include    <GSDiagnosticsPluginRsc.rsg> // GUI Resource
+#include    <gsdiagnosticspluginrsc.rsg> // GUI Resource
 #include    <GSPrivatePluginProviderIds.h>
 #include    <GSFWViewUIDs.h>
 #include    "GSLogger.h"

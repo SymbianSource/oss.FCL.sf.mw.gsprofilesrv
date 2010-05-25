@@ -32,7 +32,7 @@
 #include	<aknSDData.h>
 #include	<featmgr.h>
 
-#include    <ProfileScheduleEvent.rsg>
+#include    <profilescheduleevent.rsg>
 #include    "ProfileEnginePrivateCRKeys.h"
 #include    <ProfileEngineConstants.h>
 #include    "ProfilesDebug.h"

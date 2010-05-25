@@ -21,7 +21,7 @@
 #include "GsLogger.h"
 #include <gsfwviewuids.h>
 #include <gssynchronisationplugin.mbg> // Icons
-#include <GSSynchronisationPluginRsc.rsg>
+#include <gssynchronisationpluginrsc.rsg>
 #include <gsmainview.h>
 #include <gsprivatepluginproviderids.h>
 #include <gstabhelper.h>

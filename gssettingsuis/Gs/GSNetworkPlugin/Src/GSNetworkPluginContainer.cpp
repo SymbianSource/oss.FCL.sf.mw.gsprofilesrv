@@ -27,7 +27,7 @@
 #include <aknnotewrappers.h>        //for AknErrorNote
 #include <aknappui.h>               //for iAvkonAppUi
 #include <StringLoader.h>           //for StringLoader
-#include <GsNetworkPluginRsc.rsg>       //for resource IDs
+#include <gsnetworkpluginrsc.rsg>       //for resource IDs
 #include <PsetContainer.h>          //for CPsetContainer
 #include <PsetNetwork.h>            //for CPsetNetwork
 #include <gslistbox.h>              //for listbox classes

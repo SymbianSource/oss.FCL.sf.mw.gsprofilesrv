@@ -52,6 +52,7 @@
 #include <mediafilelist.rsg>
 #include <mediafilelist.mbg>
 #include <data_caging_path_literals.hrh> // KDC_APP_RESOURCE_DIR
+#include <touchfeedback.h>      // For MTouchFeedback
 
 
 
@@ -1360,6 +1361,15 @@ TBool CMediaFileDialog::DoHandleOKL( TInt aAttr )
     
     if ( folderId != KErrNotFound && aAttr != EAttrSelect )
         {
+        // Request vibra feedback when open the folder.
+        MTouchFeedback* feedback = MTouchFeedback::Instance();
+        if ( feedback )
+            {
+            TTouchLogicalFeedback logicalType = ETouchFeedbackList;
+            TTouchFeedbackType type = ETouchFeedbackVibra;
+            feedback->InstantFeedback( this, logicalType, type, TPointerEvent() );
+            }
+        
         iBuf = KNullDesC;
         // selected list item is folder
          if ( !isPersistent )

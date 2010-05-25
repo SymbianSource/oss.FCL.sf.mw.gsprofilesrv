@@ -21,7 +21,7 @@
 #include    "GSPDataAccessPointModel.h"
 #include    <gsparentplugin.h>
 #include    <gscommon.hrh>
-#include    <GSPDataAccessPointPluginRsc.rsg> // GUI Resource
+#include    <gspdataaccesspointpluginrsc.rsg> // GUI Resource
 #include    <gsprivatepluginproviderids.h>
 #include    <gsfwviewuids.h>
 

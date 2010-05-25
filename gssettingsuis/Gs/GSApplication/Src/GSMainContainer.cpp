@@ -24,7 +24,7 @@
 #include    "GSMainContainer.h"
 #include    "gsplugininterface.h"
 #include    "GsLogger.h"
-#include    <GSApp.rsg>         // Resources for mainview
+#include    <gsapp.rsg>         // Resources for mainview
 
 #include    <aknlists.h>
 #include    <calslbs.h>

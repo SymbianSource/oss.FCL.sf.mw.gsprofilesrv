@@ -20,7 +20,7 @@
 #include <e32base.h>
 #include <featmgr.h>
 #include <StringLoader.h>
-#include <GSCallBarringPluginRsc.rsg>
+#include <gscallbarringpluginrsc.rsg>
 #include "CallBarringPlugin.hrh"            //for enumerations (e.g.TGSBarringSetting)
 #include "GSMainBarringView.h"      //for CGSSettListMainBarringView
 #include "GSMainBarringContainer.h" //for CGSBaseContainer

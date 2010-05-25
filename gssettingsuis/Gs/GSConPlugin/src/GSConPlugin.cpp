@@ -21,7 +21,7 @@
 #include "GsLogger.h"
 
 #include <gsconplugin.mbg> // Icons
-#include <GSConPluginRsc.rsg>
+#include <gsconpluginrsc.rsg>
 #include <gsfwviewuids.h>
 #include <gsmainview.h>
 #include <gsplugininterface.h>

@@ -22,7 +22,7 @@
 #include "GSDataCallPluginContainer.h"
 #include "GsDataCallPlugin.hrh"
 #include <gsdatacallplugin.mbg> // Icons
-#include <GsDataCallPluginRsc.rsg>
+#include <gsdatacallpluginrsc.rsg>
 #include <gsfwviewuids.h>
 #include <gsprivatepluginproviderids.h>
 

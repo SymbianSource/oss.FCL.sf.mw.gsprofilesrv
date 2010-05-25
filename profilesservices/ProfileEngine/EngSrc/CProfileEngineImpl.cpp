@@ -26,7 +26,7 @@
 #include <DRMCommon.h>
 #include <sysutil.h>
 
-#include <ProfileEng.rsg>
+#include <profileeng.rsg>
 #include <TProfileToneSettings.h>
 #include <MProfileTones.h>
 #include "CProfilesNamesArrayImpl.h"

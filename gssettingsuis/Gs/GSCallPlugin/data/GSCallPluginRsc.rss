@@ -28,7 +28,7 @@ NAME    CALP // 4 letter ID
 #include    <gs.loc>
 #include    <gscommon.hrh>
 #include    <gscommon.rh>
-#include    <GSApp.rsg>
+#include    <gsapp.rsg>
 #include    <appinfo.rh>
 #include    <avkon.loc>
 #include    <avkon.mbg>

@@ -23,7 +23,7 @@
 #include "GSPowerSavingQueryPlugin.hrh"
 #include "GsLogger.h"
 #include <GSPowerSavingQueryPlugin.mbg> // icons
-#include <GSPowerSavingQueryPluginRsc.rsg>
+#include <gspowersavingquerypluginrsc.rsg>
 #include <gsfwviewuids.h>
 #include <gsprivatepluginproviderids.h>
 #include <aknradiobuttonsettingpage.h>

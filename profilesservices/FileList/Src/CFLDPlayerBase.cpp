@@ -28,7 +28,7 @@
 // EXTERNAL INCLUDES
 #include <aknnotewrappers.h> // CAknErrorNote
 #include <StringLoader.h>
-#include <FileList.rsg>
+#include <filelist.rsg>
 #include <centralrepository.h>
 #include <hwrmvibrasdkcrkeys.h>
 #include <e32property.h>
