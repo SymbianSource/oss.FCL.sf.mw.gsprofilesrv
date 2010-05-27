@@ -19,3 +19,4 @@ SUBDIRS =  src
 CONFIG += ordered
 
 include(rom/cp_rom.pri)
+include(conf/conf.pri)

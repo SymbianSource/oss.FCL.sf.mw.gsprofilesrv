@@ -25,7 +25,7 @@
 #include <QObject>
 #include <QRectF>
 #include <QDate>
-#include <hbmenu>
+#include <HbMenu>
 
 class QGraphicsWidget;
 

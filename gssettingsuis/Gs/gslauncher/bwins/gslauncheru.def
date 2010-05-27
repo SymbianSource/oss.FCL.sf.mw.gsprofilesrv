@@ -1,5 +1,0 @@
-EXPORTS
-	?LaunchGSViewL@CGSLauncher@@QAEXVTUid@@0ABVTDesC8@@@Z @ 1 NONAME ; void CGSLauncher::LaunchGSViewL(class TUid, class TUid, class TDesC8 const &)
-	?NewL@CGSLauncher@@SAPAV1@XZ @ 2 NONAME ; class CGSLauncher * CGSLauncher::NewL(void)
-	?NewLC@CGSLauncher@@SAPAV1@XZ @ 3 NONAME ; class CGSLauncher * CGSLauncher::NewLC(void)
-

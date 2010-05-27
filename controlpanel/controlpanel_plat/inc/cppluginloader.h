@@ -29,12 +29,12 @@ class CpPluginPlatInterface;
 class CP_EXPORT CpPluginLoader
 {
 public:    
-    /* OLD INTERFACES* DPRECATED!!! */
+    /* OLD INTERFACES* DPRECATED!!! \deprecated static CpPluginInterface     *loadCpPlugin(const QString &pluginFile)*/
     static CpPluginInterface     *loadCpPlugin(const QString &pluginFile)
     {
         return 0;
     }
-    /* OLD INTERFACES* DPRECATED!!! */
+    /* OLD INTERFACES* DPRECATED!!! \deprecated static CpPluginPlatInterface *loadPlatCpPlugin(const QString &pluginFile)*/
     static CpPluginPlatInterface *loadPlatCpPlugin(const QString &pluginFile)
     {
         return 0;

@@ -21,6 +21,7 @@
 #include <QtPlugin>
 
 /*!
+		\deprecated class CpPluginPlatInterface
     \class CpPluginPlatInterface
     \brief The class is Deprecated! please use CpPluginInterface instead.
  */
@@ -39,6 +40,7 @@ public:
     }
     
     /*!
+    \deprecated CpSettingFormItemData *createSettingFormItemData(CpItemDataHelper &itemDataHelper)
      Create a data form mode item, by which the control panel framework can build a data form model.
      */
     virtual CpSettingFormItemData *createSettingFormItemData(CpItemDataHelper &itemDataHelper) const = 0;
