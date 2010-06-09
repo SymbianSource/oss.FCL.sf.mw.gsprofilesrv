@@ -593,6 +593,8 @@ TBool CMediaFileDialog::OkToExitL(TInt aButtonId)
 TKeyResponse CMediaFileDialog::OfferKeyEventL(const TKeyEvent& aKeyEvent,
                                                       TEventCode aType)
     {
+    
+    iIsDoubleClicked = EFalse;
     // must pass escape event to dialog - findbox and listbox "eat" escape events
     TKeyResponse res = EKeyWasNotConsumed;
     if ( aType == EEventKey && aKeyEvent.iCode == EKeyEscape )
