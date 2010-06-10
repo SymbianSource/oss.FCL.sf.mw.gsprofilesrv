@@ -30,8 +30,7 @@
 #include    <MProEngProfileNameArrayObserver.h>
 #include    <ProfileEngineConstants.h>
 #include    <ProfileEnginePrivatePSKeys.h>
-#include    "CProEngActiveSettingsEventDelegate.h"
-#include    "CProEngMasterSettingsEventDelegate.h"
+
 
 // ============================= LOCAL FUNCTIONS ===============================
 
@@ -57,9 +56,7 @@ TBool CompareDelegates( const CProEngProfileEventDelegate& aDelegate1,
 CProEngNotifyHandlerImpl::CProEngNotifyHandlerImpl() : 
     iActiveIdEventDelegate( NULL ),
     iActiveProfileEventDelegate( NULL ),
-    iNameArrayEventDelegate( NULL ),
-    iActiveSettingEventDelegate( NULL ),
-    iMasterSettingEventDelegate( NULL )
+    iNameArrayEventDelegate( NULL )
     {
     }
 
@@ -200,60 +197,6 @@ TInt CProEngNotifyHandlerImpl::RequestProfileNameArrayNotificationsL(
     return result;
     }
 
-
-// -----------------------------------------------------------------------------
-// CProEngNotifyHandlerImpl::RequestActiveSettingsNotificationsL
-// -----------------------------------------------------------------------------
-//
-TInt CProEngNotifyHandlerImpl::RequestActiveSettingsNotificationsL( 
-        MProEngActiveSettingsObserver &aObserver )
-    {
-    if( iActiveSettingEventDelegate )
-        {
-        return KErrAlreadyExists;
-        }
-
-    iActiveSettingEventDelegate = CProEngActiveSettingsEventDelegate::NewL(
-            aObserver );
-            
-    // make the actual request to the Central Repository:
-    TInt result( iActiveSettingEventDelegate->RequestNotification() );
-    if( result != KErrNone )
-        {
-        delete iActiveSettingEventDelegate;
-        iActiveSettingEventDelegate = NULL;
-        }
-
-    return result;
-    }
-
-// -----------------------------------------------------------------------------
-// CProEngNotifyHandlerImpl::RequestMasterSettingsNotificationsL
-// -----------------------------------------------------------------------------
-//
-TInt CProEngNotifyHandlerImpl::RequestMasterSettingsNotificationsL( 
-        MProEngMasterSettingsObserver &aObserver )
-    {
-    if( iMasterSettingEventDelegate )
-        {
-        return KErrAlreadyExists;
-        }
-
-    iMasterSettingEventDelegate = CProEngMasterSettingsEventDelegate::NewL(
-            aObserver );
-            
-    // make the actual request to the Central Repository:
-    TInt result( iMasterSettingEventDelegate->RequestNotification() );
-    if( result != KErrNone )
-        {
-        delete iMasterSettingEventDelegate;
-        iMasterSettingEventDelegate = NULL;
-        }
-
-    return result;
-    }
-
-
 // -----------------------------------------------------------------------------
 // CProEngNotifyHandlerImpl::CancelProfileActivationNotifications
 // -----------------------------------------------------------------------------
@@ -316,35 +259,6 @@ void CProEngNotifyHandlerImpl::CancelProfileNameArrayNotifications()
         }
     }
 
-
-// -----------------------------------------------------------------------------
-// CProEngNotifyHandlerImpl::CancelActiveSettingsNotificationsL
-// -----------------------------------------------------------------------------
-//
-void CProEngNotifyHandlerImpl::CancelActiveSettingsNotificationsL()
-    {
-    if( iActiveSettingEventDelegate )
-        {
-        iActiveSettingEventDelegate->Cancel();
-        delete iActiveSettingEventDelegate;
-        iActiveSettingEventDelegate = NULL;
-        }
-    }
-
-// -----------------------------------------------------------------------------
-// CProEngNotifyHandlerImpl::CancelMasterSettingsNotificationsL
-// -----------------------------------------------------------------------------
-//
-void CProEngNotifyHandlerImpl::CancelMasterSettingsNotificationsL()
-    {
-    if( iMasterSettingEventDelegate )
-        {
-        iMasterSettingEventDelegate->Cancel();
-        delete iMasterSettingEventDelegate;
-        iMasterSettingEventDelegate = NULL;
-        }
-    }
-
 // -----------------------------------------------------------------------------
 // CProEngNotifyHandlerImpl::CancelAll
 // -----------------------------------------------------------------------------
@@ -354,9 +268,6 @@ void CProEngNotifyHandlerImpl::CancelAll()
     CancelProfileActivationNotifications();
     CancelActiveProfileNotifications();
     CancelProfileNameArrayNotifications();
-    CancelActiveSettingsNotificationsL();
-    CancelMasterSettingsNotificationsL();
-    
     TInt count = iProfileEventDelegates.Count();
     for( TInt i( 0 ); i<count; ++i )
         {

@@ -54,7 +54,7 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
     
 	mBaseSettingView->setWidget(widget);
     
-    mBaseSettingView->setTitle("Control Panel");	//give a default title, sub classes need set it correctly
+    mBaseSettingView->setTitle(hbTrId("txt_cp_title_control_panel"));	//give a default title, sub classes need set it correctly
 
     mSoftKeyBackAction = new HbAction(Hb::BackNaviAction , mBaseSettingView);
     QObject::connect(mSoftKeyBackAction, 

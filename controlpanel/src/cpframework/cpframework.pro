@@ -55,7 +55,8 @@ symbian: {
 	# export widgetml files	
     widgetmls.path = C:/resource/controlpanel/widgetml
     widgetmls.sources += widgetml/cpdataformlistentryviewitem.css \
-                         widgetml/cpdataformlistentryviewitem.widgetml
+                         widgetml/cpdataformlistentryviewitem.widgetml \
+                         widgetml/cpdataformlistentryviewitem_color.css 
     for(widgetmlfile, widgetmls.sources):BLD_INF_RULES.prj_exports += "./$$widgetmlfile  $$widgetmls.path/$$basename(widgetmlfile)" 
     
     # export icon files	
