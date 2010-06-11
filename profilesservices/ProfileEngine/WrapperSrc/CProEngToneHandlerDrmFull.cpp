@@ -24,8 +24,6 @@
 #include    <DRMCommon.h>
 #include    <ProEngWrapper.rsg>
 
-#include <caf/caf.h>
-
 
 // ============================ LOCAL FUNCTIONS ================================
 

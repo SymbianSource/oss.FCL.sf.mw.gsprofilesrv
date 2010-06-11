@@ -18,7 +18,7 @@ TEMPLATE = app
 TARGET = ut_cpapi
 QT += testlib
 CONFIG += hb qtestlib
-#CONFIG += symbian_test
+CONFIG += symbian_test
 unix {
     test.commands = /epoc32/RELEASE/WINSCW/udeb/ut_cpapi.exe
     autotest.commands = /epoc32/RELEASE/WINSCW/udeb/ut_cpapi.exe -xml -o c:/ut_cpapi.xml

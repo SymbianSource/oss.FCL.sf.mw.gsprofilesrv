@@ -39,8 +39,3 @@ PRJ_EXPORTS
 ../inc/MProEngToneSettings.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngToneSettings.h)
 ../inc/MProEngProfileNameArrayObserver.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngProfileNameArrayObserver.h)
 ../inc/MProEngEngine.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngEngine.h)
-//Since 10.1
-../inc/MProEngActiveSettingsObserver.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngActiveSettingsObserver.h)
-../inc/MProEngMasterSettingsObserver.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngMasterSettingsObserver.h)
-../inc/MProEngNotifyHandler2.h     MW_LAYER_PUBLIC_EXPORT_PATH(MProEngNotifyHandler2.h)
-../inc/ProEngFactory2.h     MW_LAYER_PUBLIC_EXPORT_PATH(ProEngFactory2.h)
