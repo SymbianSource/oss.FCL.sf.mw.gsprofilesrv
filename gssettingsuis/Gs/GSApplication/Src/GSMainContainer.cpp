@@ -37,6 +37,7 @@
 #include    <gulicon.h>         // For CGulIcon
 #include    <csxhelp/cp.hlp.hrh>
 #include    <gsfwviewuids.h>    // for KUidGS
+#include    "GsContainerExt.h" //For CGsContainerExt
 
 //CONSTANTS
 
@@ -85,6 +86,7 @@ void CGSMainContainer::ConstructL(
     // Obtain reference to listbox's item text array:
     iItemTextArray
         = STATIC_CAST( CDesCArray*, iListBox->Model()->ItemTextArray() );
+    iExt = CGsContainerExt::NewL();
 
     SetRect( aRect );
     ActivateL();
@@ -115,6 +117,7 @@ CGSMainContainer::~CGSMainContainer()
         {
         delete iListBox;
         }
+    delete iExt;
     __GSLOGSTRING( "[CGSMainContainer] ~CGSMainContainer" );
   }
 
@@ -346,7 +349,11 @@ void CGSMainContainer::HandleListBoxEventL(
                 // Negative listbox value -> no item selected? 
                 break;
                 }
-
+            if ( iExt->iDblClickPreventer->IsActive() )
+                {
+                break;
+                }
+            iExt->iDblClickPreventer->Start();
             CGSPluginInterface* selectedPlugin = iVisiblePlugins->operator[](
                     aListBox->CurrentItemIndex());
 

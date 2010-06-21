@@ -103,5 +103,8 @@ DOCUMENT    GSParentPluginRsc.rss
 SOURCEPATH  ../Data
 DOCUMENT    GSCommonResources.rss
 
+SOURCEPATH src
+SOURCE      GsContainerExt.cpp
+
 //End of File
 

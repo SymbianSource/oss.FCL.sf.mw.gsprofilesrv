@@ -32,6 +32,7 @@ class CAknViewAppUi;
 class CGSPluginInterface;
 class CAknSingleLargeStyleListBox;
 class MGSWatchDog;
+class CGsContainerExt;
 
 /**
 *  Container class for the GS Main view.
@@ -233,8 +234,7 @@ class CGSParentContainer : public CCoeControl, public MEikListBoxObserver
         CGSParentPlugin* iParentPlugin;
 
         // Pointer to GSWatchDog owned by GS Application document. Not owned.
-        MGSWatchDog* iGSWatchDog;
-       
+        CGsContainerExt* iExt;
     };
 
 

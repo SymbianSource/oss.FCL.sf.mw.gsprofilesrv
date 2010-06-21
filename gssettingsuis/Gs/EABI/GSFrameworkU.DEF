@@ -119,4 +119,7 @@ EXPORTS
 	_ZN15CGSEComNotifierD2Ev @ 118 NONAME
 	_ZN15CGSPluginLoader15RequestPriorityEN7CActive9TPriorityE @ 119 NONAME
 	_ZN15CGSBaseDocument18CreateShimmedViewLE4TUid @ 120 NONAME
+	_ZN15CGsContainerExt4NewLEv @ 121 NONAME
+	_ZN23CGsDoubleClickPreventer4NewLEv @ 122 NONAME
+	_ZN23CGsDoubleClickPreventer5StartEv @ 123 NONAME
 

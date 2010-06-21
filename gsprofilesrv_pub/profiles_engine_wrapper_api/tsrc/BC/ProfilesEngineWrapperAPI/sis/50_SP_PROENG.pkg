@@ -32,5 +32,5 @@
 
 "\Epoc32\Release\armv5\urel\ProEngWrapAPI.dll"-"!:\sys\bin\ProEngWrapAPI.dll"
 "\Epoc32\winscw\c\testframework\testframework_ProEngWrapAPI.ini"-"!:\TestFramework\testframework_ProEngWrapAPI.ini"
-"\Epoc32\winscw\c\testframework\ProEngWrapAPI.cfg"-"!:\TestFramework\ProEngWrapAPI.cfg"
+"\Epoc32\winscw\c\testframework\UI_ProEngWrapAPI.cfg"-"!:\TestFramework\UI_ProEngWrapAPI.cfg"
 "\epoc32\winscw\c\proeng_c.bat"-"!:\proeng.bat"

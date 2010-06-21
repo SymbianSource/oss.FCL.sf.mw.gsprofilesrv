@@ -35,6 +35,7 @@
 #include    <bldvariant.hrh>
 #include    <calslbs.h>
 #include    <eikclbd.h>
+#include    "GsContainerExt.h" //For CGsContainerExt
 
 //CONSTANTS
 const TInt KGSPluginArrayInitSize = 10;
@@ -62,7 +63,8 @@ void CGSParentContainer::ConstructL(
     iParentPlugin = aParentPlugin;
 
     CGSBaseDocument* doc = static_cast< CGSBaseDocument* >( iAppUi->Document() );
-    iGSWatchDog = doc->WatchDog();
+    iExt = CGsContainerExt::NewL();
+    iExt->iGSWatchDog = doc->WatchDog();
 
     // Initialize the array containing pointers to plugins that are actually
     // displayed in lbx.
@@ -106,6 +108,7 @@ CGSParentContainer::~CGSParentContainer()
         {
         delete iListBox;
         }
+    delete iExt;
     __GSLOGSTRING( "[CGSParentContainer] ~CGSParentContainer()-|" );
   }
 
@@ -157,7 +160,7 @@ void CGSParentContainer::UpdateListBoxL()
         // -> A good place to use quarantine to catch panicking plugins in
         // any of these calls.
         #ifdef GS_ENABLE_WATCH_DOG
-            iGSWatchDog->QuarantineL( plugin->Id() );
+            iExt->iGSWatchDog->QuarantineL( plugin->Id() );
         #endif
             
         if( plugin->Visible() )
@@ -168,7 +171,7 @@ void CGSParentContainer::UpdateListBoxL()
                                  iconCounter );
             }
         #ifdef GS_ENABLE_WATCH_DOG
-            iGSWatchDog->RemoveFromQuarantineL( plugin->Id() );
+            iExt->iGSWatchDog->RemoveFromQuarantineL( plugin->Id() );
         #endif
         }
 
@@ -539,6 +542,11 @@ void CGSParentContainer::HandleListBoxEventL( CEikListBox* aListBox,
                 break;
                 }
             
+           if(iExt->iDblClickPreventer->IsActive())
+               {
+               break;
+               }
+           iExt->iDblClickPreventer->Start();
             CGSPluginInterface* selectedPlugin = iVisiblePlugins->operator[](
                 aListBox->CurrentItemIndex() );
 

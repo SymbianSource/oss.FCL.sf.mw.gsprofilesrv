@@ -76,4 +76,7 @@ EXPORTS
 	?CreateContainerL@CGSBaseView@@MAEXXZ @ 75 NONAME ; void CGSBaseView::CreateContainerL(void)
 	??0CGSBaseDocument@@IAE@AAVCEikApplication@@@Z @ 76 NONAME ; CGSBaseDocument::CGSBaseDocument(class CEikApplication &)
 	?CreateShimmedViewL@CGSBaseDocument@@QAEXVTUid@@@Z @ 77 NONAME ; void CGSBaseDocument::CreateShimmedViewL(class TUid)
+	?NewL@CGsContainerExt@@SAPAV1@XZ @ 78 NONAME ; class CGsContainerExt * CGsContainerExt::NewL(void)
+	?NewL@CGsDoubleClickPreventer@@SAPAV1@XZ @ 79 NONAME ; class CGsDoubleClickPreventer * CGsDoubleClickPreventer::NewL(void)
+	?Start@CGsDoubleClickPreventer@@QAEXXZ @ 80 NONAME ; void CGsDoubleClickPreventer::Start(void)
 

@@ -101,6 +101,12 @@ CMFPreviewHandlerBase::~CMFPreviewHandlerBase()
     iProperty.Close();
     
     iApaSession.Close();
+
+    if ( iBacklightTimer )
+        {
+        delete iBacklightTimer;
+        iBacklightTimer = NULL;
+        }
     }
 
 
@@ -581,12 +587,6 @@ CMFVideoPreviewHandler::~CMFVideoPreviewHandler()
 		{
 		delete iVideoPlayer;
     	}
-	
-	if ( iBacklightTimer )
-		{
-		delete iBacklightTimer;
-		iBacklightTimer = NULL;
-		}
     }
 
 

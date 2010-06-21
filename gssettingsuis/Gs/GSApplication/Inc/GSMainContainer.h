@@ -27,6 +27,7 @@
 class CAknViewAppUi;
 class CAknSingleLargeStyleListBox;
 class CGSPluginInterface;
+class CGsContainerExt;
 
 /**
 * Container class for the GS Main view.
@@ -185,6 +186,8 @@ class CGSMainContainer : public CCoeControl, public MEikListBoxObserver
         // It is needed because iPluginArray also contains non-visible plugins
         // and therefore the indexes do not match to lbx items.
         CArrayPtrFlat<CGSPluginInterface>* iVisiblePlugins;
+        // Extension for main container.
+        CGsContainerExt* iExt;
 };
 
 
