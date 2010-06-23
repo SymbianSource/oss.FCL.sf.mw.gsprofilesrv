@@ -92,8 +92,7 @@ private:
     Q_DISABLE_COPY(CpSettingFormEntryItemData)
     Q_DECLARE_PRIVATE_D(d_ptr, CpSettingFormEntryItemData)
     Q_PRIVATE_SLOT(d_func(), void _q_itemPressed(const QModelIndex &index))
-    Q_PRIVATE_SLOT(d_func(), void _q_itemReleased(const QModelIndex &index))
-    Q_PRIVATE_SLOT(d_func(), void _q_scrollingStarted())
+    Q_PRIVATE_SLOT(d_func(), void _q_itemActivated(const QModelIndex &index))
 private:
 	CpSettingFormEntryItemDataPrivate *d_ptr;
 };

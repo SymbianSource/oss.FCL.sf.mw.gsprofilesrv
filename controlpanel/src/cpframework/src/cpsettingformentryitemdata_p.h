@@ -50,10 +50,9 @@ public:
     HbIcon entryItemIcon() const;
     void setEntryItemIcon(const HbIcon &icon);
     
-    //SLOTS
+    //private slots
     void _q_itemPressed(const QModelIndex &index);
-    void _q_itemReleased(const QModelIndex &index);
-    void _q_scrollingStarted();
+    void _q_itemActivated(const QModelIndex &index);
     
     HbDataFormModelItem *modelItemFromModelIndex(const QModelIndex &index);
     
@@ -62,7 +61,6 @@ public:
     CpItemDataHelper *mItemDataHelper;
     QPointer<HbView> mSettingViewPtr;
     bool mItemPressed;
-    bool mDataFormScrolling;
 };
 
 
