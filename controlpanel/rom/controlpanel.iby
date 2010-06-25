@@ -25,9 +25,4 @@
 
 file=ABI_DIR\BUILD_DIR\cpframework.dll			  	 SHARED_LIB_DIR\cpframework.dll
 
-data= \epoc32\data\c\resource\controlpanel\widgetml\cpdataformlistentryviewitem.css             resource\controlpanel\widgetml\cpdataformlistentryviewitem.css
-data= \epoc32\data\c\resource\controlpanel\widgetml\cpdataformlistentryviewitem_color.css       resource\controlpanel\widgetml\cpdataformlistentryviewitem_color.css
-data= \epoc32\data\c\resource\controlpanel\widgetml\cpdataformlistentryviewitem.widgetml        resource\controlpanel\widgetml\cpdataformlistentryviewitem.widgetml
-data= \epoc32\data\c\resource\controlpanel\icon\qgn_prop_set_default_sub.svg                    resource\controlpanel\icon\qgn_prop_set_default_sub.svg
-
 #endif

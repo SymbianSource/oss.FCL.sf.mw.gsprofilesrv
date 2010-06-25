@@ -31,6 +31,11 @@ public:
     virtual bool canSetModelIndex(const QModelIndex &index) const;
 protected:
     virtual HbWidget* createCustomWidget();
+    virtual void pressStateChanged(bool pressed, bool animate);
+#ifdef HB_GESTURE_FW
+    //from HbWidgetBase
+    virtual void gestureEvent(QGestureEvent *event);
+#endif
 };
 
 #endif //CPDATAFORMLISTENTRYVIEWITEM_H

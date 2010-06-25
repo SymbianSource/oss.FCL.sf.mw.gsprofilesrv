@@ -102,8 +102,10 @@ void CpSettingFormEntryItemDataPrivate::setText(const QString &text)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setLabel(text);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("text"),QVariant(text));
+        break;
     }
 }
 
@@ -129,8 +131,10 @@ void CpSettingFormEntryItemDataPrivate::setDescription(const QString &descriptio
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setData(HbDataFormModelItem::DescriptionRole , description);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("additionalText"),QVariant(description));
+        break;
     }
 }
 
@@ -156,8 +160,10 @@ void CpSettingFormEntryItemDataPrivate::setIconName(const QString &icon)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setIcon(icon);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("icon"),HbIcon(icon));
+        break;
     }
 }
 
@@ -183,6 +189,7 @@ void CpSettingFormEntryItemDataPrivate::setEntryItemIcon(const HbIcon &icon)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setIcon(icon.iconName());
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("icon"),icon);
         break;
