@@ -33,22 +33,6 @@
     #endif
 #endif 
 
-#ifdef Q_OS_SYMBIAN
-    #ifdef __WINS__
-        #define CP_RESOURCE_PATH QLatin1String("C:/resource/controlpanel")
-    #else
-        #define CP_RESOURCE_PATH QLatin1String("Z:/resource/controlpanel")
-    #endif
-#else 
-    #ifdef _DEBUG
-        #define CP_RESOURCE_PATH QLatin1String("C:/controlpanel/debug/resource")
-    #else
-        #define CP_RESOURCE_PATH QLatin1String("C:/controlpanel/release/resource")
-    #endif
-#endif 
-
-#define WIDGETML_SUB_PATH QLatin1String("widgetml")
-#define ICON_SUB_PATH     QLatin1String("icon")
 
 #endif  //CPBASEPATH_H
 

@@ -43,7 +43,8 @@ LIBS += -lcpframework
 
 # Input
 HEADERS += src/ut_cpapi.h
-SOURCES += src/ut_cpapi.cpp
+SOURCES += src/ut_cpapi.cpp \ 
+            src/main.cpp
 
 symbian {
 	BLD_INF_RULES.prj_exports += "data/controlpanellog.conf C:/data/.config/ut_cpapi/controlpanellog.conf"
