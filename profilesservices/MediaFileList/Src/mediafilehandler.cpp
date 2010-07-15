@@ -2744,7 +2744,7 @@ void CRomFileList::ReadDirectoryL( const TDesC& aDirectory,
         filename.Format( KFormat, &aDirectory, &item.iName );
         index = aList.Count();
         CSearchListItem* item2 = SearchListItemFromRomL( filename, index );
-        aList.Append( item2 );
+        aList.AppendL( item2 );
         }
 
     CleanupStack::PopAndDestroy( dir );
@@ -2784,7 +2784,7 @@ void CRomFileList::ReadDirectoryL( const TDesC& aDirectory,
         {
         const TEntry item = (*dir)[i];
         filename.Format( KFormat, &aDirectory, &item.iName );
-        aList.Append( filename );
+        aList.AppendL( filename );
         }
 
     CleanupStack::PopAndDestroy( dir );
@@ -2986,7 +2986,7 @@ void CSearchList::SearchInToneL( CRomFileList* aQuery,  const TDesC& aSearchText
             TInt rt = title.FindF( aSearchText );
             if ( rt != KErrNotFound )
             	{
-            	iList.Append( item );
+            	iList.AppendL( item );
             	}
         	}
     	}
@@ -3015,7 +3015,7 @@ void CSearchList::VideoSearchInRomL( CRomFileList* aQuery,  const TDesC& aSearch
             TInt rt = title.FindF( aSearchText );
             if ( rt != KErrNotFound )
                 {
-                iList.Append( item );
+                iList.AppendL( item );
                 }
             }
         }

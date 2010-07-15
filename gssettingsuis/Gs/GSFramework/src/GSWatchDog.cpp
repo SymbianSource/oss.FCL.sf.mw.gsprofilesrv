@@ -92,7 +92,7 @@ void CGSWatchDog::ConstructL()
                     TGSPluginQuarantine quarantinedPlugin;
                     quarantinedPlugin.iRunsAfterCrash = 0;
                     quarantinedPlugin.iUid = iQuarantine[i];
-                    iBlackList.Append( quarantinedPlugin );
+                    iBlackList.AppendL( quarantinedPlugin );
                     iQuarantine.Remove( i );
                     }
                 }
@@ -156,7 +156,7 @@ void CGSWatchDog::QuarantineL( TUid aPluginUid )
     {
     if( iIsActive )
         {
-        iQuarantine.Append( aPluginUid );
+        iQuarantine.AppendL( aPluginUid );
         StoreQuarantineL(); // Store to persistent storage
 
 #ifdef _GS_WATCHDOG_VERBOSE_TRACES
@@ -406,7 +406,7 @@ void CGSWatchDog::ReadQuarantineL()
         {
         TUid uid;
         uid.iUid = stream.ReadInt32L();
-        iQuarantine.Append( uid );
+        iQuarantine.AppendL( uid );
         }
     //stream.Close();
     CleanupStack::PopAndDestroy( &stream );
@@ -473,7 +473,7 @@ void CGSWatchDog::ReadBlackListL()
         {
         TGSPluginQuarantine plugin;
         plugin.InternalizeL( stream );
-        iBlackList.Append( plugin );
+        iBlackList.AppendL( plugin );
         }
 
     //stream.Close();

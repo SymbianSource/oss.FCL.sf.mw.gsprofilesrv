@@ -163,7 +163,7 @@ void C3DAudioPattern::InternalizeL(	RReadStream& aStream )
 		tempLoop.iLoopStart = aStream.ReadUint8L();
 		tempLoop.iLoopEnd = aStream.ReadUint8L();
 		tempLoop.iCount = aStream.ReadUint8L();
-		iLoops.Append( tempLoop );
+		iLoops.AppendL( tempLoop );
 		}
 	
 	// Reset the array of loops.
@@ -188,7 +188,7 @@ void C3DAudioPattern::InternalizeL(	RReadStream& aStream )
 		tempScript.iDTime = aStream.ReadUint16L();
 		tempScript.iPosition = tempPosition;
 		tempScript.iVelocity = tempVelocity;
-		iScript.Append( tempScript );
+		iScript.AppendL( tempScript );
 		}
 	}
 
