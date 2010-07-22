@@ -26,8 +26,7 @@
 CpSettingFormEntryItemDataPrivate::CpSettingFormEntryItemDataPrivate()
 : mDataForm(0),
   mItemDataHelper(0),
-  mItemPressed(false), 
-  mDataFormScrolling(false)
+  mItemPressed(false)
 {
     
 }
@@ -35,8 +34,7 @@ CpSettingFormEntryItemDataPrivate::CpSettingFormEntryItemDataPrivate()
 CpSettingFormEntryItemDataPrivate::CpSettingFormEntryItemDataPrivate(CpItemDataHelper *itemDataHelper) 
 : mDataForm(0),
   mItemDataHelper(itemDataHelper),
-  mItemPressed(false), 
-  mDataFormScrolling(false)
+  mItemPressed(false)
 {
     
 }
@@ -44,8 +42,7 @@ CpSettingFormEntryItemDataPrivate::CpSettingFormEntryItemDataPrivate(CpItemDataH
 CpSettingFormEntryItemDataPrivate::CpSettingFormEntryItemDataPrivate(HbDataForm *dataForm)
 : mDataForm(dataForm),
   mItemDataHelper(0),
-  mItemPressed(false),
-  mDataFormScrolling(false)
+  mItemPressed(false)
 {
     
 }
@@ -62,13 +59,11 @@ void CpSettingFormEntryItemDataPrivate::init(CpSettingFormEntryItemData *parent)
         {
             if (mItemDataHelper) {
                 mItemDataHelper->connectToForm(SIGNAL(pressed (QModelIndex)),mParent,SLOT(_q_itemPressed(QModelIndex)));
-                mItemDataHelper->connectToForm(SIGNAL(released (QModelIndex)),mParent,SLOT(_q_itemReleased(QModelIndex)));
-                mItemDataHelper->connectToForm(SIGNAL(scrollingStarted ()),mParent,SLOT(_q_scrollingStarted()));
+                mItemDataHelper->connectToForm(SIGNAL(activated(QModelIndex)),mParent,SLOT(_q_itemActivated(QModelIndex)));
             }
             else if (mDataForm) {
                 QObject::connect( mDataForm,SIGNAL(pressed(QModelIndex)),mParent,SLOT(_q_itemPressed(QModelIndex)) );
-                QObject::connect( mDataForm,SIGNAL(released(QModelIndex)),mParent,SLOT(_q_itemReleased(QModelIndex)) );
-                QObject::connect( mDataForm,SIGNAL(scrollingStarted()),mParent,SLOT(_q_scrollingStarted()) );
+                QObject::connect( mDataForm,SIGNAL(activated(QModelIndex)),mParent,SLOT(_q_itemActivated(QModelIndex)) );
             }
         }
         break;
@@ -107,8 +102,10 @@ void CpSettingFormEntryItemDataPrivate::setText(const QString &text)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setLabel(text);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("text"),QVariant(text));
+        break;
     }
 }
 
@@ -134,8 +131,10 @@ void CpSettingFormEntryItemDataPrivate::setDescription(const QString &descriptio
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setData(HbDataFormModelItem::DescriptionRole , description);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("additionalText"),QVariant(description));
+        break;
     }
 }
 
@@ -161,8 +160,10 @@ void CpSettingFormEntryItemDataPrivate::setIconName(const QString &icon)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setIcon(icon);
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("icon"),HbIcon(icon));
+        break;
     }
 }
 
@@ -188,6 +189,7 @@ void CpSettingFormEntryItemDataPrivate::setEntryItemIcon(const HbIcon &icon)
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setIcon(icon.iconName());
+        break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("icon"),icon);
         break;
@@ -200,18 +202,15 @@ void CpSettingFormEntryItemDataPrivate::_q_itemPressed(const QModelIndex &index)
     mItemPressed = ( modelItemFromModelIndex(index) == mParent );
 }
 
-void CpSettingFormEntryItemDataPrivate::_q_itemReleased(const QModelIndex &index)
-{    
-    if (!mDataFormScrolling && mItemPressed && modelItemFromModelIndex(index) == mParent) {
+
+void CpSettingFormEntryItemDataPrivate::_q_itemActivated(const QModelIndex &index)
+{
+    if (mItemPressed && modelItemFromModelIndex(index) == mParent) {
         mParent->onLaunchView();
     }
-    mDataFormScrolling = false;
+    mItemPressed = false;
 }
 
-void CpSettingFormEntryItemDataPrivate::_q_scrollingStarted()
-{
-    mDataFormScrolling = true;
-}
 
 HbDataFormModelItem *CpSettingFormEntryItemDataPrivate::modelItemFromModelIndex(const QModelIndex &index)
 {

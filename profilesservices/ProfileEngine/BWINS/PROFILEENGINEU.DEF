@@ -5,5 +5,4 @@ EXPORTS
 	?NewEngineLC@ProEngFactory@@SAPAVMProEngEngine@@AAVRFs@@@Z @ 4 NONAME ; class MProEngEngine * ProEngFactory::NewEngineLC(class RFs &)
 	?NewEngineLC@ProEngFactory@@SAPAVMProEngEngine@@XZ @ 5 NONAME ; class MProEngEngine * ProEngFactory::NewEngineLC(void)
 	?NewNotifyHandlerL@ProEngFactory@@SAPAVMProEngNotifyHandler@@XZ @ 6 NONAME ; class MProEngNotifyHandler * ProEngFactory::NewNotifyHandlerL(void)
-	?NewNotifyHandler2L@ProEngFactory2@@SAPAVMProEngNotifyHandler2@@XZ @ 7 NONAME ; class MProEngNotifyHandler2 * ProEngFactory2::NewNotifyHandler2L(void)
 

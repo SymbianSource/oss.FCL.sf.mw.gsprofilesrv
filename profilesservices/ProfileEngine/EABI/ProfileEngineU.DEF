@@ -5,5 +5,4 @@ EXPORTS
 	_ZN13ProEngFactory11NewEngineLCEv @ 4 NONAME
 	_ZN13ProEngFactory17NewNotifyHandlerLEv @ 5 NONAME
 	_ZN13ProEngFactory19NewAlertToneSeekerLEv @ 6 NONAME
-	_ZN14ProEngFactory218NewNotifyHandler2LEv @ 7 NONAME
 

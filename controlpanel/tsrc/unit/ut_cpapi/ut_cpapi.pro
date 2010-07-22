@@ -18,7 +18,7 @@ TEMPLATE = app
 TARGET = ut_cpapi
 QT += testlib
 CONFIG += hb qtestlib
-#CONFIG += symbian_test
+CONFIG += symbian_test
 unix {
     test.commands = /epoc32/RELEASE/WINSCW/udeb/ut_cpapi.exe
     autotest.commands = /epoc32/RELEASE/WINSCW/udeb/ut_cpapi.exe -xml -o c:/ut_cpapi.xml
@@ -43,7 +43,8 @@ LIBS += -lcpframework
 
 # Input
 HEADERS += src/ut_cpapi.h
-SOURCES += src/ut_cpapi.cpp
+SOURCES += src/ut_cpapi.cpp \ 
+            src/main.cpp
 
 symbian {
 	BLD_INF_RULES.prj_exports += "data/controlpanellog.conf C:/data/.config/ut_cpapi/controlpanellog.conf"

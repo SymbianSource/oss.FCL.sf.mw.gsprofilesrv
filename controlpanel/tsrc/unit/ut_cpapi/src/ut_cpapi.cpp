@@ -178,4 +178,3 @@ void TestCpAPI::testCpLogger()
 }
 
 
-QTEST_MAIN(TestCpAPI)

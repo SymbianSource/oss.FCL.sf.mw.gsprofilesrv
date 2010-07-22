@@ -33,11 +33,11 @@ public:
 	explicit CpBaseSettingView(QGraphicsWidget *widget = 0, QGraphicsItem *parent = 0);
     virtual ~CpBaseSettingView();    
     
-    //Deprecated! please use HbView::setWidget
+    //\deprecated please use HbView::setWidget
     void setSettingForm(HbDataForm *settingForm)
     {
     }
-    //Deprecated! please use HbView::widget
+    //\deprecated HbDataForm *settingForm(), please use HbView::widget() instead
     HbDataForm *settingForm() const
     {
         return 0;

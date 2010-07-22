@@ -42,22 +42,6 @@ class QGraphicsWidget;
 
 typedef struct {
     /**
-     * The default icon to be shown in menustrip UI component.
-     */ 
-    QFileInfo mMenustripDefaultIcon;
-    /**
-     * The pressed icon to be shown in menustrip UI component.
-     */ 
-    QFileInfo mMenustripPressedIcon;
-    /**
-     * The focussed icon to be shown in menustrip UI component.
-     */ 
-    QFileInfo mMenustripFocussedIcon;
-    /**
-     * The text to be shown in menustrip UI component.
-     */ 
-    QString   mMenustripLabel;
-    /**
      * The default icon to be shown in table of contents UI component.
      */ 
     QFileInfo mTocDefaultIcon;
@@ -211,20 +195,6 @@ signals:
     void viewChanged(FtuWizard *caller, QGraphicsWidget* viewWidget);
     
     /**
-     * Emit this signal to put the ftu view to full-screen view, i.e. no 
-     * titlebar, infotext & menustrip.
-     * @param caller The calling wizard plugin instance.
-     */
-    void fullScreenModeRequested(FtuWizard *caller);
-    
-    /**
-     * Emit this signal to come out of fullscreen mode, i.e. show the titlebar,
-     * infotext and menustrip
-     * @param caller The calling wizard plugin instance.
-     */
-    void partialScreenModeRequested(FtuWizard *caller);
-    
-    /**
      * Adds an over-lay widget on top of the current view, used to add an 
      * overlay animation on top of the current view
      * @param caller The calling wizard plugin instance.
@@ -261,6 +231,13 @@ signals:
      * @param menu   The HbMenu instance that needs to be shown on the view
      */
     void updateMainMenu(FtuWizard *caller, HbMenu * menu);
+
+    /**
+     * Emit this signal to indicate that the wizard plugin wants to be deactivated. 
+     * Wizard is deactivated and Table of Contents is shown by the application.
+     * @param caller The calling wizard plugin instance.
+     */
+    void wizardDeactivated(FtuWizard *caller);
     
 };
 

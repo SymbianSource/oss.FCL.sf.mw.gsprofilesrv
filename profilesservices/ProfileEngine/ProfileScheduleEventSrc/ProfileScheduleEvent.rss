@@ -23,7 +23,7 @@ NAME    PSE9
 
 //  INCLUDES
 #include <eikon.rh>
-#include <profile.loc>
+#include <Profile.loc>
 
 //  CONSTANTS
 //  MACROS

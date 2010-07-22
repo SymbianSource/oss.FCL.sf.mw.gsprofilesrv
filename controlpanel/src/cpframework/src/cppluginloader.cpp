@@ -21,7 +21,6 @@
 #include <QPluginLoader>
 #include <cpplugininterface.h>
 #include <cplauncherinterface.h>
-#include <cpbasepath.h>
 #include "cputility.h"
 #include <cplogger.h>
 

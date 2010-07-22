@@ -19,8 +19,7 @@
 
 
 /* 
-    Windows: C:/ControlPanel/debug/bin/controlpanellog.conf
-    Symbian: C:/data/.config/controlpanellog.conf
+    config file path :/logconf/controlpanellog.conf
 
     Format:
 
@@ -43,20 +42,33 @@
 #include <QLatin1String>
 #include <logger.h>
 
+/*
+ make CPFW_LOG work
+*/
+
+//#define ENABLE_CPFW_LOG
+
+/*
+ make CPPERF_LOG work
+*/
+
+//#define ENABLE_CPPERF_LOG
+
 #define CPFW_LOGGER_NAME       QLatin1String("CpFramework")
 #define CPPERF_LOGGER_NAME     QLatin1String("CpPerformance")
 
-#if defined (Q_OS_SYMBIAN)
-    #define CP_LOGGER_CONFIG_PATH QLatin1String("C:/data/.config/controlpanellog.conf")
-#elif defined (Q_WS_WIN)
-    #ifdef _DEBUG
-        #define CP_LOGGER_CONFIG_PATH QLatin1String("C:/controlpanel/debug/bin/controlpanellog.conf")
-    #else 
-        #define CP_LOGGER_CONFIG_PATH QLatin1String("C:/controlpanel/release/bin/controlpanellog.conf")
-    #endif
+#define CP_LOGGER_CONFIG_PATH QLatin1String(":/logconf/controlpanellog.conf")
+
+#ifdef ENABLE_CPFW_LOG
+    #define CPFW_LOG(str)   Logger::instance(CPFW_LOGGER_NAME)->log(str);
+#else
+    #define CPFW_LOG(str)
 #endif
 
-#define CPFW_LOG(str)   Logger::instance(CPFW_LOGGER_NAME)->log(str);
-#define CPPERF_LOG(str) Logger::instance(CPPERF_LOGGER_NAME)->log(str);
+#ifdef ENABLE_CPPERF_LOG
+    #define CPPERF_LOG(str) Logger::instance(CPPERF_LOGGER_NAME)->log(str);
+#else
+    #define CPPERF_LOG(str)
+#endif
 
 #endif /* CPLOGGER_H */

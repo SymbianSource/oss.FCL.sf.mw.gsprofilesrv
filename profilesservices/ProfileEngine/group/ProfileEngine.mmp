@@ -51,9 +51,6 @@ SOURCE          CProEngMediaVariation.cpp
 SOURCE          CProEngPostFilter.cpp
 SOURCE          ProEngFactory.cpp
 SOURCE          ProEngMmfInfoUtility.cpp 
-SOURCE          CProEngActiveSettingsEventDelegate.cpp
-SOURCE          CProEngMasterSettingsEventDelegate.cpp
-SOURCE          ProEngFactory2.cpp
 
 START RESOURCE  ProEngWrapper.rss
   HEADER
@@ -66,6 +63,7 @@ USERINCLUDE     ../WrapperInc
 USERINCLUDE     ../EngInc
 
 MW_LAYER_SYSTEMINCLUDE
+APP_LAYER_SYSTEMINCLUDE
 
 LIBRARY         bafl.lib
 LIBRARY         euser.lib
