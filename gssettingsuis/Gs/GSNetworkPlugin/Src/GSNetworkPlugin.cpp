@@ -75,7 +75,10 @@
 _LIT( KGSNetWCDMAIcon, "0\t" );
 _LIT( KGSNetGSMIcon, "1\t" );
 _LIT( KEmptyStr, "" );
-
+/* Implementation of forbidden operator icon begins */
+_LIT( KGSNetNoIcon, "\t");
+_LIT( KGSNetForbiddenIcon, "2\t" );
+/* Implementation of forbidden operator icon ends */
 // Warning disabled as this constant is used inside __ASSERT_DEBUG
 #pragma diag_suppress 177
 _LIT( KGSNetworkPluginAssertName, "CGSNetworkPlugin" );
@@ -312,23 +315,30 @@ void CGSNetworkPlugin::NetworkListL()
     TBool showGraphicalList =
         Container()->NetPluginModel()->GraphicalNetworkListSupportedL();
     __GSLOGSTRING1("[GS]    NetworkListL: showGraphicalList: %d", showGraphicalList);
-
+   
     //if no net items were found, do not show list
     if ( iNetworkArray->Count() > 0 )
         {
+        /** Implementation of forbidden operator icon begins */
+        // check if forbidden operator icon is supported
+        TBool forbiddenOperator = 
+                FeatureManager::FeatureSupported( KFeatureIdFfTdScdmaForbiddenoperatoricondisplay );
+        /** Implementation of forbidden operator icon ends */
         while ( !iApprovedNetwork )
             {
             AknPopupListEmpty<CEikFormattedCellListBox>* list;
-            if ( showGraphicalList &&
-                 FeatureManager::FeatureSupported( KFeatureIdProtocolWcdma ) )
+            /** Implementation of forbidden operator icon begins */
+            if (forbiddenOperator || showGraphicalList
+                    && FeatureManager::FeatureSupported(KFeatureIdProtocolWcdma))
                 {
-                list = new ( ELeave ) CAknSingleGraphicPopupMenuStyleListBox;
+                list = new (ELeave) CAknSingleGraphicPopupMenuStyleListBox;
                 }
             else
                 {
-                list = new ( ELeave ) CAknSinglePopupMenuStyleListBox;
+                list = new (ELeave) CAknSinglePopupMenuStyleListBox;
                 }
-
+            /** Implementation of forbidden operator icon ends */
+            
             CleanupStack::PushL( list );
             if ( iNetworkPopupList )
                 {
@@ -389,8 +399,20 @@ void CGSNetworkPlugin::NetworkListL()
                     __GSLOGSTRING1("[GS]    NetworkListL: Network Longname: %S", insertString);
                     }
 
+                /** Implementation of forbidden operator icon begins */
                 //set icon for network
-                if ( showGraphicalList )
+                if ( forbiddenOperator )
+                    {
+                    if ( info.iStatus == MPsetNetworkSelect::ENetStatForbidden )
+                        {
+                        insertString->Des().Insert( 0, KGSNetForbiddenIcon );
+                        }
+                    else 
+                        {
+                        insertString->Des().Insert( 0, KGSNetNoIcon );
+                        }
+                    }
+                else if ( showGraphicalList )
                     {
                     if ( FeatureManager::FeatureSupported(
                                                   KFeatureIdProtocolWcdma ) )
@@ -406,6 +428,7 @@ void CGSNetworkPlugin::NetworkListL()
                             }
                         }
                     }
+                /** Implementation of forbidden operator icon ends */
                 items->AppendL( *insertString );
                 CleanupStack::PopAndDestroy();
                 }
@@ -427,7 +450,8 @@ void CGSNetworkPlugin::NetworkListL()
 
             // Setup graphic items list for dual mode nw selection listbox
             // based on the local variation
-            if ( showGraphicalList )
+            /** Implementation of forbidden operator icon begins */
+            if ( forbiddenOperator || showGraphicalList )
                 {
                 CAknIconArray* iconList = new (ELeave) CAknIconArray( 10 );
                 CleanupStack::PushL( iconList );
@@ -435,7 +459,7 @@ void CGSNetworkPlugin::NetworkListL()
                 list->ItemDrawer()->ColumnData()->SetIconArray( iconList );
                 CleanupStack::Pop( iconList ); //listbox model now owns this
                 }
-
+            /** Implementation of forbidden operator icon ends */
             TInt res = 0;
             if( items->Count() )
                 {
@@ -1716,7 +1740,9 @@ void CGSNetworkPlugin::UpdateNetworkTextL()
     if( PhoneOnline() )
         {
         __GSLOGSTRING(" [CGSNetworkPlugin::UpdateNetworkTextL] Loading operational-text" );
-        iNetworkText = iNWInfo.iLongName.AllocL();      
+        // The service provider name may missed in SIM card, so display the operator name
+        // which returned by NTSY here.
+        iNetworkText = iNWInfo.iOperatorNameInfo.iName.AllocL();
         }
     else
         {

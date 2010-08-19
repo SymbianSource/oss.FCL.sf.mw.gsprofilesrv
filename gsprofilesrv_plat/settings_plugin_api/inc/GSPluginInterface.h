@@ -20,7 +20,7 @@
 #define GSPLUGININTERFACE_H
 
 // System includes
-#include <GSFrameworkRsc.rsg> // For default icons
+#include <gsframeworkrsc.rsg> // For default icons
 #include <gsfwicon.mbg>
 
 #include <aknview.h>

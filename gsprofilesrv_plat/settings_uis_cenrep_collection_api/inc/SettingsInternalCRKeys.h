@@ -309,6 +309,15 @@ const TUint32 KSettingRecognitionwithdictionary = 0x00000018;
 const TUint32 KSettingsOpticalJoystickStatus = 0x00000019;
 
 /**
+* To save active / deactive Handwriting input methods when you click editor
+* Integer value.
+* Default value: 1
+* 0 = Simple HWR will not be opened when user click editor.
+* 1 = Simple HWR will be opened when user click editor.
+*/
+const TUint32 KSettingsSimpleHWR = 0x0000001A;
+
+/**
 * Telephony settings CR UID.
 */
 const TUid KCRUidTelephonySettings = {0x101F877E};

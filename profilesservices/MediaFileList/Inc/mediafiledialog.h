@@ -307,7 +307,12 @@ NONSHARABLE_CLASS (CMediaFileDialog) :  public CAknDialog,
 		void ShowDetailsPopupL();
 		void GetPopupText( CMediaFileData* aData, TDes& aText );
 		TBool MatchFound( const TDesC& aAttribute, const TDesC& aText );
-
+		
+        /**
+        * Filters the invalid files from media file handler.
+        * @return None.
+        */
+		void FilterInvalidFiles();
 
     private:
 		static void Panic( TInt aReason );

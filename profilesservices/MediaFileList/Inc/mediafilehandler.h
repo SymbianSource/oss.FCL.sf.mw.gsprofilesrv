@@ -228,6 +228,13 @@ NONSHARABLE_CLASS (CMediaFileHandler) : public CBase,
         void GetAttribute( TInt aIndex, TInt aAttr, TDes& aValue, TInt aQueryId );
         CMediaFileData* ReadMediaFileDataL( TInt aId );
         void CancelQuery();
+        
+        /**
+        * Remove an item from list of search reuslt
+        * @param aIndex Search list's index.
+        * @return None.
+        */
+        void Remove( TInt aIndex );
 
     public:
         TInt ItemIndex( const TDesC& aItemText, TInt aIndex );
@@ -488,6 +495,13 @@ NONSHARABLE_CLASS (CSearchList) : public CBase
         TInt Attribute( TInt aIndex, TInt aAttr );
         void SetSearchId( TInt aId );
         TInt SearchId();
+        
+        /**
+        * Remove an item from the list of search results.
+        * @param aIndex List's index.
+        * @return None.
+        */
+        void Remove( TInt aIndex );
         
     public:
         TInt ItemIndex( TInt aId );

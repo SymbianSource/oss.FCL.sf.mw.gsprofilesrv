@@ -26,7 +26,7 @@
 // EXTERNAL INCLUDES
 #include    <DRMCommon.h>
 #include    <DRMHelper.h>
-#include    <FileList.rsg>
+#include    <filelist.rsg>
 #include    <MProfilesLocalFeatures.h>
 #include    <MProfileUtilitySingleton.h>
 

@@ -24,7 +24,7 @@
 #include <TestScripterInternal.h>
 #include <StifTestModule.h>
 #include <TestclassAssert.h>
-#include <aknserverapp.h> 
+#include <AknServerApp.h> 
 #include <GSPluginInterface.h>
 
 #include "TestGSPlugin.h"

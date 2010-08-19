@@ -313,6 +313,15 @@ class CGSCallDivertView : public CGSLocalBaseView,
          * @param aTelNumber Phone number for call divert
          */
         void DisplayDataCallDivertNumberQueryL( TTelNumber& aTelNumber );
+        
+        /**
+         * Remove invalid " ", "()" which were sync with PC suite. 
+         * Make sure the call divert behavior is the same as user making a phone call. 
+         * Illegal ('#', 'p', 'w', ...) characters are handled in ValidatePhoneNumberL().
+         * @param aNumber Phone number for call divert
+         * @param aInvalidChars the invalid chars to remove
+         */
+        void RemoveInvalidChars( TDes& aNumber );
 
     private:
 

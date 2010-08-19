@@ -28,7 +28,7 @@
 #include <ConeResLoader.h>
 #include <StringLoader.h>
 #include <bautils.h>
-#include <SoftReject.rsg>
+#include <softreject.rsg>
 #include <gsbasecontainer.h>
 #include <gssettingid.h>
 

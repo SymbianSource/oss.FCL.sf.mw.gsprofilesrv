@@ -71,6 +71,7 @@ using namespace AiwContactAssign;
 // LOCAL CONSTANTS
 _LIT( KGSDivertClassName, "CGSCallDivertView" );
 
+_LIT( KCallDivertInvalidchars, " ()" );
 
 // ========================= MEMBER FUNCTIONS ================================
 
@@ -588,6 +589,7 @@ void CGSCallDivertView::ExecuteDivertNumberQueryL( TDes& aValue, TInt aType )
     TBool accepted = EFalse;
     while ( !accepted )
         {
+        RemoveInvalidChars( aValue ); 
         if ( aValue.Length() > KGSMaxDataLength )
             {
             //Chop the first extra digits and keep the last KGSMaxDataLength
@@ -1357,5 +1359,28 @@ TInt CGSCallDivertView::CreateTimeListL()
     return keyPress;
     }
 
-
+// --------------------------------------------------------------------------
+// CGSCallDivertView::RemoveInvalidChars
+// Remove invalid " ", "()" which were sync with PC suite. 
+// --------------------------------------------------------------------------
+//
+void CGSCallDivertView::RemoveInvalidChars( TDes& aNumber )
+  {
+  TInt noOfInvalidchars = KCallDivertInvalidchars().Length();
+  TInt location = KErrNone; 
+  // delete the invalid chars of KCallDivertInvalidchars. 
+  //aNumber changed to valid phone number if it contains invalid chars
+  for ( TInt index = 0; index < noOfInvalidchars; index++ )
+       {     
+       while ( ETrue )
+           {
+           location = aNumber.Find( KCallDivertInvalidchars().Mid( index, 1 ) );   
+           if ( location == KErrNotFound )
+               {
+               break;
+               }
+           aNumber.Delete( location, 1 ); //delete the invalid char, aNumber changed
+           }
+       }
+  }
 // End of File
