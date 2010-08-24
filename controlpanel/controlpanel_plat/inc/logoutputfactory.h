@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Factory class to create LogOutput.
 *
 */
 #ifndef LOGOUTPUTFACTORY_H

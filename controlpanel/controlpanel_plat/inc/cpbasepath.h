@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Common path definitions for controlpanel
 *
 */
 
@@ -20,6 +20,10 @@
 
 #include <QLatin1String>
 
+/*
+ CP_PLUGIN_PATH : path to place controlpanel plugin stub files (.qtplugin files)
+ CP_PLUGIN_CONFIG_PATH: path to place controlpanel plugin configuration files (.cpcfg files)
+*/
 #ifdef Q_OS_SYMBIAN
         #define CP_PLUGIN_PATH QLatin1String("/resource/qt/plugins/controlpanel")
         #define CP_PLUGIN_CONFIG_PATH QLatin1String("/resource/qt/plugins/controlpanel/config")

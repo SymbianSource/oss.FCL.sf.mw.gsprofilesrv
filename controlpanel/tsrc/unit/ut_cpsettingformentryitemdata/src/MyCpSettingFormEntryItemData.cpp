@@ -14,24 +14,19 @@
 * Description:  
 *       test application for qt control panel public apis.
 */
-#include <hbapplication.h>
-#include <QTest>
-#include "ut_cpapi.h"
-int main(int argc, char *argv[])
-{
-    HbApplication app(argc, argv);
-    int res = 0;
-    //char *pass[3];
-    //pass[0] = argv[0];
-    //pass[1] = "-o";
+
+#include "mycpsettingformentryitemdata.h"
+
+/*!
+    \class MyCpSettingFormEntryItemData
+    \brief The MyCpSettingFormEntryItemData class is designed for the unit testing for the protected member functions in CpSettingFormEntryItemData class.
+ */
+
+/*!
+ * This is designed to test one constructor in CpSettingFormEntryItemData class.
+ */
+MyCpSettingFormEntryItemData::MyCpSettingFormEntryItemData(const HbDataFormModelItem *parent /*= 0*/) :
+CpSettingFormEntryItemData(parent)
+    {
     
-    // log folder: \epoc32\winscw\c\data
-    
-    app.setApplicationName("TestCpAPI");
-    //pass[2] = "c:\\data\\u.txt";
-    TestCpAPI *tcUtilities = new TestCpAPI();
-    res |= QTest::qExec(tcUtilities);
-    delete tcUtilities;
-    tcUtilities = NULL;
-    return res;
-}
+    }

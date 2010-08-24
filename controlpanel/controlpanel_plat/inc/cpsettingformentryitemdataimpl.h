@@ -15,8 +15,8 @@
 *
 */
 
-#ifndef CP_SETTINGFORM_ENTRY_ITEM_DATA_IMPL_H
-#define CP_SETTINGFORM_ENTRY_ITEM_DATA_IMPL_H
+#ifndef CPSETTINGFORMENTRYITEMDATAIMPL_H
+#define CPSETTINGFORMENTRYITEMDATAIMPL_H
 
 #include "cpsettingformentryitemdata.h"
 
@@ -55,6 +55,9 @@ public:
 
 	{ }
 	
+	/*!
+	    Construct a new CpSettingFormEntryItemData with the given type, text, description, icon name, and parent.
+	*/
     explicit CpSettingFormEntryItemDataImpl(
             EntryItemType type,
             CpItemDataHelper &itemDataHelper,
@@ -65,6 +68,9 @@ public:
             CpSettingFormEntryItemData(type,itemDataHelper,text,description,icon,parent)
     { }
     
+    /*!
+        Construct a new CpSettingFormEntryItemData with the given type, text, description, icon name, and parent.
+    */
     explicit CpSettingFormEntryItemDataImpl(
             EntryItemType type,
             HbDataForm *dataForm,

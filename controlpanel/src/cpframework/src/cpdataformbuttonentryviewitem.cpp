@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  View item implementation for button entry item.
 *
 */
 #include "cpdataformbuttonentryviewitem.h"
@@ -121,39 +121,6 @@ HbWidget *CpDataFormButtonEntryViewItem::createCustomWidget()
 }
 
 /*!
-    Deprecated. Be instead of HbDataFormViewItem::restore()
-	Inherit from HbDataForm. This function is called by hbdataform's framework, 
-	for supporting to load entry item's text, icon and additional text dynamically.
-	It is not recommended to call this function manually.
- */
-void CpDataFormButtonEntryViewItem::load()
-{
-	//HbDataFormViewItem::load();
-
-	if (d_ptr->mWidget) {
-		HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
-			modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());
-
-		if(itemType == CpSettingFormEntryItemData::ButtonEntryItem) {
-
-			QModelIndex itemIndex = modelIndex();
-			HbDataFormModel *model = static_cast<HbDataFormModel*>(itemView()->model());;
-			HbDataFormModelItem *modelItem = static_cast<HbDataFormModelItem*>(
-				model->itemFromIndex(itemIndex));
-
-			const QMetaObject *metaObj = d_ptr->mWidget->metaObject();
-			int count = metaObj->propertyCount();
-			for (int i = 0; i < count; i++) {
-				QMetaProperty metaProperty = metaObj->property(i);
-				if (metaProperty.isValid() && metaProperty.isWritable()) {
-					metaProperty.write(d_ptr->mWidget,modelItem->contentWidgetData(metaProperty.name()));
-				}
-
-			}
-		}
-	}
-}
-/*!
     Inherit from HbDataForm. This function is called by hbdataform's framework, 
     for supporting to load entry item's text, icon and additional text dynamically.
     It is not recommended to call this function manually.
@@ -162,6 +129,8 @@ void CpDataFormButtonEntryViewItem::restore()
 {
     HbDataFormViewItem::restore();
 
+    // Set widget's properties according to model item's content widget data
+    // so that the widget can be refreshed
     if (d_ptr->mWidget) {
         HbDataFormModelItem::DataItemType itemType = static_cast<HbDataFormModelItem::DataItemType>(
             modelIndex().data(HbDataFormModelItem::ItemTypeRole).toInt());

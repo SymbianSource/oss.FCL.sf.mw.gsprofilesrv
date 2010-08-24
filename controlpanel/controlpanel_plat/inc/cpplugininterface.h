@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Interface for controlpanel plugins.
 *
 */
 
@@ -23,7 +23,7 @@
 
 /*!
     \class CpPluginInterface
-    \brief The class CpPluginInterface is an interface for plugins which can be displayed in control panel application. 
+    \brief The class CpPluginInterface is an interface for controlpanel plugins.
  */
 
 class CpSettingFormItemData;
@@ -40,7 +40,7 @@ public:
     }
     
     /*!
-     Create a data form mode item, by which the control panel framework can build a data form model.
+     Create a set of data form mode item, by which the control panel framework can build a data form model.
      */
     virtual QList<CpSettingFormItemData*> createSettingFormItemData(CpItemDataHelper &itemDataHelper) const = 0;
 };

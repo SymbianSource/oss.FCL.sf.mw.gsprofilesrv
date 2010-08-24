@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Helper class by which a plugin can communicate with the associated dataform.
 *
 */
 #include "cpitemdatahelper.h"
@@ -21,9 +21,15 @@
 #include <hbdataformviewitem.h>
 #include <hbdataformmodel.h>
 
+/*!
+\internal
+*/
 class CpItemDataHelperPrivate
 {
 public:
+    /*!
+    \internal
+    */
     class ItemConnection
     {
     public:
@@ -204,7 +210,8 @@ public:
 
 /*!
     \class CpItemDataHelper
-    \brief The CpItemDataHelper class is a helper class to help control panel plugins (group plugins) to connect slots to inner widgets of setting items.
+    \brief The CpItemDataHelper class is a helper class to help controlpanel plugins to comminicate with the associated dataform,
+    such as connecting slots to inner widgets of setting items, add item prototypes.
 	 And add prototypes to dataform.
  */
 
@@ -286,7 +293,7 @@ void CpItemDataHelper::bindToForm(HbDataForm *form)
 }
 
 
-/*
+/*!
     Get the HbWidget instance from data form.
 */
 HbWidget *CpItemDataHelper::widgetFromModelIndex(const QModelIndex &index)
@@ -294,6 +301,9 @@ HbWidget *CpItemDataHelper::widgetFromModelIndex(const QModelIndex &index)
     return d->widgetFromModelIndex(index);
 }
 
+/*!
+    Get the HbDataFormModelItem with a QModelIndex from associated data form's model.
+*/
 HbDataFormModelItem *CpItemDataHelper::modelItemFromModelIndex(const QModelIndex &index)
 {
     return d->modelItemFromModelIndex(index);

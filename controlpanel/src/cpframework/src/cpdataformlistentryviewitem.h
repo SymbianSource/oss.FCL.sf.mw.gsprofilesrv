@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  View item implementation for list entry item.
 *
 */
 
@@ -27,13 +27,20 @@ class CpDataFormListEntryViewItem : public HbDataFormViewItem
 public:
     explicit CpDataFormListEntryViewItem(QGraphicsItem *parent = 0);
     virtual ~CpDataFormListEntryViewItem();
+    // From HbAbstractViewItem
     virtual HbAbstractViewItem* createItem();
+    // From HbAbstractViewItem
     virtual bool canSetModelIndex(const QModelIndex &index) const;
 protected:
+    // From HbDataFormViewItem
     virtual HbWidget* createCustomWidget();
+
+    virtual void restore();
+
+    // From HbAbstractViewItem
     virtual void pressStateChanged(bool pressed, bool animate);
 #ifdef HB_GESTURE_FW
-    //from HbWidgetBase
+    // From HbWidgetBase
     virtual void gestureEvent(QGestureEvent *event);
 #endif
 };

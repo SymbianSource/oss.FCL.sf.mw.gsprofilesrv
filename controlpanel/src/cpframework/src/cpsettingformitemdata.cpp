@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  This class is a control panel defined HbDataFormModelItem
 *
 */
 #include "cpsettingformitemdata.h"

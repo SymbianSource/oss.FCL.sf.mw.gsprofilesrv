@@ -89,7 +89,9 @@ CpSettingFormEntryItemData::CpSettingFormEntryItemData(HbDataForm *dataForm,
     setIcon(icon.iconName());
 }
 
-
+/*!
+    Construct a new CpSettingFormEntryItemData with the given type, text, description, icon name, and parent.
+*/
 CpSettingFormEntryItemData::CpSettingFormEntryItemData(
          EntryItemType type,
          CpItemDataHelper &itemDataHelper,
@@ -109,6 +111,9 @@ CpSettingFormEntryItemData::CpSettingFormEntryItemData(
     setIcon(iconName);
 }
 
+/*!
+    Construct a new CpSettingFormEntryItemData with the given type, text, description, icon name, and parent.
+*/
 CpSettingFormEntryItemData::CpSettingFormEntryItemData(
          EntryItemType type,
          HbDataForm *dataForm,
@@ -170,12 +175,17 @@ void CpSettingFormEntryItemData::setDescription(const QString &description)
     d_ptr->setDescription(description);
 }
 
-
+/*!
+    Get the icon name of the entry item.
+*/
 QString CpSettingFormEntryItemData::iconName() const
 {
     return d_ptr->iconName();
 }
 
+/*!
+    Set the icon name of the entry item.
+*/
 void CpSettingFormEntryItemData::setIconName(const QString &icon)
 {
     d_ptr->setIconName(icon);
@@ -197,6 +207,9 @@ void CpSettingFormEntryItemData::setEntryItemIcon(const HbIcon& icon)
     d_ptr->setEntryItemIcon(icon);
 }
 
+/*!
+    Launch the setting view when user clicks the entry item.
+*/
 void CpSettingFormEntryItemData::onLaunchView() 
 {
     //avoid being launched more than one times

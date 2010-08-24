@@ -28,6 +28,10 @@
     #include <Windows.h>
 #endif
 
+#ifdef Q_OS_SYMBIAN
+    #include <e32debug.h>
+#endif
+
 //DebugLogOutput
 REGISTER_OUTPUT_LOG(DEBUGOUTPUT_NAME,DebugLogOutput)
 
@@ -41,12 +45,14 @@ DebugLogOutput::~DebugLogOutput()
 
 void DebugLogOutput::output(const QString &log)
 {
-#ifdef Q_WS_WIN
+#if defined(Q_WS_WIN)
     QT_WA({
         OutputDebugStringW(reinterpret_cast<const WCHAR*>(log.utf16()));
     }, {
         OutputDebugStringA(log.toLocal8Bit().data());
     });
+#elif defined(Q_OS_SYMBIAN)
+    RDebug::Printf(log.toLocal8Bit().data());
 #else
     fprintf(stderr, log.toLocal8Bit().data());
     fflush(stderr);

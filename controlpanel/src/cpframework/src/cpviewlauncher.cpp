@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  This class adds a setting view to main window, and restore previous view when back key clicked.
 *
 */
 

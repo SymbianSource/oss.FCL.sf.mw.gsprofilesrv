@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  This class provide log functionality.
 *
 */
 #include <logger.h>

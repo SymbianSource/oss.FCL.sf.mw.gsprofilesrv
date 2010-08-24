@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Common definitions for log.
 *
 */
 #ifndef LOGGERGLOBAL_H

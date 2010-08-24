@@ -9,9 +9,9 @@
 * Initial Contributors:
 * Nokia Corporation - initial contribution.
 *
-* Contributors:
+* Contributors: 
 *
-* Description:  
+* Description:  Log utility for controlpanel framework.
 *
 */
 #ifndef CPLOGGER_H
@@ -43,13 +43,13 @@
 #include <logger.h>
 
 /*
- make CPFW_LOG work
+ define ENABLE_CPFW_LOG to  make CPFW_LOG work
 */
 
 //#define ENABLE_CPFW_LOG
 
 /*
- make CPPERF_LOG work
+ define ENABLE_CPPERF_LOG to make CPPERF_LOG work
 */
 
 //#define ENABLE_CPPERF_LOG
@@ -60,9 +60,11 @@
 #define CP_LOGGER_CONFIG_PATH QLatin1String(":/logconf/controlpanellog.conf")
 
 #ifdef ENABLE_CPFW_LOG
-    #define CPFW_LOG(str)   Logger::instance(CPFW_LOGGER_NAME)->log(str);
+    #define CPFW_LOG(str)             Logger::instance(CPFW_LOGGER_NAME)->log(str);
+    #define CPSP_LOG_FUNC_ENTRY(func) LogFunctionEntryHelper ___cpfw_log_func_entry_helper(CPFW_LOGGER_NAME,func);
 #else
     #define CPFW_LOG(str)
+    #define CPSP_LOG_FUNC_ENTRY(func)
 #endif
 
 #ifdef ENABLE_CPPERF_LOG

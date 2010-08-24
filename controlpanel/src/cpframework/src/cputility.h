@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Utility class for cpframework.
 *
 */
 #ifndef CP_UTILITY_H

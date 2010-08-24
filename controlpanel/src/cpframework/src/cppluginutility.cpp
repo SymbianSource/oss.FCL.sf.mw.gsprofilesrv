@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Utility class for controlpanel plugins.
 *
 */
 
@@ -20,11 +20,13 @@
 #include "cpdataformlistentryviewitem.h"
 
 #include <hbdataform.h>
+
 /*! \class CpPluginUtility
-	\brief  This class supply the utility function for the plugin, currently there is only one function.
+	\brief  This class supply the utility functions for controlpanel plugins.
  */
+
 /*!
-	This class will add the control panel's proto type of setting items( only entry item currently) to the settingForm.  
+	Add item prototypes which are supported by controlpanel framework to a setting form.  
  */
 void CpPluginUtility::addCpItemPrototype(HbDataForm *settingForm)
 {

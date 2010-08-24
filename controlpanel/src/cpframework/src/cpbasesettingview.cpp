@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Base class for controlpane plugin views.
 *
 */
 
@@ -23,9 +23,23 @@
 
 /*!
     \class CpBaseSettingView
-    \brief The CpBaseSettingView is base class for all setting views in control panel application.
+    \brief The CpBaseSettingView is the base class for all setting views in controlpanel application.
     This class is responsible for processing some common properties, such as setting view's title, content widget and back key action.
  */
+
+
+/*!
+    \fn void returnValueDelivered(const QVariant &returnValue)
+    
+    This signal is emitted when the setting view need to deliver return value to caller. Derived class can 
+    emit the signal in some proper time.
+*/
+
+/*!
+    \fn void aboutToClose()
+    
+    This signal is emitted when the setting view is about to close.
+*/
 
 /*!
     Constructor of CpBaseSettingView.
@@ -46,8 +60,8 @@ CpBaseSettingView::~CpBaseSettingView()
 
 
 /*!
-    Give derived class a chance to do some cleaning work before exiting view.
-    Return : true:  ok to exit
+    Emit aboutToClose() signal to indicate that the view is about to close.
+    Derived class can override it to do some specified work before exit.
  */
 void CpBaseSettingView::close()
 {

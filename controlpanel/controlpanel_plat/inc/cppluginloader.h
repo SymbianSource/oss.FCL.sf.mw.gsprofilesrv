@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Utility class to load a CpPluginInterface or CpLauncherInterface from a controlpanel plugin file.
 *
 */
 
@@ -28,19 +28,7 @@ class CpPluginPlatInterface;
 
 class CP_EXPORT CpPluginLoader
 {
-public:    
-    /* OLD INTERFACES* DPRECATED!!! \deprecated static CpPluginInterface     *loadCpPlugin(const QString &pluginFile)*/
-    static CpPluginInterface     *loadCpPlugin(const QString &pluginFile)
-    {
-        return 0;
-    }
-    /* OLD INTERFACES* DPRECATED!!! \deprecated static CpPluginPlatInterface *loadPlatCpPlugin(const QString &pluginFile)*/
-    static CpPluginPlatInterface *loadPlatCpPlugin(const QString &pluginFile)
-    {
-        return 0;
-    }
-    
-    /*NEW INTERFACES*/
+public:        
     static CpPluginInterface     *loadCpPluginInterface(const QString &pluginFile);
     static CpLauncherInterface   *loadCpLauncherInterface(const QString &pluginFile);
 };

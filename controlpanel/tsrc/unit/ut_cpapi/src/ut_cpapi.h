@@ -26,13 +26,17 @@ class TestCpAPI : public QObject
 	Q_OBJECT
 private slots:
     void initTestCase();                // initialize test data
+    
     void testCpBaseSettingView();				// test basesettingview functions
-    void testCpSettingFormEntryItemDataImpl();  //test CpSettingFormEntryItemDataImpl functions
-    void testCpSettingFormItemData();           //test CpSettingFormItemData  functions
-    void testItemDataHelper();    //testing item data helper class CpItemDataHelper
+    void testCpSettingFormEntryItemData();
+    void testCpSettingFormEntryItemDataImpl();  //test CpSettingFormEntryItemDataImpl functions    
+    void testCpSettingFormItemData_data(); // provide data for "testCpSettingFormItemData()"
+    void testCpSettingFormItemData();           //test CpSettingFormItemData    
+    void testItemDataHelper();    //testing itemdatahelper class CpItemDataHelper
     void testCpPluginUtility();
     void testCpPluginLoader();    //test cppluginloader functions
-    void testCpPluginInterface(); //
+    void testCpPluginInterface(); // test cpplugininterface functions
+    void testCpLancherInterface(); // test the cpLancherInterface class
     void testCpLogger();          //test cplogger functions
     void cleanupTestCase();       // Finalize test data
 private:

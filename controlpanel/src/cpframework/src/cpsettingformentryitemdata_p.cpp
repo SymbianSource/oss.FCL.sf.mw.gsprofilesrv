@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Private implementatin for class CpSettingFormEntryItemData.
 *
 */
 #include "cpsettingformentryitemdata_p.h"
@@ -131,6 +131,9 @@ void CpSettingFormEntryItemDataPrivate::setDescription(const QString &descriptio
     default: break;
     case CpSettingFormEntryItemData::ListEntryItem:
         mParent->setData(HbDataFormModelItem::DescriptionRole , description);
+		// set a useless property for model item to emit a datachanged signal
+		// this is a workaround for informing the change event of description in list item 
+        mParent->setContentWidgetData("Useless", true);
         break;
     case CpSettingFormEntryItemData::ButtonEntryItem:
         mParent->setContentWidgetData(QString("additionalText"),QVariant(description));

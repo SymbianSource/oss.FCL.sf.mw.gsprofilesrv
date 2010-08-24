@@ -9,14 +9,14 @@
 * Initial Contributors:
 * Nokia Corporation - initial contribution.
 *
-* Contributors:
+* Contributors: 
 *
-* Description:  
+* Description:  Common definitions for controlpanel
 *
 */
 
-#ifndef CP_GLOBAL_H
-#define CP_GLOBAL_H
+#ifndef CPGLOBAL_H
+#define CPGLOBAL_H
 
 #include <QtGlobal>
 

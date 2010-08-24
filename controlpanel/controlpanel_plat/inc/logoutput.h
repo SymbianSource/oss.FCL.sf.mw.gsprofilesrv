@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  An interface to output log string.
 *
 */
 #ifndef LOGOUTPUT_H

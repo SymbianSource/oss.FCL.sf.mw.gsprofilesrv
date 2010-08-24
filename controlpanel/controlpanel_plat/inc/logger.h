@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  This class provide log functionality.
 *
 */
 
@@ -33,6 +33,7 @@ configuration format:
     [myapplog]
     logDateTime = 1
     logLoggerName = 1
+    datetimeformat = hh:mm:ss
     output = debugoutput consoleoutput fileoutput
     fileoutput/logfile = C:/data/log/myapp.log
     fileoutput/truncate = 1
@@ -86,5 +87,40 @@ private:
     explicit Logger(const QString &name = QString(),QObject *parent = 0);
     LoggerPrivate *d_ptr;
 };
+
+class InitLoggerHelper
+{
+public:
+    InitLoggerHelper(const QString &loggerName,const QString &configPath)
+    : mLoggerName(loggerName)
+    {
+        Logger::instance(loggerName)->configure(configPath,QSettings::IniFormat);
+    }
+    ~InitLoggerHelper() {
+        Logger::close(mLoggerName);
+    }
+private:
+    QString mLoggerName;
+};
+
+class LogFunctionEntryHelper
+{
+public:
+    LogFunctionEntryHelper(const QString &loggerName,const QString &func)
+    : mLoggerName(loggerName), mFunc(func)
+    {
+        Logger::instance(mLoggerName)->log(QLatin1String(">>>> ") + mFunc);
+    }
+    ~LogFunctionEntryHelper()
+    {
+        Logger::instance(mLoggerName)->log(QLatin1String("<<<< ") + mFunc);
+    }
+private:
+    QString mLoggerName;
+    QString mFunc;
+};
+
+#define INIT_LOGGER(loggerName,configPath) \
+    InitLoggerHelper __init##loggerName(loggerName,configPath);
 
 #endif //LOGGER_H

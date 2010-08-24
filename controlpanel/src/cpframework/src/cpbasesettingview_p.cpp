@@ -11,7 +11,7 @@
  *
  * Contributors:
  *
- * Description:  
+ * Description:  Private implementaion for CpBaseSettingView
  *
  */
 
@@ -49,6 +49,7 @@ void CpBaseSettingViewPrivate::init(QGraphicsWidget *widget,CpBaseSettingView *b
     
     if (!widget) {
         widget = new HbDataForm();
+        // add item prototypes by default.
 		CpPluginUtility::addCpItemPrototype(qobject_cast<HbDataForm *>(widget));
     }    
     

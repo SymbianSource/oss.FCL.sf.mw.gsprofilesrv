@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Interface for controlpanel plugins, with this interface client application can launch a view from outside of controlpanel application.
 *
 */
 
@@ -24,7 +24,49 @@
 
 /*!
     \class CpLauncherInterface
-    \brief The class CpLauncherInterface defines an interface for plugins which can be launched a specific view from outside controlpanel application.
+    \brief The class CpLauncherInterface defines an interface for plugins, if one controlpanel plugin implements
+    this interface, client application can launch a setting view from outside of controlpanel application by two ways.
+    
+    (1) launch setting view in client process, using CpPluginLauncher.
+    
+    \code
+    CpBaseSettingView *settingView = CpPluginLauncher::launchSettingView("cpmyplugin.dll",QVariant());
+    \endcode
+    
+    (2) launch setting view in embedded mode, using QtHighway client API.
+    
+    \code
+    if (mRequest) {
+        delete mRequest;
+        mRequest = 0;
+    }
+    
+    mRequest = mAppMgr.create("com.nokia.symbian.ICpPluginLauncher", "launchSettingView(QString,QVariant)", true);
+
+    if (!mRequest)
+    {
+        return;
+    }
+    else
+    {
+        connect(mRequest, SIGNAL(requestOk(QVariant)), SLOT(handleReturnValue(QVariant)));
+        connect(mRequest, SIGNAL(requestError(int,QString)), SLOT(handleError(int,QString)));
+    }
+
+    // Set arguments for request 
+    QList<QVariant> args;
+    args << QVariant("cpmyplugin.dll");
+    args << QVariant();
+    mRequest->setArguments(args);
+
+    mRequest->setSynchronous(false);    
+    // Make the request
+    if (!mRequest->send())
+    {
+        //report error     
+    }
+    \endcode
+    
  */
 
 class QVariant;

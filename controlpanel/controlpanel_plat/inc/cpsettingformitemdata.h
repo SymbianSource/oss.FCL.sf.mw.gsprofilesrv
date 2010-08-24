@@ -12,12 +12,12 @@
 * Contributors:
 *
 * Description:  
-*						This class is a control panel defined HbDataFormModelItem,
+*						This class is a control panel defined HbDataFormModelItem
 *					
 *						
 */
-#ifndef CP_SETTING_FORM_ITEM_DATA_H
-#define CP_SETTING_FORM_ITEM_DATA_H
+#ifndef CPSETTINGFORMITEMDATA_H
+#define CPSETTINGFORMITEMDATA_H
 
 #include <cpglobal.h>
 #include <hbdataformmodelitem.h>

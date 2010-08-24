@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  View item implementation for button entry item.
 *
 */
 #ifndef CPDATAFORMBUTTONENTRYVIEWITEM_H
@@ -28,14 +28,17 @@ public:
     explicit CpDataFormButtonEntryViewItem(QGraphicsItem *parent = 0);
     virtual ~CpDataFormButtonEntryViewItem();
     
+    // From HbAbstractViewItem
     virtual HbAbstractViewItem *createItem();
+    // From HbAbstractViewItem
 	virtual bool canSetModelIndex(const QModelIndex &index) const;
 public slots:
-    virtual void load();
+    // From HbDataFormViewItem
     virtual void restore();
 protected:
-	CpDataFormButtonEntryViewItem(const CpDataFormButtonEntryViewItem &ohter);
-	CpDataFormButtonEntryViewItem &operator = (const CpDataFormButtonEntryViewItem &ohter);
+	CpDataFormButtonEntryViewItem(const CpDataFormButtonEntryViewItem &other);
+	CpDataFormButtonEntryViewItem &operator = (const CpDataFormButtonEntryViewItem &other);
+	// From HbAbstractViewItem
     virtual HbWidget *createCustomWidget();
 private:
 	CpDataFormButtonEntryViewItemPrivate *d_ptr;

@@ -24,5 +24,6 @@
 #define CP_UPGRADABLE_APP_REG_RSC(NAME) data=DATAZ_\PRIVATE\10003A3F\IMPORT\APPS\ ## NAME ## _reg.rsc        Private\10003a3f\import\apps\ ## NAME ## _reg.rsc
 
 file=ABI_DIR\BUILD_DIR\cpframework.dll			  	 SHARED_LIB_DIR\cpframework.dll
+file=ABI_DIR\BUILD_DIR\cplogger.dll			  	 SHARED_LIB_DIR\cplogger.dll
 
 #endif

@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Base class for controlpane plugin views.
 *
 */
 #ifndef CPBASESETTINGVIEW_H
@@ -32,16 +32,6 @@ class CP_EXPORT CpBaseSettingView : public HbView
 public:
 	explicit CpBaseSettingView(QGraphicsWidget *widget = 0, QGraphicsItem *parent = 0);
     virtual ~CpBaseSettingView();    
-    
-    //\deprecated please use HbView::setWidget
-    void setSettingForm(HbDataForm *settingForm)
-    {
-    }
-    //\deprecated HbDataForm *settingForm(), please use HbView::widget() instead
-    HbDataForm *settingForm() const
-    {
-        return 0;
-    }
 signals:
     void returnValueDelivered(const QVariant &returnValue);
     void aboutToClose();

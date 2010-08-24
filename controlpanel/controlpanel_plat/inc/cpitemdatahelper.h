@@ -9,13 +9,13 @@
 * Initial Contributors:
 * Nokia Corporation - initial contribution.
 *
-* Contributors:
+* Contributors: 
 *
-* Description:  
+* Description:  Helper class by which a plugin can communicate with the associated dataform.
 *
 */
-#ifndef CP_ITEM_DATA_HELPER_H
-#define CP_ITEM_DATA_HELPER_H
+#ifndef CPITEMDATAHELPER_H
+#define CPITEMDATAHELPER_H
 
 #include <QObject>
 #include <cpglobal.h>

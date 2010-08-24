@@ -85,7 +85,7 @@ enum TProfileAlertVibra
     EProfileInformationVibra   = 0x00000020
     };
 
-// Since 10.1
+// Deprecated Since 10.1
 enum TProfileMasterVolume
     {
     EProfileMasterVolumeSoft = 1,

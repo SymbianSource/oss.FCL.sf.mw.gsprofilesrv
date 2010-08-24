@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Private implementaion for CpBaseSettingView
 *
 */
 #ifndef CPBASESETTINGVIEW_P_H

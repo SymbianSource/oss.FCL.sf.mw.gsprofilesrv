@@ -15,5 +15,5 @@
 #
 
 TEMPLATE = subdirs
-SUBDIRS = cpframework 
+SUBDIRS = logger cpframework 
 CONFIG += ordered

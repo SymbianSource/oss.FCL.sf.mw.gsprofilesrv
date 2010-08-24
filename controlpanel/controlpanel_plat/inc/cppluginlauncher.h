@@ -11,10 +11,7 @@
 *
 * Contributors:
 *
-* Description:  This class is for loading and display a plugin's view.
-*								This class may dropped, suggest not using it. If you 
-*								want to use it, pls inform us, or check the wiki 
-*								http://s60wiki.nokia.com/S60Wiki/Team_S60_China_SW/Qt_Control_Panel/FAQ
+* Description: Launch controlpanel plugin setting view in client process.
 *
 */
 
@@ -29,11 +26,7 @@ class CpBaseSettingView;
 
 class CP_EXPORT CpPluginLauncher
 {
-public:
-	/*  OLD Interface - Deprecated! */
-    static bool launchCpPluginView(const QString &pluginFile,int index = 0);
-    
-    /*  */
+public:    
 	static CpBaseSettingView* launchSettingView(const QString &pluginFile,const QVariant &hint = QVariant());
 };
 

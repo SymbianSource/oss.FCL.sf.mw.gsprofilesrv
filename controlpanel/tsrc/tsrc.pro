@@ -15,11 +15,25 @@
 #
 
 TEMPLATE = subdirs
-SUBDIRS = unit/ut_cpapi 
-					#unit/ut_cpplugin \
-		      #unit/ut_profileengwrapper 
+SUBDIRS = unit/pluginfortest/firstpluginfortest \
+          unit/pluginfortest/secondpluginfortest \
+          unit/pluginfortest/thirdpluginfortest \
+          unit/testplugin \
+	        unit/ut_cppluginloader \ 
+          unit/ut_cpbasesettingview \
+          unit/ut_cpdataformbuttonentryviewitem \
+          unit/ut_cpdataformlistentryviewitem \
+          unit/ut_cpitemdatahelper \
+          unit/ut_cppluginlauncher \
+          unit/ut_cppluginutility \
+          unit/ut_cpsettingformentryitemdata \
+          unit/ut_cpsettingformitemdata \
+          unit/ut_cputility \
+          unit/ut_cpviewlauncher \
+	        unit/ut_cpapi 
+	
 CONFIG += ordered
-#CONFIG += symbian_test
+
 test.depends = first
 test.CONFIG += recursive
 autotest.depends = first

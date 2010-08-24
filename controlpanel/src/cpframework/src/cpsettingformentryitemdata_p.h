@@ -11,7 +11,7 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Private implementatin for class CpSettingFormEntryItemData.
 *
 */
 
@@ -50,7 +50,7 @@ public:
     HbIcon entryItemIcon() const;
     void setEntryItemIcon(const HbIcon &icon);
     
-    //private slots
+    //private slots implementation
     void _q_itemPressed(const QModelIndex &index);
     void _q_itemActivated(const QModelIndex &index);
     

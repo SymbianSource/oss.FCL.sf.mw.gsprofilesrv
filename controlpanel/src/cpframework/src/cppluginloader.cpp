@@ -36,13 +36,18 @@
     #define PLUGINFILE_SUFFIX "qtplugin"
 #endif
 
-template <typename INTERFACE>
-static INTERFACE* loadPluginInterface(const QString &pluginFile)
+/*
+ *  Load the root component object of the plugin from @pluginFile
+ *  if @pluginFile is an absoulte file path, load it directly, if is a 
+ *  file name, load the root component from path /resource/qt/plugins/controlpanel
+*/
+static QObject* loadPluginInterface(const QString &pluginFile)
 {
     CPPERF_LOG( QLatin1String("Loading plugin: ") + pluginFile );
     
     QFileInfo fileInfo(pluginFile);
 
+    // scan the plugin file from path /resource/qt/plugins/controlpanel
     if (!fileInfo.isAbsolute()) {
         QString fileName = fileInfo.fileName();
         if (fileInfo.suffix().compare(PLUGINFILE_SUFFIX,Qt::CaseInsensitive)) {
@@ -52,6 +57,7 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
 		QStringList pluginDirs = CpUtility::pluginDirectories();
 		foreach(const QString &pluginDir,pluginDirs) {
 			fileInfo.setFile(pluginDir + fileName);
+			// found a valid plugin file.
 			if (fileInfo.exists() && QLibrary::isLibrary(fileInfo.absoluteFilePath())) {
 			    CPPERF_LOG( QLatin1String("Valid plugin stub found: ") + fileInfo.absoluteFilePath() );
 				break;
@@ -60,7 +66,7 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
     }
 
 	QPluginLoader loader(fileInfo.absoluteFilePath());
-	INTERFACE *plugin = qobject_cast<INTERFACE*> (loader.instance());
+	QObject *plugin = loader.instance();
 	if (!plugin) {
 		loader.unload();
 	}
@@ -71,7 +77,7 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
 }
 
 /*!
-    load a CpPluginInterface by plugin file.
+    load a CpPluginInterface by a controlpanel plugin file.
     the plugin file can either absoulte file path or only file name.
     acceptable format:
         sampleplugin
@@ -82,11 +88,11 @@ static INTERFACE* loadPluginInterface(const QString &pluginFile)
  */
 CpPluginInterface *CpPluginLoader::loadCpPluginInterface(const QString &pluginFile)
 {
-    return ::loadPluginInterface<CpPluginInterface>(pluginFile);
+    return qobject_cast<CpPluginInterface*>(::loadPluginInterface(pluginFile));
 }
 
 /*!
-    load a CpLauncherInterface by plugin file.
+    load a CpLauncherInterface by a controlpanel plugin file.
     the plugin file can either absoulte file path or only file name.
     acceptable format:
         sampleplugin
@@ -97,7 +103,7 @@ CpPluginInterface *CpPluginLoader::loadCpPluginInterface(const QString &pluginFi
  */
 CpLauncherInterface *CpPluginLoader::loadCpLauncherInterface(const QString &pluginFile)
 {
-    return ::loadPluginInterface<CpLauncherInterface>(pluginFile);    
+    return qobject_cast<CpLauncherInterface*>(::loadPluginInterface(pluginFile));  
 }
 
 

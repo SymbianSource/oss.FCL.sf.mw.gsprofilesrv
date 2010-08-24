@@ -11,22 +11,19 @@
 *
 * Contributors:
 *
-* Description:  
+* Description:  Utility class for controlpanel plugins.
 *
 */
 
-#ifndef CP_PLUGINUTILITY_H
-#define CP_PLUGINUTILITY_H
+#ifndef CPPLUGINUTILITY_H
+#define CPPLUGINUTILITY_H
 
 #include <cpglobal.h>
+
 class HbDataForm;
 
 class CP_EXPORT CpPluginUtility
 {
-/*!
-     This function can add the proto type of setting items (like entry item) 
-     which is supplied by control panel into your dataform's instance
- */
 public:
     static void addCpItemPrototype(HbDataForm *settingForm);
 };

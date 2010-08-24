@@ -3,8 +3,13 @@
     Layout selection
 */
 
-CpDataFormListEntryViewItem {
+CpDataFormListEntryViewItem[hasDescription] {
     layout:default;
+}
+
+
+CpDataFormListEntryViewItem[!hasDescription] {
+    layout:singletext;
 }
 
 CpDataFormListEntryViewItem::dataItem_Background
@@ -36,25 +41,27 @@ CpDataFormListEntryViewItem::dataItem_Description
 
 CpDataFormListEntryViewItem::dataItem_Icon
 {
-    left:-var(hb-param-margin-gene-left);
+    left:-var(hb-param-margin-gene-left);   
+    top:-var(hb-param-margin-gene-top);
+    bottom:var(hb-param-margin-gene-bottom);
 }
-
 
 CpDataFormListEntryViewItem::dataItem_Label[!hasIcon]
 {
     left:-var(hb-param-margin-gene-left);
     right:var(hb-param-margin-form-label-right);
-    top:-var(hb-param-margin-gene-top);
 }
 
 CpDataFormListEntryViewItem::dataItem_Label[hasIcon]
 {
     left:-var(hb-param-margin-gene-middle-horizontal);
-    top:-var(hb-param-margin-gene-top);
     right:var(hb-param-margin-form-label-right);
 }
 
-
+CpDataFormListEntryViewItem::dataItem_Label[hasDescription]
+{
+	top:-var(hb-param-margin-gene-top);
+}
 
 CpDataFormListEntryViewItem::dataItem_Description[!hasIcon]
 {
@@ -67,10 +74,3 @@ CpDataFormListEntryViewItem::dataItem_Description[hasIcon]
     left:-var(hb-param-margin-gene-middle-horizontal);
     right:var(hb-param-margin-gene-right);
 }
-
-
-CpDataFormListEntryViewItem::dataItem_Description
-{
-	bottom:var(hb-param-margin-gene-bottom);
-}
-
