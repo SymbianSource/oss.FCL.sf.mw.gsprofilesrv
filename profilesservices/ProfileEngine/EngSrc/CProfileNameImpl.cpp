@@ -19,12 +19,12 @@
 
 // INCLUDE FILES
 #include "CProfileNameImpl.h"
+#include "ProfileEnginePrivateCRKeys.h"
+#include "ProfileEngUtils.h"
 #include <s32strm.h>
 #include <MProfilesNamesArray.h>
 #include <ProfileEngineConstants.h>
 #include <centralrepository.h>
-#include "ProfileEnginePrivateCRKeys.h"
-#include "ProfileEngUtils.h"
 
 // ============================ MEMBER FUNCTIONS ===============================
 

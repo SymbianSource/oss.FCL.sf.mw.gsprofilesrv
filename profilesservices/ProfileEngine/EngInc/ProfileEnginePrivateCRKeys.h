@@ -55,8 +55,6 @@ const TUint32 KProEngSchedulerHandleId     = 0x80000004;
  */
 const TUint32 KProEngSchedulerTaskId       = 0x80000005;
 
-
-
 //
 // The rest of the constants are used with profile-specific settings. The
 // actual key for a setting of a profile must be constructed as follows:
@@ -195,20 +193,6 @@ const TUint32 KProEngRingingVolume         = EProfileSettingIdRingingVolume;
  *   Off-line (5): 0
  */
 const TUint32 KProEngVibra                 = EProfileSettingIdVibra;
-
-/**
- * This value indicates whether Email vibra should be on or off. Integer (0 or 1).
- *
- * Default values:
- *
- *   General (0):  0
- *   Silent (1):   0
- *   Meeting (2):  0
- *   Outdoor (3):  1
- *   Pager (4):    1
- *   Off-line (5): 0
- */
-const TUint32 KProEngEmailVibra                 = EProfileSettingIdEmailVibra;
 
 /**
  * This value indicates whether warning and game tones should be on or off.
@@ -430,6 +414,20 @@ const TUint32 KProEngTactileFeedback           = EProfileSettingIdTactileFeedbac
  */
 const TUint32 KProEngAudioFeedback           = EProfileSettingIdAudioFeedback;
 
+/**
+ * 
+ */
+const TUint32 KProEngReminderTone            = EProfileSettingIdReminderTone;
+
+/**
+ * 
+ */
+const TUint32 KProEngClockAlarmTone          = EProfileSettingIdClockAlarmTone;
+
+/**
+ * 
+ */
+const TUint32 KProEngAlertVibra              = EProfileSettingIdAlertVibra;
 
 /**
  * The id used for storing the default settings for user created profiles.

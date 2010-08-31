@@ -19,28 +19,15 @@
 
 // INCLUDE FILES
 #include    "CProEngEngineImpl.h"
+#include    "CProEngProfileImpl.h"
+#include    "CProEngToneHandler.h"
+#include    "CProEngProfileNameArrayImpl.h"
 #include    <f32file.h>
 #include    <MProEngProfile.h>
 #include    <MProEngProfileNameArray.h>
 #include    <MProfileEngineExtended.h>
 #include    <ProfileEngineConstants.h>
-#include    "CProEngProfileImpl.h"
-#include    "CProEngToneHandler.h"
-#include    "CProEngProfileNameArrayImpl.h"
-#include    <proengwrapper.rsg>
-#include    <ConeResLoader.h>
-#include 	<startupdomainpskeys.h>
-#include    <StringLoader.h>
-#include    <AknQueryDialog.h>
-#include    <aknnotewrappers.h>
-#include    <barsc.h>  // RResourceFile
-#include    <bautils.h> // BaflUtils
 
-namespace
-	{
-	// The filename of the resource file
-	_LIT( KProEngResourceFileName, "Z:ProEngWrapper.RSC" );
-	}
 // ============================ MEMBER FUNCTIONS ===============================
 
 // -----------------------------------------------------------------------------
@@ -167,7 +154,7 @@ MProEngProfile* CProEngEngineImpl::ActiveProfileL()
     MProEngProfile* profileWrapper = ActiveProfileLC();
 
     CleanupStack::Pop(); // profileWrapper
-
+    
     return profileWrapper;
     }
 
@@ -203,50 +190,6 @@ MProEngProfileNameArray* CProEngEngineImpl::ProfileNameArrayLC()
 //
 void CProEngEngineImpl::SetActiveProfileL( TInt aId )
     {
-    if ( //  active profile is Off-line
-        ( iProfileEngine->ActiveProfileId() == EProfileOffLineId ) &&
-        // and currently focused profile is not Off-line
-        ( aId != EProfileOffLineId ) )
-        {
-
-        TInt simCStatus( ESimNotPresent );
-        RProperty simStatus;
-        CleanupClosePushL( simStatus );
-		
-        User::LeaveIfError( simStatus.Attach( KPSUidStartup, KPSSimStatus ) );
-        User::LeaveIfError( simStatus.Get( simCStatus ) );
-        CleanupStack::PopAndDestroy();//simStatus
-
-        // SIM card does not exist.
-        if ( simCStatus == ESimNotPresent )
-            {				
-            TParse* fp = new ( ELeave ) TParse();
-            fp->Set( KProEngResourceFileName, &KDC_RESOURCE_FILES_DIR, NULL );
-            TFileName localizedFileName( fp->FullName() );
-            delete fp;
-			
-            RFs fs;
-            User::LeaveIfError( fs.Connect() );
-            CleanupClosePushL( fs );	
-			
-            BaflUtils::NearestLanguageFile( fs, localizedFileName );
-			
-            RConeResourceLoader resourceLoader( *CCoeEnv::Static() );
-            CleanupClosePushL( resourceLoader );
-			
-            TRAP_IGNORE( resourceLoader.OpenL( localizedFileName ) );
-			
-            HBufC* infoNoteText = StringLoader::LoadLC(
-					R_PROFILE_TEXT_INSERT_SIM );
-            CAknInformationNote* note = new ( ELeave ) CAknInformationNote( ETrue );
-            note->ExecuteLD( *infoNoteText );
-			
-            CleanupStack::PopAndDestroy( infoNoteText );
-            CleanupStack::PopAndDestroy( 2 ); //resourceLoader&fs
-			
-            return;
-            }	
-        }
     iProfileEngine->SetActiveProfileL( aId );
     }
 

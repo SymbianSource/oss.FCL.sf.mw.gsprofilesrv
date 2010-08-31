@@ -19,14 +19,16 @@
 
 // INCLUDE FILES
 #include "CProfileTonesImpl.h"
-#include <s32strm.h>
-#include <centralrepository.h>
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"
+
+#include <s32strm.h>
+#include <centralrepository.h>
 #include <hwrmvibrasdkcrkeys.h>
 
 #include <psmsettings.h>
 #include <psmsrvdomaincrkeys.h>
+#include <ProfileEngineInternalCRKeys.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -139,19 +141,40 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngRingingType,
             aProfileId ), value ) );
     iProfileToneSettings.iRingingType = TProfileRingingType( value );
+    
+    //Since 10.1, check if silence mode
+    User::LeaveIfError(
+            aCenRep.Get( KProEngSilenceMode , value) );
+    if ( value )
+    	{
+		iProfileToneSettings.iRingingType = EProfileRingingTypeSilent;
+    	}
+    
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngKeypadVolume,
             aProfileId ), value ) );
     iProfileToneSettings.iKeypadVolume = TProfileKeypadVolume( value );
-    User::LeaveIfError(
+ /* 
+  *   User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngRingingVolume,
             aProfileId ), iProfileToneSettings.iRingingVolume ) );
+     */
+    
+    //Since 10.1, Only master volume used.
+    User::LeaveIfError(
+            aCenRep.Get( KProEngMasterVolume , iProfileToneSettings.iRingingVolume ) );
+    
+    
+    /*
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngVibra,
             aProfileId ), iProfileToneSettings.iVibratingAlert ) );
+    */
+    
+    //Since 10.1,Only master vibra used
     User::LeaveIfError(
-          aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngEmailVibra,
-           aProfileId ), iProfileToneSettings.iEmailVibratingAlert ) );   
+            aCenRep.Get( KProEngMasterVibra, iProfileToneSettings.iVibratingAlert ) );
+            
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngWarnAndGameTones,
             aProfileId ), iProfileToneSettings.iWarningAndGameTones ) );
@@ -167,7 +190,6 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
     if ( iPowerSaveMode )
         {
         iProfileToneSettings.iVibratingAlert = iPsmConfigVibra;
-        iProfileToneSettings.iEmailVibratingAlert = iPsmConfigVibra;
         iProfileToneSettings.iKeypadVolume = 
                              TProfileKeypadVolume( iPsmConfigKeypadVolume );
         }
@@ -215,11 +237,8 @@ void CProfileTonesImpl::ExternalizeL( CRepository& aCenRep, TInt aProfileId ) co
         User::LeaveIfError(
                 aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngVibra,
                 aProfileId ), iProfileToneSettings.iVibratingAlert ) );        
-        
-   User::LeaveIfError(
-             aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngEmailVibra,
-             aProfileId ), iProfileToneSettings.iEmailVibratingAlert ) );   
-     }
+        }
+    
     User::LeaveIfError(
             aCenRep.Set( ProfileEngUtils::ResolveKey( KProEngWarnAndGameTones,
             aProfileId ), iProfileToneSettings.iWarningAndGameTones ) );

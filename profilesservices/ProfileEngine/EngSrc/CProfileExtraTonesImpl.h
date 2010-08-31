@@ -22,8 +22,8 @@
 
 //  INCLUDES
 #include <e32base.h>
-#include <MProfileExtraTones.h>
-#include <MProfileSetExtraTones.h>
+#include <MProfileExtraTones2.h>
+#include <MProfileSetExtraTones2.h>
 
 // FORWARD DECLARATIONS
 class RWriteStream;
@@ -38,8 +38,8 @@ class CRepository;
 *  @since 2.0
 */
 NONSHARABLE_CLASS(CProfileExtraTonesImpl) : public CBase,
-                               public MProfileExtraTones,
-                               public MProfileSetExtraTones
+                               public MProfileExtraTones2,
+                               public MProfileSetExtraTones2
     {
     public:  // Constructors and destructor
 
@@ -53,7 +53,7 @@ NONSHARABLE_CLASS(CProfileExtraTonesImpl) : public CBase,
         * @param aProfileExtraTones Profile extra tones
         */
         static CProfileExtraTonesImpl* NewL(
-            const MProfileExtraTones& aProfileExtraTones );
+            const MProfileExtraTones2& aProfileExtraTones );
 
         /**
         * Destructor.
@@ -111,6 +111,28 @@ NONSHARABLE_CLASS(CProfileExtraTonesImpl) : public CBase,
         */
         virtual void SetVideoCallRingingToneL(
             const TDesC& aRingingTone );
+        
+        /**
+        * From MProfileExtraTones2.
+        */
+        virtual const TDesC& ReminderTone() const;
+               
+        /**
+        * From MProfileSetExtraTones2.
+        */
+        virtual void SetReminderToneL( 
+                const TDesC& aReminderTone );
+        
+        /**
+        * From MProfileExtraTones2.
+        */
+        virtual const TDesC& ClockAlarmTone() const;
+        
+        /**
+        * From MProfileSetExtraTones2.
+        */
+        virtual void SetClockAlarmToneL( 
+                const TDesC& aClockAlarmTone );
 
     private:
 
@@ -123,7 +145,7 @@ NONSHARABLE_CLASS(CProfileExtraTonesImpl) : public CBase,
         * By default Symbian 2nd phase constructor is private.
         * @param aProfileExtraTones Profile extra tones
         */
-        void ConstructL( const MProfileExtraTones& aProfileExtraTones );
+        void ConstructL( const MProfileExtraTones2& aProfileExtraTones );
 
     private:    // Data
 
@@ -135,6 +157,12 @@ NONSHARABLE_CLASS(CProfileExtraTonesImpl) : public CBase,
 
         // Own: Video call ringing tone file name
         HBufC* iVideoCallRingingTone;
+        
+        //Own: Reminder tone file name
+        HBufC* iReminderTone;
+        
+        //Own: Clock alarm tone file name
+        HBufC* iClockAlarmTone;
     };
 
 #endif      // __CPROFILEEXTRATONESIMPL_H

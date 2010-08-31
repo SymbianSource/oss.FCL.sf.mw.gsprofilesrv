@@ -19,23 +19,16 @@
 
 // INCLUDE FILES
 #include    "CProfileChangeEvent.h"
+#include    "ProfileEnginePrivateCRKeys.h"
+#include    "ProfilesDebug.h"
 
 #include    <e32svr.h>
 #include    <MProfileEngine.h>
-#include    <AknGlobalNote.h>
 #include    <data_caging_path_literals.hrh>
 #include    <centralrepository.h>
-#include    <barsc.h>
-#include    <bautils.h>
 
-#include	<SecondaryDisplay/SecondaryDisplayProfilesAPI.h>
-#include	<aknSDData.h>
-#include	<featmgr.h>
-
-#include    <profilescheduleevent.rsg>
-#include    "ProfileEnginePrivateCRKeys.h"
+#include    <ProfileScheduleEvent.rsg>
 #include    <ProfileEngineConstants.h>
-#include    "ProfilesDebug.h"
 
 
 // CONSTANTS
@@ -63,10 +56,6 @@ CProfileChangeEvent::CProfileChangeEvent()
 //
 void CProfileChangeEvent::ConstructL()
     {
-    FeatureManager::InitializeLibL();
-    iCoverDisplay = FeatureManager::FeatureSupported( KFeatureIdCoverDisplay );
-    
-    
     User::LeaveIfError( iFs.Connect() );
     // Open/Create mutex
     TInt error( KErrNotFound );
@@ -81,7 +70,6 @@ void CProfileChangeEvent::ConstructL()
         }
     User::LeaveIfError( error );
     iProfileEngine = CreateProfileEngineL( &iFs );
-    iGlobalNote = CAknGlobalNote::NewL();
     ReadResourcesL();
     }
 
@@ -117,16 +105,12 @@ CProfileChangeEvent* CProfileChangeEvent::NewLC()
 // Destructor
 CProfileChangeEvent::~CProfileChangeEvent()
     {
-    delete iNoteText;
-    delete iGlobalNote;
     if( iProfileEngine )
         {
         iProfileEngine->Release();
         }
     iFs.Close();
     iMutex.Close();
-    
-    FeatureManager::UnInitializeLib();
     }
 
 
@@ -202,15 +186,6 @@ TBool CProfileChangeEvent::ReadProfileIdL()
 //
 void CProfileChangeEvent::ShowNoteL()
     {
-	PRODEBUG1( " CProfileChangeEvent:ShowNoteL(%S)", iNoteText );
-	// Set secondary display data if cover ui is supported
-	if ( iCoverDisplay )
-		{
-		CAknSDData* sd = CAknSDData::NewL(KCatProfiles,
-							ECmdShowTimedProfileExpiryNote, KNullDesC8);
-		iGlobalNote->SetSecondaryDisplayData( sd ); // ownership transferred
-		}
-    iGlobalNote->ShowNoteL( EAknGlobalConfirmationNote, *iNoteText );
     }
 
 // -----------------------------------------------------------------------------
@@ -220,35 +195,6 @@ void CProfileChangeEvent::ShowNoteL()
 //
 void CProfileChangeEvent::ReadResourcesL()
     {
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL" );
-    TParse* fp = new ( ELeave ) TParse();
-    fp->Set( KProfileScheduleEventResourceDriveAndDir,
-             &KDC_RESOURCE_FILES_DIR, NULL );
-    iResourceFile.Copy( fp->FullName() );
-    delete fp;
-
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 2" );
-    BaflUtils::NearestLanguageFile( iFs, iResourceFile );
-	PRODEBUG1( " CProfileChangeEvent:ReadResourcesL 3 iResourceFile=%S", &iResourceFile );
-
-    RResourceFile resourceFile;
-    resourceFile.OpenL( iFs, iResourceFile );
-    CleanupClosePushL( resourceFile );
-
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 4" );
-    resourceFile.ConfirmSignatureL();
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 5" );
-
-    HBufC8* dataBuffer = resourceFile.AllocReadLC( R_PROFILES_CONFIRM_TIMED_EXPIRED );
-
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 6" );
-    TResourceReader rsReader;
-    rsReader.SetBuffer( dataBuffer );
-    iNoteText = rsReader.ReadHBufCL();
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 7" );
-
-    CleanupStack::PopAndDestroy( 2 ); // dataBuffer, resourceFile
-	PRODEBUG( " CProfileChangeEvent:ReadResourcesL 8" );
     }
 
 //  End of File

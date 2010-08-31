@@ -29,17 +29,17 @@
 #include <BAMDESCA.H>
 #include <RSSSettings.h>
 #include "MProfileEngine.h"
-#include <MProfileEngineExtended.h>
+#include "MProfileEngineExtended.h"
 #include "MProfile.h"
 #include "MProfileName.h"
 #include "MProfileExtraTones.h"
-#include <MProfileSetExtraTones.h>
+#include "MProfileSetExtraTones.h"
 #include "MProfileExtraSettings.h"
-#include <MProfilesLocalFeatures.h>
+#include "MProfilesLocalFeatures.h"
 #include "MProfileTones.h"
 #include <TProfileToneSettings.h>
-#include <MProfileExtended.h>
-#include <MProfileSetTones.h>
+#include "MProfileExtended.h"
+#include "MProfileSetTones.h"
 //#include "T_ProfileTestTools.h"
 #include "ProfilesVariant.hrh"
 

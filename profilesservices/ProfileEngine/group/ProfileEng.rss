@@ -25,8 +25,8 @@ NAME    PFE2
 #include <eikon.rh>
 #include <bldvariant.hrh>
 #include "Profile.hrh"
-#include <ProfileEng.rh>
-#include <ProfileEng.hrh>
+#include "ProfileEng.rh"
+#include "ProfileEng.hrh"
 #include <Profile.loc>
 
 //  CONSTANTS
@@ -185,11 +185,6 @@ RESOURCE PROFILE_SETTINGS r_profile_settings
             id = EProfileSettingIdVibra;
             key_type = EProfileSettingKeyTypeInt;
             },
-        PROFILE_SETTING
-            {
-            id = EProfileSettingIdEmailVibra;
-            key_type = EProfileSettingKeyTypeInt;
-            },    
         PROFILE_SETTING
             {
             id = EProfileSettingIdTactileFeedback;

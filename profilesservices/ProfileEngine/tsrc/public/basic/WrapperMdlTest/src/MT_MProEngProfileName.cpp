@@ -27,10 +27,10 @@
 #include <MProEngProfileName.h>
 #include <MProEngProfile.h>
 #include <MProEngEngine.h>
-#include <MProfileEngineExtended.h>
+#include "MProfileEngineExtended.h"
 #include "MProfile.h"
 #include "MProfileName.h"
-#include <MProfileExtended.h>
+#include "MProfileExtended.h"
 #include <ProEngFactory.h>
 #include <Profile.hrh>
 

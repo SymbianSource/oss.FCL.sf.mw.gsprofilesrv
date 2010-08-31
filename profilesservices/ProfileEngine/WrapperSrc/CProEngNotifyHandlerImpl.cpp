@@ -19,17 +19,17 @@
 
 // INCLUDE FILES
 #include    "CProEngNotifyHandlerImpl.h"
+#include    "CProEngProfileActivationDelegate.h"
+#include    "CProEngActiveProfileDelegate.h"
+#include    "CProEngProfileNameArrayEventDelegate.h"
+#include    "CProEngProfileEventDelegate.h"
+#include    "ProfileEnginePrivateCRKeys.h"
 #include    <MProEngProfileActivationObserver.h>
 #include    <MProEngActiveProfileObserver.h>
 #include    <MProEngProfileObserver.h>
 #include    <MProEngProfileNameArrayObserver.h>
 #include    <ProfileEngineConstants.h>
-#include    "ProfileEnginePrivateCRKeys.h"
 #include    <ProfileEnginePrivatePSKeys.h>
-#include    "CProEngProfileActivationDelegate.h"
-#include    "CProEngActiveProfileDelegate.h"
-#include    "CProEngProfileNameArrayEventDelegate.h"
-#include    "CProEngProfileEventDelegate.h"
 
 
 // ============================= LOCAL FUNCTIONS ===============================
@@ -53,7 +53,10 @@ TBool CompareDelegates( const CProEngProfileEventDelegate& aDelegate1,
 // CProEngNotifyHandlerImpl::CProEngNotifyHandlerImpl
 // -----------------------------------------------------------------------------
 //
-CProEngNotifyHandlerImpl::CProEngNotifyHandlerImpl()
+CProEngNotifyHandlerImpl::CProEngNotifyHandlerImpl() : 
+    iActiveIdEventDelegate( NULL ),
+    iActiveProfileEventDelegate( NULL ),
+    iNameArrayEventDelegate( NULL )
     {
     }
 

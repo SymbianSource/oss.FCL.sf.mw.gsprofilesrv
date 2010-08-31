@@ -26,12 +26,12 @@
 #include <EUnitMacros.h>
 #include <MProEngEngine.h>
 #include <MProEngProfile.h>
-#include <MProfileEngineExtended.h>
+#include "MProfileEngineExtended.h"
 #include "MProfile.h"
-#include <MProfileExtended.h>
+#include "MProfileExtended.h"
 #include <ProEngFactory.h>
 #include <Profile.hrh>
-#include <ProfileEngineConstants.h>
+#include "ProfileEngineConstants.h"
 
 //  INTERNAL INCLUDES
 #include "T_ProfileTestTools.h"

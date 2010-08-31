@@ -64,7 +64,7 @@ TInt CProEngWrapAPI::RunMethodL(
         ENTRY( "ReqProfActNotificationsL", CProEngWrapAPI::RequestProfileActivationNotificationsL ),
         ENTRY( "CanProfActNotificationsL", CProEngWrapAPI::CancelProfileActivationNotificationsL ),
         ENTRY( "ReqActProfNotificationsL", CProEngWrapAPI::RequestActiveProfileNotificationsL ),
-        ENTRY( "CanActProfNotificationsL", CProEngWrapAPI::CancelActiveProfileNotificationsL ),
+        ENTRY( "CanActProfNotificationsL", CProEngWrapAPI::CancelProfileActivationNotificationsL ),
         ENTRY( "ReqProfNotificationsL", CProEngWrapAPI::RequestProfileNotificationsL ),
         ENTRY( "CanProfNotificationsL", CProEngWrapAPI::CancelProfileNotificationsL ),
         ENTRY( "ReqProfNameArrayNotL", CProEngWrapAPI::RequestProfileNameArrayNotificationsL ),
@@ -222,22 +222,8 @@ TInt CProEngWrapAPI::RequestProfileActivationNotificationsL()
     CleanupStack::PushL( observer );
 
     TRAP_IGNORE(nh->RequestProfileActivationNotificationsL ( *observer ) );
-    
-    TInt previousid( engine->ActiveProfileId() ); 
-    if ( previousid == EProfileMeetingId )   //example for active profile change
-        {
-        engine->SetActiveProfileL( EProfileOutdoorId );
-        }
-    else 
-        {
-        engine->SetActiveProfileL( EProfileMeetingId );
-        }
-    TInt activeid( engine->ActiveProfileId() );    
-    if ( previousid!=activeid )
-        {
-        iSchedulerUtility->Start();
-        }
-    
+    engine->SetActiveProfileL( EProfileMeetingId );
+    iSchedulerUtility->Start();
     CleanupStack::PopAndDestroy( observer );
     CleanupStack::PopAndDestroy( wrapper );
     CleanupStack::PopAndDestroy(); // engine
@@ -267,21 +253,8 @@ TInt CProEngWrapAPI::CancelProfileActivationNotificationsL()
     CleanupStack::PushL( observer );
 
     TRAP_IGNORE(nh->RequestProfileActivationNotificationsL ( *observer ) );
-    TInt previousid( engine->ActiveProfileId() );
-    if ( previousid == EProfileMeetingId )     //example for active profile change
-        {
-        engine->SetActiveProfileL( EProfileOutdoorId );
-        }
-    else 
-        {
-        engine->SetActiveProfileL( EProfileMeetingId );
-        }
-    TInt activeid( engine->ActiveProfileId() );
-    if ( previousid!=activeid )
-        {
-        iSchedulerUtility->Start();
-        }
-        
+    engine->SetActiveProfileL( EProfileMeetingId );
+    iSchedulerUtility->Start();
     nh->CancelProfileActivationNotifications();
     CleanupStack::PopAndDestroy( observer );
     CleanupStack::PopAndDestroy( wrapper );

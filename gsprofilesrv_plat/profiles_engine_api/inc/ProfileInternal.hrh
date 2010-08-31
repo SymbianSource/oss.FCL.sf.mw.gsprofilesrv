@@ -32,7 +32,10 @@ enum TProfileTactileFeedback
     EProfileTactileFeedbackOff		= 0,
     EProfileTactileFeedbackLevel1	= 1,
     EProfileTactileFeedbackLevel2	= 2,
-    EProfileTactileFeedbackLevel3	= 3
+    EProfileTactileFeedbackLevel3	= 3,
+    //Since 10.1
+    EProfileTactileFeedbackLevel4   = 4,
+    EProfileTactileFeedbackLevel5   = 5
     };
 
 enum TProfileAudioFeedback
@@ -40,7 +43,10 @@ enum TProfileAudioFeedback
     EProfileAudioFeedbackOff		= 0,
     EProfileAudioFeedbackLevel1		= 1,
     EProfileAudioFeedbackLevel2		= 2,
-    EProfileAudioFeedbackLevel3		= 3
+    EProfileAudioFeedbackLevel3		= 3,
+    //Since 10.1
+    EProfileAudioFeedbackLevel4     = 4,
+    EProfileAudioFeedbackLevel5     = 5
     };
 
 enum TProfile3DToneEffect
@@ -65,6 +71,26 @@ enum TProfile3DToneEcho
     EProfile3DEchoForest        = 8,
     EProfile3DEchoSewerPipe     = 24,
     EProfile3DEchoUnderwater    = 28
+    };
+
+// Since 10.1
+enum TProfileAlertVibra
+    {
+    EProfileNoAlertVibra       = 0x00000000,
+    EProfileRingAlertVibra     = 0x00000001,
+    EProfileMessageAlertVibra  = 0x00000002,
+    EProfileEmailAlertVibra    = 0x00000004,
+    EProfileReminderAlarmVibra = 0x00000008,
+    EProfileClockAlarmVibra    = 0x00000010,
+    EProfileInformationVibra   = 0x00000020
+    };
+
+// Deprecated Since 10.1
+enum TProfileMasterVolume
+    {
+    EProfileMasterVolumeSoft = 1,
+    EProfileMasterVolumeMed  = 5,
+    EProfileMasterVolumeLoud = 10	
     };
 
 #endif // PROFILEINTERNAL_HRH

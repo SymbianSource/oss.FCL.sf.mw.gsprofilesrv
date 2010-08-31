@@ -57,7 +57,9 @@ enum TProfileKeypadVolume
     EProfileKeypadVolumeOff    = 0,
     EProfileKeypadVolumeLevel1 = 1,
     EProfileKeypadVolumeLevel2 = 2,
-    EProfileKeypadVolumeLevel3 = 3
+    EProfileKeypadVolumeLevel3 = 3,
+    EProfileKeypadVolumeLevel4 = 4,
+    EProfileKeypadVolumeLevel5 = 5
     };
 
 /**

@@ -36,8 +36,8 @@
 #include <MProfileExtended.h>
 #include <TProfileToneSettings.h>
 #include <MProfileTones.h>
-#include <MProfileSetTones.h>
-#include <ProfileEnginePrivatePSKeys.h>
+#include "MProfileSetTones.h"
+#include "ProfileEnginePrivatePSKeys.h"
 
 // the header for the tested class
 #include "T_CProfileChangeNotifyHandler.h"

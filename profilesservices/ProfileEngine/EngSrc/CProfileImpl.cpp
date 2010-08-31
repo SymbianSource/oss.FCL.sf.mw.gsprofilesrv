@@ -19,28 +19,28 @@
 
 // INCLUDE FILES
 #include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "CProfileTonesImpl.h"
+#include "CProfileExtraTonesImpl.h"
+#include "CProfileExtraSettingsImpl.h"
+#include "CProfilePresenceImpl.h"
+#include "ProfileEngUtils.h"
+#include "ProfileEnginePrivateCRKeys.h"
 #include <e32svr.h>
 #include <cntitem.h>
-#include <CPbkContactEngine.h>
 #include <cntdb.h>
 #include <cntdef.h>
 #include <TProfileToneSettings.h>
 #include <MProfilePttSettings.h>
 #include <featmgr.h>
 #include <bldvariant.hrh>
-#include <RSSSettings.h>
+#include <rsssettings.h>
 #include <pathinfo.h>
-#include "CProfileNameImpl.h"
-#include "CProfileTonesImpl.h"
-#include "CProfileExtraTonesImpl.h"
-#include "CProfileExtraSettingsImpl.h"
-#include "CProfilePresenceImpl.h"
 #include <MProfilesLocalFeatures.h>
 #include <MProfileUtilitySingleton.h>
-#include "ProfilesVariant.hrh"
-#include "ProfileEngUtils.h"
-#include "ProfileEnginePrivateCRKeys.h"
+#include <ProfilesVariant.hrh>
 #include <ProfileEngineDomainConstants.h>
+#include "CProfileVibraSettingsImpl.h"
 
 // CONSTANTS
 // Max. number of Alert for groups:
@@ -78,6 +78,7 @@ void CProfileImpl::ConstructL()
     // ProfileUtility must be released in destructor:
     iFeatures = &( ProfileUtilityInstanceL().ProfilesLocalFeatures() );
     iProfileExtraSettings = CProfileExtraSettingsImpl::NewL();
+    iProfileVibraSettings = CProfileVibraSettingsImpl::NewL();
     }
 
 // -----------------------------------------------------------------------------
@@ -86,7 +87,7 @@ void CProfileImpl::ConstructL()
 // -----------------------------------------------------------------------------
 //
 void CProfileImpl::ConstructL(
-    const MProfileExtended& aProfile,
+    const MProfileExtended2& aProfile,
     TInt aId )
     {
     iProfileName = CProfileNameImpl::NewLC( aId, KNullDesC );
@@ -94,7 +95,7 @@ void CProfileImpl::ConstructL(
     CommonConstructL();
     iProfileTones = CProfileTonesImpl::NewL( aProfile.ProfileTones() );
     iProfileExtraTones = CProfileExtraTonesImpl::NewL(
-        aProfile.ProfileExtraTones() );
+        aProfile.ProfileExtraTones2() );
 
     iFeatures = &( ProfileUtilityInstanceL().ProfilesLocalFeatures() );
 
@@ -103,6 +104,9 @@ void CProfileImpl::ConstructL(
         aProfile.ProfilePresence() );
     iVisibleFlags = aProfile.VisibleFlags();
     iModifiableFlags = aProfile.ModifiableFlags();
+    
+    iProfileVibraSettings = CProfileVibraSettingsImpl::NewL();
+    
     }
 
 // -----------------------------------------------------------------------------
@@ -142,7 +146,7 @@ CProfileImpl* CProfileImpl::NewLC(
 //
 CProfileImpl* CProfileImpl::NewLC(
     RFs& aFs,
-    const MProfileExtended& aProfile,
+    const MProfileExtended2& aProfile,
     TInt aId )
     {
     CProfileImpl* self = new( ELeave ) CProfileImpl( aFs );
@@ -170,6 +174,8 @@ CProfileImpl::~CProfileImpl()
     delete iProfileTones;
     delete iProfileExtraTones;
     delete iProfilePresence;
+    
+    delete iProfileVibraSettings;
     }
 
 // -----------------------------------------------------------------------------
@@ -216,39 +222,7 @@ void CProfileImpl::SetLocalizedProfileNameL( const CProfileNameImpl& aNameImpl,
 const TArray<TContactItemId> CProfileImpl::AlertForL()
     {
     TInt contactIdListCount( iAlertFor.Count() );
-    if( contactIdListCount > 0 )
-        {
-        // create CPbkContactEngine
-        CPbkContactEngine* contactEngine = CPbkContactEngine::NewL( &iFs );
-        CleanupStack::PushL( contactEngine );
-        CContactIdArray* groupIds = contactEngine->Database().GetGroupIdListL();
 
-        if( !groupIds )
-            { // There are no groups in Contacts db -> clear the alert for IDs:
-            iAlertFor.Reset();
-            }
-        else
-            {
-            CleanupStack::PushL( groupIds );
-            TInt err;
-            for( TInt i( 0 ) ; i < contactIdListCount ; ++i )
-                {
-                err = groupIds->Find( iAlertFor[i] );
-
-                if( err == KErrNotFound )
-                    {
-                    // remove this
-                    iAlertFor.Remove( i );
-                    --contactIdListCount;
-                    --i;
-                    err = KErrNone;
-                    }
-                User::LeaveIfError( err );
-                }
-            CleanupStack::PopAndDestroy();  // groupIds
-            }
-        CleanupStack::PopAndDestroy();  // contactEngine
-        }
 
     return iAlertFor.Array();
     }
@@ -261,6 +235,16 @@ const TArray<TContactItemId> CProfileImpl::AlertForL()
 //
 TBool CProfileImpl::IsSilent() const
     {
+	//Since 10.1, firstly check maste silence mode
+	TInt silenceMode( 0 );
+	CRepository* cenrep = CRepository::NewLC( KCRUidProfileEngine  );
+    cenrep->Get( KProEngSilenceMode , silenceMode );
+    CleanupStack::PopAndDestroy( cenrep );
+    if ( silenceMode ) 
+    	{
+		return ETrue;
+    	}
+	
     TProfileRingingType ringType( iProfileTones->ToneSettings().iRingingType );
     if ( ringType == EProfileRingingTypeSilent )
         {
@@ -515,6 +499,8 @@ void CProfileImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
 
     iProfilePresence->InternalizeL( aCenRep, aProfileId );
     iProfileExtraSettings->InternalizeL( aCenRep, aProfileId );
+    
+    iProfileVibraSettings->InternalizeL( aCenRep, aProfileId );
     }
 
 void CProfileImpl::ExternalizeL( CRepository& aCenRep )
@@ -551,6 +537,8 @@ void CProfileImpl::ExternalizeL( CRepository& aCenRep )
     iProfileExtraTones->ExternalizeL( aCenRep, profileId );
     iProfilePresence->ExternalizeL( aCenRep, profileId );
     iProfileExtraSettings->ExternalizeL( aCenRep, profileId );
+    
+    iProfileVibraSettings->ExternalizeL(  aCenRep, profileId );
     }
 
 // -----------------------------------------------------------------------------
@@ -596,6 +584,51 @@ void CProfileImpl::CommonConstructL()
     iAlwaysOnLineEmail = FeatureManager::FeatureSupported( KFeatureIdAlwaysOnLineEmail );
     iOmaPoc = FeatureManager::FeatureSupported( KFeatureIdOmaPoc );
     FeatureManager::UnInitializeLib();
+    }
+
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileExtraTones2
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const MProfileExtraTones2& CProfileImpl::ProfileExtraTones2() const 
+    {
+    return *iProfileExtraTones;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileSetExtraTones2
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+MProfileSetExtraTones2& CProfileImpl::ProfileSetExtraTones2() 
+    {
+    return *iProfileExtraTones;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileVibraSettings
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+const MProfileVibraSettings& CProfileImpl::ProfileVibraSettings() const
+    {
+    return  *iProfileVibraSettings;
+    }
+
+// -----------------------------------------------------------------------------
+// CProfileImpl::ProfileSetVibraSettings
+//
+// (other items were commented in a header).
+// -----------------------------------------------------------------------------
+//
+MProfileSetVibraSettings& CProfileImpl::ProfileSetVibraSettings()
+    {
+    return *iProfileVibraSettings;
     }
 
 //  End of File

@@ -50,7 +50,7 @@ SOURCE          CProEngProfileEventDelegate.cpp
 SOURCE          CProEngMediaVariation.cpp
 SOURCE          CProEngPostFilter.cpp
 SOURCE          ProEngFactory.cpp
-SOURCE          ProEngMmfInfoUtility.cpp
+SOURCE          ProEngMmfInfoUtility.cpp 
 
 START RESOURCE  ProEngWrapper.rss
   HEADER
@@ -62,6 +62,7 @@ USERINCLUDE     .
 USERINCLUDE     ../WrapperInc
 USERINCLUDE     ../EngInc
 
+MW_LAYER_SYSTEMINCLUDE
 APP_LAYER_SYSTEMINCLUDE
 
 LIBRARY         bafl.lib
@@ -71,15 +72,10 @@ LIBRARY         profileeng.lib
 LIBRARY         apgrfx.lib  // RApaLSSession
 LIBRARY         apmime.lib  // TDataType
 LIBRARY         efsrv.lib  // RFs, TParse
-LIBRARY         aknnotify.lib // CAknGlobalNote
 LIBRARY         PlatformEnv.lib  // PathInfo
 LIBRARY         ContentListingFramework.lib
 LIBRARY         mmfcontrollerframework.lib
-LIBRARY         avkon.lib 
-LIBRARY         eikcdlg.lib 
-LIBRARY         eikctl.lib 
-LIBRARY	        CommonEngine.lib 
-LIBRARY         cone.lib
+
 LIBRARY         DRMCommon.lib
 LIBRARY         DrmRights.lib
 LIBRARY		caf.lib	cafutils.lib // Content access framework

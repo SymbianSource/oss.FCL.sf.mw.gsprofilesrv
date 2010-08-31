@@ -21,4 +21,4 @@
 // bld.inf
 // Part of EUnit library test
 
-#include "../../../../profilesapplication/Profiles/ProfileEngine/tsrc/public/basic/EngineMdlTest/group/bld.inf"
+//#include "../../../../profilesapplication/Profiles/ProfileEngine/tsrc/public/basic/EngineMdlTest/group/bld.inf"

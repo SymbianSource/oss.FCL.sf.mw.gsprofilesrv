@@ -19,10 +19,10 @@
 
 // INCLUDE FILES
 #include "CProfileFeedbackSettingsImpl.h"
-#include <centralrepository.h>
 #include "ProfileEngUtils.h"
 #include "ProfileEnginePrivateCRKeys.h"
 #include "ProfilesDebug.h"
+#include <centralrepository.h>
 
 #include <hwrmvibrasdkcrkeys.h>
 // ============================ MEMBER FUNCTIONS ===============================

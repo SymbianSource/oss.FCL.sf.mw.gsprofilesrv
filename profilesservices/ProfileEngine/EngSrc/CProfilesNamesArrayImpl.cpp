@@ -19,11 +19,11 @@
 
 // INCLUDE FILES
 #include "CProfilesNamesArrayImpl.h"
+#include "CProfileNameImpl.h"
+#include "ProfileEngPanic.h"
 #include <collate.h>
 #include <MProfilesNamesArray.h>
-#include "CProfileNameImpl.h"
 #include <ProfileEng.hrh>
-#include "ProfileEngPanic.h"
 #include <ProfileEngineConstants.h>
 
 // LOCAL CONSTANTS AND MACROS

@@ -27,12 +27,12 @@
 #include <MProEngToneSettings.h>
 #include <MProEngProfile.h>
 #include <MProEngEngine.h>
-#include <MProfileEngineExtended.h>
+#include "MProfileEngineExtended.h"
 #include "MProfile.h"
 #include "MProfileTones.h"
 #include "TProfileToneSettings.h"
 #include "MProfileExtraTones.h"
-#include <MProfileExtended.h>
+#include "MProfileExtended.h"
 #include <ProEngFactory.h>
 #include <Profile.hrh>
 

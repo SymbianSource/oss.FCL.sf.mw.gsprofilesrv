@@ -18,14 +18,14 @@
 
 
 // INCLUDE FILES
-#include    "CProfileTiming.h"
+#include "CProfileTiming.h"
+#include "ProfileEnginePrivateCRKeys.h"
+#include "ProfilesDebug.h"
 #include <ProfilesVariant.hrh>
 #include <f32file.h> // TParse
 #include <data_caging_path_literals.hrh>
 #include <MProfilesLocalFeatures.h>
 #include <ProfileEngineConstants.h>
-#include "ProfileEnginePrivateCRKeys.h"
-#include "ProfilesDebug.h"
 
 // LOCAL CONSTANTS AND MACROS
 namespace
