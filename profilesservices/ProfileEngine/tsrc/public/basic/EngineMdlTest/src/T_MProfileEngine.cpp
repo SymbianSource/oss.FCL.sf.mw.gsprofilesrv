@@ -35,11 +35,11 @@
 #include <MProfilesNamesArray.h>
 #include <MProfileTones.h>
 #include <MProfileExtraTones.h>
-#include "MProfilesLocalFeatures.h"
+#include <MProfilesLocalFeatures.h>
 #include "ProfilesVariant.hrh"
-#include "MProfileExtended.h"
-#include "MProfileSetName.h"
-#include "MProfileEngineExtended.h"
+#include <MProfileExtended.h>
+#include <MProfileSetName.h>
+#include <MProfileEngineExtended.h>
 #include <TProfileToneSettings.h>
 //#include "T_ProfileTestTools.h"
 //#include "T_ProfileTestHelper.h"

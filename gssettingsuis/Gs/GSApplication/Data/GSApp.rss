@@ -1,0 +1,461 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*        Resource file for main view.
+*
+*/
+
+
+//  RESOURCE IDENTIFIER
+NAME    GSMV // 4 letter ID
+
+//  INCLUDES
+#include    <data_caging_paths_strings.hrh>
+
+#include    <bldvariant.hrh>
+#include    <eikon.rh>
+#include    <eikon.rsg>
+#include    <avkon.rh>
+#include    <avkon.rsg>
+#include    <avkon.mbg>
+#include    <avkon.loc>
+
+#include    <eikcore.rsg>
+#include    <AvkonIcons.hrh>
+#include    <appinfo.rh>
+#include    <gsapp.loc>
+
+// Common resources among GS
+#include    <gscommon.hrh>
+
+// CONSTANTS
+
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+
+RESOURCE TBUF
+    {
+    buf="GSApp";
+    }
+
+//----------------------------------------------------
+//   
+//    EIK_APP_INFO
+//    It contains application information.
+//
+//----------------------------------------------------
+//
+RESOURCE EIK_APP_INFO
+    {
+    }
+    
+    
+//----------------------------------------------------
+//   
+//    r_gs_main_view
+//    Main view.
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_main_view 
+    {
+    menubar = r_gs_menubar_open_exit;
+    cba = r_gs_softkeys_options_exit_open;
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_main_view_title
+//    Main view's title.
+//
+//----------------------------------------------------
+//
+RESOURCE TITLE_PANE r_gs_main_view_title
+    {
+#ifdef RD_CONTROL_PANEL
+    txt = qtn_cp_title_control_panel;
+#else
+    txt = qtn_set_title_settings;        
+#endif //RD_CONTROL_PANEL
+    }
+
+
+RESOURCE LISTBOX r_mainview_lbx
+    {
+    flags = EEikListBoxMultipleSelection;
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+// r_gs_menubar_open_exit
+// GS menu with 'Open' and 'Exit' items.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_BAR r_gs_menubar_open_exit
+    {
+    titles =
+        {
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_exit;
+            },
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_help;
+            },
+        MENU_TITLE
+            {
+            menu_pane = r_gs_menu_item_open;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//
+// r_gs_menu_item_open
+// Open item.
+//
+//----------------------------------------------------
+//
+RESOURCE MENU_PANE r_gs_menu_item_open
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EAknSoftkeyOpen;
+            txt = qtn_set_options_open;
+            flags = EEikMenuItemAction; // action command
+            }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+// r_gs_menu_item_exit
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_PANE r_gs_menu_item_exit
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EAknCmdExit;
+            txt = qtn_options_exit;
+            }
+        };
+    }
+
+
+// -----------------------------------------------------------------------------
+//
+// r_gs_menu_item_help
+// Help item.
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE MENU_PANE r_gs_menu_item_help
+    {
+    items =
+        {
+        MENU_ITEM
+            {
+            command = EAknCmdHelp;
+            txt = qtn_options_help;
+            }
+        };
+    }
+
+
+
+// SVG changes
+RESOURCE LOCALISABLE_APP_INFO r_gsapp_localisable_app_info
+    {
+#ifdef RD_CONTROL_PANEL
+    short_caption = qtn_apps_controlpanel_grid;
+#else
+    short_caption = qtn_apps_settings_grid;
+#endif //RD_CONTROL_PANEL
+    caption_and_icon = 
+    CAPTION_AND_ICON_INFO
+        {
+#ifdef RD_CONTROL_PANEL
+        caption = qtn_apps_controlpanel_list;
+#else
+        caption = qtn_apps_settings_list;
+#endif //RD_CONTROL_PANEL
+        number_of_icons = 1;
+        icon_file = "Z:"APP_BITMAP_DIR"\\GSApp_aif.mif";
+
+        };
+    }
+
+//----------------------------------------------------
+//
+// String for GS Cannot be opened during backup restore
+// r_confirm_note_gs_exit_backup_restore_string
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_confirm_note_gs_exit_backup_restore_string 
+              { buf = qtn_cp_error_open_during_backuprestore; }
+              
+// MSK Handling
+
+// -----------------------------------------------------------------------------
+//   
+//    r_gs_msk_open
+//    Middle softkey label: open.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_gs_msk_open
+    {
+    buf = qtn_msk_open;
+    }
+
+// -----------------------------------------------------------------------------
+//   
+//    r_gs_msk_activate
+//    Middle softkey label: activate.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_gs_msk_activate
+    {
+    buf = qtn_msk_activate;
+    }
+
+// -----------------------------------------------------------------------------
+//   
+//    r_gs_msk_select
+//    Middle softkey label: select.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_gs_msk_select
+    {
+    buf = qtn_msk_select;
+    }
+    
+// -----------------------------------------------------------------------------
+//   
+//    r_gs_msk_change
+//    Middle softkey label: change.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_gs_msk_change
+    {
+    buf = qtn_msk_change;
+    }
+    
+// -----------------------------------------------------------------------------
+//   
+//    r_gs_softkey_option
+//    Middle softkey label: Options.
+//
+// -----------------------------------------------------------------------------
+//    
+RESOURCE TBUF r_gs_softkey_option
+    {
+    buf = text_softkey_option;
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_back_contextoptions
+//    MSK activates Context Menu
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_back_contextoptions
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyBack; 
+            txt = text_softkey_back; 
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyContextOptions; 
+            txt = text_softkey_option;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_back_open
+//    Text association with MSK ( OPEN )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_back_open
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyBack; 
+            txt = text_softkey_back; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSCmdAppOpen; 
+            txt = qtn_msk_open;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_exit_open
+//    Text association with MSK ( OPEN )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_exit_open
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyExit; 
+            txt = text_softkey_exit; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSCmdAppOpen; 
+            txt = qtn_msk_open;
+            }
+        };
+    }
+
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_back_change
+//    Text association with MSK ( CHANGE )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_back_change
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyBack; 
+            txt = text_softkey_back; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSMSKCmdAppChange; 
+            txt = qtn_msk_change;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_exit_change
+//    Text association with MSK ( CHANGE )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_exit_change
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyExit; 
+            txt = text_softkey_exit; 
+            },
+        CBA_BUTTON 
+            {
+            id=EGSMSKCmdAppChange; 
+            txt = qtn_msk_change;
+            }
+        };
+    }
+
+//----------------------------------------------------
+//   
+//    r_gs_softkeys_options_exit_change
+//    Text association with MSK ( CHANGE )
+//
+//----------------------------------------------------
+//
+RESOURCE CBA r_gs_softkeys_options_back_empty
+    {
+    buttons =
+        {
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOptions; 
+            txt = text_softkey_option;
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyBack; 
+            txt = text_softkey_back; 
+            },
+        CBA_BUTTON 
+            {
+            id=EAknSoftkeyOk; 
+            txt = "";
+            }
+        };
+    }
+
+//End of File
+
+
+

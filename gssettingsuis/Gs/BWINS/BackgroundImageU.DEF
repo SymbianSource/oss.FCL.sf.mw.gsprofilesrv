@@ -1,0 +1,15 @@
+EXPORTS
+	??1CGSBackgroundImage@@UAE@XZ @ 1 NONAME ; CGSBackgroundImage::~CGSBackgroundImage(void)
+	?BackgroundImageL@CGSBackgroundImage@@QAEHXZ @ 2 NONAME ; int CGSBackgroundImage::BackgroundImageL(void)
+	?DeleteImageL@CGSBackgroundImage@@QAEXABVTDesC16@@@Z @ 3 NONAME ; void CGSBackgroundImage::DeleteImageL(class TDesC16 const &)
+	?GetPlnsStatus@CGSBackgroundImage@@QAEHXZ @ 4 NONAME ; int CGSBackgroundImage::GetPlnsStatus(void)
+	?IsPersonalisationApplicationL@CGSBackgroundImage@@QAEXXZ @ 5 NONAME ; void CGSBackgroundImage::IsPersonalisationApplicationL(void)
+	?NewL@CGSAsyncImageHandling@@SAPAV1@AAVRFs@@PAVMGSAsyncImageHandlingObserver@@ABVTDesC16@@@Z @ 6 NONAME ; class CGSAsyncImageHandling * CGSAsyncImageHandling::NewL(class RFs &, class MGSAsyncImageHandlingObserver *, class TDesC16 const &)
+	?NewL@CGSBackgroundImage@@SAPAV1@XZ @ 7 NONAME ; class CGSBackgroundImage * CGSBackgroundImage::NewL(void)
+	?SetBackgroundImageL@CGSBackgroundImage@@QAEXH@Z @ 8 NONAME ; void CGSBackgroundImage::SetBackgroundImageL(int)
+	?SetBackgroundImagePathL@CGSBackgroundImage@@QAEXABVTDesC16@@@Z @ 9 NONAME ; void CGSBackgroundImage::SetBackgroundImagePathL(class TDesC16 const &)
+	?SetBackgroundImagePathL@CGSBackgroundImage@@QAEXABVTDesC16@@AAVTDes16@@@Z @ 10 NONAME ; void CGSBackgroundImage::SetBackgroundImagePathL(class TDesC16 const &, class TDes16 &)
+	?SetBackgroundImagePathL@CGSBackgroundImage@@QAEXABVTDesC16@@AAVTDes16@@W4TGSWallpaperType@@@Z @ 11 NONAME ; void CGSBackgroundImage::SetBackgroundImagePathL(class TDesC16 const &, class TDes16 &, enum TGSWallpaperType)
+	?SetVTStillImagePathL@CGSBackgroundImage@@QAEXABVTDesC16@@AAVCGSAsyncImageHandling@@@Z @ 12 NONAME ; void CGSBackgroundImage::SetVTStillImagePathL(class TDesC16 const &, class CGSAsyncImageHandling &)
+	?SetWelcomeNoteImageL@CGSBackgroundImage@@QAEXABVTDesC16@@AAVCGSAsyncImageHandling@@@Z @ 13 NONAME ; void CGSBackgroundImage::SetWelcomeNoteImageL(class TDesC16 const &, class CGSAsyncImageHandling &)
+

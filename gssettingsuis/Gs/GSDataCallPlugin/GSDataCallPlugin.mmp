@@ -1,0 +1,85 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Project specification file.
+*
+*/
+
+
+#include  <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gsdatacallplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x10207437
+VENDORID            VID_DEFAULT
+
+
+SOURCEPATH  Src
+SOURCE      GSDataCallPluginImplementationTable.cpp
+SOURCE      GSDataCallPluginContainer.cpp
+SOURCE      GSDataCallPlugin.cpp
+SOURCE      GSDataCallPluginModel.cpp
+
+
+//User include paths
+USERINCLUDE     Inc
+USERINCLUDE     Data // For *.rh
+USERINCLUDE     loc
+USERINCLUDE     ../Data // For CommonResources.rss
+
+//System include paths
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/cshelp
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      Data
+
+START RESOURCE  10207437.rss
+TARGET          gsdatacallplugin.rsc
+END
+
+START RESOURCE  GsDataCallPluginRsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH      RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+
+LIBRARY   euser.lib
+LIBRARY   ecom.lib
+LIBRARY   efsrv.lib
+LIBRARY   avkon.lib
+LIBRARY   bafl.lib
+LIBRARY   cone.lib
+LIBRARY   eikcoctl.lib
+LIBRARY   eikcore.lib
+LIBRARY   egul.lib
+LIBRARY   eikdlg.lib            // eikon dialogs
+LIBRARY   commdb.lib
+
+LIBRARY   commonengine.lib      // For RConeResourceLoader
+LIBRARY   featmgr.lib           // Feature manager
+LIBRARY   aknskinsrv.lib        // for enhanced skinning
+LIBRARY   aknskins.lib          // for enhanced skinning
+LIBRARY   hlplch.lib            // for "Help" options menu
+LIBRARY   gsframework.lib       // For base classes
+LIBRARY   gslistbox.lib         // For CGSListBoxItemTextArray
+LIBRARY   flogger.lib // For GSLogger
+LIBRARY   gsecomplugin.lib
+
+// End of File

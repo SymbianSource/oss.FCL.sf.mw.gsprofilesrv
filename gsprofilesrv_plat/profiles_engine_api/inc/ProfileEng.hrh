@@ -63,9 +63,7 @@ enum TProfileSettingId
     EProfileSettingId3DEcho = 0x00000018,
     EProfileSettingIdTactileFeedback = 0x00000019,
     EProfileSettingIdAudioFeedback = 0x0000001A,
-    EProfileSettingIdReminderTone = 0x0000001B,
-    EProfileSettingIdClockAlarmTone = 0x0000001C,
-    EProfileSettingIdAlertVibra = 0x0000001D
+    EProfileSettingIdEmailVibra=0x0000001B
     };
 
 #endif // __PROFILEENG_HRH__

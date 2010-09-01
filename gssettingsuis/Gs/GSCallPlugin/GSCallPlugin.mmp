@@ -1,0 +1,116 @@
+/*
+* Copyright (c) 2005-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSCallPlugin project file.
+*
+*/
+
+#include  <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+// To get the MW_LAYER_SYSTEMINCLUDE-definition
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gscallplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x102824A1
+VENDORID            VID_DEFAULT
+
+SOURCEPATH  src  // /GSCallPlugin
+SOURCE      GSCallPluginImplementationTable.cpp
+SOURCE      GSCallPluginContainer.cpp
+SOURCE      GSCallPlugin.cpp
+SOURCE      GSCallPluginModel.cpp
+
+//User include paths
+USERINCLUDE     inc
+USERINCLUDE     data // For *.rh
+USERINCLUDE     loc
+USERINCLUDE     ../Data
+USERINCLUDE     ../Cenrep
+USERINCLUDE     ../Logger
+USERINCLUDE     ../GSTelPlugin/Inc
+
+// The above include is required becasue of secuicodequerydialog.h
+
+//System include paths
+SYSTEMINCLUDE   /epoc32/include/ecom
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      data
+
+START RESOURCE  102824A1.rss
+TARGET          gscallplugin.rsc
+END
+
+START RESOURCE  GSCallPluginRsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH      RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+START RESOURCE  SoftReject.rss
+HEADER
+TARGETPATH      RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+LIBRARY   aknskins.lib          // for enhanced skinning
+LIBRARY   aknskinsrv.lib        // for enhanced skinning
+LIBRARY   avkon.lib
+LIBRARY   bafl.lib
+LIBRARY   centralrepository.lib
+LIBRARY   cenrepnotifhandler.lib
+LIBRARY   commonengine.lib      // For RConeResourceLoader
+LIBRARY   cone.lib
+LIBRARY   ecom.lib
+LIBRARY   efsrv.lib
+LIBRARY   egul.lib
+LIBRARY   eikcoctl.lib
+LIBRARY   eikcore.lib
+LIBRARY   eikctl.lib
+LIBRARY   etelmm.lib            // security, network, call
+LIBRARY   euser.lib
+LIBRARY   featmgr.lib           // Feature manager
+LIBRARY   gsecomplugin.lib
+LIBRARY   gsframework.lib       // For base classes
+LIBRARY   gslistbox.lib         // For CGSListBoxItemTextArray
+LIBRARY   numbergrouping.lib
+LIBRARY   phonesettings.lib
+LIBRARY   psui.lib              // phone settings notes UI
+LIBRARY   sssettings.lib        // Supplementary settings
+LIBRARY   flogger.lib // For GSLogger
+
+// still image related libraries
+LIBRARY   backgroundimage.lib
+LIBRARY   mgfetch.lib           // for image selection list
+LIBRARY   drmcommon.lib
+LIBRARY   imageconversion.lib
+
+LIBRARY   secui.lib             // security
+LIBRARY   aknnotify.lib         // for CAknGlobalNote.h
+LIBRARY   hlplch.lib            // for "Help" options menu
+LIBRARY   eikdlg.lib phoneclient.lib            // eikon dialogs
+
+#if defined(__VOIP) && defined(RD_VOIP_REL_2_2)
+LIBRARY serviceprovidersettings.lib
+#endif // __VOIP && RD_VOIP_REL_2_2
+
+SOURCEPATH      data
+DOCUMENT        102824A1.rss
+DOCUMENT        GSCallPluginRsc.rss
+DOCUMENT        SoftReject.rss
+
+
+// End of File

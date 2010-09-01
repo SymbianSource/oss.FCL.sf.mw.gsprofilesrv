@@ -1,0 +1,236 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*     This is a localisation file for MediaFileList module.
+*     A .loc file is the one and only place where the logical strings
+*     to be localised are defined.
+*
+*/
+
+
+
+
+//d: Tone Selection List title.
+//l: title_pane_t2/opt9
+//r:5.1
+#define qtn_tsl_title "Select tone"
+
+//d: Softkey label for previewing video files
+//l: control_pane_t1/opt7
+//r:5.1
+#define text_softkey_preview "Preview"
+
+//d:File format error.
+//l:popup_note_window
+//r:5.1
+#define qtn_tsl_file_format_error "Tone format not supported"
+
+//d:File format error.
+//l:popup_note_window
+//r:5.1
+#define qtn_mp_note_invalid_clip "Invalid clip. Operation cancelled"
+
+//d:File size error.
+//l:popup_note_window
+//r:5.1
+//
+#define qtn_profiles_tone_maxsize_error "Files larger than %N kB cannot be set as ringing tone"
+
+//d: Error message text for non-supported file formats
+//l: popup_note_window
+//r:5.1
+#define qtn_profiles_info_tone_drm_protected "Protected file. Cannot be selected as ringing tone."
+
+//d:Title in wait note that is shown when opening a folder is slow.
+//l:popup_note_wait_window
+//r:5.1
+#define qtn_tsl_wait_note_opening "Opening..."
+
+//d:Title in wait note that is shown when searching media files is slow.
+//l:popup_note_wait_window
+//r:5.1
+#define qtn_tsl_wait_note_searching "Searching..."
+
+//d:Title in wait note that is shown when refreshing media files is slow.
+//l:popup_note_wait_window
+//r:5.1
+#define qtn_tsl_wait_note_updating "Updating..."
+
+//
+// Folder names
+//
+
+//d: Title of the Download tones item.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_download_tones "Download tones"
+ 
+//d: Title of the Tones folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_tones_folder "Tones"
+
+//d: Title of the Music folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_music_folder "Music"
+
+//d: Title of the Videos folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_videos_folder "Videos"
+
+//d: Title of the Recordings folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_recordings_folder "Recordings"
+
+//d: Title of the Default tone item.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_according_to_profile "According to profile"
+
+//d: Title of the Off item.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_off "Off"
+
+//d: Title of the All music folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_all_music_folder "All music"
+
+//d: Title of the Artist folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_artists_folder "Artists"
+
+//d: Title of the Albums folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_albums_folder "Albums"
+
+//d: Title of the Genres folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_genres_folder "Genres"
+
+//d: Title of the Composers folder.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_composers_folder "Composers"
+
+//d: Title of the Artist all folder/view.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_all "All"
+
+
+
+//
+// View names
+//
+
+//d: Navi pane item in Tones view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_tones_view "Tones"
+
+//d: Navi pane item in Music view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_music_view "Music"
+
+//d: Navi pane item in Videos view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_videos_view "Videos"
+
+//d: Navi pane item in Recordings view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_recordings_view "Recordings"
+
+//d: Navi pane item in Find results view
+//d: not in ui spec
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_find_results "Find results (%N)"
+
+//d: Navi pane item in Artists view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_artists_view "Artists"
+
+//d: Navi pane item in Albums view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_albums_view "Albums"
+
+//d: Navi pane item in Genres view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_genres_view "Genres"
+
+//d: Navi pane item in Composers view
+//l: tabs_3_long_active_pane_t1
+//r:5.1
+#define qtn_tsl_composers_view "Composers"
+
+//d: Title of the Unknown folder/view.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_unknown_artist "Unknown"
+
+//d: Title of the Unknown folder/view.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_unknown_album "Unknown"
+
+//d: Title of the Unknown folder/view.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_unknown_genre "Unknown"
+
+//d: Title of the Unknown folder/view.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_unknown_composer "Unknown"
+
+
+
+
+//d: Preview popup metadata field name.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_preview_popup_artist "Artist: "
+
+//d: Preview popup metadata field name.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_preview_popup_album "Album: "
+
+//d: Preview popup metadata field name.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_preview_popup_genre "Genre: "
+
+//d: Preview popup metadata field name.
+//l: heading_pane_t1
+//r:5.1
+#define qtn_tsl_preview_popup_composer "Composer: "
+
+
+
+// End of File

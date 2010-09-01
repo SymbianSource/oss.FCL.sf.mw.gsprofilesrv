@@ -1,0 +1,47 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSApp ROM files.
+*
+*/
+
+#ifndef GSAPP_IBY
+#define GSAPP_IBY
+
+    #ifdef RD_GS_RENOVATION
+
+        // GS Application:
+        file=ABI_DIR\BUILD_DIR\GSApp.exe                    PROGRAMS_DIR\GSApp.exe
+
+        // AIF icons/files:
+        #ifdef __SCALABLE_ICONS
+            data=DATAZ_\APP_BITMAP_DIR\GSApp_aif.MIF        APP_BITMAP_DIR\GSApp_aif.mif
+        #else
+            AUTO-BITMAP=DATAZ_\APP_BITMAP_DIR\GSApp_aif.MBM APP_BITMAP_DIR\GSApp_aif.mbm
+        #endif //__SCALABLE_ICONS
+
+        // Non-localisable resource file, can be defined in application IBY
+        data=ZSYSTEM\..\PRIVATE\10003A3F\APPS\GSApp_reg.RSC Private\10003a3f\apps\GSApp_reg.rsc
+
+        // GS Framework:
+        file=ABI_DIR\BUILD_DIR\GSFramework.dll              SHARED_LIB_DIR\GSFramework.dll
+        file=ABI_DIR\BUILD_DIR\GSEcomPlugin.dll             SHARED_LIB_DIR\GSEcomPlugin.dll
+
+        // Normal icons:
+        data=DATAZ_\BITMAP_DIR\Gsfwicon.mif             BITMAP_DIR\Gsfwicon.mif        
+        data=DATAZ_\private\100058EC\backup_registration.xml    private\100058EC\backup_registration.xml
+        
+    #endif // RD_GS_RENOVATION
+
+#endif // GSAPP_IBY
+// End of File

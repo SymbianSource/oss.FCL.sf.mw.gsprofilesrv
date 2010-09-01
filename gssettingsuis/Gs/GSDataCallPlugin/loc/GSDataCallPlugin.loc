@@ -1,0 +1,101 @@
+/*
+* Copyright (c) 2005-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Localization strings for GSDataCallPlugin.
+*
+*/
+
+
+//  LOCALISATION STRINGS
+
+// NEW
+
+//d:Text of a list item in Connection view's folder list
+//d:Item opens Data Call folder
+//l:list_single_large_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_folder_conn_data_call "Data call"
+
+
+// **DATA CALL (CONNECTION) VIEW
+
+//d:Text in title pane
+//d:Data call setting list view
+//l:title_pane_t2/opt9
+//w:
+//r: 3.1
+//
+#define qtn_set_title_settings_csd "Data call"
+
+//d:Text of a list item in Data call setting list view's list
+//d:Item opens Autodisconnect time setting page
+//l:list_setting_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon "Autodisconnect time"
+
+
+// AUTODISCONNECT TIME
+
+//d:Item in Autodisconnect time setting page's list
+//d:Setting value User defined
+//l:list_set_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon_defined "User defined" 
+
+//d:Text in setting list item's current value field
+//d:Autodisconnect time list item
+//d:Item in Autodisconnect time setting page's list
+//d:Setting value No limit or 0 min
+//l:list_set_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon_no "No limit"
+
+//d:Promt text in Autodisconnect time number query
+//d:Data query
+//l:popup_query_data_window
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon_define_time "Autodisconnect time (min):"
+
+//d:Text in setting list item's current value field
+//d:Autodisconnect time list item
+//d:Current value field text when current value is 1 min
+//l:list_set_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon_one_min "1 min"
+
+//d:Text in setting list item's current value field
+//d:Autodisconnect time list item
+//d:Current value field text when current value is > 1 min
+//l:list_set_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_autodiscon_min "%N min"
+
+
+           
+// End of File
+
+

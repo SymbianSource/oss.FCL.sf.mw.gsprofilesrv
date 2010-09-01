@@ -1,0 +1,64 @@
+/*
+* Copyright (c) 2003 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*        Resource file for Phone Application
+*
+*/
+
+
+//  LOCALISATION STRINGS
+
+//d: heading in soft reject settings menu
+//l: list_setting_pane_t1
+//
+#define qtn_mocal_sett_softrej_title "Reject call with message"
+
+//d: heading in soft reject text settings menu
+//l: list_setting_pane_t1
+//
+#define qtn_gs_soft_reject_text_title "Message text"
+
+//d:  Command in general settings call folder, opens soft reject menu
+//l:  list_setting_pane_t1
+//
+#define qtn_gs_soft_reject "Reject call with message"
+
+//d:  Command in general settings call folder, opens soft reject text menu
+//l:  list_setting_pane_t1
+// 
+#define qtn_gs_soft_reject_text "Message text"
+
+
+//d: soft reject selection (ON) in the settings page
+//l: list_set_graphic_pane_t1
+//
+#define qtn_gs_soft_on "On"
+
+//d: soft reject selection (OFF) in the settings page
+//l: list_set_graphic_pane_t1
+//
+#define qtn_gs_soft_off "Off"
+
+// d: It is used as softkey text. If pressed, the call isn't rejected,
+// d: but an SMS editor with soft reject default text is opened.
+// l: control_pane_t1/opt7
+//
+#define qtn_softkey_soft_reject "Soft Reject"
+
+//d: soft reject text in the settings page
+//l: list_set_graphic_pane_t1
+//
+#define qtn_gs_soft_default_text "Hi, I’m busy at the moment, but I contact you a bit later."
+
+// End of File

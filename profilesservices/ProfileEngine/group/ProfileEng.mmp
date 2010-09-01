@@ -55,8 +55,7 @@ SOURCE          CProfileEngineImplDynamicProfiles.cpp
 #else
 SOURCE          CProfileEngineImplStaticProfiles.cpp
 #endif // __DYNAMIC_PROFILES
-SOURCE          CProfileUtilitySingletonImpl.cpp 
-SOURCE          CProfileVibraSettingsImpl.cpp
+SOURCE          CProfileUtilitySingletonImpl.cpp
 
 USERINCLUDE     . ../EngInc ../../group
 
@@ -67,6 +66,7 @@ LIBRARY         euser.lib
 LIBRARY         efsrv.lib
 LIBRARY         bafl.lib
 LIBRARY         FeatMgr.lib
+LIBRARY         PbkEng.lib
 LIBRARY         cntmodel.lib
 LIBRARY         sssettings.lib // for als check-up
 LIBRARY         centralrepository.lib

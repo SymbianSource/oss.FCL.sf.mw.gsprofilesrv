@@ -1,0 +1,103 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Project specification file.
+*
+*/
+
+
+#include  <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gsnetworkplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x102824A7
+VENDORID            VID_DEFAULT
+
+
+SOURCEPATH  Src
+SOURCE      GSNetworkPluginImplementationTable.cpp
+SOURCE      GSNetworkPluginContainer.cpp
+SOURCE      GSNetworkPlugin.cpp
+SOURCE      GSNetworkPluginModel.cpp
+SOURCE      GSNetworkDebugHelper.cpp
+
+#ifdef FF_POWER_SAVE
+	SOURCE      GSNetworkPluginAO.cpp
+	SOURCE      PSMNetworkPlugin.cpp
+#endif  //#ifdef FF_POWER_SAVE
+
+//User include paths
+USERINCLUDE     Inc
+USERINCLUDE     Data // For *.rh
+USERINCLUDE     loc
+USERINCLUDE     ../Data
+USERINCLUDE     ../Logger
+USERINCLUDE     ../GSTelPlugin/Inc
+USERINCLUDE     ../Cenrep
+
+//System include paths
+SYSTEMINCLUDE   /epoc32/include/ecom
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      Data
+
+START RESOURCE  102824A7.rss
+TARGET          gsnetworkplugin.rsc
+END
+
+START RESOURCE  GsNetworkPluginRsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH      RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+LIBRARY   euser.lib
+LIBRARY   ecom.lib
+LIBRARY   efsrv.lib
+LIBRARY   avkon.lib
+LIBRARY   bafl.lib
+LIBRARY   cone.lib
+LIBRARY   eikcoctl.lib
+LIBRARY   eikcore.lib
+LIBRARY   egul.lib
+LIBRARY   eikdlg.lib            // eikon dialogs
+LIBRARY   ws32.lib
+
+LIBRARY   commonengine.lib      // For RConeResourceLoader
+LIBRARY   featmgr.lib           // Feature manager
+LIBRARY   centralrepository.lib
+LIBRARY   aknskinsrv.lib        // for enhanced skinning
+LIBRARY   aknskins.lib          // for enhanced skinning
+
+LIBRARY   aknnotify.lib         // for CAknGlobalNote.h
+LIBRARY   hlplch.lib            // for "Help" options menu
+LIBRARY   gsframework.lib       // For base classes
+LIBRARY   gslistbox.lib         // For CGSListBoxItemTextArray
+LIBRARY   flogger.lib // For GSLogger
+LIBRARY   gsecomplugin.lib
+LIBRARY   phonesettings.lib
+LIBRARY   apgrfx.lib
+LIBRARY   etelmm.lib
+LIBRARY   etel.lib
+LIBRARY   networkhandling.lib    //For CNWSession, TNWInfo
+#ifdef FF_POWER_SAVE
+	LIBRARY   psmclient.lib
+#endif // FF_POWER_SAVE
+LIBRARY   customapi.lib
+// End of File
+

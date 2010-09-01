@@ -26,7 +26,6 @@
 #include    <MProfileExtended.h>
 #include    <MProfileEngineExtended.h>
 #include    <MProfileSetTones.h>
-#include    <MProfileExtended.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

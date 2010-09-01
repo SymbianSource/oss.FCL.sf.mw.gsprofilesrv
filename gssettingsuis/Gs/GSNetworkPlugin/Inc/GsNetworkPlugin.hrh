@@ -1,0 +1,95 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Contains common definitions for menu id:s
+*
+*/
+
+
+#ifndef GSNETWORKPLUGIN_HRH
+#define GSNETWORKPLUGIN_HRH
+
+// commands
+// Network view's list items.
+enum TGSNetworkItemIds
+    {
+    EGSNetworkModeItemId,
+    EGSNetworkModeSelectionItemId,
+    EGSMCNItemId
+    };
+
+// Network mode selection setting page items
+enum TGSNetworkModeItems
+    {
+    EGSNetworkModeDualmode,
+    EGSNetworkModeUMTS,
+    EGSNetworkModeGSM
+    };
+
+// Network selection setting page items
+enum TGSNetworkSelectionModeItems
+    {
+    EGSAutomaticSelectMode,
+    EGSManualSelectMode
+    };
+
+// Cell Info Display setting page items
+enum TGSMcnModeItems
+    {
+    EGSMcnSetOn,
+    EGSMcnSetOff
+    };
+
+enum TGSTelNotes
+    {
+    ECWActivateNote = 1,
+    ECWCancelNote,
+    ECWNotActiveNote,
+    ERequestCancelledNote,
+    ERequestingNote,
+    EAlsDisabledNote,
+    EAlsEnabledNote,
+    ECBActiveNote,
+    EPasswordErrorNote,
+    EPasswordChangedNote,
+    ECBNotActiveNote,
+    ESearchingNote,
+    ENoNetworksFoundNote,
+    ECallInProgress,
+    EHomeNetworksSelectedNote,
+    ENetworkSelectedNote,
+    ENoNetworkAccessNote,
+    ENwRegistrationInterrupted,
+    ECugIndexErrorNote,
+    EImageLoadWaitNote
+    };
+
+enum TGSSoftKeys
+    {
+    EGSSoftkeyQuit = 1,
+    EGSSoftkeyEmpty
+    };
+
+enum TGSCustomerServiceGroups
+    {
+    EGSCSPCallForward = 1,
+    EGSCSPCallBarring,
+    EGSCSPCallWaiting,
+    EGSCSPAlternateLine,
+    EGSCSPManualNetworkSelection,
+    EGSCenRepSoftReject
+    };
+
+#endif //  GSNETWORKPLUGIN_HRH
+
+//End of File

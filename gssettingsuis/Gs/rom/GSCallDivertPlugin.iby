@@ -1,0 +1,29 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSCallDivertPlugin ROM files.
+*
+*/
+
+#ifndef GSCALLDIVERTPLUGIN_IBY
+#define GSCALLDIVERTPLUGIN_IBY
+
+    #ifdef RD_GS_RENOVATION
+
+        ECOM_PLUGIN( GSCallDivertPlugin.dll,102824A3.rsc )
+        data=DATAZ_\BITMAP_DIR\GSCallDivertplugin.mif BITMAP_DIR\GSCallDivertplugin.mif
+
+    #endif // RD_GS_RENOVATION
+
+#endif // GSCALLDIVERTPLUGIN_IBY
+// End of File

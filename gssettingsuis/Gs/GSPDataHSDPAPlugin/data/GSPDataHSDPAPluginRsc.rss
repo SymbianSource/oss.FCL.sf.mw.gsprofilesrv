@@ -1,0 +1,168 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Resource file for GSPDataHSDPAPlugin.
+*
+*/
+
+
+//  RESOURCE IDENTIFIER
+NAME        HSPA // 4 letter ID
+
+// INCLUDES
+#include    <gspdatahsdpaplugin.loc>
+
+#include    <data_caging_paths_strings.hrh>
+#include    <bldvariant.hrh>
+#include    <avkon.loc> // Avkon localized strings
+#include    <avkon.mbg>
+#include    <avkon.rsg>
+#include    <eikcore.rsg>
+#include    <uikon.rh>
+#include    <gsapp.rsg>
+
+// CONSTANTS
+
+//  RESOURCE DEFINITIONS
+
+//----------------------------------------------------
+//
+//
+//    Needed or loading the resource fails!
+//
+//----------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// Common resources among GS
+#include    "GSCommonResources.rss"
+
+
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_plugin_caption
+//    Packet Data HSDPA Plugin caption.
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_pdatahsdpa_plugin_caption
+    {
+    buf = qtn_set_hspa_setting;
+    }
+    
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_view
+//    Packet Data HSDPA view.
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_pdatahsdpa_view
+    {
+    menubar = r_gs_menubar_change_exit;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_CHANGE;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_setting_page
+//    
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_SETTING_PAGE r_gs_pdatahsdpa_setting_page
+    {
+    number = EAknSettingPageNoOrdinalDisplayed;
+    label = qtn_set_hspa_setting;
+    softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL__OK;
+    type = EAknSetListBox;
+    editor_resource_id = r_setting_listbox;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_setting_page_lbx
+//    
+//
+//----------------------------------------------------
+//
+RESOURCE ARRAY r_gs_pdatahsdpa_setting_page_lbx
+    {
+    items =
+        {
+        LBUF
+            {
+            txt = qtn_set_hspa_setting_enabled;
+            },
+        LBUF
+            {
+            txt = qtn_set_hspa_setting_disabled;
+            }
+        };
+    }
+
+    
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_on_text
+//    Packet Data HSDPA text for HSDPA value on.
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_hsdpa_enable_text
+    {
+    buf = qtn_set_hspa_setting_enabled;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_pdatahsdpa_off_text
+//    Packet Data HSDPA text for HSDPA value Disable.
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_hsdpa_disable_text
+    {
+    buf = qtn_set_hspa_setting_disabled;
+    }
+
+
+// -----------------------------------------------------------------------------
+//     r_confirm_nw_reset_hsdpa
+// -----------------------------------------------------------------------------
+//
+RESOURCE DIALOG r_confirm_nw_reset_hsdpa
+    {
+    flags = EGeneralQueryFlags;
+    buttons = R_AVKON_SOFTKEYS_YES_NO__YES;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtQuery;
+            itemflags = EEikDlgItemNonFocusing;
+            id = EGeneralQuery;
+            control= AVKON_CONFIRMATION_QUERY
+                {
+                layout = EConfirmationLayout;
+                label = qtn_set_hspa_quest_change_via_offline;
+                animation = R_QGN_NOTE_QUERY_ANIM;
+                };
+            }
+        };
+    }  
+//End of File

@@ -42,13 +42,6 @@ PRJ_EXPORTS
 ../inc/MProfileName.h                   MW_LAYER_PLATFORM_EXPORT_PATH(MProfileName.h)
 ../inc/MProfile.h                       MW_LAYER_PLATFORM_EXPORT_PATH(MProfile.h)
 
-/* Since 10.1 */
-../inc/MProfileVibraSettings.h          MW_LAYER_PLATFORM_EXPORT_PATH(MProfileVibraSettings.h)
-../inc/MProfileExtraTones2.h            MW_LAYER_PLATFORM_EXPORT_PATH(MProfileExtraTones2.h)
-../inc/MProfileSetExtraTones2.h         MW_LAYER_PLATFORM_EXPORT_PATH(MProfileSetExtraTones2.h)
-../inc/MProfileExtended2.h              MW_LAYER_PLATFORM_EXPORT_PATH(MProfileExtended2.h)
-../inc/MProfileEngineExtended2.h        MW_LAYER_PLATFORM_EXPORT_PATH(MProfileEngineExtended2.h)
-
 ../inc/MProfileEngineExtended.h         MW_LAYER_PLATFORM_EXPORT_PATH(MProfileEngineExtended.h)
 ../inc/MProfileExtended.h               MW_LAYER_PLATFORM_EXPORT_PATH(MProfileExtended.h)
 ../inc/MProfilePresence.h               MW_LAYER_PLATFORM_EXPORT_PATH(MProfilePresence.h)
@@ -68,8 +61,6 @@ PRJ_EXPORTS
 ../inc/MProfileSetFeedbackSettings.h    MW_LAYER_PLATFORM_EXPORT_PATH(MProfileSetFeedbackSettings.h)
 ../inc/MProfileSetPttSettings.h         MW_LAYER_PLATFORM_EXPORT_PATH(MProfileSetPttSettings.h)
 ../inc/MProfileSetTones.h               MW_LAYER_PLATFORM_EXPORT_PATH(MProfileSetTones.h)
-//Since 10.1
-../inc/MProfileSetVibraSettings.h       MW_LAYER_PLATFORM_EXPORT_PATH(MProfileSetVibraSettings.h)
 
 ../inc/SecondaryDisplayProfilesAPI.h    MW_LAYER_PLATFORM_EXPORT_PATH(secondarydisplay/SecondaryDisplayProfilesAPI.h)
 

@@ -11,13 +11,15 @@
 *
 * Contributors:
 *
-* Description:  BC test mmp for profile engine wrapper
+* Description:  ?Description
 *
 */
 
 
-// To get the OS_LAYER_SYSTEMINCLUDE-definition
-#include <platform_paths.hrh>
+#if defined(__S60_)
+        // To get the OS_LAYER_SYSTEMINCLUDE-definition
+        #include <platform_paths.hrh>
+#endif
 
 TARGET          ProEngWrapAPI.dll
 TARGETTYPE      dll
@@ -27,8 +29,28 @@ CAPABILITY      ALL -TCB
 
 DEFFILE         ProEngWrapAPI.def
 
+#ifdef SBSV2
 USERINCLUDE     ../inc 
-MW_LAYER_SYSTEMINCLUDE
+
+	#if defined(__S60_)
+	    MW_LAYER_SYSTEMINCLUDE
+	#else // __S60_ not defined
+SYSTEMINCLUDE   /epoc32/include 
+SYSTEMINCLUDE   /epoc32/include/internal
+	#endif // __S60_
+
+#else // SBSV2 not defined
+USERINCLUDE     ../inc 
+
+	#if defined(__S60_)
+	    MW_LAYER_SYSTEMINCLUDE
+	#else // __S60_ not defined
+SYSTEMINCLUDE   /epoc32/include 
+SYSTEMINCLUDE   /epoc32/include/internal
+	#endif // __S60_
+
+#endif // SBSV2
+APP_LAYER_SYSTEMINCLUDE
 
 SOURCEPATH      ../src
 

@@ -23,6 +23,14 @@ PRJ_EXPORTS
 
 PRJ_MMPFILES
 #include "../profiles_engine_api/group/bld.inf"
+#include "../profiles_mediafilelist_api/group/bld.inf"
+#include "../filelist_api/group/bld.inf"
+
+#include "../settings_backgroundimage_api/group/bld.inf"
+#include "../settings_framework_api/group/bld.inf"
+#include "../settings_launch_api/group/bld.inf"
+#include "../settings_listbox_api/group/bld.inf"
+#include "../settings_plugin_api/group/bld.inf"
 #include "../settings_uis_cenrep_collection_api/group/bld.inf"
 
 PRJ_TESTMMPFILES
