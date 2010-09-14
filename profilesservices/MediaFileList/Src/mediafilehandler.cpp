@@ -2886,6 +2886,7 @@ CSearchList* CSearchList::NewL()
 CSearchList::~CSearchList()
     {
     iList.ResetAndDestroy();
+    iList.Close();
     delete iDriveUtil;
     }
 
@@ -3001,7 +3002,7 @@ void CSearchList::SearchInToneL( CRomFileList* aQuery,  const TDesC& aSearchText
     TInt count = aQuery->Count( 0 );    
     for( int i = 0; i< count; i++ )
     	{
-        CSearchListItem* item = CSearchListItem::NewL();
+        CSearchListItem* item = CSearchListItem::NewLC();
         error = aQuery->RomFileItem( item, i );
         if ( error == KErrNone )
         	{
@@ -3010,7 +3011,16 @@ void CSearchList::SearchInToneL( CRomFileList* aQuery,  const TDesC& aSearchText
             if ( rt != KErrNotFound )
             	{
             	iList.AppendL( item );
+                CleanupStack::Pop( item );
             	}
+            else
+                {
+                CleanupStack::PopAndDestroy( item );
+                }
+            }
+        else
+            {
+            CleanupStack::PopAndDestroy( item );
         	}
     	}
     }
@@ -3030,7 +3040,7 @@ void CSearchList::VideoSearchInRomL( CRomFileList* aQuery,  const TDesC& aSearch
     TInt count = aQuery->Count( 1 );    
     for( int i = 0; i< count; i++ )
         {
-        CSearchListItem* item = CSearchListItem::NewL();
+        CSearchListItem* item = CSearchListItem::NewLC();
         error = aQuery->RomVedioItem( item, i );
         if ( error == KErrNone )
             {
@@ -3039,7 +3049,16 @@ void CSearchList::VideoSearchInRomL( CRomFileList* aQuery,  const TDesC& aSearch
             if ( rt != KErrNotFound )
                 {
                 iList.AppendL( item );
+                CleanupStack::Pop( item );
                 }
+            else
+                {
+                CleanupStack::PopAndDestroy( item );
+                }
+            }
+        else
+            {
+            CleanupStack::PopAndDestroy( item );
             }
         }
     }
@@ -3163,11 +3182,16 @@ void CSearchList::AddRomItemL( CRomFileList* aRomList, TInt aMediaType )
         count = aRomList->Count( 0 );
         for ( TInt i=0; i< count; i++ )
             {
-            CSearchListItem* item = CSearchListItem::NewL();
+            CSearchListItem* item = CSearchListItem::NewLC();
             error = aRomList->RomFileItem( item, i );
             if ( error == KErrNone )
                 {
                 iList.AppendL( item );
+                CleanupStack::Pop( item );
+                }
+            else
+                {
+                CleanupStack::PopAndDestroy( item );
                 }
             }
         }
@@ -3176,11 +3200,16 @@ void CSearchList::AddRomItemL( CRomFileList* aRomList, TInt aMediaType )
         count = aRomList->Count( 1 );
         for (TInt i = 0; i < count; i++)
             {
-            CSearchListItem* item = CSearchListItem::NewL();
+            CSearchListItem* item = CSearchListItem::NewLC();
             error = aRomList->RomVedioItem(item, i);
             if (error == KErrNone)
                 {
                 iList.AppendL(item);
+                CleanupStack::Pop( item );
+                }
+            else
+                {
+                CleanupStack::PopAndDestroy( item );
                 }
             }
         }
