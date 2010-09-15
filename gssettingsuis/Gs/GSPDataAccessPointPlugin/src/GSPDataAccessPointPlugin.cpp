@@ -207,11 +207,11 @@ void CGSPDataAccessPointPlugin::GetValueL( TDes& aValue )
     if ( iModel->GetDialupAPNameL( ptrBuffer ) != KErrNone
          || ptrBuffer.Length() == 0 )
         {
-        dynamicText = iEikonEnv->AllocReadResourceL( R_DIALUP_AP_NAME_NONE );
+        CleanupStack::PopAndDestroy( name );
+        dynamicText = iEikonEnv->AllocReadResourceLC( R_DIALUP_AP_NAME_NONE );
         }
-    TPtr bufPtr( dynamicText->Des() );
-		aValue.Copy( *dynamicText );
-    CleanupStack::PopAndDestroy( name );
+	aValue.Copy( *dynamicText );
+    CleanupStack::PopAndDestroy( dynamicText );
     }
 
 
