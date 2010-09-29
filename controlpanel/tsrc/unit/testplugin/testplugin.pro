@@ -67,3 +67,6 @@ symbian: plugin { # copy qtstub and manifest
 
 
 
+
+
+symbian:MMP_RULES += SMPSAFE

@@ -23,3 +23,6 @@ include (ut_cpdataformbuttonentryviewitem.pri)
 symbian: { 
     TARGET.UID3 = 0xE43C01BC
 }
+
+
+symbian:MMP_RULES += SMPSAFE

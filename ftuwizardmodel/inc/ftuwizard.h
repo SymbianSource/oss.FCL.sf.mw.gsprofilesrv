@@ -57,6 +57,12 @@ typedef struct {
      * The text to be shown in table of contents UI component.
      */ 
     QString   mTocLabel;
+    
+    /**
+     * Secondary text to be shown in table of contents UI component.
+     */ 
+    QString   mTocSecondaryLabel;
+        
 	 /**
      * Informs Framework whether a plugin is having any ftu view or not.
 	 * It should be set to false by plugin if it has any FTU view to be shown 
@@ -239,6 +245,15 @@ signals:
      * @param caller The calling wizard plugin instance.
      */
     void wizardDeactivated(FtuWizard *caller);
+
+    /**
+     * Emit this signal to update the text/icons of the widget.
+     * FTU framework reads settings through wizardSettings()and 
+     * displays accordingly. It should be ensured by plugin/wizard
+     * that the modified settings are reflected through wizardSettings().
+     * @param caller The calling wizard plugin instance.
+     */
+    void wizardSettingsChanged(FtuWizard *caller);
     
 };
 

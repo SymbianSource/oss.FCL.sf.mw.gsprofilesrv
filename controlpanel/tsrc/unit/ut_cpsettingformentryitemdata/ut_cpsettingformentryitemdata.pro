@@ -23,3 +23,6 @@ include (ut_cpsettingformentryitemdata.pri)
 symbian: { 
     TARGET.UID3 = 0xEF97598F
 }
+
+
+symbian:MMP_RULES += SMPSAFE

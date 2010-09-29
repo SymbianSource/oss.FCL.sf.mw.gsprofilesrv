@@ -14,10 +14,10 @@
 # Description: 
 #
 
-PLATFORM_HEADERS += $$PWD/logger.h \
-    $$PWD/loggerglobal.h \
-    $$PWD/logoutput.h \
-    $$PWD/logoutputfactory.h \
-    $$PWD/cplogger.h 
-    
-HEADERS += $$PLATFORM_HEADERS
+CONTROLPANEL_LOG_PLAT_HEADERS += \
+    inc/logger.h \
+    inc/loggerglobal.h \
+    inc/logoutput.h \
+    inc/logoutputfactory.h \
+    inc/cplogger.h 
+

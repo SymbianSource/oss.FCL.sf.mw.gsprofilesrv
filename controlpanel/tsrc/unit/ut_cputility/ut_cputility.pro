@@ -23,3 +23,6 @@ include (ut_cputility.pri)
 symbian: { 
     TARGET.UID3 = 0xE98BA02A
 }
+
+
+symbian:MMP_RULES += SMPSAFE

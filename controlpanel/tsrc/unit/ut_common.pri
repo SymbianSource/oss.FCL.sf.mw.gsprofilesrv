@@ -22,5 +22,10 @@ CONFIG += symbian_test
 QMAKE_EXTRA_TARGETS += test autotest
 
 DEPENDPATH += .
+
+symbian {
+    INCLUDEPATH += $$MW_LAYER_SYSTEMINCLUDE
+    INCLUDEPATH += $$MW_LAYER_PLATFORM_EXPORT_PATH(cplogger)
+}
 							 
-LIBS += -lcpframework
+LIBS += -lcpframework -lcplogger

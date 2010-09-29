@@ -40,3 +40,6 @@ QMAKE_EXTRA_TARGETS += test autotest
 # Input
 HEADERS += src/ut_profileengwrapper.h
 SOURCES += src/ut_profileengwrapper.cpp
+
+
+symbian:MMP_RULES += SMPSAFE

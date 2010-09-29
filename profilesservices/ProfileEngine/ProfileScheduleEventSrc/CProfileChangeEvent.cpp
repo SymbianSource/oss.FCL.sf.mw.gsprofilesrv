@@ -32,10 +32,11 @@
 
 
 // CONSTANTS
-namespace
-    {
-    _LIT( KProfileScheduleEventResourceDriveAndDir, "Z:ProfileScheduleEvent.rsc" );
-    }
+
+//namespace
+//    {
+//    _LIT( KProfileScheduleEventResourceDriveAndDir, "Z:ProfileScheduleEvent.rsc" );
+//    }
 
 // ============================ MEMBER FUNCTIONS ===============================
 

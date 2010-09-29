@@ -146,9 +146,9 @@ void CProfileTonesImpl::InternalizeL( CRepository& aCenRep, TInt aProfileId )
     User::LeaveIfError(
             aCenRep.Get( KProEngSilenceMode , value) );
     if ( value )
-    	{
-		iProfileToneSettings.iRingingType = EProfileRingingTypeSilent;
-    	}
+        {
+        iProfileToneSettings.iRingingType = EProfileRingingTypeSilent;
+        }
     
     User::LeaveIfError(
             aCenRep.Get( ProfileEngUtils::ResolveKey( KProEngKeypadVolume,

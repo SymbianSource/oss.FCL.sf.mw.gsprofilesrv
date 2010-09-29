@@ -57,6 +57,12 @@ typedef struct {
      * The text to be shown in table of contents UI component.
      */ 
     QString   mTocLabel;
+    
+    /**
+     * Secondary text to be shown in table of contents UI component.
+     */ 
+    QString   mTocSecondaryLabel;
+        
 	 /**
      * Informs Framework whether a plugin is having any ftu view or not.
 	 * It should be set to false by plugin if it has any FTU view to be shown 
@@ -104,7 +110,6 @@ public:
 	 * @param wizardIdx Index of the Cenrep key for a wizard.
 	 * If wizard is invoking another application, it should provide cenrepOwnerId and wizardIdx
 	 * to the application. Application should write 1 into the wizardIdx cenrep on completion.
-     * @since S60 ?S60_version.
      */
     virtual void initializeWizard(qint32 cenrepOwnerId, int wizardIdx) = 0;
 
@@ -238,7 +243,15 @@ signals:
      * @param caller The calling wizard plugin instance.
      */
     void wizardDeactivated(FtuWizard *caller);
-    
+	
+    /**
+     * Emit this signal to update the text/icons of the widget.
+     * FTU framework reads settings through wizardSettings()and 
+     * displays accordingly. It should be ensured by plugin/wizard
+     * that the modified settings are reflected through wizardSettings().
+     * @param caller The calling wizard plugin instance.
+     */
+    void wizardSettingsChanged(FtuWizard *caller);    
 };
 
 #endif // FTUWIZARD_H

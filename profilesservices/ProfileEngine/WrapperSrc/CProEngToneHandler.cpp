@@ -33,7 +33,7 @@ namespace
 	// CONSTANTS
 	_LIT( KProEngROMDriveLetter, "Z:" );
 	// The filename of the resource file
-	_LIT( KProEngResourceFileName, "Z:ProEngWrapper.RSC" );
+	//_LIT( KProEngResourceFileName, "Z:ProEngWrapper.RSC" );
 	}
 
 // ============================ MEMBER FUNCTIONS ===============================

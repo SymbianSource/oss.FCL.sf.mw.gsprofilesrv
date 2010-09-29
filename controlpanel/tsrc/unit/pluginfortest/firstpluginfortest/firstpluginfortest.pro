@@ -55,3 +55,6 @@ HEADERS += src/firstpluginfortest.h \
            src/firstpluginviewfortest.h    
 SOURCES += src/firstpluginfortest.cpp \
            src/firstpluginviewfortest.cpp 
+
+
+symbian:MMP_RULES += SMPSAFE

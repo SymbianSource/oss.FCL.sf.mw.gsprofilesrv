@@ -14,15 +14,16 @@
 # Description: 
 #
 
-TEMPLATE = app
-TARGET = ut_cpbasesettingview
-
-include (../ut_common.pri)
-include (ut_cpbasesettingview.pri)
-
-symbian: { 
-    TARGET.UID3 = 0xEE3E465B
-}
-
-
-symbian:MMP_RULES += SMPSAFE
+CONTROLPANEL_PLAT_HEADERS += \
+    inc/cpglobal.h \
+    inc/cpbasepath.h \
+    inc/cpplugininterface.h \
+    inc/cpsettingformitemdata.h \
+    inc/cppluginlauncher.h \
+    inc/cpbasesettingview.h \
+    inc/cpitemdatahelper.h \
+    inc/cpsettingformentryitemdata.h \
+    inc/cpsettingformentryitemdataimpl.h \
+    inc/cppluginloader.h \
+    inc/cppluginutility.h \
+    inc/cplauncherinterface.h 

@@ -53,3 +53,5 @@ SOURCES += ../../../src/cpframework/src/cppluginloader.cpp
 SOURCES += ../../../src/cpframework/src/cppluginconfigreader.cpp
 SOURCES += ../../../src/cpframework/src/cppluginconfig.cpp
 SOURCES += ../../../src/cpframework/src/cputility.cpp
+
+symbian:MMP_RULES += SMPSAFE

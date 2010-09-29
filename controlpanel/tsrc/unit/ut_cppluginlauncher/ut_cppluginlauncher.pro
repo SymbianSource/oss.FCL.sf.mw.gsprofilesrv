@@ -38,3 +38,6 @@ symbian*: {
 	
     DEPLOYMENT += testplugindll testpluginconfig testpluginstub
 }
+
+
+symbian:MMP_RULES += SMPSAFE

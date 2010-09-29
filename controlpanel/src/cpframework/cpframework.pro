@@ -19,7 +19,6 @@ TARGET = cpframework
 
 include ( ../common.pri )
 include ( ./cpframework.pri )
-include ( ../../controlpanel_plat/inc/controlpanel_plat.pri )
 
 RESOURCES += cpframework.qrc
 
@@ -32,6 +31,7 @@ CONFIG += Hb xml
 DEFINES += BUILD_CP_FRAMEWORK
 
 LIBS += -lcplogger
-                   
-include ( cpframework_export.pri )
     
+
+
+symbian:MMP_RULES += SMPSAFE

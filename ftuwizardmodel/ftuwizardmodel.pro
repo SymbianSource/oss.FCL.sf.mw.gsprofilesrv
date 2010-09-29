@@ -52,11 +52,11 @@ symbian {
 #deployment configuration, deploy as a dll.
 symbian {
     deploy_ftuwizardmodel.sources = ftuwizardmodel.dll
-    deploy_ftuwizardmodel.path = \sys\bin
+    deploy_ftuwizardmodel.path = /sys/bin
     DEPLOYMENT += deploy_ftuwizardmodel
     BLD_INF_RULES.prj_exports += \
      "rom/ftuwizardmodel.iby  CORE_MW_LAYER_IBY_EXPORT_PATH(ftuwizardmodel.iby)"
 }
 
 #ONLY FOR DEVELOPMENT! REMOVE THIS BEFORE EACH HS_Domain RELEASE!
-symbian: MMP_RULES += EXPORTUNFROZEN
+symbian:MMP_RULES += SMPSAFE

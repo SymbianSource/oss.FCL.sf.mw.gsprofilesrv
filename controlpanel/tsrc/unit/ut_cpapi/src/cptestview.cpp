@@ -20,3 +20,5 @@ void CpTestView::testClose()
 {
     close();
 }
+
+//End of File

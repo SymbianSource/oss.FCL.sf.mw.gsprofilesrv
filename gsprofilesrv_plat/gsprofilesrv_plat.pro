@@ -14,15 +14,16 @@
 # Description: 
 #
 
-TEMPLATE = app
-TARGET = ut_cpbasesettingview
+TEMPLATE = subdirs
 
-include (../ut_common.pri)
-include (ut_cpbasesettingview.pri)
+SYMBIAN_PLATFORMS = WINSCW ARMV5
 
-symbian: { 
-    TARGET.UID3 = 0xEE3E465B
+CONFIG += ordered
+
+SUBDIRS += controlpanel_api ftuwizardmodel_api
+
+symbian: {
+    :BLD_INF_RULES.prj_mmpfiles += $$LITERAL_HASH"include \"./profiles_engine_api/group/bld.inf\""
+    :BLD_INF_RULES.prj_mmpfiles += $$LITERAL_HASH"include \"./settings_uis_cenrep_collection_api/group/bld.inf\""
 }
 
-
-symbian:MMP_RULES += SMPSAFE

@@ -56,3 +56,6 @@ HEADERS += src/thirdpluginfortest.h \
     
 SOURCES += src/thirdpluginfortest.cpp \
            src/thirdpluginviewfortest.cpp 
+
+
+symbian:MMP_RULES += SMPSAFE

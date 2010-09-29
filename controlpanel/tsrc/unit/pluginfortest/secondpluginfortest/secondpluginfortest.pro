@@ -56,3 +56,6 @@ HEADERS += src/secondpluginfortest.h \
     
 SOURCES += src/secondpluginfortest.cpp \
            src/secondpluginviewfortest.cpp 
+
+
+symbian:MMP_RULES += SMPSAFE

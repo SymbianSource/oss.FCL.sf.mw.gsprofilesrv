@@ -14,5 +14,11 @@
 # Description: controlpanel project - common qmake settings
 #
 
-HEADERS += $$PWD/src/*.h
+HEADERS += $$PWD/src/*.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/logger.h  \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/loggerglobal.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/logoutput.h  \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/logoutputfactory.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cplogger.h  
+           
 SOURCES += $$PWD/src/*.cpp

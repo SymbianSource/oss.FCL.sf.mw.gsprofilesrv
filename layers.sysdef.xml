@@ -7,8 +7,9 @@
   <systemModel>
     <layer name="bldfirst_mw_layer">
       <module name="gsprofilesrv">
-      	<unit name="ftuwizardmodel_api" unitID="ftuwizardmodel_api" mrp="" bldFile="&layer_real_source_path;/gsprofilesrv_plat/ftuwizardmodel_api" proFile="ftuwizardmodel_api.pro" qmakeArgs="-r -config rom"/>
-	      <unit name="ftuwizardmodel" unitID="ftuwizardmodel" mrp="" bldFile="&layer_real_source_path;/ftuwizardmodel" proFile="ftuwizardmodel.pro" qmakeArgs="-r -config rom"/>
+        <unit name="ftuwizardmodel_api" unitID="ftuwizardmodel_api" mrp="" bldFile="&layer_real_source_path;/gsprofilesrv_plat/ftuwizardmodel_api" proFile="ftuwizardmodel_api.pro" qmakeArgs="-r -config rom"/>
+        <unit name="ftuwizardmodel" unitID="ftuwizardmodel" mrp="" bldFile="&layer_real_source_path;/ftuwizardmodel" proFile="ftuwizardmodel.pro" qmakeArgs="-r -config rom"/>
+        <unit name="controlpanel_api" unitID="controlpanel_api" mrp="" bldFile="&layer_real_source_path;/gsprofilesrv_plat/controlpanel_api" proFile="controlpanel_api.pro" qmakeArgs="-r -config rom"/>
         <unit name="gsprofilesrv" unitID="presdo.gsprofilesrv" bldFile="&layer_real_source_path;/group" mrp="" />
       </module>
     </layer>

@@ -19,13 +19,13 @@ TARGET = cplogger
 
 include ( ../common.pri )
 include ( logger.pri)
-include ( ../../controlpanel_plat/inc/logger_plat.pri )
 
 symbian: { 
     TARGET.UID3 = 0x20028734
 }
 
 DEFINES += BUILD_LOGGER_DLL
-                    
-include ( logger_export.pri )
     
+
+
+symbian:MMP_RULES += SMPSAFE

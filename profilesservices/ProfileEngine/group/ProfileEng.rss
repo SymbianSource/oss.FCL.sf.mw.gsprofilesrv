@@ -62,7 +62,7 @@ RESOURCE DEFAULT_PROFILES r_default_profiles
             naviname = qtn_navi_mode_active_general;
             titlename = qtn_mode_title_general;
             },
-        PROFILE
+/*      PROFILE
             {
             id = EProfileSilentId;
             name = qtn_mode_silent;
@@ -70,6 +70,7 @@ RESOURCE DEFAULT_PROFILES r_default_profiles
             naviname = qtn_navi_mode_active_silent;
             titlename = qtn_mode_title_silent;
             },
+*/
         PROFILE
             {
             id = EProfileMeetingId;
@@ -77,7 +78,9 @@ RESOURCE DEFAULT_PROFILES r_default_profiles
             shortname = qtn_navi_mode_meeting;
             naviname = qtn_navi_mode_active_meeting;
             titlename = qtn_mode_title_meeting;
-            },
+            }
+/*            
+            ,
         PROFILE
             {
             id = EProfileOutdoorId;
@@ -115,7 +118,8 @@ RESOURCE DEFAULT_PROFILES r_default_profiles
             naviname = qtn_navi_mode_active_drive;
             titlename = qtn_mode_title_drive;
             }
-#endif
+#endif 
+*/
         };
     }
 

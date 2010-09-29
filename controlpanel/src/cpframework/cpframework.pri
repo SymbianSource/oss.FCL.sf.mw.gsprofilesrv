@@ -15,7 +15,19 @@
 # Description: cpframework source files
 #
 
-HEADERS += src/cpviewlauncher.h \
+HEADERS += ../../../gsprofilesrv_plat/controlpanel_api/inc/cpglobal.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpbasepath.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpplugininterface.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpsettingformitemdata.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cppluginlauncher.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpbasesettingview.h  \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpitemdatahelper.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpsettingformentryitemdata.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cpsettingformentryitemdataimpl.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cppluginloader.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cppluginutility.h \
+           ../../../gsprofilesrv_plat/controlpanel_api/inc/cplauncherinterface.h \
+           src/cpviewlauncher.h \
            src/cpbasesettingview_p.h \
            src/cpwatchdog.h \
            src/cputility.h \

@@ -27,3 +27,6 @@ include ( themeplugin.pri )
 symbian { 
     TARGET.UID3 = 0X20025FDB
 }
+
+
+symbian:MMP_RULES += SMPSAFE

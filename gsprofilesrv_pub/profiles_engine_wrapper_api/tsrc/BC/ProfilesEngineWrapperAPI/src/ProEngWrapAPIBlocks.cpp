@@ -358,11 +358,27 @@ TInt CProEngWrapAPI::RequestProfileNotificationsL()
     CleanupStack::PushL( observer );
 
     MProEngProfile* generalProfile = engine->ProfileLC( EProfileGeneralId );
-    MProEngToneSettings& ts2( generalProfile->ToneSettings() );
+//    MProEngToneSettings& ts2( generalProfile->ToneSettings() );
     TRAP_IGNORE( 
             nh->RequestProfileNotificationsL( *observer,
                                                    EProfileGeneralId ) );
-    ts2.SetVibratingAlert( !ts2.VibratingAlert() );
+    //ts2.SetVibratingAlert( !ts2.VibratingAlert() );
+    MProEngTones& pt = generalProfile->ProfileTones();
+    const TDesC& emailAlertTone = pt.EmailAlertTone();
+    _LIT( KFile1, "z:\\data\\sounds\\digital\\alarm.aac" );
+    _LIT( KFile2, "z:\\data\\sounds\\digital\\Buzzer.aac" );
+
+    TBuf<100> buf1(KFile1);
+    TBuf<100> buf2(KFile2);
+    
+    if ( emailAlertTone.Compare( buf1 ) )
+        {
+        TRAP_IGNORE( pt.SetEmailAlertToneL(buf1));
+        }
+    else 
+        {
+        TRAP_IGNORE(pt.SetEmailAlertToneL(buf2));
+        }
     generalProfile->CommitChangeL();
     iSchedulerUtility->Start();
     CleanupStack::PopAndDestroy(); // generalProfile
@@ -394,15 +410,29 @@ TInt CProEngWrapAPI::CancelProfileNotificationsL()
     CProEngVTObserver* observer = new ( ELeave ) CProEngVTObserver(*iSchedulerUtility);
     CleanupStack::PushL( observer );
     MProEngProfile* generalProfile = engine->ProfileLC( EProfileGeneralId );
-    MProEngToneSettings& ts2( generalProfile->ToneSettings() );
+//    MProEngToneSettings& ts2( generalProfile->ToneSettings() );
     TRAP_IGNORE( 
             nh->RequestProfileNotificationsL( *observer,
                                                    EProfileGeneralId ) );
-    ts2.SetVibratingAlert( !ts2.VibratingAlert() );
+    MProEngTones& pt = generalProfile->ProfileTones();
+    const TDesC& emailAlertTone = pt.EmailAlertTone();
+    _LIT( KFile1, "z:\\data\\sounds\\digital\\alarm.aac" );
+    _LIT( KFile2, "z:\\data\\sounds\\digital\\Buzzer.aac" );
+
+    TBuf<100> buf1(KFile1);
+    TBuf<100> buf2(KFile2);
+    
+    if ( emailAlertTone.Compare( buf1 ) )
+        {
+        TRAP_IGNORE( pt.SetEmailAlertToneL(buf1));
+        }
+    else 
+        {
+        TRAP_IGNORE(pt.SetEmailAlertToneL(buf2));
+        }
     generalProfile->CommitChangeL();
     iSchedulerUtility->Start();
-    //CSchedulerUtility::InstanceL()->Start(); // observer stops this
-    nh->CancelProfileNotifications( EProfileMeetingId );
+    nh->CancelProfileNotifications( EProfileGeneralId );
     CleanupStack::PopAndDestroy(); // generalProfile
     CleanupStack::PopAndDestroy( observer );
     CleanupStack::PopAndDestroy( wrapper );

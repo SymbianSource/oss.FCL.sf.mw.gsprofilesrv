@@ -23,3 +23,6 @@ include (ut_cpsettingformitemdata.pri)
 symbian: { 
     TARGET.UID3 = 0xEA4617EA
 }
+
+
+symbian:MMP_RULES += SMPSAFE

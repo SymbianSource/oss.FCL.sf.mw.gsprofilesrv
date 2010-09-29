@@ -23,3 +23,6 @@ include (ut_cpviewlauncher.pri)
 symbian: { 
     TARGET.UID3 = 0xEF52815A
 }
+
+
+symbian:MMP_RULES += SMPSAFE

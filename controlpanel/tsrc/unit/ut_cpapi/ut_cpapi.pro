@@ -11,17 +11,13 @@
 
 TEMPLATE = app
 TARGET = ut_cpapi
-QT += testlib
-CONFIG += hb qtestlib
-CONFIG += symbian_test
-
-QMAKE_EXTRA_TARGETS += test autotest
 
 DEPENDPATH += .
 INCLUDEPATH += src/ \
                ../../../src/inc \
                ../../../controlpanel_plat/inc
-LIBS += -lcpframework
+               
+include (../ut_common.pri)
 
 # Input
 HEADERS += src/ut_cpapi.h 
@@ -64,3 +60,5 @@ else:win32 {
         autotest.commands = /epoc32/RELEASE/WINSCW/udeb/ut_cpapi.exe -xml -o c:/ut_cpapi.xml
     }
 }
+
+symbian:MMP_RULES += SMPSAFE

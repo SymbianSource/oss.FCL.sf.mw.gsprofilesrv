@@ -23,3 +23,6 @@ include (ut_cpitemdatahelper.pri)
 symbian: { 
     TARGET.UID3 = 0xE1FF1D09
 }
+
+
+symbian:MMP_RULES += SMPSAFE
