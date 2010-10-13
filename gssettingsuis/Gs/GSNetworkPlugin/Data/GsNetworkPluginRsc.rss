@@ -483,12 +483,6 @@ RESOURCE AKN_ICON_ARRAY r_net_dualmode_icons
             {
             iconId = EMbmGsnetworkpluginQgn_prop_network_2g;
             maskId = EMbmGsnetworkpluginQgn_prop_network_2g_mask;
-            },
-        // forbidden operator icon
-        AKN_ICON
-            {
-            iconId = EMbmGsnetworkpluginQgn_prop_nfc_sess_closed;
-            maskId = EMbmGsnetworkpluginQgn_prop_nfc_sess_closed_mask;
             }
         };
     }

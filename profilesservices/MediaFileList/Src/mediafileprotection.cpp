@@ -234,28 +234,6 @@ TBool CMFProtectionHandler::IsFileValid( const TDesC& aFileName,
 
 
 // -----------------------------------------------------------------------------
-// CMFProtectionHandler::IsFlieDRMExpired
-// 
-// Check if the DRM protect file is expired or have no rights.
-// -----------------------------------------------------------------------------
-//
-TBool CMFProtectionHandler::IsFlieDRMExpired( const TDesC& aFileName )
-    {
-    // Check whether the file can be set as automated content or not
-    TBool canSetAutomated = EFalse;
-    TInt canSetAutomatedErr = iDRMHelper->CanSetAutomated( aFileName, canSetAutomated );
-    
-    // Check if rights expried or no rights to use
-    if ( canSetAutomatedErr == DRMCommon::ERightsExpired ||
-        canSetAutomatedErr == DRMCommon::ENoRights )
-        {
-        return ETrue;
-        }
-    return EFalse;
-    }
-
-
-// -----------------------------------------------------------------------------
 // CMFProtectionHandler::IsFileValidL
 // 
 // Function is copy from CFLDDRMImplementation.cpp.

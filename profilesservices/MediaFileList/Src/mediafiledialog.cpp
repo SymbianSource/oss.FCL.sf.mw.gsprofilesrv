@@ -2178,38 +2178,6 @@ void CMediaFileDialog::UpdateListBoxL( TBool aRestFindBox )
     iListBox->MakeVisible( ETrue );
     }
 
-// ----------------------------------------------------------------------------
-// CMediaFileDialog::FilterInvalidFiles
-// 
-// Filters the invalid files from media file handler
-// invalid files = rights expired DRM Protected files and no right files
-// ----------------------------------------------------------------------------
-//
-void CMediaFileDialog::FilterInvalidFiles()
-    {
-    TInt count = iMediaFileHandler->ResultCount();
-    
-    for ( TInt idx = 0; idx < count; )
-        {
-        // check the validity
-        GetSelectedItemFileName( idx, iBuf );
-        if ( iProtectionHandler->IsFlieDRMExpired( iBuf ) )
-            {
-            // remove the item from handler in case of invalid file
-            iMediaFileHandler->Remove( idx );
-            
-            // if an item was removed from handler, the idx will not 
-            // be changed and the count will be decreased one. after 
-            // recalculate the count, the next item will be checked in next loop.
-            count = iMediaFileHandler->ResultCount();
-            }
-        else
-            {
-            // just increase the idx in case of valid file
-            idx++;
-            }
-        }
-    }
 
 // ----------------------------------------------------------------------------
 // CMediaFileDialog::DoUpdateListBoxL
@@ -2219,8 +2187,6 @@ void CMediaFileDialog::FilterInvalidFiles()
 //
 void CMediaFileDialog::DoUpdateListBoxL( TBool aRestFindBox )
     {
-    // filter the invalid files to avoid showing in the list box
-    FilterInvalidFiles();
     iState->SetUnknownFolderPosition( iMediaFileHandler->ResultCount() );
     
     // check current item index in case media file database has changed
@@ -3122,38 +3088,61 @@ void CMediaFileDialog::HandleListBoxEventL( CEikListBox* /*aListBox*/,
                                              TListBoxEvent aEventType )
     {
     TInt current = iState->CurrentFolder();
-    if ( aEventType == EEventPenDownOnItem)
-         {
-         iListBox->View()->ItemDrawer()->SetFlags( CListItemDrawer::EPressedDownState );
-         return;
-         }
     
-    if ( aEventType == EEventItemClicked )
+    switch ( aEventType )
         {
-        	  iIsDoubleClicked = EFalse;
-        if ( current != KErrNotFound )
+        case EEventPenDownOnItem:
             {
-            HandleOKL( EAttrOpen );  // open folder item
+            iListBox->View()->ItemDrawer()->SetFlags( CListItemDrawer::EPressedDownState );
+            break;
             }
-        return;
-        }
-
-    if ( aEventType == EEventItemDoubleClicked || aEventType == EEventEnterKeyPressed )
-        {
-        iIsDoubleClicked = ETrue;
-        TBool closeDialog = HandleOKL( EAttrDoubleClicked );
-        
-        if ( closeDialog )
+            
+        case EEventItemClicked:
             {
-            // close after short delay (dialog cannot be closed from this function)
-            CloseDialogWithDelayL();
-            }        
+            iIsDoubleClicked = EFalse;
+
+            if ( current != KErrNotFound )
+              {
+              HandleOKL( EAttrOpen );  // open folder item
+              }
+            break;
+            }
+            
+        case EEventItemDoubleClicked:
+        case EEventEnterKeyPressed:
+            {
+            iIsDoubleClicked = ETrue;
+            TBool closeDialog = HandleOKL( EAttrDoubleClicked );
+        
+            if ( closeDialog )
+                {
+                // close after short delay (dialog cannot be closed from this function)
+                CloseDialogWithDelayL();
+                }        
+            break;
+            }
+            
+        case EEventItemDraggingActioned:
+            {
+            UpdateCbaL( KErrNone );
+            DrawNow();
+            break;
+            }
+            
+        case EEventFlickStarted:
+        case EEventPanningStarted:
+            {
+            //cancel preview if Kinetic scrolling is started
+            if ( iCaller )
+                {
+                iCaller->Cancel();
+                }
+            break;
+            }
+            
+        default:
+            break;
         }
-    if ( aEventType == EEventItemDraggingActioned )
-    	{
-    	UpdateCbaL( KErrNone );
-    	DrawNow();
-    	}
     }
 
 

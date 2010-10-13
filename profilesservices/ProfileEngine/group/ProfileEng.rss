@@ -27,7 +27,7 @@ NAME    PFE2
 #include "Profile.hrh"
 #include <ProfileEng.rh>
 #include <ProfileEng.hrh>
-#include <Profile.loc>
+#include <profile.loc>
 
 //  CONSTANTS
 //  MACROS

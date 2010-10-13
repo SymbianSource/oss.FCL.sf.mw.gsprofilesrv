@@ -27,7 +27,7 @@
 #include    "CProEngProfileImpl.h"
 #include    "CProEngToneHandler.h"
 #include    "CProEngProfileNameArrayImpl.h"
-#include    <proengwrapper.rsg>
+#include    <ProEngWrapper.rsg>
 #include    <ConeResLoader.h>
 #include 	<startupdomainpskeys.h>
 #include    <StringLoader.h>

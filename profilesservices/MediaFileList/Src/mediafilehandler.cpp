@@ -1536,20 +1536,6 @@ TInt CMediaFileHandler::ResultCount()
     return iSearchList->Count();
     }
 
-// -----------------------------------------------------------------------------
-// CMediaFileHandler::Remove
-// Remove an item from list of search reuslt
-// -----------------------------------------------------------------------------
-//
-void CMediaFileHandler::Remove( TInt aIndex )
-    {
-    if( aIndex >= ResultCount() )
-        {
-        // Invalid index
-        return;
-        }
-    iSearchList->Remove( aIndex );    
-    }
     
 // -----------------------------------------------------------------------------
 // CMediaFileHandler::UnknownArtistCount
@@ -2954,15 +2940,6 @@ TInt CSearchList::SearchId()
     return iSearchId;
     }
 
-// -----------------------------------------------------------------------------
-// CSearchList::Remove
-// Remove an item from the list of search results
-// -----------------------------------------------------------------------------
-//
-void CSearchList::Remove( TInt aIndex )
-    {
-    iList.Remove( aIndex );
-    }
 
 // -----------------------------------------------------------------------------
 // CSearchList::TakeResultL

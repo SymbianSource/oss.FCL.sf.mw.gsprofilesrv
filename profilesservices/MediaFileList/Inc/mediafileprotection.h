@@ -92,13 +92,6 @@ NONSHARABLE_CLASS (CMFProtectionHandler) : public CBase
         TBool IsFileValid( const TDesC& aFileName, TIntention aIntention );
         TBool IsVideoValidL( const TDesC& aFileName, TIntention aIntention );
         TBool IsVideoValid( const TDesC& aFileName, TIntention aIntention );
-        
-        /**
-        * Check if the DRM protect file is expired or have no rights to use.
-        * @param aFileName Full path and filename.
-        * @return ETrue if the file is DRM expired or have rights to use.
-        */
-        TBool IsFlieDRMExpired( const TDesC& aFileName );
 
         void SetAttrL( TInt aAttr, TInt aValue );
         void SetAttrL( TInt aAttr, const TDesC& aValue );

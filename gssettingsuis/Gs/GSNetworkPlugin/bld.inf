@@ -42,8 +42,7 @@ START EXTENSION s60/mifconv
   OPTION HEADERFILE gsnetworkplugin.mbg
   OPTION SOURCES \
     -c8,8 qgn_prop_set_network_sub -c8,8 qgn_prop_set_network_sub_offline -c8,8 qgn_prop_set_network_tab4 \
-		-c8,1 qgn_prop_network_3g -c8,1 qgn_prop_network_2g \
-		-c8,8 qgn_prop_nfc_sess_closed
+		-c8,1 qgn_prop_network_3g -c8,1 qgn_prop_network_2g
 END
 
 
