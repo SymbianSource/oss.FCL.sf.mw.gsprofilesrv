@@ -1,0 +1,30 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSResources ROM files.
+*
+*/
+
+#ifndef GSRESOURCES_IBY
+#define GSRESOURCES_IBY
+
+  #ifndef RD_GS_RENOVATION
+
+    //Resource file(s) for GENERAL SETTINGS application (Gs.iby)
+    data=DATAZ_\APP_RESOURCE_DIR\gs.rsc          APP_RESOURCE_DIR\gs.rsc
+    data=DATAZ_\RESOURCE_FILES_DIR\softreject.rsc   RESOURCE_FILES_DIR\softreject.rsc
+
+  #endif // RD_GS_RENOVATION
+
+#endif  // GSRESOURCES_IBY
+// End of File

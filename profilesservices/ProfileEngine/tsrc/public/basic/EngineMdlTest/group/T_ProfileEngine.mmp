@@ -27,7 +27,7 @@
 #define         KEUnitTestDllUid2 0x1000af5a
 
 // Build target
-TARGET          T_ProfileEngine.dll
+TARGET          t_profileengine.dll
 TARGETTYPE      dll
 TARGETPATH      ../../../../wins/c/DigiaEUnit/Tests
 UID             KEUnitTestDllUid2 KEUnitUid3
@@ -60,14 +60,14 @@ APP_LAYER_SYSTEMINCLUDE
 
 // Dependencies to system components
 LIBRARY         euser.lib
-LIBRARY         EUnit.lib
-LIBRARY         EUnitutil.lib
+LIBRARY         eunit.lib
+LIBRARY         eunitutil.lib
 LIBRARY         efsrv.lib
 LIBRARY         bafl.lib
-LIBRARY         PbkEng.lib
+LIBRARY         pbkeng.lib
 LIBRARY         cntmodel.lib
-LIBRARY         CommonEngine.lib
+LIBRARY         commonengine.lib
 LIBRARY         centralrepository.lib
 
 // Dependencies to Profiles components
-LIBRARY         ProfileEng.lib
+LIBRARY         profileeng.lib

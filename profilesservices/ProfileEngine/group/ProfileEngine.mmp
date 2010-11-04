@@ -19,7 +19,7 @@
 #include <platform_paths.hrh>
 #include <data_caging_paths.hrh>
 
-TARGET          ProfileEngine.dll
+TARGET          profileengine.dll
 TARGETTYPE      dll
 
 UID             0x1000008d 0x100058FA
@@ -50,9 +50,9 @@ SOURCE          CProEngProfileEventDelegate.cpp
 SOURCE          CProEngMediaVariation.cpp
 SOURCE          CProEngPostFilter.cpp
 SOURCE          ProEngFactory.cpp
-SOURCE          ProEngMmfInfoUtility.cpp 
+SOURCE          ProEngMmfInfoUtility.cpp
 
-START RESOURCE  ProEngWrapper.rss
+START RESOURCE  proengwrapper.rss
   HEADER
   TARGETPATH    RESOURCE_FILES_DIR
   LANGUAGE_IDS
@@ -62,7 +62,6 @@ USERINCLUDE     .
 USERINCLUDE     ../WrapperInc
 USERINCLUDE     ../EngInc
 
-MW_LAYER_SYSTEMINCLUDE
 APP_LAYER_SYSTEMINCLUDE
 
 LIBRARY         bafl.lib
@@ -72,10 +71,15 @@ LIBRARY         profileeng.lib
 LIBRARY         apgrfx.lib  // RApaLSSession
 LIBRARY         apmime.lib  // TDataType
 LIBRARY         efsrv.lib  // RFs, TParse
-LIBRARY         PlatformEnv.lib  // PathInfo
-LIBRARY         ContentListingFramework.lib
+LIBRARY         aknnotify.lib // CAknGlobalNote
+LIBRARY         platformenv.lib  // PathInfo
+LIBRARY         contentlistingframework.lib
 LIBRARY         mmfcontrollerframework.lib
-
-LIBRARY         DRMCommon.lib
-LIBRARY         DrmRights.lib
+LIBRARY         avkon.lib 
+LIBRARY         eikcdlg.lib 
+LIBRARY         eikctl.lib 
+LIBRARY	        commonengine.lib 
+LIBRARY         cone.lib
+LIBRARY         drmcommon.lib
+LIBRARY         drmrights.lib
 LIBRARY		caf.lib	cafutils.lib // Content access framework

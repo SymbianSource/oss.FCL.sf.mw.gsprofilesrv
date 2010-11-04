@@ -56,22 +56,6 @@ const TUint32 KProEngDefaultMessageTone = 0x7F000006;
 const TUint32 KProEngDefaultImTone = 0x7F00000C;
 
 /**
- * Default reminder tone for all profiles. String value. Read-only.
- * 
- * Central Repository file of the key: KCRUidProfileEngine.
- *
- */
-const TUint32 KProEngDefaultReminderTone = 0x7F00001B;
-
-/**
- * Default clock alarm tone for all profiles. String value. Read-only.
- * 
- * Central Repository file of the key: KCRUidProfileEngine.
- *
- */
-const TUint32 KProEngDefaultClockAlarmTone = 0x7F00001C;
-
-/**
  * This integer indicates the maximum file size (kilo bytes) of ring tone
  * files that can be selected as voice call ringing tone.
  *

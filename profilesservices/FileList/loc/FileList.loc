@@ -1,0 +1,53 @@
+/*
+* Copyright (c) 2002 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*     This is a localisation file for FileList module.
+*     A .loc file is the one and only place where the logical strings
+*     to be localised are defined.
+*
+*
+*/
+
+
+//d: Error message text for non-supported file formats
+//l: popup_note_window
+//
+#define qtn_file_format_error "Tone format not supported"
+
+//d: The first item in the tone selection list.
+//d: Launches browser for downloading new tones.
+//l: list_single_graphic_pane_t1_cp2
+//
+#define qtn_profiles_download_tones "Download tones"
+
+//d: Softkey label for previewing video files
+//l: control_pane_t1/opt7
+//w:
+//r:3.1
+#define text_softkey_preview "Preview"
+
+//d: Error message text for non-supported file formats
+//l: popup_note_window
+//w:
+//r:3.1
+#define qtn_profiles_info_tone_drm_protected "Protected file. Cannot be selected as ringing tone."
+
+//d: Error message indicating that because of a lack of memory, only
+//d: tones on ROM will be displayed.
+//l: popup_note_window
+//w:
+//r:5.0
+#define qtn_profiles_error_not_enough_memory "Not enough memory to display all tones. Only tones in ROM memory are displayed."
+
+// End of File

@@ -1,0 +1,412 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Localization strings for GSDsplPlugin.
+*
+*/
+
+
+//  LOCALISATION STRINGS
+
+//d:Text of a list item in device view's list
+//d:Item opens Display setting view
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_device_display "Display"
+
+//d:Text in title pane
+//d:Display setting list view
+//l:title_pane_t2/opt9
+//w:
+//r:3.1
+//
+#define qtn_set_title_display "Display settings"
+
+//d:Text of a list item in Display setting list view's list
+//d:Item opens Contrast setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_display_contrast "Contrast"
+
+//d:Text of a list item in Display setting list view's list
+//d:Item opens Brightness setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_disp_brightness "Brightness"
+
+//d:Text of a list item in Display setting list view's list
+//d:Item opens Color palette setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_color_palette "Color palette"
+
+//d:Text of a list item in Display setting list view's list
+//d:Item opens Screen saver time-out setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_sanim_time_out "Screen and keyguard time-out"
+
+
+//d:Text of a list item in Display setting list view's list
+//d:Item opens Backlight time-out setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_light_time "Backlight time-out"
+
+
+// **CONTRAST
+
+//d:Text in slider control
+//d:Contrast setting page
+//d:Minimum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_set_contrast_light "lighter"
+
+//d:Text in slider control
+//d:Contrast setting page
+//d:Maximum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_set_contrast_dark "darker"
+
+
+// **BRIGHTNESS
+
+//d:Text in slider control
+//d:Brightness setting page
+//d:Minimum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_set_brightness_bright "bright"
+
+//d:Text in slider control
+//d:Brightness setting page
+//d:Maximum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_set_brightness_dark "dark"
+
+
+// **SCREEN SAVER
+
+//d:Text in setting list item's current value field
+//d:Screen saver time-out setting item
+//d:Current value
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.2
+//
+#define qtn_sanim_time_out_slider_cur_value "%U minutes"
+
+//d:The singular text in setting list item's current value field
+//d:Screen saver time-out setting item
+//d:Current value
+//l:list_set_graphic_pane_t1
+//w:
+//r:5.2
+//
+#define qtn_sanim_time_out_slider_cur_value_singular "%U minute"
+
+
+//d:Text in slider control
+//d:Screen saver time-out setting page
+//d:Minimum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.2
+//
+#define qtn_sanim_time_out_slider_min_value "1 min." 
+
+//d:Text in slider control
+//d:Screen saver time-out setting page
+//d:Maximum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.2
+//
+#define qtn_sanim_time_out_slider_max_value "30 min."
+
+
+// ************************************
+
+// **BACKLIGHT TIMEOUT
+
+//d:Text in setting list item's current value field
+//d:Backlight time-out setting item
+//d:Current value when it's > 1 minute (?)
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_backlight_time_out_slider_cur "%U seconds"
+
+
+//d:Text in slider control
+//d:Backlight time-out setting page
+//d:Minimum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_backlight_time_out_slider_min "5sec" 
+
+//d:Text in slider control
+//d:Backlight time-out setting page
+//d:Maximum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.1
+//
+#define qtn_backlight_time_out_slider_max "60sec"
+
+
+// **AMBIENT LIGHT SENSOR
+
+//d:Text of a list item in display setting list view's list
+//d:Item opens Ambient Light Sensor settings page
+//l:list_setting_pane_t1
+//w:
+//r:3.0
+//
+#define qtn_set_light_sensor_mode "Light sensor"
+
+//d:Text in slider control
+//d:Ambient Light Sensor setting page
+//d:Maximum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.0
+//
+#define qtn_set_light_sensor_bright "Bright"
+
+//d:Text in slider control
+//d:Ambient Light Sensor setting page
+//d:Minimum value
+//l:setting_slider_pane_t2
+//w:
+//r:3.0
+//
+#define qtn_set_light_sensor_dark "Dark"
+
+
+// **WELCOME NOTE SETTING PAGE
+
+//d:Text of a list item in general setting list view's list
+//d:Item opens Welcome note or image setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_uwn "Welcome note or image"
+
+//d:Text in setting list item's current value field
+//d:Item in Welcome note setting page's list
+//d:Setting value Default
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_uwn_default "Default"
+
+//d:Text in setting list item's current value field
+//d:Item in Welcome note setting page's list
+//d:Setting value Text
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_uwn_text "Text"
+
+//d:Text in setting list item's current value field
+//d:Item in Welcome note setting page's list
+//d:Setting value Image
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_uwn_image "Image"
+
+
+//d:Promt text in Welcome note text query
+//d:Data query
+//l:popup_query_data_window
+//w:
+//r:3.1
+//
+#define qtn_set_uwn_enter_text "Enter welcome note:"
+
+
+// **BACKGROUND IMAGE
+
+//d:Text of a list item in idle state setting list view's list
+//d:Item opens Background image setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_bgimage "Background image"
+
+//d:Text in setting list item's current value field
+//d:Item in Background image setting page's list
+//d:Setting value No image
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_bgimage_no "No image"
+
+//d:Text in setting list item's current value field
+//d:Item in Background image setting page's list
+//d:Setting value Image
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_bgimage_image "Image"
+
+
+// ****************** NEW ******************
+// **DISPLAY TEXT SIZE
+
+//d:Text of a list item in display setting list view's list
+//d:Item opens Display text size settings page
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_disp_text_size "Display text size"
+
+//d:Text in setting list item's current value field
+//d:Item in Display text size setting page's list
+//d:Setting value Large
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_disp_text_size_large "Large"
+
+//d:Text in setting list item's current value field
+//d:Item in Display text size setting page's list
+//d:Setting value Normal
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_disp_text_size_normal "Normal"
+
+//d:Text in setting list item's current value field
+//d:Item in Display text size setting page's list
+//d:Setting value Small
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_disp_text_size_small "Small"
+
+
+// **POWER SAVE LED MODE
+
+//d:Text of a list item in display setting list view's list
+//d:Item opens Powersave LED setting page
+//l:list_setting_pane_t1
+//w:
+//r:3.0
+//
+#define qtn_sanim_objec_power_save_led "Power save LED"
+
+//d:Text in setting list item's current value field
+//d:Item in Powersave LED setting page's list
+//d:Setting value ON
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.0
+//
+#define qtn_sanim_power_save_on "On"
+
+//d:Text in setting list item's current value field
+//d:Item in Powersave LED setting page's list
+//d:Setting value OFF
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.0
+//
+#define qtn_sanim_power_save_off "Off"
+
+//d:Text for image too large information note
+//d:Shown when selected background or welcome note image is too large to be opened 
+//  in memory
+//l:popup_note_window
+//
+#define qtn_set_image_too_large "Image size is too large. Image can not be selected."
+
+
+//CONTROL PANEL
+
+//d:Text when settings item is blocked.
+//l:popup_note_window
+//w: 
+//r:3.2
+//
+#define qtn_power_saving_protected_settings_infonote "Power saving is active. Unable to edit."
+
+
+//d:Operator logo plugin caption
+//d:Operator logo
+//l:list_setting_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_oper_logo "Operator logo"
+
+
+//d:Operator logo off text
+//d:Operator logo
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_oper_logo_off "Off"
+
+
+//d:Operator logo on text
+//d:Operator logo
+//l:list_set_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_oper_logo_on "On"
+
+// End of File
+
+

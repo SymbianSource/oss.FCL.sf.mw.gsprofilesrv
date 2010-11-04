@@ -1,0 +1,116 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSCallDivertPlugin project file.
+*
+*/
+
+#include  <data_caging_paths.hrh>    // For RESOURCE_FILES_DIR
+
+#include <platform_paths.hrh>
+
+CAPABILITY          CAP_ECOM_PLUGIN
+TARGET              gscalldivertplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x102824A3
+VENDORID            VID_DEFAULT
+
+SOURCEPATH  Src  // /GSTelPlugin
+SOURCE      GSCallDivertPluginImplementationTable.cpp
+SOURCE      GSLocalBaseView.cpp
+SOURCE      GSRestrictedDivertContainer.cpp
+SOURCE      GSCallDivertPluginContainer.cpp
+SOURCE      GSCallDivertPlugin.cpp
+SOURCE      GSCallDivertContainer.cpp
+SOURCE      GSCallDivertView.cpp
+SOURCE      GSCallDivertModel.cpp
+
+//SOURCE      GSTelPlugin.cpp
+//SOURCE      GSTelPluginContainer.cpp
+//SOURCE      GSTelPluginModel.cpp
+
+SOURCE      GSCallDivertQuery.cpp
+
+//User include paths
+USERINCLUDE     Inc
+USERINCLUDE     Data // For *.rh
+USERINCLUDE     loc
+USERINCLUDE     ../Data
+USERINCLUDE     ../Logger
+USERINCLUDE     ../GSTelPlugin/Inc
+
+// The above include is required becasue of secuicodequerydialog.h
+
+//System include paths
+SYSTEMINCLUDE   /epoc32/include/ecom
+SYSTEMINCLUDE   /epoc32/include/cshelp
+// Default system include paths for middleware layer modules.
+APP_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      Data
+
+START RESOURCE  102824a3.rss
+TARGET          gscalldivertplugin.rsc
+END
+
+START RESOURCE  gscalldivertpluginrsc.rss
+DEPENDS gsapp.rsg
+HEADER
+TARGETPATH      RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+LIBRARY   aknskins.lib          // for enhanced skinning
+LIBRARY   aknskinsrv.lib        // for enhanced skinning
+LIBRARY   avkon.lib
+LIBRARY   bafl.lib
+LIBRARY   centralrepository.lib
+LIBRARY   cenrepnotifhandler.lib
+LIBRARY   commonengine.lib      // For RConeResourceLoader
+LIBRARY   cone.lib
+LIBRARY   ecom.lib
+LIBRARY   efsrv.lib
+LIBRARY   eikcoctl.lib
+LIBRARY   eikcore.lib
+LIBRARY   eikctl.lib
+LIBRARY   etelmm.lib            // security, network, call
+LIBRARY   euser.lib
+LIBRARY   featmgr.lib           // Feature manager
+LIBRARY   gsecomplugin.lib
+LIBRARY   gsframework.lib       // For base classes
+LIBRARY   gslistbox.lib         // For CGSListBoxItemTextArray
+LIBRARY   pbkeng.lib
+LIBRARY   pbkview.lib
+LIBRARY   phoneclient.lib       // handle phonenumbers
+LIBRARY   phonesettings.lib
+LIBRARY   psui.lib              // phone settings notes UI
+LIBRARY   sssettings.lib        // Supplementary settings
+LIBRARY   numbergrouping.lib
+LIBRARY   flogger.lib // For GSLogger
+
+LIBRARY   aknnotify.lib         // for CAknGlobalNote.h
+LIBRARY   hlplch.lib            // for "Help" options menu
+LIBRARY   eikdlg.lib            // eikon dialogs
+LIBRARY   apgrfx.lib
+LIBRARY   servicehandler.lib    // AIW
+
+LIBRARY   vpbkeng.lib           // Phonebook2
+LIBRARY   pbk2presentation.lib  // Phonebook2
+
+SOURCEPATH      Data
+DOCUMENT        102824a3.rss
+DOCUMENT        gscalldivertpluginrsc.rss
+
+
+// End of File
+

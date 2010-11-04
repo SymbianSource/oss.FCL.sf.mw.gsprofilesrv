@@ -1,0 +1,261 @@
+/*
+* Copyright (c) 2002, 2003 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*       This file contains the localised strings for call forward folder in gs
+*
+*/
+
+
+//d: title for call settings folder
+//l: list_single_large_graphic_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_set_folder_divert "Call Divert"
+
+//d: title for call divert settings folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_cf "Call divert"
+
+//d: option in call forward's list, divert all voice calls
+//l: list_double2_pane
+//
+#define qtn_div_dlist_all "All voice calls"
+
+//d: option in call forward's list, divert all video calls
+//l: list_double2_pane
+//
+#define qtn_div_dlist_all_video "All video calls"
+
+//d: option in call forward's list, divert all voice calls
+//l: list_double2_pane
+//
+#define qtn_div_dlist_busy "If busy"
+
+//d: option in call forward's list, divert when not answered
+//l: list_double2_pane
+//
+#define qtn_div_dlist_noreply "If not answered"
+
+//d: option in call forward's list, divert when off or no coverage
+//l: list_double2_pane
+//
+#define qtn_div_dlist_notavail "If not available"
+
+//d: option in call forward's list, divert busy, no answer, off or no coverage
+//l: list_double2_pane
+//
+#define qtn_div_dlist_outreach "If out of reach"
+
+//d: option in call forward's list, divert all fax calls
+//l: list_double2_pane
+//
+#define qtn_div_dlist_faxall "All fax calls"
+
+//d: option in call forward's list, divert all data calls
+//l: list_double2_pane
+//
+#define qtn_div_dlist_dataall "All data calls"
+
+//d: activating highlighted call forward
+//l: list_single_pane_t1_cp2
+//
+#define text_activate_divert "Activate"
+
+//d: cancelling highlighted call forward
+//l: list_single_pane_t1_cp2
+//
+#define text_cancel_divert "Cancel"
+
+//d: checking status of highlighted call forward
+//l: list_single_pane_t1_cp2
+//
+#define text_check_status "Check status"
+
+//d: option in call forward's list, cancelling all diverts
+//l: list_single_pane_t1_cp2
+//
+#define text_cancel_all_diverts "Cancel all diverts"
+
+//d: heading to call forward's menu list, divert all voice calls  
+//l: heading_pane_t1
+//
+#define qtn_div_title_all "All voice calls"
+
+//d: heading to call forward's menu list, divert all video calls  
+//l: heading_pane_t1
+//
+#define qtn_div_title_all_video "All video calls"
+
+//d: heading to call forward's menu list, divert all voice calls  
+//l: heading_pane_t1
+//
+#define qtn_div_title_busy "If busy"
+
+//d: heading to call forward's menu list, divert when not answered  
+//l: heading_pane_t1
+//
+#define qtn_div_title_not_answered "If not answered"
+
+//d: heading to call forward's menu list, divert when off or no coverage
+//l: heading_pane_t1
+//
+#define qtn_div_title_not_reach "If out of reach"
+
+//d: heading to call forward's menu list; CFB, CFNRly or CFNRch
+//l: heading_pane_t1
+//
+#define qtn_div_title_not_available "If not available"
+
+//d: heading to call forward's menu list, divert all fax calls
+//l: heading_pane_t1
+//
+#define qtn_div_title_all_fax "All fax calls"
+
+//d: heading to call forward's menu list, divert all data calls
+//l: heading_pane_t1
+//
+#define qtn_div_title_all_data "All data calls"
+
+//d: diverting call to the voice mailbox
+//l: list_single_pane_t1_cp2
+//
+#define text_divert_to_voice_mail "To voice mailb."
+
+//d: diverting call to some other number
+//l: list_single_pane_t1_cp2
+//
+#define text_divert_to_number "To other No."
+
+//d: entering number to which the forward is targeted, prompt to data query
+//l: popup_query_data_window
+//
+#define qtn_div_prmpt_number "Number: "
+
+//d: entering number to which the fax divert is targeted, prompt to data query
+//l: popup_query_data_window
+//
+#define qtn_div_prmpt_fax_number "Enter number: "
+
+//d: entering number to which the data divert is targeted, prompt to data query
+//l: popup_query_data_window
+//
+#define qtn_div_prmpt_data_number "Enter number: "
+
+//d: entering number to which the video divert is targeted, prompt to data query
+//l: popup_query_data_window_t3/opt2
+//
+#define qtn_ss_prmpt_video_number "Number: "
+
+//d: information note when divert succesfully deactivated
+//l: heading_pane_t1
+//
+#define qtn_div_heading_delay "Select delay time"
+
+//d: list to choose from when activating divert with possible timing
+//d: %N stands for numbers 5,10,15,20,25,30
+//l: list_single_pane_t1_cp2
+//
+#define qtn_div_slist_seconds "%N seconds"
+
+//d: error note text when entering invalid phone number
+//l: popup_note_window
+//
+#define text_invalid_number "Phone number not valid"
+
+//d: title for voice call divert settings sub-folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_voice "Voice call diverts"
+
+//d: title for data call divert settings sub-folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_data "Data call diverts"
+
+//d: title for data and video call divert settings sub-folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_data_video "Data and video call diverts"
+
+//d: title for video call divert settings sub-folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_video "Video call diverts"
+
+//d: title for fax call divert settings sub-folder
+//l: title_pane_t2/opt9
+//
+#define qtn_div_heading_fax "Fax call diverts"
+
+//d: selection in call divert menu, divert voice calls
+//l: list_double2_pane
+//
+#define qtn_div_voice_calls "Voice calls"
+
+//d: selection in call divert menu, divert data calls
+//l: list_double2_pane
+//
+#define qtn_div_data_calls "Data calls"
+
+//d: selection in call divert menu, divert data and video calls
+//l: list_double2_pane
+//
+#define qtn_div_data_video_calls "Data and video calls"
+
+//d: selection in call divert menu, divert fax calls
+//l: list_double2_pane
+//
+#define qtn_div_fax_calls "Fax calls"
+
+//d: data & video calls selection in call forward's selection list
+//l: list_double2_pane
+//
+#define qtn_div_dlist_all_data_video "All data and video calls"
+
+//d: selection in call divert menu, divert video calls
+//l: list_double2_pane
+//
+#define qtn_div_video_calls "Video calls"
+
+//d: diverting video call to the video mailbox
+//l: list_single_pane_t1_cp2
+//w:
+//r:3.1    
+//
+#define qtn_ss_divert_to_video_mailbox "To video mailbox"
+
+//d: diverting video call to other number user defined number
+//l: list_single_pane_t1_cp2
+//w:
+//r:3.1    
+//
+#define qtn_ss_divert_vcall_to_other_number "To other number"
+
+//d: selection in restricted call divert menu, call forward settings
+//l: list_double2_pane
+//w:
+//r:3.1
+//
+#define qtn_div_restricted "Call forward settings"
+
+//d: Title for forwarding all data and video calls popup menu
+//l: heading_pane_t1
+//w:
+//r:3.1
+//
+#define qtn_div_title_all_data_and_videocalls "All data & video calls"
+
+// End of File

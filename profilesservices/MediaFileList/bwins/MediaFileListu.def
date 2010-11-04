@@ -1,0 +1,9 @@
+EXPORTS
+	?NewL@CMediaFileList@@SAPAV1@XZ @ 1 NONAME ; class CMediaFileList * CMediaFileList::NewL(void)
+	?SetAttrL@CMediaFileList@@QAEXHABVTDesC16@@@Z @ 2 NONAME ; void CMediaFileList::SetAttrL(int, class TDesC16 const &)
+	?SetAttrL@CMediaFileList@@QAEXHH@Z @ 3 NONAME ; void CMediaFileList::SetAttrL(int, int)
+	?SetAttrL@CMediaFileList@@QAEXHPAX@Z @ 4 NONAME ; void CMediaFileList::SetAttrL(int, void *)
+	?SetNullItemL@CMediaFileList@@QAEXABVTDesC16@@0HH@Z @ 5 NONAME ; void CMediaFileList::SetNullItemL(class TDesC16 const &, class TDesC16 const &, int, int)
+	?ShowMediaFileListL@CMediaFileList@@QAEHPAVTDes16@@PAH10@Z @ 6 NONAME ; int CMediaFileList::ShowMediaFileListL(class TDes16 *, int *, int *, class TDes16 *)
+	??1CMediaFileList@@UAE@XZ @ 7 NONAME ; CMediaFileList::~CMediaFileList(void)
+

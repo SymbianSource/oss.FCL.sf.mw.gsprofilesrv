@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<api id="e634fa58b60038f0594c2cdc76854051" dataversion="2.0">
+  <name>Settings Backgroundimage API</name>
+  <description>Sets &amp; gets background image, welcome bitmap</description>
+  <type>c++</type>
+  <collection>gssettingsuis</collection>
+  <libs>
+    <lib name="BackgroundImage.lib" />
+  </libs>
+  <release category="platform"/>
+  <attributes>
+     <!-- This indicates wether the api provedes separate html documentation -->
+     <!-- or is the additional documentation generated from headers. -->
+     <!-- If you are unsuere then the value is "no" -->
+     <htmldocprovided>no</htmldocprovided>
+     <adaptation>no</adaptation>
+  </attributes>
+</api>

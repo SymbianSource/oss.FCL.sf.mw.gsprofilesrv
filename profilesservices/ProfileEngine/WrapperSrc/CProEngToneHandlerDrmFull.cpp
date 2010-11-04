@@ -22,7 +22,9 @@
 
 #include    <DRMHelper.h>
 #include    <DRMCommon.h>
-#include    <ProEngWrapper.rsg>
+#include    <proengwrapper.rsg>
+
+#include <caf/caf.h>
 
 
 // ============================ LOCAL FUNCTIONS ================================

@@ -1,0 +1,70 @@
+/*
+* Copyright (c) 2002 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*     This file contains declarations for resources of File List.
+*     The file can be included only in resource file.
+*     
+*
+*/
+
+
+#include <FileListModel.hrh>
+
+//  STRUCTURE DEFINITIONS
+    
+// ---------------------------------------------------------
+//    FILELISTDIRECTORIES
+// ---------------------------------------------------------
+//
+/**
+
+  Content Listing Framework won't scan the ROM so we must
+  define which ROM directories are wanted into FileList model.
+  These definitions are put into RomDirectories -section.
+  
+  If user wants to define specific locations where tones are
+  searched in phone ( C: and E: ), these definitions are put into
+  PhoneDirectories -section. NOTE: these locations must be
+  inside C:\\data and E: folders ( including subdirectories ).
+  If this definition is left empty, use all the locations
+  scanned by CLF.
+    
+  Here is an example of the usage:
+  
+  RESOURCE FILELISTDIRECTORIES r_fld_directories
+    {
+    // Scan these ROM directories
+    RomDirectories =
+        {
+        LBUF { txt = text_rom_root_path text_sounds_path; },
+        LBUF { txt = text_rom_root_path text_digital_sounds_path; },
+        LBUF { txt = text_rom_root_path text_simple_sounds_path; }
+        };
+    
+    // Show only these these phone directories.
+  	PhoneDirectories =
+        {
+        LBUF { txt = "c:\\data\\sounds\\simple\\"; }
+        };   
+*/
+    
+STRUCT FILELISTDIRECTORIES
+	{    
+	// LTEXT array of ROM directories to be scanned
+    STRUCT RomDirectories[];
+    
+    // LTEXT array of directories on phone and memorycard
+    STRUCT PhoneDirectories[];
+	}
+// End of File

@@ -1,0 +1,84 @@
+/*
+* Copyright (c) 2002-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Ringing Tone plug-in for playing 3D ringing tones.
+*
+*/
+
+
+#include <data_caging_paths.hrh>
+#include <platform_paths.hrh>
+
+//OPTION 	ARMCC --interleave
+
+
+TARGET 			ringingtone3dplugin.dll
+TARGETTYPE 		PLUGIN
+UID 			0x10009D8D 0x10208ADF  // last uid is dll uid
+
+CAPABILITY 		CAP_ECOM_PLUGIN
+VENDORID 		VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE 			C3DAudioPattern.cpp
+SOURCE 			C3DAudioTimeOutTimer.cpp
+SOURCE 			CRingingTone3DPlugin.cpp
+SOURCE 			CRingingTone3DPluginImplementationTable.cpp
+SOURCE 			C3DAudioXMLParser.cpp
+
+
+//ECOM resource definition
+START RESOURCE      10208adf.rss
+TARGET              ringingtone3dplugin.rsc
+TARGETPATH          ECOM_RESOURCE_DIR
+END                 //  ECOM resource definition
+
+//START RESOURCE      RingingTone3DPlugin.rss
+//HEADER
+//TARGETPATH          RESOURCE_FILES_DIR
+//LANG SC
+//END
+
+USERINCLUDE         ../inc
+
+APP_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE	/epoc32/include/ecom
+
+
+LIBRARY 		euser.lib
+LIBRARY 		ecom.lib
+LIBRARY 		dopplerbase.lib
+LIBRARY 		sourcedopplereffect.lib
+LIBRARY 		environmentalreverbutility.lib
+LIBRARY 		locationbase.lib
+LIBRARY 		sourcelocationeffect.lib
+LIBRARY 		listenerlocationeffect.lib
+LIBRARY 		stereowideningeffect.lib
+LIBRARY 		centralrepository.lib
+LIBRARY 		estor.lib
+LIBRARY 		efsrv.lib
+LIBRARY                 xmlframework.lib        // Xml::CParser
+LIBRARY                 bafl.lib                // RString
+LIBRARY                 profileeng.lib // Profile Engine
+LIBRARY                 profileengine.lib // Profile engine wrapper api
+
+LIBRARY		        drmaudioplayutility.lib
+
+#ifdef RD_VIDEO_AS_RINGING_TONE
+LIBRARY		        mediaclientvideo.lib
+#endif
+
+LIBRARY                 platformenv.lib  // DriveInfo
+
+DEBUGLIBRARY            flogger.lib
+

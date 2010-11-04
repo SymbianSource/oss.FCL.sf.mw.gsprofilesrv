@@ -19,11 +19,12 @@
 
 // INCLUDE FILES
 #include    "CProEngToneHandler.h"
-#include    "CProEngMediaVariation.h"
 #include    <bautils.h> // BaflUtils
+#include    <AknGlobalNote.h> // CAknGlobalNote
 #include    <barsread.h>  // TResourceReader
 #include    <barsc.h>  // RResourceFile
 #include    <e32const.h> // KKilo
+#include    "CProEngMediaVariation.h"
 #include 	<centralrepository.h>
 #include    <ProfileEngineDomainCRKeys.h> // KProEngRingingToneMaxSize
 #include    <ProfileEng.hrh>
@@ -33,7 +34,7 @@ namespace
 	// CONSTANTS
 	_LIT( KProEngROMDriveLetter, "Z:" );
 	// The filename of the resource file
-	_LIT( KProEngResourceFileName, "Z:ProEngWrapper.RSC" );
+	_LIT( KProEngResourceFileName, "z:proengwrapper.rsc" );
 	}
 
 // ============================ MEMBER FUNCTIONS ===============================
@@ -209,8 +210,29 @@ TInt CProEngToneHandler::DoCheckToneFileL( const TDesC& aFileName, TInt aToneTyp
 // CProEngToneHandler::ShowErrorNoteL
 // -----------------------------------------------------------------------------
 //
-void CProEngToneHandler::ShowErrorNoteL( TInt /*aResourceId*/ )
+void CProEngToneHandler::ShowErrorNoteL( TInt aResourceId )
     {
+	TParse* fp = new(ELeave) TParse();
+	fp->Set(KProEngResourceFileName, &KDC_RESOURCE_FILES_DIR, NULL);
+	TFileName localizedFileName( fp->FullName() );
+	delete fp;
+
+    BaflUtils::NearestLanguageFile( iFs, localizedFileName );
+
+    RResourceFile resourceFile;
+    resourceFile.OpenL( iFs, localizedFileName );
+    CleanupClosePushL( resourceFile );
+    resourceFile.ConfirmSignatureL();
+
+    HBufC8* resBuf = resourceFile.AllocReadLC( aResourceId );
+    TResourceReader reader;
+    reader.SetBuffer( resBuf );
+    TPtrC errorText( reader.ReadTPtrC() );
+
+    CAknGlobalNote* note = CAknGlobalNote::NewLC();
+    note->ShowNoteL( EAknGlobalInformationNote, errorText );
+
+	CleanupStack::PopAndDestroy( 3, &resourceFile );
     }
 
 

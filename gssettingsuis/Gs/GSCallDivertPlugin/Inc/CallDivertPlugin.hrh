@@ -1,0 +1,78 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Contains definition of constants used in CallDivertPlugin.
+*
+*/
+
+#ifndef GSCALLDIVERTPLUGIN_HRH
+#define GSCALLDIVERTPLUGIN_HRH
+
+// Data query max length
+#ifndef KGSMaxDataLength
+    #define KGSMaxDataLength 21
+#endif
+
+/**
+* Main view is actually a selection list of three basic service groups which 
+* are wanted to be configured:
+*   - Voice calls §qtn_div_voice_calls§ ,
+*   - Data and video calls §qtn_div_data_video_calls§ if the Video telephone is
+*     supported, otherwise Data calls §qtn_div_data_calls§ , and
+*   - Fax calls §qtn_div_fax_calls§
+* When the user selects one of these, control moves to its basic service group 
+* Divert service view, see ? 4.2.1.1 Divert setting service views.
+*/
+enum TGSCallDivertServiceGroups
+    {
+    EGSSettIdVoiceDivert,
+    EGSSettIdVideoDivert
+    };
+
+/**
+* Each basic service group has the same five call forwarding service items in
+* their own views. All three views are specified in this Section, and are 
+* called accordingly as Div_voi, Div_dat, and Div_fax views when a reference is
+* needed. 
+*/
+enum TGSCallDivertServices
+    {
+    ECFDivertVoiceCalls = 0,
+    ECFDivertVideoCalls,
+    ECFDivertWhenBusy,
+    ECFDivertWhenNoAnswer,
+    ECFDivertWhenOutOfReach,
+    ECFDivertWhenNotAvailable
+    };
+
+/**
+* Divert settings view’s options menu has the following functions:
+* - Activate §text_activate_divert§ starts an activation "process" before the service request is sent to the network for a currently focused service. I.e. for the voice calls in case of first five items, further specification in ? 4.3.1.1 For voice calls, and in Fax and Data cases see ? 4.3.1.2 For data and video calls. This option belongs to the context specific options menu list.
+* - Cancel §text_cancel_divert§ deactivates a currently focused service, i.e. deactivates only those basic services which are activated with the Activate function, see more in ? 4.3.2 Deactivation. This option belongs to the context specific options menu list.
+* - Check status §text_check_status§ asks the status of the focused service from the network, i.e. interrogations only those basic services which are activated with the Activate function, see more in ? 4.3.3 Status checking. For composite conditional service If not available this function is not available. This option belongs to the context specific options menu list.
+* - Help §qtn_options_help§ opens a context sensitive help (ref. ? |18| ) with help IDs [DIV_HLP_CALL_FORW_VOI] for the Div_voi view, [DIV_HLP_CALL_FORW_DAT] for the Div_dat view, and [DIV_HLP_CALL_FORW_FAX] for the Div_fax view.
+* - Exit §qtn_options_exit§ . Closes the Control Panel application (ref. ? |3| )
+* I.e. with functions Cancel and Check status service request is sent immediately without any additional queries. 
+* 
+*/
+enum TGSCallDivertFunctions
+    {
+    ECFCmdActivate = 5001,
+    ECFCmdCancel,
+    ECFCmdCheckStatus,
+    ECFCmdCancelAll
+    };
+
+#endif // GSCALLDIVERTPLUGIN_HRH
+
+//End of File

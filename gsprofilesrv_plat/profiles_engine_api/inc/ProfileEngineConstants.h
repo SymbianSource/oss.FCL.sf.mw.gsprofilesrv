@@ -39,7 +39,7 @@ _LIT( KProfileDriveZ,           "z:" );
 _LIT( KProfileFilePrefix,       "Profile" );
 _LIT( KProfileFileExtension,    ".dat" );
 _LIT( KProfileFilePath,         "\\System\\Data\\Profiles\\" );
-_LIT( KProfileEngineResourceDriveAndDir, "Z:ProfileEng.rsc" );
+_LIT( KProfileEngineResourceDriveAndDir, "z:profileeng.rsc" );
 _LIT( KProfileMutexName,        "ProfileFileAccessMutexName" );
 
 #endif      // PROFILEENGINECONSTANTS_H

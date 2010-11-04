@@ -19,9 +19,9 @@
 
 // INCLUDE FILES
 #include "CProfileUtilitySingletonImpl.h"
+#include <MProfilesLocalFeatures.h>
 #include "CProfilesLocalFeatures.h"
 #include "ProfilesDebug.h"
-#include <MProfilesLocalFeatures.h>
 
 // ============================ MEMBER FUNCTIONS ===============================
 

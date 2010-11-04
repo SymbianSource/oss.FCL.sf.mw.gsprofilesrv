@@ -24,7 +24,7 @@
 #include <e32property.h>
 #include <f32file.h>            // RFs
 #include <Profile.hrh>          // TProfileRingingVolume 
-#include <MProfileEngineExtended2.h> // MProfileEngineExtended2
+#include <MProfileEngineExtended.h> // MProfileEngineExtended
 #include <MProfileExtended.h> // MProfileExtended
 
 // FORWARD DECLARATIONS
@@ -46,7 +46,7 @@ class CProfileTiming;
 *  @since 2.0
 */
 NONSHARABLE_CLASS(CProfileEngineImpl) : public CBase,
-                           public MProfileEngineExtended2
+                           public MProfileEngineExtended
     {
     public:  // Constructors and destructor
 
@@ -186,56 +186,9 @@ NONSHARABLE_CLASS(CProfileEngineImpl) : public CBase,
         TBool IsActiveProfileTimedL();
 
         /**
-        * From MProfileEngineExtended2.
+        * From MProfileEngineExtended.
         */
         void SetActiveProfileTimedL( TInt aId, TTime aTime );
-        
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual MProfileExtended2* Profile2LC( TInt aId );
-
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual MProfileExtended2* Profile2L( TInt aId );
-
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual void CommitChange2L( MProfileExtended2& aProfile );
-        
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual TInt MasterVolumeL() const;
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual void SetMasterVolumeL( TInt aMasterVolume );
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual TBool MasterVibraL() const;
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual void SetMasterVibraL( TBool aMasterVibra );
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual TBool SilenceModeL() const;
-        
-        /**
-        * From MProfileEngineExtended2.
-        */
-        virtual void SetSilenceModeL( TBool aSilenceMode );
 
     protected:  // New functions
 
@@ -276,7 +229,7 @@ NONSHARABLE_CLASS(CProfileEngineImpl) : public CBase,
         * @param aSetId sets the id of the active profile to Central Repository
         * only if this is ETrue
         */
-        void UpdateActiveProfileSettingsL( MProfileExtended2& aProfile,
+        void UpdateActiveProfileSettingsL( MProfile& aProfile,
                                            TBool aSetId = EFalse );
 
         /**

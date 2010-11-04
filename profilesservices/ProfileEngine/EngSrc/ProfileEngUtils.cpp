@@ -21,7 +21,7 @@
 #include "ProfileEngUtils.h"
 #include "CProfileEngineImpl.h"
 #include <ProfileEngineConstants.h>
-#include <rsssettings.h>
+#include <RSSSettings.h>
 #include <centralrepository.h>
 #include <bldvariant.hrh>
 

@@ -1,0 +1,125 @@
+EXPORTS
+	_ZN11CGSBaseView11DoActivateLERK10TVwsViewId4TUidRK6TDesC8 @ 1 NONAME
+	_ZN11CGSBaseView12DoDeactivateEv @ 2 NONAME
+	_ZN11CGSBaseView12SetNaviPaneLEv @ 3 NONAME
+	_ZN11CGSBaseView14SetCurrentItemEi @ 4 NONAME
+	_ZN11CGSBaseView16CreateContainerLEv @ 5 NONAME
+	_ZN11CGSBaseView19HandleListBoxEventLEP11CEikListBoxN19MEikListBoxObserver13TListBoxEventE @ 6 NONAME
+	_ZN11CGSBaseView22CreateNaviPaneContextLEi @ 7 NONAME
+	_ZN11CGSBaseView26OpenLocalizedResourceFileLERK7TDesC16R19RConeResourceLoader @ 8 NONAME
+	_ZN11CGSBaseView9ContainerEv @ 9 NONAME
+	_ZN11CGSBaseViewC2Ev @ 10 NONAME
+	_ZN11CGSBaseViewD0Ev @ 11 NONAME
+	_ZN11CGSBaseViewD1Ev @ 12 NONAME
+	_ZN11CGSBaseViewD2Ev @ 13 NONAME
+	_ZN12CGSTabHelper11TabChangedLEi @ 14 NONAME
+	_ZN12CGSTabHelper14RemoveTabGroupEv @ 15 NONAME
+	_ZN12CGSTabHelper15CreateTabGroupLE4TUidP13CArrayPtrFlatI13MGSTabbedViewE @ 16 NONAME
+	_ZN12CGSTabHelper15CreateTabGroupLE4TUidP13CArrayPtrFlatI18CGSPluginInterfaceE @ 17 NONAME
+	_ZN12CGSTabHelper15CreateTabGroupLE4TUidP18MGSTabbedViewOwner @ 18 NONAME
+	_ZN12CGSTabHelper4NewLEv @ 19 NONAME
+	_ZN12CGSTabHelper5NewLCEv @ 20 NONAME
+	_ZN12CGSTabHelperD0Ev @ 21 NONAME
+	_ZN12CGSTabHelperD1Ev @ 22 NONAME
+	_ZN12CGSTabHelperD2Ev @ 23 NONAME
+	_ZN15CGSParentPlugin10UpdateViewEv @ 24 NONAME
+	_ZN15CGSParentPlugin11DoActivateLERK10TVwsViewId4TUidRK6TDesC8 @ 25 NONAME
+	_ZN15CGSParentPlugin11ListBoxTypeEv @ 26 NONAME
+	_ZN15CGSParentPlugin12DoDeactivateEv @ 27 NONAME
+	_ZN15CGSParentPlugin14BaseConstructLEii @ 28 NONAME
+	_ZN15CGSParentPlugin14HandleCommandLEi @ 29 NONAME
+	_ZN15CGSParentPlugin17UpperLevelViewUidEv @ 30 NONAME
+	_ZN15CGSParentPlugin18HandlePluginLoadedEN21MGSPluginLoadObserver21KGSPluginLoaderStatusE @ 31 NONAME
+	_ZN15CGSParentPlugin22ResetSelectedItemIndexEv @ 32 NONAME
+	_ZN15CGSParentPlugin26OpenLocalizedResourceFileLERK7TDesC16R19RConeResourceLoader @ 33 NONAME
+	_ZN15CGSParentPluginC2Ev @ 34 NONAME
+	_ZN15CGSParentPluginD0Ev @ 35 NONAME
+	_ZN15CGSParentPluginD1Ev @ 36 NONAME
+	_ZN15CGSParentPluginD2Ev @ 37 NONAME
+	_ZN15CGSPluginLoader10ConstructLEP13CAknViewAppUi @ 38 NONAME
+	_ZN15CGSPluginLoader10LoadAsyncLE4TUidS0_P13CArrayPtrFlatI18CGSPluginInterfaceE @ 39 NONAME
+	_ZN15CGSPluginLoader11SetObserverEP21MGSPluginLoadObserver @ 40 NONAME
+	_ZN15CGSPluginLoader14AbortAsyncLoadEv @ 41 NONAME
+	_ZN15CGSPluginLoader15LoadNextPluginLEv @ 42 NONAME
+	_ZN15CGSPluginLoader4NewLEP13CAknViewAppUi @ 43 NONAME
+	_ZN15CGSPluginLoaderD0Ev @ 44 NONAME
+	_ZN15CGSPluginLoaderD1Ev @ 45 NONAME
+	_ZN15CGSPluginLoaderD2Ev @ 46 NONAME
+	_ZN16CGSBaseContainer11SizeChangedEv @ 47 NONAME
+	_ZN16CGSBaseContainer14BaseConstructLERK5TRectii @ 48 NONAME
+	_ZN16CGSBaseContainer14OfferKeyEventLERK9TKeyEvent10TEventCode @ 49 NONAME
+	_ZN16CGSBaseContainer20HandleResourceChangeEi @ 50 NONAME
+	_ZN16CGSBaseContainerC2Ev @ 51 NONAME
+	_ZN16CGSBaseContainerD0Ev @ 52 NONAME
+	_ZN16CGSBaseContainerD1Ev @ 53 NONAME
+	_ZN16CGSBaseContainerD2Ev @ 54 NONAME
+	_ZNK16CGSBaseContainer16ComponentControlEi @ 55 NONAME
+	_ZNK16CGSBaseContainer22CountComponentControlsEv @ 56 NONAME
+	_ZTI11CGSBaseView @ 57 NONAME ; #<TI>#
+	_ZTI12CGSTabHelper @ 58 NONAME ; #<TI>#
+	_ZTI15CGSParentPlugin @ 59 NONAME ; #<TI>#
+	_ZTI15CGSPluginLoader @ 60 NONAME ; #<TI>#
+	_ZTI16CGSBaseContainer @ 61 NONAME ; #<TI>#
+	_ZTI18CGSParentContainer @ 62 NONAME ; #<TI>#
+	_ZTV11CGSBaseView @ 63 NONAME ; #<VT>#
+	_ZTV12CGSTabHelper @ 64 NONAME ; #<VT>#
+	_ZTV15CGSParentPlugin @ 65 NONAME ; #<VT>#
+	_ZTV15CGSPluginLoader @ 66 NONAME ; #<VT>#
+	_ZTV16CGSBaseContainer @ 67 NONAME ; #<VT>#
+	_ZTV18CGSParentContainer @ 68 NONAME ; #<VT>#
+	_ZThn4_N12CGSTabHelper11TabChangedLEi @ 69 NONAME ; #<thunk>#
+	_ZThn88_N11CGSBaseView19HandleListBoxEventLEP11CEikListBoxN19MEikListBoxObserver13TListBoxEventE @ 70 NONAME ; #<thunk>#
+	_ZThn88_N15CGSParentPlugin18HandlePluginLoadedEN21MGSPluginLoadObserver21KGSPluginLoaderStatusE @ 71 NONAME ; #<thunk>#
+	_ZN11CGSBaseView22ResetSelectedItemIndexEv @ 72 NONAME
+	_ZN16CGSBaseContainer12SelectedItemEv @ 73 NONAME
+	_ZN16CGSBaseContainer15SetSelectedItemEi @ 74 NONAME
+	_ZN15CGSParentPlugin14GetHelpContextER15TCoeHelpContext @ 75 NONAME
+	_ZN15CGSParentPlugin14SetOptionFlagsER10TBitFlagsTImE @ 76 NONAME
+	_ZN15CGSParentPlugin16DynInitMenuPaneLEiP12CEikMenuPane @ 77 NONAME
+	_ZNK15CGSParentPlugin11OptionFlagsEv @ 78 NONAME
+	_ZThn12_N15CGSParentPlugin16DynInitMenuPaneLEiP12CEikMenuPane @ 79 NONAME ; #<thunk>#
+	_ZN16CGSBaseContainer12FocusChangedE8TDrawNow @ 80 NONAME
+	_ZN18CGSParentContainer12FocusChangedE8TDrawNow @ 81 NONAME
+	_ZN15CGSBaseDocument10ConstructLEv @ 82 NONAME
+	_ZN15CGSBaseDocument24NewPluginUnloadWrapperLCEv @ 83 NONAME
+	_ZN15CGSBaseDocumentC2ER15CEikApplication @ 84 NONAME
+	_ZN15CGSBaseDocumentD0Ev @ 85 NONAME
+	_ZN15CGSBaseDocumentD1Ev @ 86 NONAME
+	_ZN15CGSBaseDocumentD2Ev @ 87 NONAME
+	_ZN16CGSPluginWrapper10SetDetailsE4TUid @ 88 NONAME
+	_ZN16CGSPluginWrapperD0Ev @ 89 NONAME
+	_ZN16CGSPluginWrapperD1Ev @ 90 NONAME
+	_ZN16CGSPluginWrapperD2Ev @ 91 NONAME
+	_ZTI15CGSBaseDocument @ 92 NONAME ; #<TI>#
+	_ZTV15CGSBaseDocument @ 93 NONAME ; #<VT>#
+	_ZN15CGSParentPlugin22TransferDynamicPluginLEP18CGSPluginInterface @ 94 NONAME
+	_ZN15CGSPluginLoader12SortPluginsLEP13CArrayPtrFlatI18CGSPluginInterfaceE @ 95 NONAME
+	_ZThn92_N15CGSParentPlugin22TransferDynamicPluginLEP18CGSPluginInterface @ 96 NONAME ; #<thunk>#
+	_ZN18CGSPubSubsListener3GetER5TDes8 @ 97 NONAME
+	_ZN18CGSPubSubsListener3GetER6TDes16 @ 98 NONAME
+	_ZN18CGSPubSubsListener3GetERi @ 99 NONAME
+	_ZN18CGSPubSubsListener4NewLE4TUidiP20MGSSettingPSObserver @ 100 NONAME
+	_ZN18CGSPubSubsListenerD0Ev @ 101 NONAME
+	_ZN18CGSPubSubsListenerD1Ev @ 102 NONAME
+	_ZN18CGSPubSubsListenerD2Ev @ 103 NONAME
+	_ZN15CGSBaseDocument19PreparePluginCacheLER9CEikAppUi @ 104 NONAME
+	_ZN15CGSBaseDocument23PrepareForUIDestructionEv @ 105 NONAME
+	_ZTI14CGSShimmedView @ 106 NONAME ; #<TI>#
+	_ZTI18CGSPlaceholderView @ 107 NONAME ; #<TI>#
+	_ZTI23CGSPluginAndViewIdCache @ 108 NONAME ; #<TI>#
+	_ZTV14CGSShimmedView @ 109 NONAME ; #<VT>#
+	_ZTV18CGSPlaceholderView @ 110 NONAME ; #<VT>#
+	_ZTV23CGSPluginAndViewIdCache @ 111 NONAME ; #<VT>#
+	_ZN15CGSParentPlugin14SelectedPluginEv @ 112 NONAME
+	_ZN15CGSBaseDocument8WatchDogEv @ 113 NONAME
+	_ZN15CGSBaseDocument11GetImplInfoEv @ 114 NONAME
+	_ZN15CGSEComNotifier4NewLEP15MGSEComObserver13RPointerArrayI26CImplementationInformationE @ 115 NONAME
+	_ZN15CGSEComNotifierD0Ev @ 116 NONAME
+	_ZN15CGSEComNotifierD1Ev @ 117 NONAME
+	_ZN15CGSEComNotifierD2Ev @ 118 NONAME
+	_ZN15CGSPluginLoader15RequestPriorityEN7CActive9TPriorityE @ 119 NONAME
+	_ZN15CGSBaseDocument18CreateShimmedViewLE4TUid @ 120 NONAME
+	_ZN15CGsContainerExt4NewLEv @ 121 NONAME
+	_ZN23CGsDoubleClickPreventer4NewLEv @ 122 NONAME
+	_ZN23CGsDoubleClickPreventer5StartEv @ 123 NONAME
+

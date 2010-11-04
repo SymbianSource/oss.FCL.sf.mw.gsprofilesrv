@@ -20,7 +20,7 @@
 #include <platform_paths.hrh>
 #include <data_caging_paths.hrh>
 
-TARGET          ProfileScheduleEvent.exe
+TARGET          profilescheduleevent.exe
 TARGETTYPE      exe
 UID             0x100039CE 0x102823BC
 VENDORID 	    VID_DEFAULT
@@ -28,7 +28,7 @@ VENDORID 	    VID_DEFAULT
 CAPABILITY      CAP_APPLICATION
 
 SOURCEPATH      ../ProfileScheduleEventSrc
-START RESOURCE  ProfileScheduleEvent.rss
+START RESOURCE  profilescheduleevent.rss
   HEADER
   TARGETPATH    RESOURCE_FILES_DIR
   LANGUAGE_IDS
@@ -41,13 +41,14 @@ SOURCE          CProfileChangeEvent.cpp
 
 USERINCLUDE     . ../EngInc ../../group
 
-MW_LAYER_SYSTEMINCLUDE
+APP_LAYER_SYSTEMINCLUDE
 
 LIBRARY         euser.lib
 LIBRARY         commonengine.lib
 LIBRARY         profileeng.lib
 LIBRARY         bafl.lib
 LIBRARY         efsrv.lib
+LIBRARY         aknnotify.lib // CAknGlobalNote
 LIBRARY         centralrepository.lib
 LIBRARY         featmgr.lib
 

@@ -1,0 +1,34 @@
+/*
+* Copyright (c) 2007-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Build information file for project GSLauncher
+*
+*/
+
+
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+../rom/gslauncher.iby CORE_MW_LAYER_IBY_EXPORT_PATH(gslauncher.iby)
+
+PRJ_MMPFILES
+GSLauncher.mmp
+
+PRJ_TESTMMPFILES
+// This is no good -tsrc's  bld.inf should be compiled instead since it has copy script
+// ../tsrc/public/basic/group/T_CGSLauncher.mmp
+
+PRJ_TESTEXPORTS
+// ../test/inc/mytestcommon.h     /epoc32/somewhere/mytestcommon.h

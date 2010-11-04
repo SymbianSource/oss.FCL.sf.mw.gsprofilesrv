@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<api id="c7072e0723fe3453a3fab8d556413ad2" dataversion="2.0">
+  <name>Settings listbox API</name>
+  <description>Helper to show listbox in device settings plugins</description>
+  <type>c++</type>
+  <collection>gssettingsuis</collection>
+  <libs>
+    <lib name="GSListBox.lib" />
+  </libs>
+  <release category="platform"/>
+  <attributes>
+     <!-- This indicates wether the api provedes separate html documentation -->
+     <!-- or is the additional documentation generated from headers. -->
+     <!-- If you are unsuere then the value is "no" -->
+     <htmldocprovided>no</htmldocprovided>
+     <adaptation>no</adaptation>
+  </attributes>
+</api>

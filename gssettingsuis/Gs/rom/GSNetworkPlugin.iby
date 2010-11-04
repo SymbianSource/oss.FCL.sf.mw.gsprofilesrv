@@ -1,0 +1,33 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  GSNetworkPlugin ROM files.
+*
+*/
+
+#ifndef GSNETWORKPLUGIN_IBY
+#define GSNETWORKPLUGIN_IBY
+
+    #ifdef RD_GS_RENOVATION
+
+        ECOM_PLUGIN( gsnetworkplugin.dll,102824a7.rsc )
+        data=DATAZ_\BITMAP_DIR\gsnetworkplugin.mif BITMAP_DIR\gsnetworkplugin.mif
+        
+        #ifdef FF_POWER_SAVE
+        	data=ZPRIVATE\2000B187\2000B593.xml         			private\2000B187\2000B593.xml
+	#endif // FF_POWER_SAVE
+
+    #endif // RD_GS_RENOVATION
+
+#endif // GSNETWORKPLUGIN_IBY
+// End of File

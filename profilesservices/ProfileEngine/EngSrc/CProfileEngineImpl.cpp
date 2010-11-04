@@ -19,14 +19,6 @@
 
 // INCLUDE FILES
 #include "CProfileEngineImpl.h"
-#include "CProfilesNamesArrayImpl.h"
-#include "CProfileImpl.h"
-#include "CProfileNameImpl.h"
-#include "ProfileEngUtils.h"
-#include "ProfileEngPanic.h"
-#include "CProfileTiming.h"
-#include "ProfileEnginePrivateCRKeys.h"
-#include "ProfilesDebug.h"
 #include <bautils.h> // BaflUtils
 #include <barsc.h> // RResoureFile
 #include <featmgr.h>
@@ -34,29 +26,34 @@
 #include <DRMCommon.h>
 #include <sysutil.h>
 
-#include <ProfileEng.rsg>
+#include <profileeng.rsg>
 #include <TProfileToneSettings.h>
 #include <MProfileTones.h>
+#include "CProfilesNamesArrayImpl.h"
+#include "CProfileImpl.h"
+#include "CProfileNameImpl.h"
+#include "ProfileEngUtils.h"
 #include <MProfileSetName.h>
 #include <ProfileEng.hrh>
 #include <ProfileEngineConstants.h>
+#include "ProfileEngPanic.h"
 #include <MProfileSetTones.h>
 #include <MProfileSetExtraTones.h>
-#include <MProfileExtraSettings.h>
-#include <MProfileFeedbackSettings.h>
+#include "MProfileExtraSettings.h"
+#include "MProfileFeedbackSettings.h"
 #include <MProfilesLocalFeatures.h>
 #include <MProfileUtilitySingleton.h>
-#include <ProfilesVariant.hrh> // KProEngFeatureIdVTRingingTone
+#include "ProfilesVariant.hrh" // KProEngFeatureIdVTRingingTone
+#include "CProfileTiming.h"
 #include <centralrepository.h>
+#include "ProfileEnginePrivateCRKeys.h"
 #include <ProfileEnginePrivatePSKeys.h>
 #include <hwrmvibrasdkcrkeys.h>
 #include <data_caging_path_literals.hrh>
+#include "ProfilesDebug.h"
 
 #include <psmsettings.h>
 #include <psmsrvdomaincrkeys.h>
-
-#include <MProfileExtraTones2.h>
-#include <MProfileVibraSettings.h>
 
 
 // ============================ MEMBER FUNCTIONS ===============================
@@ -240,8 +237,6 @@ MProfile* CProfileEngineImpl::ActiveProfileL()
 MProfileExtended* CProfileEngineImpl::ProfileLC(
     TInt aId )
     {
-    return Profile2LC( aId );
-    /*
     CProfileImpl* profile = NULL;
 
     iMutex.Wait();
@@ -285,7 +280,6 @@ MProfileExtended* CProfileEngineImpl::ProfileLC(
         }
 
     return profile;
-    */
     }
 
 // -----------------------------------------------------------------------------
@@ -297,12 +291,9 @@ MProfileExtended* CProfileEngineImpl::ProfileLC(
 MProfileExtended* CProfileEngineImpl::ProfileL(
     TInt aId )
     {
-    return Profile2L( aId );
-    /*
     MProfileExtended* profile = ProfileLC( aId );
     CleanupStack::Pop();    // profile
     return profile;
-    */
     }
 
 
@@ -319,7 +310,6 @@ void CProfileEngineImpl::SetActiveProfileL( TInt aId )
 
     iMutex.Wait();
     TInt err( CheckProfileIdL( aId ) );
-
     if( !err )
         {
         TRAP( err, DoSetActiveProfileL( aId ) );
@@ -579,9 +569,7 @@ void CProfileEngineImpl::CommitChangeL(
 
            if( profileId == activeId )
                {
-               MProfileExtended2 *activeProfile = Profile2LC(activeId);
-               UpdateActiveProfileSettingsL( *activeProfile );
-               CleanupStack::PopAndDestroy(); // activeProfile
+               UpdateActiveProfileSettingsL( aProfile );
                }
 
            // write settings to Cenrep:
@@ -637,44 +625,22 @@ void CProfileEngineImpl::PublishChangeL( TUint32 aPSKey )
 // (other items were commented in a header).
 // -----------------------------------------------------------------------------
 //
-void CProfileEngineImpl::UpdateActiveProfileSettingsL( MProfileExtended2& aProfile,
+void CProfileEngineImpl::UpdateActiveProfileSettingsL( MProfile& aProfile,
         TBool aSetId )
     {
     const MProfileTones& profileTones = aProfile.ProfileTones();
-    const MProfileExtraTones2& profileExtraTones = aProfile.ProfileExtraTones2();
     const MProfileName& profileName = aProfile.ProfileName();
     const TProfileToneSettings& settings = profileTones.ToneSettings();
-   // const MProfileVibraSettings &vibraSettings = aProfile.ProfileVibraSettings();
 
     // These cannot fail because this method is called only in between
     // StartTransaction() and CommitTransaction() calls (except vibra)
     iCenRep->Set( KProEngActiveRingingType, settings.iRingingType );
-   
-    //Removed. only master volue used
-    // iCenRep->Set( KProEngActiveRingingVolume, settings.iRingingVolume );
+    iCenRep->Set( KProEngActiveRingingVolume, settings.iRingingVolume );
     iCenRep->Set( KProEngActiveMessageAlert, !( aProfile.IsSilent() ) );
-    
-    //Since 10.1
-    iCenRep->Set( KProEngActiveRingTone,profileTones.RingingTone1() );
-    iCenRep->Set( KProEngActiveMessageTone,profileTones.MessageAlertTone() );
-    iCenRep->Set( KProEngActiveReminderTone,profileExtraTones.ReminderTone() );
-    iCenRep->Set( KProEngActiveClockAlarmTone,profileExtraTones.ClockAlarmTone() );
-    
-    /*
-    if ( MasterVibraL() )
-        {
-        iCenRep->Set( KProEngActiveAlertVibra,vibraSettings.AlertVibra() );
-        }
-    else
-        {
-        iCenRep->Set( KProEngActiveAlertVibra,0 );
-        }
-    */
-    
     if ( !PowerSaveMode() )
         {
     User::LeaveIfError( iVibraCenRep->Set(
-            KVibraCtrlProfileVibraEnabled, /*vibraSettings.AlertVibra() != 0 &&*/ MasterVibraL() ) );
+            KVibraCtrlProfileVibraEnabled, settings.iVibratingAlert ) );
 
 #ifdef RD_TACTILE_FEEDBACK
 	const MProfileExtraSettings& extraSettings = aProfile.ProfileExtraSettings();
@@ -753,8 +719,7 @@ void CProfileEngineImpl::ReadProfilesNamesL(
         CleanupStack::Pop();    // nameImpl
         }
 
-    // Since 10.1, No dynamic profiles in TB 10.1
- //   ReadDynamicProfilesNamesL( aProfilesNames, *profileName );
+    ReadDynamicProfilesNamesL( aProfilesNames, *profileName );
     CleanupStack::PopAndDestroy();  // profileName
     }
 
@@ -767,7 +732,7 @@ void CProfileEngineImpl::ReadProfilesNamesL(
 void CProfileEngineImpl::DoSetActiveProfileL(
     TInt aId, TTime* aTime )
     {
-    MProfileExtended2* profile = Profile2LC( aId );
+    MProfileExtended* profile = ProfileLC( aId );
 
     User::LeaveIfError( iCenRep->StartTransaction(
             CRepository::EReadWriteTransaction ) );
@@ -972,17 +937,6 @@ EXPORT_C MProfileEngineExtended* CreateProfileEngineExtendedL()
     }
 
 // -----------------------------------------------------------------------------
-// CreateProfileEngineExtendedL create profiles engine and
-// return internal interface of the profiles engine
-// Returns: Profiles Engine internal interface
-// -----------------------------------------------------------------------------
-//
-EXPORT_C MProfileEngineExtended2* CreateProfileEngineExtended2L()
-    {
-    return CProfileEngineImpl::NewL();
-    }
-
-// -----------------------------------------------------------------------------
 // CreateProfileEngineL create profiles engine and return public interface
 // of the profiles engine.
 // Returns: Profiles Engine public interface
@@ -1004,16 +958,6 @@ EXPORT_C MProfileEngineExtended* CreateProfileEngineExtendedL( RFs* aFs )
     return CProfileEngineImpl::NewL( aFs );
     }
 
-// -----------------------------------------------------------------------------
-// CreateProfileEngineExtendedL create profiles engine and
-// return internal interface of the profiles engine
-// Returns: Profiles Engine internal interface
-// -----------------------------------------------------------------------------
-//
-EXPORT_C MProfileEngineExtended2* CreateProfileEngineExtended2L( RFs* aFs )
-    {
-    return CProfileEngineImpl::NewL( aFs );
-    }
 
 // -----------------------------------------------------------------------------
 // CProfileEngineImpl::PowerSaveMode
@@ -1067,184 +1011,5 @@ TBool CProfileEngineImpl::PowerSaveModeL()
     return EFalse;
     }
 
-
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::Profile2LC
-//
-// -----------------------------------------------------------------------------
-//
-MProfileExtended2* CProfileEngineImpl::Profile2LC( TInt aId )
-    {
-    CProfileImpl* profile = NULL;
-
-    iMutex.Wait();
-    TInt err( CheckProfileIdL( aId ) );
-
-    if( !err )
-        {
-        TRAP( err, profile = GetProfileL( aId ) );
-        }
-    iMutex.Signal();
-
-    User::LeaveIfError( err );
-
-    CleanupStack::PushL( profile );
-
-    if( iSideVolumeKeys )
-        {
-        // Because SetTemp*VolumeL() functions update only Shared Data those
-        // values must be read from SD and set to the MProfile instance
-        // returned to the caller:
-        TInt activeId( User::LeaveIfError( ActiveProfileId() ) );
-        if( activeId == aId )
-            {
-            TProfileToneSettings& settings =
-                    profile->ProfileSetTones().SetToneSettings();
-            settings.iRingingVolume = TempRingingVolumeL();
-            settings.iMediaVolume = TempMediaVolumeL();
-            }
-        }
-
-    if( !profile->IsProfileNameChanged() )
-        {
-        if( IsDefaultProfile( aId ) )
-            {
-            profile->SetLocalizedProfileNameL( *iProfileLocalisedNames );
-            }
-        else
-            {
-            SetLocalizedNameForDynamicProfileL( *profile );
-            }
-        }
-
-    return profile;
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::Profile2L
-//
-// -----------------------------------------------------------------------------
-//
-MProfileExtended2* CProfileEngineImpl::Profile2L( TInt aId )
-    {
-    MProfileExtended2* profile = Profile2LC( aId );
-    CleanupStack::Pop();    // profile
-    return profile;
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::CommitChange2L
-//
-// -----------------------------------------------------------------------------
-//
-void CProfileEngineImpl::CommitChange2L( MProfileExtended2& aProfile )
-    {
-    CommitChangeL (aProfile);
-    }
-
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::MasterVolumeL
-//
-// -----------------------------------------------------------------------------
-//
-TInt CProfileEngineImpl::MasterVolumeL() const
-    {
-    TInt masterVolume( 0 );
-    User::LeaveIfError( iCenRep->Get( KProEngMasterVolume, masterVolume ) );
-    return masterVolume;
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::SetMasterVolumeL
-//
-// -----------------------------------------------------------------------------
-//
-void CProfileEngineImpl::SetMasterVolumeL( TInt aMasterVolume )
-    {
-    User::LeaveIfError( iCenRep->Set( KProEngMasterVolume, aMasterVolume ) );
-    User::LeaveIfError( iCenRep->Set( KProEngActiveRingingVolume, aMasterVolume ) );
-    
-    //Send event through P&S
-    CreatePubSubKeysIfNeededL();
-    PublishChangeL( KProEngActiveProfileModified );
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::MasterVibraL
-//
-// -----------------------------------------------------------------------------
-//
-TBool CProfileEngineImpl::MasterVibraL() const
-    {
-    TInt masterVibra( 0 );
-    User::LeaveIfError( iCenRep->Get( KProEngMasterVibra, masterVibra ) );
-    return ( masterVibra != 0 );
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::SetMasterVibraL
-//
-// -----------------------------------------------------------------------------
-//
-void CProfileEngineImpl::SetMasterVibraL( TBool aMasterVibra )
-    {
-    User::LeaveIfError( iCenRep->Set( KProEngMasterVibra, aMasterVibra ? 1 : 0 ) );
-    User::LeaveIfError ( iCenRep->Set( KProEngActiveAlertVibra, aMasterVibra ? 1 : 0 ) );
-    
-    /*
-    MProfileExtended2* activeProfile = Profile2LC( ActiveProfileId() );
-    const MProfileVibraSettings &vibraSettings = activeProfile->ProfileVibraSettings();
-    if (activeProfile)
-        {
-        if (aMasterVibra)
-            {
-            iCenRep->Set( KProEngActiveAlertVibra,vibraSettings.AlertVibra() );
-            }
-        else
-            {
-            iCenRep->Set( KProEngActiveAlertVibra, 0 );
-            }        
-        }
-    CleanupStack::PopAndDestroy(); // activeProfile
-    */
-            
-    if ( !PowerSaveMode() )
-        {
-        User::LeaveIfError( iVibraCenRep->Set(
-                KVibraCtrlProfileVibraEnabled, aMasterVibra ? 1 : 0) );
-        }
-    
-    //Send event through P&S
-    CreatePubSubKeysIfNeededL();
-    PublishChangeL( KProEngActiveProfileModified );
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::SilenceModeL
-//
-// -----------------------------------------------------------------------------
-//
-TBool CProfileEngineImpl::SilenceModeL() const
-    {
-    TInt silenceMode( 0 );
-    User::LeaveIfError( iCenRep->Get( KProEngSilenceMode, silenceMode ) );
-    return ( silenceMode != 0 );
-    }
-
-// -----------------------------------------------------------------------------
-// CProfileEngineImpl::SetSilenceModeL
-//
-// -----------------------------------------------------------------------------
-//
-void CProfileEngineImpl::SetSilenceModeL( TBool aSilenceMode )
-    {
-    User::LeaveIfError( iCenRep->Set( KProEngSilenceMode, aSilenceMode ? 1 : 0 ) );
-    
-    //Send event through P&S
-    CreatePubSubKeysIfNeededL();
-    PublishChangeL( KProEngActiveProfileModified );
-    }
 
 //  End of File

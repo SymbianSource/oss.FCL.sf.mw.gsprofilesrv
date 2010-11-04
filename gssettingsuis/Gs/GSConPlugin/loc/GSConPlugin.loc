@@ -1,0 +1,68 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Localization strings for GSConPlugin.
+*
+*/
+
+
+//  LOCALISATION STRINGS
+
+// **CAPTIONS
+
+//d:Plugin caption
+//d:Long string
+//l:title_pane_t2/opt9
+//w:
+//r: 3.1
+//
+#define qtn_set_title_settings_inet "Connection settings"
+
+//d:Text of a list item in main view's folder list
+//d:Item opens Connection folder
+//l:list_single_large_graphic_pane_t1
+//w:
+//r: 3.1
+//
+#define qtn_set_folder_connection "Connection"
+
+
+// **OPTIONS MENU
+
+//d:Command in Options list
+//d:Opens the highlighted item
+//l:list_single_pane_t1_cp2
+//w:
+//r: 3.1
+//
+#define qtn_set_options_open "Open"
+
+
+//CONTROL PANEL
+
+//d:Plugin caption
+//l: title_pane_t2/opt9
+//w:
+//r: 5.0
+//
+#define qtn_cp_title_connectivity "Connectivity"
+
+//d:Text of a list item in main view's folder list
+//d:Item opens Connection folder
+//l: list_single_large_graphic_pane_t1
+//w:
+//r: 5.0
+//
+#define qtn_cp_folder_connectivity "Connectivity"
+
+// End of File

@@ -38,6 +38,7 @@ struct TProfileToneSettings
     TProfileKeypadVolume iKeypadVolume;
     TInt                 iRingingVolume;         // 1 - 10
     TBool                iVibratingAlert;        // ETrue = On
+    TBool                iEmailVibratingAlert;
     TBool                iWarningAndGameTones;   // ETrue = On
     TInt                 iMediaVolume;           // 1 - 10
     TBool                iTextToSpeech;          // ETrue = On

@@ -28,7 +28,7 @@ data=ZPRIVATE\100058F8\backup_registration.xml                  private\100058F8
 
 #ifdef FF_3D_RINGING_TONES
 // 3D Ringing tone plugin
-ECOM_PLUGIN( RingingTone3DPlugin.dll, 10208ADF.rsc )
+ECOM_PLUGIN( RingingTone3DPlugin.dll, 10208adf.rsc )
 
 data=DATAZ_\RESOURCE_FILES_DIR\3DTones\1circular.xml                  RESOURCE_FILES_DIR\3DTones\1circular.xml
 data=DATAZ_\RESOURCE_FILES_DIR\3DTones\2flyby.xml                     RESOURCE_FILES_DIR\3DTones\2flyby.xml

@@ -1,0 +1,142 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Resource file for GSPDataConnectionPlugin.
+*
+*/
+
+
+//  RESOURCE IDENTIFIER
+NAME        PDCP // 4 letter ID
+
+// INCLUDES
+#include    <gspdataconnectionplugin.loc> // PDataConnection localized strings
+
+#include    <data_caging_paths_strings.hrh>
+#include    <bldvariant.hrh>
+#include    <avkon.loc> // Avkon localized strings
+#include    <avkon.mbg>
+#include    <avkon.rsg>
+#include    <eikcore.rsg>
+#include    <uikon.rh>
+#include    <gsapp.rsg>
+
+// CONSTANTS
+
+//  RESOURCE DEFINITIONS
+
+//----------------------------------------------------
+//
+//
+//    Needed or loading the resource fails!
+//
+//----------------------------------------------------
+//
+RESOURCE RSS_SIGNATURE
+    {
+    }
+
+// Common resources among GS
+#include    "gscommonresources.rss"
+
+//----------------------------------------------------
+//
+//    r_gs_pdataconnection_plugin_caption
+//    Packet Data Connection Plugin caption.
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_pdataconnection_plugin_caption
+    {
+    buf = qtn_set_attach;
+    }
+    
+//----------------------------------------------------
+//
+//    r_gs_PDataConnection_view
+//    Packet Data Connection view.
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_VIEW r_gs_pdataconnection_view
+    {
+    menubar = r_gs_menubar_change_exit;
+    cba = R_GS_SOFTKEYS_OPTIONS_BACK_CHANGE;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_pdataconnection_setting_page
+//    
+//
+//----------------------------------------------------
+//
+RESOURCE AVKON_SETTING_PAGE r_gs_pdataconnection_setting_page
+    {
+    number = EAknSettingPageNoOrdinalDisplayed;
+    label = qtn_set_attach;
+    softkey_resource = R_AVKON_SOFTKEYS_OK_CANCEL__OK;
+    type = EAknSetListBox;
+    editor_resource_id = r_setting_listbox;
+    }
+
+
+//----------------------------------------------------
+//
+//    r_gs_pdataconnection_setting_page_lbx
+//    
+//
+//----------------------------------------------------
+//
+RESOURCE ARRAY r_gs_pdataconnection_setting_page_lbx
+    {
+    items =
+        {
+        LBUF
+            {
+            txt = qtn_set_attach_avail;
+            },
+        LBUF
+            {
+            txt = qtn_set_attach_needed;
+            }
+        };
+    }
+
+    
+//----------------------------------------------------
+//
+//    r_gs_pdataconnection_on_text
+//    Packet Data Connection text for "when available".
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_pdataconn_when_enable_text
+    {
+    buf = qtn_set_attach_avail;
+    }
+
+//----------------------------------------------------
+//
+//    r_gs_pdataconnection_off_text
+//    Packet Data Connection text for "when needed".
+//
+//----------------------------------------------------
+//
+RESOURCE TBUF r_gs_pdataconn_when_needed_text
+    {
+    buf = qtn_set_attach_needed;
+    }
+    
+//End of File

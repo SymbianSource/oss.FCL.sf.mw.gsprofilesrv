@@ -1,0 +1,16 @@
+EXPORTS
+	??0CGSPluginInterface@@IAE@XZ @ 1 NONAME ; CGSPluginInterface::CGSPluginInterface(void)
+	??1CGSPluginInterface@@UAE@XZ @ 2 NONAME ; CGSPluginInterface::~CGSPluginInterface(void)
+	?CreateIconL@CGSPluginInterface@@UAEPAVCGulIcon@@VTUid@@@Z @ 3 NONAME ; class CGulIcon * CGSPluginInterface::CreateIconL(class TUid)
+	?CustomOperationL@CGSPluginInterface@@UAEPAXPAX0@Z @ 4 NONAME ; void * CGSPluginInterface::CustomOperationL(void *, void *)
+	?GetValue@CGSPluginInterface@@UAEXW4TGSPluginValueKeys@@AAVTDes16@@@Z @ 5 NONAME ; void CGSPluginInterface::GetValue(enum TGSPluginValueKeys, class TDes16 &)
+	?HandleSelection@CGSPluginInterface@@UAEXW4TGSSelectionTypes@@@Z @ 6 NONAME ; void CGSPluginInterface::HandleSelection(enum TGSSelectionTypes)
+	?ItemType@CGSPluginInterface@@UAE?AW4TGSListboxItemTypes@@XZ @ 7 NONAME ; enum TGSListboxItemTypes CGSPluginInterface::ItemType(void)
+	?NewL@CGSPluginInterface@@SAPAV1@VTUid@@PAX@Z @ 8 NONAME ; class CGSPluginInterface * CGSPluginInterface::NewL(class TUid, void *)
+	?PluginProviderCategory@CGSPluginInterface@@UBEHXZ @ 9 NONAME ; int CGSPluginInterface::PluginProviderCategory(void) const
+	?Visible@CGSPluginInterface@@UBEHXZ @ 10 NONAME ; int CGSPluginInterface::Visible(void) const
+	?ResetSelectedItemIndex@CGSPluginInterface@@UAEXXZ @ 11 NONAME ; void CGSPluginInterface::ResetSelectedItemIndex(void)
+	?MenuActivationItem@CGSPluginInterface@@UAE?AW4TGSMenuActivationItems@@XZ @ 12 NONAME ; enum TGSMenuActivationItems CGSPluginInterface::MenuActivationItem(void)
+	?SetOrder@CGSPluginInterface@@QAEXH@Z @ 13 NONAME ; void CGSPluginInterface::SetOrder(int)
+	?GetEcomDestructorKey@CGSPluginInterface@@QAE?AVTUid@@XZ @ 14 NONAME ; class TUid CGSPluginInterface::GetEcomDestructorKey(void)
+

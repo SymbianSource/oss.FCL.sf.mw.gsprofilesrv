@@ -19,7 +19,7 @@
 #include <platform_paths.hrh>
 #include <data_caging_paths.hrh>
 
-TARGET          ProfileEng.dll
+TARGET          profileeng.dll
 TARGETTYPE      dll
 UID             0x1000008d 0x100058F8
 VENDORID 	    VID_DEFAULT
@@ -27,7 +27,7 @@ VENDORID 	    VID_DEFAULT
 CAPABILITY      CAP_GENERAL_DLL
 
 SOURCEPATH      ../group
-START RESOURCE  ProfileEng.rss
+START RESOURCE  profileeng.rss
   HEADER
   TARGETPATH    RESOURCE_FILES_DIR
   LANGUAGE_IDS
@@ -55,8 +55,7 @@ SOURCE          CProfileEngineImplDynamicProfiles.cpp
 #else
 SOURCE          CProfileEngineImplStaticProfiles.cpp
 #endif // __DYNAMIC_PROFILES
-SOURCE          CProfileUtilitySingletonImpl.cpp 
-SOURCE          CProfileVibraSettingsImpl.cpp
+SOURCE          CProfileUtilitySingletonImpl.cpp
 
 USERINCLUDE     . ../EngInc ../../group
 
@@ -66,11 +65,12 @@ SYSTEMINCLUDE   /epoc32/include/ecom
 LIBRARY         euser.lib
 LIBRARY         efsrv.lib
 LIBRARY         bafl.lib
-LIBRARY         FeatMgr.lib
+LIBRARY         featmgr.lib
+LIBRARY         pbkeng.lib
 LIBRARY         cntmodel.lib
 LIBRARY         sssettings.lib // for als check-up
 LIBRARY         centralrepository.lib
 LIBRARY         sysutil.lib
-LIBRARY         PlatformEnv.lib
+LIBRARY         platformenv.lib
 LIBRARY         schsvr.lib // RScheduler etc
 

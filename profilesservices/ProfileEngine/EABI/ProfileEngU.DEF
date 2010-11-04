@@ -6,6 +6,4 @@ EXPORTS
 	_Z28CreateProfileEngineExtendedLP3RFs @ 5 NONAME
 	_Z21ReleaseProfileUtilityv @ 6 NONAME
 	_Z23ProfileUtilityInstanceLv @ 7 NONAME
-	_Z29CreateProfileEngineExtended2LP3RFs @ 8 NONAME
-	_Z29CreateProfileEngineExtended2Lv @ 9 NONAME
 

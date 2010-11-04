@@ -1,0 +1,48 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Localization strings for GSPowerSavingQueryPlugin.
+*
+*/
+
+
+//  LOCALISATION STRINGS
+
+//d:Text of a list item in parent view's list
+//d:Item opens Power saving query plugin view
+//l:list_single_large_graphic_pane_t1
+//w:
+//r: 5.1
+#define qtn_cp_power_saving_query_settings "Power saving query"
+
+//d:Text of a list item in Power saving query plugin view
+//l:list_setting_pane_t1
+//w:
+//r: 5.1
+#define qtn_power_saving_query_settings_header "Power saving query"
+
+//d:Item in Power saving query setting page's list
+//l:list_set_graphic_pane_t1
+//w:
+//r: 5.1
+//
+#define qtn_power_saving_query_settings_val_on "On"
+
+//d:Item in Power saving query setting page's list
+//l:list_set_graphic_pane_t1
+//w:
+//r: 5.1
+//
+#define qtn_power_saving_query_settings_val_off "Off" 
+
+// End of File

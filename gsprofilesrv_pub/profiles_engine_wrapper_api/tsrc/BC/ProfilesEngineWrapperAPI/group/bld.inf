@@ -43,8 +43,8 @@ PRJ_EXPORTS
 */
 proeng_z.bat		/epoc32/winscw/c/proeng_z.bat
 proeng_c.bat		/epoc32/winscw/c/proeng_c.bat
-ProEngWrapAPI.cfg       /Epoc32/winscw/c/testframework/ProEngWrapAPI.cfg
-testframework.ini /Epoc32/winscw/c/testframework/testframework_ProEngWrapAPI.ini
+UI_ProEngWrapAPI.cfg       /epoc32/winscw/c/testframework/UI_ProEngWrapAPI.cfg
+testframework.ini /epoc32/winscw/c/testframework/testframework_ProEngWrapAPI.ini
 
 PRJ_TESTMMPFILES
 

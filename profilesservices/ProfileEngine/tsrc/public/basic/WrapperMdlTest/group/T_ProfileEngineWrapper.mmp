@@ -19,7 +19,7 @@
 // To get the APP_LAYER_SYSTEMINCLUDE-definition
 #include <platform_paths.hrh>
 
-TARGET          T_ProfileEngineWrapper.dll
+TARGET          t_profileenginewrapper.dll
 TARGETTYPE      dll
 
 UID             0x1000af5a 0x01700000
@@ -53,14 +53,14 @@ LIBRARY                 apgrfx.lib
 LIBRARY                 apmime.lib
 LIBRARY                 bafl.lib
 LIBRARY                 centralrepository.lib
-LIBRARY                 ContentListingFramework.lib
+LIBRARY                 contentlistingframework.lib
 LIBRARY                 efsrv.lib
-LIBRARY                 EUnit.lib
+LIBRARY                 eunit.lib
 LIBRARY                 euser.lib
-LIBRARY                 PlatformEnv.lib
+LIBRARY                 platformenv.lib
 LIBRARY                 profileeng.lib
-LIBRARY                 ProfileEngine.lib
-LIBRARY                 PbkEng.lib
+LIBRARY                 profileengine.lib
+LIBRARY                 pbkeng.lib
 LIBRARY                 cntmodel.lib
 
 // End of file
