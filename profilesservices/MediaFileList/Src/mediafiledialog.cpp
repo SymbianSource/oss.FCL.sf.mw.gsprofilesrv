@@ -53,6 +53,12 @@
 #include <mediafilelist.mbg>
 #include <data_caging_path_literals.hrh> // KDC_APP_RESOURCE_DIR
 #include <touchfeedback.h>      // For MTouchFeedback
+#include <apgcli.h>     // RApaLsSession
+
+
+const TUid KOviLauncher = {0x2002D07F};
+
+_LIT( KDownloadSound, "ringtones" );
 
 
 
@@ -1304,12 +1310,35 @@ TBool CMediaFileDialog::DoHandleOKL( TInt aAttr )
 
     if ( folderId == EEFolderDownload )
         {
-        *iNullItem = 0;
-         // user selected 'Download' item - launch browser
-         CWebBrowserLauncher* launcher = CWebBrowserLauncher::NewLC();
-         launcher->LaunchBrowserL();
-         CleanupStack::PopAndDestroy( launcher );
-         return EFalse;
+        RApaLsSession apaLsSession;
+        
+        // connect session
+        User::LeaveIfError( apaLsSession.Connect() );
+        CleanupClosePushL( apaLsSession );
+        TApaAppInfo appInfo;
+        
+        // get ovi launcher's info
+        TInt retVal = apaLsSession.GetAppInfo( appInfo, KOviLauncher );
+        
+        // The application (ovi launcher) found
+        if( retVal == KErrNone )
+            {
+            RProcess process;
+            User::LeaveIfError( process.Create( appInfo.iFullName, KDownloadSound ) );
+            process.Resume();
+            process.Close();
+            }
+        else
+            {
+            // The application (ovi launcher) not found!
+            *iNullItem = 0;
+            // user selected 'Download' item - launch browser
+            CWebBrowserLauncher* launcher = CWebBrowserLauncher::NewLC();
+            launcher->LaunchBrowserL();
+            CleanupStack::PopAndDestroy( launcher );
+            }
+        CleanupStack::PopAndDestroy( &apaLsSession );
+        return EFalse;
         }
 
     if ( folderId == EEFolderNullItemOne )

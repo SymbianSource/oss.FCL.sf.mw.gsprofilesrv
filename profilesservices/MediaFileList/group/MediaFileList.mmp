@@ -96,6 +96,7 @@ LIBRARY   servicehandler.lib   // CAiwGenericParamList
 LIBRARY   browserlauncher.lib  // CBrowserLauncher
 LIBRARY   CommonUI.lib         // CDocumentHandler
 LIBRARY   touchfeedback.lib	   // MTouchFeedback
+LIBRARY   apparc.lib    // RApaLsSession 
 
 DEBUGLIBRARY flogger.lib
 
